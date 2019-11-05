@@ -1,0 +1,155 @@
+<!-- from index just below header -->
+<!-- Social Media -->
+<div id="social-buttons" class="hidden-print">
+    <div class="container">
+        <ul class="list-inline">
+            <li>
+                <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=AcademicsToday&amp;repo=py-academicstoday&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+            </li>
+            <li>
+                <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=AcademicsToday&amp;repo=py-academicstoday&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
+            </li>
+            <li>
+                <iframe src="https://ghbtns.com/github-btn.html?user=AcademicsToday&repo=py-academicstoday&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+            </li>
+            <li class="follow-btn">
+                <!-- Make your own here: https://dev.twitter.com/web/follow-button -->
+                <iframe
+                    src="//platform.twitter.com/widgets/follow_button.html?screen_name=AcademicsToday"
+                    style="width: 235px; height: 20px;"
+                    allowtransparency="true"
+                    frameborder="0"
+                    scrolling="no">
+                </iframe>
+            </li>
+            <li class="tweet-btn hidden-phone">
+                <!-- Make your own here: https://about.twitter.com/resources/buttons#tweet -->
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.acadmicstoday.ca" data-text="Providing free university education to everyone on the planet, check us out!" data-via="AcademicsToday" data-hashtags="AcademicsToday">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- from index just below header -->
+
+
+
+<!-- Team Section -->
+<!--              -->
+<section id="team" class="bg-light-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Our Amazing Team</h2>
+                <h3 class="section-subheading text-muted">Meet the team who are passionate about eductating the current generation and beyond!</h3>
+            </div>
+        </div>
+        <div class="row">
+            {% for team_member in team_members %}
+            <div class="col-sm-4">
+                <div class="team-member">
+                    <img src="{% static 'img/' %}{{ team_member.image_filename }}"
+                       class="img-responsive img-circle" alt="">
+                    <h4>{{ team_member.full_name }}</h4>
+                    <p class="text-muted">{{ team_member.role }}</p>
+                    <ul class="list-inline social-buttons">
+                        <li>
+                            {% if team_member.twitter_url != None %}
+                            <a href="{{ team_member.twitter_url }}">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if team_member.facebook_url != None %}
+                            <a href="{{ team_member.facebook_url }}">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            {% elif team_member.google_url != None %}
+                            <a href="{{ team_member.google_url }}">
+                                <i class="fa fa-google"></i>
+                            </a>
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if team_member.linkedin_url != None %}
+                            <a href="{{ team_member.linkedin_url }}">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            {% elif team_member.github_url != None %}
+                            <a href="{{ team_member.github_url }}">
+                                <i class="fa fa-github"></i>
+                            </a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <p class="large text-muted">Follow us on your favourite social-networking site. We appreciate your support.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Team Section -->
+
+
+<!-- Contact Us Section -->
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Contact Us</h2>
+                <h3 class="section-subheading text-muted">Any comments, issues, or suggestions will be read by one of the staff.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <form name="sentMessage" id="contactForm" novalidate="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ contact_form.name }}
+                                <p id="id_contact_name_danger" class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                {{ contact_form.email }}
+                                <p id="id_contact_email_danger" class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                {{ contact_form.phone }}
+                                <p id="id_contact_phone_danger" class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ contact_form.message }}
+                                <p id="id_contact_message_danger" class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                {{ contact_form.captcha }}
+                                <p id="id_contact_captcha_danger" class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-12 text-center">
+                            <div id="success"></div>
+                            <button onclick="ajax_send_message();"
+                                         id="id_send_msg_btn"
+                                       name="send_msg_btn"
+                                       type="button"
+                                      class="btn btn-xl">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Us Section -->
+
+
+
+
