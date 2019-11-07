@@ -4,15 +4,15 @@ import sys
 # Generic                                                                   #
 #---------------------------------------------------------------------------#
 SECRET_DEBUG = True
-SECRET_KEY = 'sean'
+SECRET_KEY = 'xd#vc@mec1c0+wz^y&_i^-og&oy$mkn%_yky&xe^fo()mio$up'
 SECRET_ALLOWED_HOSTS = ['*']
 
 
 #---------------------------------------------------------------------------#
 # Database                                                                  #
 #---------------------------------------------------------------------------#
-SECRET_DB_USER = "django"
-SECRET_DB_PASSWORD = "123password"
+SECRET_DB_USER = "sean"
+SECRET_DB_PASSWORD = "Aggreyomondi90"
 
 
 #---------------------------------------------------------------------------#
