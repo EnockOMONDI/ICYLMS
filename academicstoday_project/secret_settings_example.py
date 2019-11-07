@@ -4,7 +4,7 @@ import sys
 # Generic                                                                   #
 #---------------------------------------------------------------------------#
 SECRET_DEBUG = True
-SECRET_SECRET_KEY = 'xd#vc@mec1c0+wz^y&_i^-og&oy$mkn%_yky&xe^fo()mio$up'
+SECRET_KEY = 'xd#vc@mec1c0+wz^y&_i^-og&oy$mkn%_yky&xe^fo()mio$up'
 SECRET_ALLOWED_HOSTS = []
 
 
