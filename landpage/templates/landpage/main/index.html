@@ -1,0 +1,255 @@
+{% extends 'landpage/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-lead-in">
+                Welcome to our classroom!
+            </div>
+            <div class="intro-heading">
+                It's time to start learning
+            </div>
+            <a style="box-shadow: 0 8px 16px 0 #383838;" onclick="ajax_popup_register();" class="btn btn-xl">
+                Register as a student
+            </a>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+<!-- Services Section -->
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Why Enroll?</h2>
+                <h4 class="service-heading text-muted">We at LADA believe education is for everyone</h4>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4" >
+                <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x text-primary" ></i>
+                    <i class="fa fa-users fa-stack-1x fa-inverse" ></i>
+                </span>
+                <h4 class="service-heading">Learn from anywhere in the world</h4>
+                <p class="text-muted">We at LADA  believe in the principle of Neutron Learning, also known as learning without charge. You can take any course you want, for free.</p>
+            </div>
+            <div class="col-md-4"  >
+                <span class="fa-stack fa-4x" >
+                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fa fa-university fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="service-heading">Expert instructors</h4>
+                <p class="text-muted">This platform can be used to link to videos all around the world, compile them, and add tests and assignments to create personalized courses.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="service-heading">Online Certifification </h4>
+                <p class="text-muted">LADA is a tool that can be used by anyone and seen by everyone. Open Source Code ensures all can participate securely.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">TOP COURSES</h2>
+                    <h4 class="service-heading text-muted">Top picks for trending courses</h4>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="container" style="padding-left:25px">
+                <div class="col-md-4" >
+                        <div class="card" style="width: 28rem; box-shadow: 0 8px 16px 0 #c5c5c5; padding:20px; border-radius: 6px;" >
+                                <img style="border-radius: 6px;  box-shadow: 0 8px 16px 0 #c5c5c5;" src="{% static 'img/00.jpeg' %}"
+                                class=" img-responsive" alt="">
+                                
+                                <div class="card-body">
+                                        <br>
+                                  <h5 class="card-title">Youth leader</h5>
+                                
+                                  <p class="card-text">course description text to build on the card  and make up the bulk of the course content.</p>
+                                  <a href="#" class="btn btn-primary" style="box-shadow: 0 8px 16px 0 #c5c5c5;">enroll</a>
+                                </div>
+                              </div> 
+                </div>
+                <div class="col-md-4"  >
+                        <div class="card" style="width: 28rem; box-shadow: 0 8px 16px 0 #c5c5c5; padding:20px; border-radius: 6px;" >
+                                <img style="border-radius: 6px;  box-shadow: 0 8px 16px 0 #c5c5c5;" src="{% static 'img/00.jpeg' %}"
+                                class=" img-responsive" alt="">
+                                
+                                <div class="card-body">
+                                        <br>
+                                  <h5 class="card-title">Communication skills</h5>
+                                
+                                  <p class="card-text">course description text to build on the card  and make up the bulk of the course content.</p>
+                                  <a href="#" class="btn btn-primary" style="box-shadow: 0 8px 16px 0 #c5c5c5;">enroll</a>
+                                </div>
+                              </div> 
+                </div>
+                <div class="col-md-4">
+                        <div class="card" style="width: 28rem; box-shadow: 0 8px 16px 0 #c5c5c5; padding:20px; border-radius: 6px;" >
+                                <img style="border-radius: 6px;  box-shadow: 0 8px 16px 0 #c5c5c5;" src="{% static 'img/00.jpeg' %}"
+                                class=" img-responsive" alt="">
+                                
+                                <div class="card-body">
+                                        <br>
+                                  <h5 class="card-title">Leadership </h5>
+                                
+                                  <p class="card-text">course description text to build on the card  and make up the bulk of the course content.</p>
+                                  <a href="#" class="btn btn-primary" style="box-shadow: 0 8px 16px 0 #c5c5c5;">enroll</a>
+                                </div>
+                              </div> 
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+<!-- Courses Section -->
+{% if top_courses.count > 0 %}
+<section id="" class="bg-light-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Top Courses</h2>
+                <h3 class="section-subheading text-muted">Pick from the amazing courses available</h3>
+            </div>
+        </div>
+        <div class="row">
+            {% for top_pick in top_courses %}
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal1" class="portfolio-link"
+            data-toggle="modal"
+                onclick="ajax_popup_course_preview ( '{{ top_pick.course.id }} ');";>
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    {% if top_pick.course.image == '' %}
+                    <img src="{% static 'img/00.jpeg' %}"
+                        class="img-responsive" alt="">
+                    {% else %}
+                    <img src="{{ top_pick.course.image.url }}"
+                        class="img-responsive" alt="">
+                    {% endif %}
+                    
+                        </a>
+                <div class="portfolio-caption">
+                    <h4>{{ top_pick.course.title }}</h4>
+                    <p class="text-muted">{{ top_pick.course.category }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+<!--              -->
+
+
+
+<!-- Clients Aside -->
+<!-- <aside class="clients">
+    <div class="container">
+        <div class="row">
+            {% for partner in partners %}
+            <div class="col-md-3 col-sm-6">
+                <a href="http://{{ partner.url }}">
+                    <img src="{% static 'img/' %}logos/{{ partner.image_filename }}"
+                       class="img-responsive img-centered"
+                         alt=""{{ partner.title }}>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</aside> -->
+
+
+
+
+
+
+<!-- Footer -->
+<footer style="background-color:rgb(240, 240, 240) ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                    <ul class="list-inline">
+              <li>   <span class="copyright"><a href="/terms">Terms of Use</a></span> </li>
+          
+                <li>   <span class="copyright"><a href="/privacy">Privacy Policy</a></span> </li>
+         </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline social-buttons">
+                    <li><a href="https://twitter.com/IcyAfrica" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://www.facebook.com/ICYAFRICA/" target="_blank" ><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/icy-africa-53a03212b/" target="_blank" ><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UC1nMeMK2l_3hhOfSb4dPSOw" target="_blank" ><i class="fa fa-youtube"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                    <ul class="list-inline">
+                            <li>  <span class="copyright">Copyright © <strong>Leadership and Development Academy</strong>  Powered by <strong><a href="https://www.brainlabs.co.ke/" target="_blank" >Brin Labs Kenya </a></strong> </span></li> 
+
+                    </ul>
+
+            </div>
+            <!-- <div class="col-md-4">
+                <ul class="list-inline quicklinks">
+                    <li><a href="/privacy">Privacy Policy</a>
+                    </li>
+                    <li><a href="/terms">Terms of Use</a>
+                    </li>
+                </ul>
+            </div> -->
+        </div>
+    </div>
+</footer>
+
+
+<!----------------------------------------------------------------------------->
+
+<!-- Modal -->
+<div id="ajax_response_course_preview"
+   name="ajax_response_course_preview"></div>
+<div id="ajax_response_login"></div>
+<div id="ajax_response_register"></div>
+<!-- end modal -->
+
+<!----------------------------------------------------------------------------->
+
+{% include "landpage/main/js.html" %}
+
+{% if HAS_ADVERTISMENT %}
+<!-- Ads -->
+<br/>
+<!-- <div class="row">
+    <div class="col-lg-12">
+        <div style="text-align: center;">
+            <a href='http://a-ads.com?partner=68202'>Advertise with Anonymous Ads</a>
+        </div>
+    </div>
+</div> -->
+<!-- /.Ads-->
+{% endif %}
+
+{% endblock content %}
