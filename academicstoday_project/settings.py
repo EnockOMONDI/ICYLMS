@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import sys
+import dj_database_url
 
 # Import variables for our application. Basically all imported variables
 # have a SECRET_* prefix.
@@ -42,6 +43,8 @@ ALLOWED_HOSTS = SECRET_ALLOWED_HOSTS
 
 # 'Sites Framework' requires this line.
 SITE_ID = 1
+db_from_env = dj_database_url.config(conn_max_age=500)
+
 
 
 # Application definition
@@ -163,3 +166,5 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
