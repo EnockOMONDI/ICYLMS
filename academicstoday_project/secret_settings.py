@@ -4,7 +4,7 @@ import sys
 # Generic                                                                   #
 #---------------------------------------------------------------------------#
 SECRET_DEBUG = True
-SECRET_KEY = 'c'
+SECRET_KEY = 'sean'
 SECRET_ALLOWED_HOSTS = ['*']
 
 
