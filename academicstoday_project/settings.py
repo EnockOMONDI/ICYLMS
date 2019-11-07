@@ -115,14 +115,17 @@ CAPTCHA_FONT_SIZE = 52
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+
+
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "academicstoday_db",
         "USER": SECRET_DB_USER,
         "PASSWORD": SECRET_DB_PASSWORD,
-        "HOST": "localhost",
-        "PORT": "5432",
+        # "HOST": "localhost",
+        # "PORT": " 5432",
     }
 }
 
