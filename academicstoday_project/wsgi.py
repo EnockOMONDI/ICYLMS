@@ -11,7 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 from whitenoise.django import DjangoWhiteNoise
-from academicstoday_project import DEFAULT_SETTINGS_MODULE
+
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "academicstoday_project.settings")
 
