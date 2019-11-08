@@ -3,16 +3,16 @@ import sys
 #---------------------------------------------------------------------------#
 # Generic                                                                   #
 #---------------------------------------------------------------------------#
-SECRET_DEBUG = True
-SECRET_KEY = 'xd#vc@mec1c0+wz^y&_i^-og&oy$mkn%_yky&xe^fo()mio$up'
-SECRET_ALLOWED_HOSTS = ['*']
+# SECRET_DEBUG = True
+# SECRET_KEY = 'xd#vc@mec1c0+wz^y&_i^-og&oy$mkn%_yky&xe^fo()mio$up'
+# SECRET_ALLOWED_HOSTS = ['*']
 
 
 #---------------------------------------------------------------------------#
 # Database                                                                  #
 #---------------------------------------------------------------------------#
-SECRET_DB_USER = "sean"
-SECRET_DB_PASSWORD = "Aggreyomondi90"
+# SECRET_DB_USER = "sean"
+# SECRET_DB_PASSWORD = "Aggreyomondi90"
 
 
 #---------------------------------------------------------------------------#
