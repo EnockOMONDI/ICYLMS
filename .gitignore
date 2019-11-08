@@ -199,3 +199,7 @@ academicstoday-env/
 *.cfg
 academicstoday_project/academicstoday_project/secret_settings.py
 virtual/
+
+
+*.pyc
+__pycache__

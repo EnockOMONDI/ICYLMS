@@ -15,6 +15,7 @@ import os
 import sys
 import dj_database_url
 from decouple import config
+db_from_env = dj_database_url.config(conn_max_age=500)
 
 # Import variables for our application. Basically all imported variables
 # have a SECRET_* prefix.
@@ -35,15 +36,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = SECRET_KEY
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = SECRET_DEBUG
+DEBUG = config('DEBUG', default=False, cast=bool)
+ALLOWED_HOSTS = config('SECRET_KEY')
 
-ALLOWED_HOSTS = SECRET_ALLOWED_HOSTS
 
-# 'Sites Framework' requires this line.
-SITE_ID = 1
+
 
 
 
@@ -121,15 +121,15 @@ CAPTCHA_FONT_SIZE = 52
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "academicstoday_db",
-        "USER": SECRET_DB_USER,
-        "PASSWORD": SECRET_DB_PASSWORD,
+        "NAME": "academicstoday_db2",
+        "USER": config('SECRET_DB_USER'),
+        "PASSWORD": config('SECRET_DB_PASSWORD'),
         # "HOST": "localhost",
         # "PORT": " 5432",
     }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=500)
+
 DATABASES['default'].update(db_from_env)
 
 
@@ -151,7 +151,7 @@ DEFAULT_TO_EMAIL = EMAIL_HOST_USER
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/Toronto'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -163,7 +163,8 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images) & Upload Content
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
+# 'Sites Framework' requires this line.
+SITE_ID = 1
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
