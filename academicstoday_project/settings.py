@@ -124,8 +124,8 @@ DATABASES = {
         "NAME": "academicstoday_db2",
         "USER": "sean",
         "PASSWORD": "Aggreyomondi90",
-        # "HOST": "localhost",
-        # "PORT": " 5432",
+        "HOST": "localhost",
+        "PORT": " 5432",
     }
 }
 
