@@ -12,10 +12,10 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import sys
 import dj_database_url
 from decouple import config
-db_from_env = dj_database_url.config(conn_max_age=500)
+import sys
+
 
 # Import variables for our application. Basically all imported variables
 # have a SECRET_* prefix.
@@ -32,6 +32,7 @@ except ImportError:
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+db_from_env = dj_database_url.config(conn_max_age=500)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
