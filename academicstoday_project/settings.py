@@ -40,7 +40,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = config('SECRET_KEY')
+ALLOWED_HOSTS= ['*']
 
 
 
@@ -122,8 +122,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "academicstoday_db2",
-        "USER": config('SECRET_DB_USER'),
-        "PASSWORD": config('SECRET_DB_PASSWORD'),
+        "USER": "sean",
+        "PASSWORD": "Aggreyomondi90",
         # "HOST": "localhost",
         # "PORT": " 5432",
     }
