@@ -15,6 +15,8 @@ from django.http import HttpResponse
 from django.conf import settings
 
 
+
+
 def landpage_page(request):
     top_courses = LandpageTopPickCourse.objects.all()
     course_previews = LandpageCoursePreview.objects.all()

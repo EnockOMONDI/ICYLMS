@@ -6,6 +6,7 @@ from landpage.views import privacy
 from landpage.views import terms
 from landpage.views import forgot_password
 from landpage.views import google
+from landpage.views import landpageprod
 
 from django.contrib.sitemaps.views import sitemap
 from .sitemaps import StaticViewSitemap
@@ -28,6 +29,9 @@ urlpatterns = patterns('',
     url(r'^landpage$', landpage.landpage_page),
     url(r'^course_preview_modal$', landpage.course_preview_modal),
     url(r'^save_contact_us_message$', landpage.save_contact_us_message),
+
+     #productionpages
+    url(r'^landpageprod$', landpageprod.landpageprod_page, name='landpageprod'),
                        
     # Off-Convas Stuff
     url(r'^terms$', terms.terms_page, name='terms'),

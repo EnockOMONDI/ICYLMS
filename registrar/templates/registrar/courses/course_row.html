@@ -14,7 +14,7 @@
                 <div class="col-lg-9 text-left">
                     <h2>{{ course.title }}<br/>
                         {% if teacher == course.teacher %}
-                            <small>[You cannot enroll in a class you currently teach!]</small>
+                            <small>[You cannot enroll in a class you currently Instruct!]</small>
                         {% else %}
                             <small>{{ course.sub_title }}</small>
                         {% endif %}
@@ -23,7 +23,7 @@
                     <p>{{ course.description }}<p>
                     <p>Durration: {{ course.start_date }} to {{ course.finish_date }}</p>
                     <p align="right">
-                    <button onclick="ajax_enroll({{ course.id }});"
+                    <button onclick="ajax_enroll('{{ course.id }}');"
                                type="button"
                         {% if teacher == course.teacher %}
                            disabled=""

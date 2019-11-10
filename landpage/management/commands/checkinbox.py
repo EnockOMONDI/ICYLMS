@@ -12,7 +12,7 @@ class Command(BaseCommand):
             Function iterates through all the messages left for us on the 
             landpage and emails these messages to the contact lists.
         """
-        contact_list = ["bartlomiej.mika@gmail.com", "sibrislarenz@gmail.com", "m_poet5@hotmail.com"]
+        contact_list = ["enockomondi@gmail.com","brainlabskenya19@gmail.com"]
         
         try:
            messages = LandpageContactMessage.objects.all()
