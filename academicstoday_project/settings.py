@@ -165,9 +165,16 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images) & Upload Content
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 # 'Sites Framework' requires this line.
+
+
+
+
+
+
+
 SITE_ID = 1
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
    
@@ -175,6 +182,9 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
