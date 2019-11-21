@@ -70,6 +70,7 @@ INSTALLED_APPS = (
     'student',
     'teacher',
     'publisher'
+    
 )
 
 MIDDLEWARE_CLASSES = (
