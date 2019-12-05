@@ -25,7 +25,7 @@ urlpatterns = patterns('',
     url(r'^googlee81f1c16590924d1$', google.google_verify_page),
                        
     # Landpage
-    url(r'^$', landpage.landpage_page, name='landpage'),
+    url(r'^$',landpageprod.landpageprod_page, name='landpageprod'),
     url(r'^landpage$', landpage.landpage_page),
     url(r'^course_preview_modal$', landpage.course_preview_modal),
     url(r'^save_contact_us_message$', landpage.save_contact_us_message),
