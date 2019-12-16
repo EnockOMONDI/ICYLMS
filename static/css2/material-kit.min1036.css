@@ -118,7 +118,7 @@ body {
    line-height: 1.5;
    color: #080b0c;
    text-align: left;
-   background-color: #ffffff
+   background-color: #911a1a
 }
 
 [tabindex="-1"]:focus {
@@ -633,7 +633,8 @@ pre code {
    padding-right: 5px;
    padding-left: 5px;
    margin-right: auto;
-   margin-left: auto
+   margin-left: auto;
+  
 }
 
 @media (min-width:576px) {
@@ -3694,11 +3695,11 @@ tbody.collapse.show {
 }
 
 .nav-link.disabled {
-   color: #6c757d
+   color: #ebebeb
 }
 
 .nav-tabs {
-   border-bottom: 1px solid #dee2e6
+   border-bottom: 1px solid #f1f1f1
 }
 
 .nav-tabs .nav-item {
@@ -3717,14 +3718,14 @@ tbody.collapse.show {
 }
 
 .nav-tabs .nav-link.disabled {
-   color: #6c757d;
+   color: #e6e6e6;
    background-color: transparent;
    border-color: transparent
 }
 
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
-   color: #495057;
+   color: #ececec;
    background-color: #fafafa;
    border-color: #dee2e6 #dee2e6 #fafafa
 }
@@ -5573,7 +5574,7 @@ button.close {
 
 }
 
-}
+
 
 .item img {
     position: absolute;
@@ -5735,7 +5736,7 @@ button.close {
    z-index: 10;
    padding-top: 20px;
    padding-bottom: 20px;
-   color: #fff;
+   color: rgb(0, 0, 0);
    text-align: center
 }
 
@@ -10236,9 +10237,9 @@ fieldset[disabled][disabled] .btn.btn-raised {
 .btn-group>.btn-group {
    margin: 0
 }
-
+/* bodybackground */
 body {
-   background-color: #fff;
+   background-color: rgb(238, 238, 238);
    color: #3c4858;
    font-weight: 300
 }
@@ -13178,11 +13179,11 @@ textarea {
    background: none
 }
 
-.purple-filter:after {
+/* .purple-filter:after {
    background: rgba(163, 136, 59, 0.64);
    background: linear-gradient(45deg, rgba(163, 136, 59, .88), rgba(163, 136, 59, .45));
    background: -webkit-linear-gradient(135deg, rgba(163, 136, 59, .88), rgba(163, 136, 59, .45))
-}
+} */
 
 footer {
    padding: .9375rem 0;
@@ -13852,19 +13853,19 @@ footer .pull-center {
    font-weight: 500;
    min-width: 100px;
    text-align: center;
-   color: #555;
+   color: rgb(112, 112, 112);
    transition: all .3s;
-   border-radius: 30px;
+   border-radius: 5px;
    padding: 10px 15px
 }
 
 .nav-pills .nav-item .nav-link:hover {
-   background-color: hsla(0, 0%, 78%, .2)
+   background-color: rgba(198, 198, 198, 0.432)
 }
 
 .nav-pills .nav-item .nav-link.active {
    color: #fff;
-   background-color: #050c1e;;
+   background-color: #050c1e;
    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px rgba(156, 39, 176, .6)
 }
 
@@ -13877,9 +13878,9 @@ footer .pull-center {
 .nav-pills.nav-pills-info .nav-item .nav-link.active,
 .nav-pills.nav-pills-info .nav-item .nav-link.active:focus,
 .nav-pills.nav-pills-info .nav-item .nav-link.active:hover {
-   background-color: #050c1e;;
+   background-color: #050c1e;
    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px rgba(0, 188, 212, .6);
-   color: #fff
+   color: rgb(255, 255, 255)
 }
 
 .nav-pills.nav-pills-rose .nav-item .nav-link.active,
@@ -14229,7 +14230,7 @@ h2.title {
 
 .nav-tabs .nav-link {
    border-bottom: .214rem solid transparent;
-   color: #555
+   color: rgb(238, 238, 238)
 }
 
 .nav-tabs .nav-link.active {
@@ -17032,7 +17033,7 @@ thead.thead-inverse th {
 .card .card-header-primary,
 .card.card-rotate.bg-primary .back,
 .card.card-rotate.bg-primary .front {
-   background: linear-gradient(60deg, #ab47bc, #7b1fa2)
+   background: linear-gradient(60deg, #050c1e, #050c1e)
 }
 
 .card.bg-info,
@@ -19026,8 +19027,8 @@ select.selectpicker {
 .index-page .header-filter:after,
 .presentation-page .header-filter:after {
    background: rgba(163, 136, 59, .44);
-   background: linear-gradient(45deg, rgba(163, 136, 59, .44), rgba(208, 44, 180, .31));
-   background: -webkit-linear-gradient(135deg, rgba(163, 136, 59, .44), rgba(208, 44, 180, .31))
+   background: linear-gradient(45deg, rgba(163, 136, 59, .24), rgba(208, 44, 180, .13));
+   background: -webkit-linear-gradient(135deg, rgba(111, 157, 243, 0.24), rgba(208, 44, 180, .21))
 }
 
 .index-page h4.description,
@@ -19959,7 +19960,8 @@ select.selectpicker {
 }
 
 .features-3 .phone-container img {
-   width: 100%
+   width: 100%;
+
 }
 
 .features-3 .info {

@@ -1,0 +1,899 @@
+{% extends 'productionpages/base3.html' %}
+
+{% load staticfiles%}
+{% block content %}
+<main>
+<div class="container-fluid">
+
+    <!-- Section: Modals -->
+    <section>
+
+      <!-- Modal: modalEditProfile -->
+      <div class="modal fade" id="modalEditProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog cascading-modal modal-lg" role="document">
+          <!-- Content -->
+          <div class="modal-content">
+
+            <!-- Modal cascading tabs -->
+            <div class="modal-c-tabs">
+
+              <!-- Nav tabs -->
+              <ul class="nav md-tabs tabs-2 light-blue darken-3" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#panel77" role="tab"><i class="fas fa-user mr-1"></i>
+                    Public info</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#panel88" role="tab"><i class="fas fa-lock mr-1"></i>
+                    Account</a>
+                </li>
+              </ul>
+
+              <!-- Tab panels -->
+              <div class="tab-content">
+                <!-- Panel 7 -->
+                <div class="tab-pane fade in show active" id="panel77" role="tabpanel">
+
+                  <!-- Body -->
+                  <div class="modal-body mb-1">
+
+                    <!-- Grid row -->
+                    <div class="row">
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- First Name -->
+                        <div class="md-form form-sm">
+                          <input type="text" id="editProfile1" class="form-control">
+                          <label for="editProfile1" class="">First name</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- Last Name -->
+                        <div class="md-form form-sm">
+                          <input type="text" id="editProfile2" class="form-control">
+                          <label for="editProfile2" class="">Last name</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- Position -->
+                        <div class="md-form form-sm">
+                          <input type="text" id="editProfile3" class="form-control">
+                          <label for="editProfile3" class="">Position</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- Company Name -->
+                        <div class="md-form form-sm">
+                          <input type="text" id="editProfile4" class="form-control">
+                          <label for="editProfile4" class="">Company name</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-12">
+
+                        <!-- Company website -->
+                        <div class="md-form form-sm">
+                          <input type="text" id="editProfile5" class="form-control">
+                          <label for="editProfile5" class="">Company website</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- Country -->
+                        <select class="mdb-select colorful-select dropdown-primary" searchable="Search here..">
+                          <option value="" disabled selected>Choose your country</option>
+                          <option value="1">USA</option>
+                          <option value="2">Germany</option>
+                          <option value="3">France</option>
+                          <option value="3">Poland</option>
+                          <option value="3">Japan</option>
+                        </select>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- City -->
+                        <div class="md-form form-sm mt-2">
+                          <input type="text" id="editProfile6" class="form-control">
+                          <label for="editProfile6" class="">City</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-12">
+
+                        <!-- Description -->
+                        <div class="md-form">
+                          <textarea type="text" id="editProfile7" class="md-textarea"></textarea>
+                          <label for="editProfile7">Description</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- Facebook -->
+                        <div class="md-form form-sm mt-2">
+                          <input type="text" id="editProfile8" class="form-control">
+                          <label for="editProfile8" class="">Facebook</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- Twitter -->
+                        <div class="md-form form-sm mt-2">
+                          <input type="text" id="editProfile9" class="form-control">
+                          <label for="editProfile9" class="">Twitter</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- LinkedIn -->
+                        <div class="md-form form-sm mt-2">
+                          <input type="text" id="editProfile10" class="form-control">
+                          <label for="editProfile10" class="">LinkedIn</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- Dribbble -->
+                        <div class="md-form form-sm mt-2">
+                          <input type="text" id="editProfile11" class="form-control">
+                          <label for="editProfile11" class="">Dribbble</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                    </div>
+                    <!-- Grid row -->
+
+                  </div>
+                  <!-- Footer -->
+                  <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes <i class="fas fa-check ml-1"></i></button>
+                  </div>
+
+                </div>
+                <!-- Panel 7 -->
+
+                <!-- Panel 8 -->
+                <div class="tab-pane fade" id="panel88" role="tabpanel">
+
+                  <!-- Body -->
+                  <div class="modal-body">
+                    <div class="md-form form-sm">
+                      <input type="text" id="form224" class="form-control">
+                      <label for="form24">User name</label>
+                    </div>
+
+                    <div class="md-form form-sm">
+                      <input type="text" id="form24" class="form-control">
+                      <label for="form24">Email address</label>
+                    </div>
+
+                    <p class="h5 text-center mt-5">Password change</p>
+
+                    <div class="md-form form-sm">
+                      <input type="password" id="form25" class="form-control">
+                      <label for="form25">Current password</label>
+                    </div>
+
+                    <div class="md-form form-sm">
+                      <input type="password" id="form26" class="form-control">
+                      <label for="form26">New password</label>
+                    </div>
+
+                    <div class="md-form form-sm">
+                      <input type="password" id="form27" class="form-control">
+                      <label for="form27">Confirm new password</label>
+                    </div>
+
+                  </div>
+                  <!-- Footer -->
+                  <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes <i class="fas fa-check ml-1"></i></button>
+                  </div>
+
+                </div>
+                <!-- Panel 8 -->
+              </div>
+
+            </div>
+          </div>
+          <!-- Content -->
+        </div>
+      </div>
+      <!-- Modal: modalEditProfile -->
+
+      <!-- Modal: modalFeedback -->
+      <div class="modal fade" id="modalFeedback" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog cascading-modal modal-lg" role="document">
+
+          <!-- Content -->
+          <div class="modal-content">
+
+            <!-- Header -->
+            <div class="modal-header light-blue darken-3 white-text">
+              <h4 class=""><i class="far fa-newspaper"></i> New message</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body mb-0">
+
+              <!-- Subject -->
+              <div class="md-form form-sm">
+                <input type="text" id="modalFeedback1" class="form-control">
+                <label for="modalFeedback1" class="">Subject</label>
+              </div>
+
+              <!-- Topic -->
+              <select class="mdb-select colorful-select dropdown-primary">
+                <option value="" disabled selected>Choose category</option>
+                <option value="1">Idea</option>
+                <option value="2">Feedback</option>
+                <option value="3">Bug</option>
+              </select>
+
+              <!-- Message -->
+              <div class="md-form">
+                <textarea type="text" id="modalFeedback2" class="md-textarea" style="height: 300px;"></textarea>
+                <label for="modalFeedback2">Your message</label>
+              </div>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Send <i class="fas fa-paper-plane ml-1"></i></button>
+            </div>
+
+          </div>
+          <!-- Content -->
+
+        </div>
+      </div>
+      <!-- Modal: modalFeedback -->
+
+      <!-- Modal: modalAchievment -->
+      <div class="modal fade" id="modalAchievment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog cascading-modal" role="document">
+
+          <!-- Content -->
+          <div class="modal-content">
+
+            <!-- Header -->
+            <div class="modal-header light-blue darken-3 white-text">
+              <h4 class=""><i class="far fa-newspaper"></i> Bootstrap Master</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body mb-0">
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam quibusdam modi veritatis non
+                accusamus distinctio consequuntur aliquam, assumenda tempore in illum aspernatur quia,
+                minus ex! Eius tenetur praesentium, consectetur quod!</p>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Go to <i class="fas fa-arrow-right ml-1"></i></button>
+            </div>
+
+          </div>
+          <!-- Content -->
+
+        </div>
+      </div>
+      <!-- Modal: modalAchievment -->
+
+      <!-- Modal: modalContactUser -->
+      <div class="modal fade" id="modalContactUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog cascading-modal modal-lg" role="document">
+
+          <!-- Content -->
+          <div class="modal-content">
+
+            <!-- Header -->
+            <div class="modal-header light-blue darken-3 white-text">
+              <h4 class=""><i class="fas fa-envelope-o"></i> New Message</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body mb-0">
+
+              <!-- Basic textarea -->
+              <div class="md-form">
+                <textarea type="text" id="modalContactUser1" class="md-textarea" style="height: 400px;"></textarea>
+                <label for="modalContactUser1">Your message</label>
+              </div>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary">Send <i class="fas fa-paper-plane ml-1"></i></button>
+            </div>
+
+          </div>
+          <!-- Content -->
+
+        </div>
+      </div>
+      <!-- Modal: modalContactUser -->
+
+      <!-- Modal: modalSubmitProject -->
+      <div class="modal fade" id="modalSubmitProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog cascading-modal" role="document">
+
+          <!-- Content -->
+          <div class="modal-content">
+
+            <!-- Header -->
+            <div class="modal-header light-blue darken-3 white-text">
+              <h4 class=""><i class="far fa-newspaper"></i> Submit new project</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body mb-0">
+
+              <!-- Name -->
+              <div class="md-form form-sm">
+                <input type="text" id="newProject1" class="form-control">
+                <label for="newProject1" class="">Course name</label>
+              </div>
+
+              <!-- Project URL address -->
+              <div class="md-form form-sm">
+                <input type="text" id="newProject2" class="form-control">
+                <label for="newProject2" class="">Project URL address</label>
+              </div>
+
+              <!-- Image URL -->
+              <div class="md-form form-sm">
+                <input type="text" id="newProject3" class="form-control">
+                <label for="newProject3" class="">Image URL</label>
+              </div>
+
+              <!-- Description -->
+              <div class="md-form">
+                <textarea type="text" id="newProject4" class="md-textarea"></textarea>
+                <label for="newProject4">Description</label>
+              </div>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Submit <i class="fas fa-check ml-1"></i></button>
+            </div>
+
+          </div>
+          <!-- Content -->
+
+        </div>
+      </div>
+      <!-- Modal: modalSubmitProject -->
+
+    </section>
+    <!-- Section: Modals -->
+
+    <!-- Section: Profile -->
+    <section>
+
+      <!-- Grid row -->
+      <div class="row mt-5">
+
+        <div class="col-md-4 mb-4">
+
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-outline-primary" onclick="ajax_logout();" ><i class="material-icons"></i>Logout</button>
+              </div>
+              
+                  <div class="card card-profile card-plain" style="background-color:#fff">
+                    <div class="card-header card-avatar">
+                      <a href="#pablo">
+                        <img class="img" src="static/img/studentavatar.png"  />
+                      </a>
+                    </div>
+                    <div class="card-body ">
+                      <h4 class="card-title">{{ user.first_name }} {{ user.last_name }}</h4>
+                      <h6 class="card-category text-muted"><i class="material-icons">location_on </i> Kenya</h6>
+                      <p class="card-description">
+                        And I love you like Kanye loves Kanye. We need to restart the human foundation.
+                      </p>
+                    </div>
+
+                </div>
+           
+               
+          <!-- Section: Basic Info -->
+
+          <!-- Section: Achievements -->
+          <div class="card card-profile card-plain" style="background-color:#fff">
+            <div class="card-body text-center">
+
+              <h5><strong>Intrests</strong></h5>
+
+              <hr class="my-3">
+
+              <button type="button" class="btn btn-light-blue btn-rounded btn-sm px-3" data-toggle="modal"
+                data-target="#modalAchievment">Bootstrap Master</button>
+              <button type="button" class="btn btn-blue-grey btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">WordPress
+                Master</button>
+              <button type="button" class="btn btn-default btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">Angular
+                Master</button>
+              <button type="button" class="btn btn-deep-purple btn-rounded btn-sm px-3" data-toggle="modal"
+                data-target="#modalAchievment">Community contributor</button>
+              <button type="button" class="btn btn-indigo btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">MDB
+                Pro User</button>
+            </div>
+        </div>
+        
+          <!-- Section: Achievements -->
+
+          <!-- Section: Experience -->
+          <!-- <section class="card mb-4">
+            <div class="card-body">
+
+              <h5 class="text-center mb-4"><strong>Contributions </strong></h5>
+
+              <ul class="list-unstyled pt-4">
+                <li>
+                  <p>Questions <span class="badge badge-primary pull-right">14</span></p>
+                </li>
+                <hr>
+                <li>
+                  <p>Answers <span class="badge badge-primary pull-right">14</span></p>
+                </li>
+                <hr>
+            
+                <li>
+                  <p>Pull requests <span class="badge badge-primary pull-right">14</span></p>
+                </li>
+
+              </ul>
+
+            </div>
+          </section> -->
+          <!-- Section: Experience -->
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-lg-8 col-md-12 text-center">
+  <!-- Tabs with icons on Card -->
+  <div class="card card-nav-tabs">
+    <div class="card-header card-header-primary">
+      <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+      <div class="nav-tabs-navigation">
+        <div class="nav-tabs-wrapper">
+          <ul class="nav nav-tabs" data-tabs="tabs">
+            <li class="nav-item">
+              <a class="nav-link active" href="#courses" data-toggle="tab">
+                <i class="material-icons">book</i> Courses enrolled
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#messages" data-toggle="tab">
+                <i class="material-icons">chat</i> Messages
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#settings" data-toggle="tab">
+                <i class="material-icons">edit</i> edit Profile
+              </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#settings" data-toggle="tab">
+                  <i class="material-icons">build</i> Settings
+                </a>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card-body ">
+      <div class="tab-content text-center">
+        <div class="tab-pane active" id="courses">
+    <!-- Heading -->
+    <div class="text-center mt-3 mb-5">
+<!-- 
+        <button type="button" class="btn btn-info btn-rounded mt-4" data-toggle="modal" data-target="#modalSubmitProject">
+          edit Profile <i class="far fa-image ml-1"></i></button> -->
+          <h3 class="title">Courses & Training bits you are currently enrolled in:</h3>
+
+      </div>
+      <!-- Heading -->
+
+      <!-- Card row -->
+      <div class="card-deck">
+
+        <!-- Card -->
+        <div class="card card-cascade narrower card-ecommerce mb-3">
+
+          <!-- Card image -->
+          <div class="view view-cascade overlay">
+            <img src="https://mdbootstrap.com/img/Mockups/Horizontal/6-col/pro-profile-page.jpg" class="img-fluid"
+              alt="">
+            <a href="#">
+              <div class="mask"></div>
+            </a>
+          </div>
+
+          <!-- Card content -->
+          <div class="card-body card-body-cascade">
+
+            <!-- Title -->
+            <h4 class="card-title">Course name</h4>
+
+            <!-- Text -->
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's
+              content.
+            </p>
+
+          </div>
+
+          <!-- Card footer -->
+          <div class="card-footer links-light">
+            <span class="float-left pt-2">
+              <a><i class="fas fa-share-alt mr-2"></i></a>
+              <a><i class="fas fa-heart-o mr-2"></i>10</a>
+            </span>
+            <span class="float-right">
+              <a href="" class="waves-effect p-2">Live Preview <i class="far fa-image ml-1"></i></a>
+            </span>
+          </div>
+
+        </div>
+        <!-- Card -->
+
+        <!-- Card -->
+        <div class="card card-cascade narrower card-ecommerce d-flex mb-3">
+
+          <!-- Card image -->
+          <div class="view view-cascade overlay">
+            <img src="https://mdbootstrap.com/img/Mockups/Horizontal/6-col/pro-signup.jpg" class="img-fluid" alt="">
+            <a href="#">
+              <div class="mask"></div>
+            </a>
+          </div>
+
+          <!-- Card content -->
+          <div class="card-body card-body-cascade">
+
+            <!-- Title -->
+            <h4 class="card-title">Course name</h4>
+
+            <!-- Text -->
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's
+              content.
+            </p>
+          </div>
+
+          <!-- Card footer -->
+          <div class="card-footer links-light">
+            <span class="float-left pt-2">
+              <a><i class="fas fa-share-alt mr-2"></i></a>
+              <a><i class="fas fa-heart-o mr-2"></i>10</a>
+            </span>
+            <span class="float-right">
+              <a href="" class="waves-effect p-2">Live Preview <i class="far fa-image ml-1"></i></a>
+            </span>
+          </div>
+
+        </div>
+        <!-- Card -->
+        <!-- Card -->
+        <div class="card card-cascade narrower card-ecommerce d-flex mb-3">
+
+            <!-- Card image -->
+            <div class="view view-cascade overlay">
+              <img src="https://mdbootstrap.com/img/Mockups/Horizontal/6-col/pro-signup.jpg" class="img-fluid" alt="">
+              <a href="#">
+                <div class="mask"></div>
+              </a>
+            </div>
+
+            <!-- Card content -->
+            <div class="card-body card-body-cascade">
+
+              <!-- Title -->
+              <h4 class="card-title">Course name</h4>
+
+              <!-- Text -->
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                card's
+                content.
+              </p>
+            </div>
+
+            <!-- Card footer -->
+            <div class="card-footer links-light">
+              <span class="float-left pt-2">
+                <a><i class="fas fa-share-alt mr-2"></i></a>
+                <a><i class="fas fa-heart-o mr-2"></i>10</a>
+              </span>
+              <span class="float-right">
+                <a href="" class="waves-effect p-2">Live Preview <i class="far fa-image ml-1"></i></a>
+              </span>
+            </div>
+
+          </div>
+          <!-- Card -->
+
+      </div>
+      <!-- Card row -->
+        </div>
+        <div class="tab-pane" id="messages">
+            <div class="text-center mt-3 mb-5">
+                <!-- 
+                        <button type="button" class="btn btn-info btn-rounded mt-4" data-toggle="modal" data-target="#modalSubmitProject">
+                          edit Profile <i class="far fa-image ml-1"></i></button> -->
+                          <h3 class="title">Messages you have recieved and sent </h3>
+                
+                      </div>
+                      <!-- Heading -->
+            <div class="row">
+               
+              <!-- Heading -->
+  
+                  <ul class="nav nav-pills nav-pills-info">
+                    <li class="nav-item">
+                      <a class="nav-link active"  href="#pill1" data-toggle="tab">Inbox</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#pill2" data-toggle="tab">Sent</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pill3" data-toggle="tab">Compose</a>
+                      </li>
+ 
+                  </ul>
+                 
+                  <div class="tab-content tab-space">
+                    <div class="tab-pane active" id="pill1">
+                                 <!--                 tables -->
+                  <div id="tables">
+                    
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h4>Messages recieved and  sent </h4>
+                        </div>
+                        <div class="col-lg-8 col-md-12 ml-auto mr-auto">
+                          <div class="table-responsive">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th class="text-center">#</th>
+                                  <th>Name</th>
+                                  <th>Job Position</th>
+                                  <th class="text-right">Actions</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td class="text-center">1</td>
+                                  <td>Andrew Mike</td>
+                                  <td>Develop</td>
+                                  <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" class="btn btn-info  btn-sm">
+                                      reply
+                                    </button>
+                                   
+                                
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="text-center">2</td>
+                                  <td>John Doe</td>
+                                  <td>Design</td>
+                                  <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" class="btn btn-info btn-sm">
+                                      reply
+                                    </button>
+                             
+                                  </td>
+                                </tr>
+                              
+                              </tbody>
+                            </table>
+                          </div>
+                  
+                      
+                        </div>
+                      </div>
+                  
+                    </div>
+                    <!--                 end tables -->
+                      </div> 
+                    <div class="tab-pane" id="pill2">
+                               <!--                 tables -->
+                  <div id="tables">
+                    
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h4>Messages recieved and  sent </h4>
+                        </div>
+                        <div class="col-lg-8 col-md-12 ml-auto mr-auto">
+                          <div class="table-responsive">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th class="text-center">#</th>
+                                  <th>Name</th>
+                                  <th>Job Position</th>
+                                  <th class="text-right">Actions</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td class="text-center">1</td>
+                                  <td>Andrew Mike</td>
+                                  <td>Develop</td>
+                                  <td class="td-actions text-right">
+                              
+                                   
+                                    <button type="button" rel="tooltip" class="btn btn-danger btn-round btn-just-icon btn-sm">
+                                      <i class="material-icons">close</i>
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="text-center">2</td>
+                                  <td>John Doe</td>
+                                  <td>Design</td>
+                                  <td class="td-actions text-right">
+                                 
+                                    <button type="button" rel="tooltip" class="btn btn-danger btn-round btn-just-icon btn-sm">
+                                      <i class="material-icons">close</i>
+                                    </button>
+                                  </td>
+                                </tr>
+                              
+                              </tbody>
+                            </table>
+                          </div>
+                  
+                      
+                        </div>
+                      </div>
+                  
+                    </div>
+                    <!--                 end tables -->
+                    </div>
+                   
+                    <div class="tab-pane" id="pill3">
+                      </div>
+
+
+                  </div>
+                </div>
+        </div>
+        <div class="tab-pane" id="settings">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Tabs with icons on Card -->
+      
+
+
+          <!-- Pagination -->
+          <!-- <nav class="my-4 d-flex justify-content-center">
+
+            <ul class="pagination pagination-circle pg-blue mb-0">
+
+        
+              <li class="page-item disabled clearfix d-none d-md-block"><a class="page-link">First</a></li>
+
+            
+              <li class="page-item disabled">
+                <a class="page-link" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+
+         
+              <li class="page-item active"><a class="page-link">1</a></li>
+              <li class="page-item"><a class="page-link">2</a></li>
+              <li class="page-item"><a class="page-link">3</a></li>
+              <li class="page-item"><a class="page-link">4</a></li>
+              <li class="page-item"><a class="page-link">5</a></li>
+
+     
+              <li class="page-item">
+                <a class="page-link" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+
+         
+              <li class="page-item clearfix d-none d-md-block"><a class="page-link">Last</a></li>
+
+            </ul>
+          </nav> -->
+          <!-- Pagination -->
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </section>
+    <!-- Section: Profile -->
+
+  </div>
+</main>
+<!-- Main layout -->
+
+{% include "landpage/main/js.html" %}  
+
+<div id="ajax_logout"></div>
+    {% endblock content %}

@@ -10,7 +10,7 @@ from registrar.models import Announcement
 from account.forms import UserForm
 
 
-@login_required(login_url='/landpage')
+@login_required(login_url='/landpageprod')
 def profile_page(request):
     return render(request, 'account/profile/view.html',{
         'user': request.user,

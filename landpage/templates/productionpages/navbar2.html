@@ -23,15 +23,15 @@
                              Our story
                   </a>
                   <div class="dropdown-menu dropdown-with-icons">
-                    <a href=""  class="dropdown-item">
-                      <i class="material-icons">layers</i>Who we are
+                    <a href="/aboutus"   class="dropdown-item">
+                      <i class="material-icons">line_style</i>Who we are
                     </a>
-                    <a href=""  class="dropdown-item">
+                    <!-- <a href=""  class="dropdown-item">
                       <i class="material-icons">line_style</i> What we do 
-                    </a>
-                    <a href=""  class="dropdown-item">
+                    </a> -->
+                    <!-- <a href=""  class="dropdown-item">
                       <i class="material-icons">content_paste</i> FAQs
-                    </a>
+                    </a> -->
                   </div>
                 </li>     
         
@@ -41,11 +41,8 @@
                   <!-- <i class="material-icons">apps</i> Components --> How it works
                 </a>
                 <div class="dropdown-menu dropdown-with-icons">
-                  <a href=""  class="dropdown-item">
+                  <a href="/enrol"  class="dropdown-item">
                     <i class="material-icons">layers</i>How to enroll
-                  </a>
-                  <a href=""  class="dropdown-item">
-                    <i class="material-icons">line_style</i> Get certified
                   </a>
                   <a href=""  class="dropdown-item">
                     <i class="material-icons">content_paste</i> FAQs
@@ -117,15 +114,27 @@
 
               <li>
               <div class="dropdown ">
+                  {% if request.user.is_authenticated %}
+                 
                 <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  My Account
+                  {{ user.first_name }} {{ user.last_name }}
                 </button>
                 <div class="dropdown-menu" >
-                  <a class="dropdown-item" href="#"><i class="material-icons">person_add</i>  student Sign up
-                  </a>
-                 <a class="dropdown-item" href="#"><i class="material-icons">person_add</i>  student Login
+                <a class="dropdown-item" href="/profileprod" ><i class="material-icons">person_add</i>  Profile
                 </a>
-                
+                <a class="dropdown-item"  onclick="ajax_logout();"><i class="material-icons">person_add</i> Logout
+                </a>
+              </div>   
+                {% else %}
+                <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  My Account      
+                </button>
+                <div class="dropdown-menu" >
+                  <a class="dropdown-item" onclick="ajax_popup_register();"><i class="material-icons">person_add</i>  student Sign up
+                  </a>
+                 <a class="dropdown-item" onclick="ajax_popup_login();" ><i class="material-icons">person_add</i>  student Login
+                </a>
+                {% endif %}
                
                 </div>
               </div>
@@ -139,3 +148,4 @@
       </div>
     </div>
   </nav>
+

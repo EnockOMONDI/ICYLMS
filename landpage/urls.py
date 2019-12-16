@@ -32,7 +32,10 @@ urlpatterns = patterns('',
 
      #productionpages
     url(r'^landpageprod$', landpageprod.landpageprod_page, name='landpageprod'),
-    url(r'^graduants$', landpageprod.graduants_page, name='graduants_page'),
+    url(r'^aboutus$', landpageprod.about_us, name='aboutus'),
+    url(r'^welcome$', landpageprod.welcome, name='welcome'),
+    # url(r'^graduants$', landpageprod.graduants_page, name='graduantspage'),
+    # url(r'^edit/', views.edit, name='edit'),
                        
     # Off-Convas Stuff
     url(r'^terms$', terms.terms_page, name='terms'),

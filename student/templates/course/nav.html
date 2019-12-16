@@ -13,9 +13,11 @@
     
     <ul class="nav navbar-top-links navbar-right">
         <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">  My Account
+                {% if request.user.is_authenticated %}
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">   {{ request.user.username }}
                 <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
             </a>
+            {% endif %}
             <ul class="dropdown-menu dropdown-user">
                 <li>
                     <a href="/profile"><i class="fa fa-fw fa-user"></i> Profile</a>
