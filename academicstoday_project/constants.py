@@ -1,25 +1,28 @@
 # JavaScript Libraries
 #
-SB_ADMIN_2_CSS_LIBRARY_URLS = [
-    "bower_components/bootstrap/dist/css/bootstrap.min.css",
-    "bower_components/metisMenu/dist/metisMenu.min.css",
-    "css/timeline.css",
-    "css/sb-admin-2.css",
-    "bower_components/morrisjs/morris.css",
-    "bower_components/font-awesome/css/font-awesome.min.css",
-    "js/jquery-te/1.4.0/jquery-te-1.4.0.css",
-]
 
-SB_ADMIN_2_JS_LIBRARY_URLS = [
-    "bower_components/jquery/dist/jquery.min.js",
-    "bower_components/bootstrap/dist/js/bootstrap.min.js",
-    "bower_components/metisMenu/dist/metisMenu.min.js",
-    "bower_components/raphael/raphael-min.js",
-#    "bower_components/morrisjs/morris.min.js",
-#    "js/morris-data.js",
-    "js/sb-admin-2.js",
-    "js/jquery-te/1.4.0/jquery-te-1.4.0.min.js",
-]
+
+SB_ADMIN_2_CSS_LIBRARY_URLS =[                    
+                            "css2/demo.css",
+                             "css2/material-kit.min1036.css",   
+                            "css2/vertical-nav.css"
+                            ]
+SB_ADMIN_2_JS_LIBRARY_URLS = [ "core/jquery.min.js",
+                           "core/popper.min.js",
+                           "core/bootstrap-material-design.min.js",
+                           "js2/plugins/moment.min.js ",
+                           "js2/plugins/bootstrap-datetimepicker.js",
+                           "js2/plugins/nouislider.min.js", 
+                           "js2/plugins/jquery.sharrre.js", 
+                           "js2/plugins/bootstrap-tagsinput.js",            
+                           "js2/plugins/bootstrap-selectpicker.js",                         
+                           "js2/plugins/jasny-bootstrap.min.js",
+                           "js2/plugins/jquery.flexisel.js",
+                           "js2/modernizr.js",
+                           "js2/vertical-nav.js",
+                           "js2/buttons.js",
+                           "js2/demo.js",
+                           "js2/material-kit.min1036.js?v=2.1.1" ]
 
 AGENCY_CSS_LIBRARY_URLS = [
     "js/jquery/1.11.1/jquery-ui.css",

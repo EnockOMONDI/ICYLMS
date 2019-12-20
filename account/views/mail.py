@@ -9,6 +9,7 @@ import datetime
 from account.models import PrivateMessage
 from account.forms import PrivateMessageForm
 
+
 @login_required(login_url='/landpage')
 def mail_page(request):
     try:

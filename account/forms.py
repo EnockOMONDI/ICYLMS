@@ -57,4 +57,3 @@ class UserForm(forms.ModelForm):
                 raise forms.ValidationError("Email already exists")
         except User.DoesNotExist:
             pass
-

@@ -2,6 +2,7 @@
 
 {% load staticfiles%}
 {% block content %}
+
 <main>
 <div class="container-fluid">
 
@@ -444,10 +445,11 @@
       <div class="row mt-5">
 
         <div class="col-md-4 mb-4">
-
-            <div class="modal-footer justify-content-center">
+            <br>
+          
+            <!-- <div class="modal-footer justify-content-center">
                 <button type="button" class="btn btn-outline-primary" onclick="ajax_logout();" ><i class="material-icons"></i>Logout</button>
-              </div>
+              </div> -->
               
                   <div class="card card-profile card-plain" style="background-color:#fff">
                     <div class="card-header card-avatar">
@@ -477,15 +479,15 @@
               <hr class="my-3">
 
               <button type="button" class="btn btn-light-blue btn-rounded btn-sm px-3" data-toggle="modal"
-                data-target="#modalAchievment">Bootstrap Master</button>
-              <button type="button" class="btn btn-blue-grey btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">WordPress
-                Master</button>
-              <button type="button" class="btn btn-default btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">Angular
-                Master</button>
+                data-target="#modalAchievment">Leadership</button>
+              <button type="button" class="btn btn-blue-grey btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">community
+               </button>
+              <button type="button" class="btn btn-default btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">community development
+               </button>
               <button type="button" class="btn btn-deep-purple btn-rounded btn-sm px-3" data-toggle="modal"
                 data-target="#modalAchievment">Community contributor</button>
-              <button type="button" class="btn btn-indigo btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">MDB
-                Pro User</button>
+              <button type="button" class="btn btn-indigo btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">volunteer work
+            </button>
             </div>
         </div>
         
@@ -523,6 +525,8 @@
         <!-- Grid column -->
         <div class="col-lg-8 col-md-12 text-center">
   <!-- Tabs with icons on Card -->
+  <br>
+
   <div class="card card-nav-tabs">
     <div class="card-header card-header-primary">
       <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
@@ -559,134 +563,140 @@
     <!-- Heading -->
     <div class="text-center mt-3 mb-5">
 <!-- 
-        <button type="button" class="btn btn-info btn-rounded mt-4" data-toggle="modal" data-target="#modalSubmitProject">
-          edit Profile <i class="far fa-image ml-1"></i></button> -->
-          <h3 class="title">Courses & Training bits you are currently enrolled in:</h3>
-
+   -->
+          <div class=" justify-content-center">
+              <a href="/courses" class="btn btn-outline-primary ">Browser other courses? </a>                             
+          </div>
       </div>
-      <!-- Heading -->
 
-      <!-- Card row -->
-      <div class="card-deck">
+      <!-- begining of courses table -->
+     
 
-        <!-- Card -->
-        <div class="card card-cascade narrower card-ecommerce mb-3">
 
-          <!-- Card image -->
-          <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Mockups/Horizontal/6-col/pro-profile-page.jpg" class="img-fluid"
-              alt="">
-            <a href="#">
-              <div class="mask"></div>
-            </a>
-          </div>
 
-          <!-- Card content -->
-          <div class="card-body card-body-cascade">
-
-            <!-- Title -->
-            <h4 class="card-title">Course name</h4>
-
-            <!-- Text -->
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's
-              content.
-            </p>
-
-          </div>
-
-          <!-- Card footer -->
-          <div class="card-footer links-light">
-            <span class="float-left pt-2">
-              <a><i class="fas fa-share-alt mr-2"></i></a>
-              <a><i class="fas fa-heart-o mr-2"></i>10</a>
-            </span>
-            <span class="float-right">
-              <a href="" class="waves-effect p-2">Live Preview <i class="far fa-image ml-1"></i></a>
-            </span>
-          </div>
-
-        </div>
-        <!-- Card -->
-
-        <!-- Card -->
-        <div class="card card-cascade narrower card-ecommerce d-flex mb-3">
-
-          <!-- Card image -->
-          <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Mockups/Horizontal/6-col/pro-signup.jpg" class="img-fluid" alt="">
-            <a href="#">
-              <div class="mask"></div>
-            </a>
-          </div>
-
-          <!-- Card content -->
-          <div class="card-body card-body-cascade">
-
-            <!-- Title -->
-            <h4 class="card-title">Course name</h4>
-
-            <!-- Text -->
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's
-              content.
-            </p>
-          </div>
-
-          <!-- Card footer -->
-          <div class="card-footer links-light">
-            <span class="float-left pt-2">
-              <a><i class="fas fa-share-alt mr-2"></i></a>
-              <a><i class="fas fa-heart-o mr-2"></i>10</a>
-            </span>
-            <span class="float-right">
-              <a href="" class="waves-effect p-2">Live Preview <i class="far fa-image ml-1"></i></a>
-            </span>
-          </div>
-
-        </div>
-        <!-- Card -->
-        <!-- Card -->
-        <div class="card card-cascade narrower card-ecommerce d-flex mb-3">
-
-            <!-- Card image -->
-            <div class="view view-cascade overlay">
-              <img src="https://mdbootstrap.com/img/Mockups/Horizontal/6-col/pro-signup.jpg" class="img-fluid" alt="">
-              <a href="#">
-                <div class="mask"></div>
-              </a>
+      <div id="tables">
+                    
+          <div class="row">
+            <div class="col-md-12">
+                <h3 class="title">Viewing Courses & Training bits you are currently enrolled in: </h3>
+                    <ol class="breadcrumb">
+                  <li class="active">
+                      <i class="fa fa-bookmark"></i> Enrolled:
+                  </li>
+              </ol>
             </div>
+            {% if courses.count == 0 %}
+            <div class="col-md-12">
+                <h4> It appears you are not enrolled in any class</h4>
+                <p>Learn, grow and become a better Leader. Enroll in a class and start today!</p>
+                <div class=" justify-content-center">
+                    <a href="/courses" class="btn btn-outline-primary ">Find Courses </a>                             
+                </div>
+                
+              </div>
+              {% else %}
 
-            <!-- Card content -->
-            <div class="card-body card-body-cascade">
+            <div class="col-lg-8 col-md-12 ml-auto mr-auto">
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th class="text-center">Course ID</th>
+                      <th>Name</th>
+                      <th>Sub-Title</th>
+                      <th class="text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
 
-              <!-- Title -->
-              <h4 class="card-title">Course name</h4>
-
-              <!-- Text -->
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                card's
-                content.
-              </p>
+                      {% for course in courses.all %}
+                    <tr>
+                      <td class="text-center">{{ course.id }}</td>
+                      <td>{{ course.title }}</td>
+                      <td>{{ course.sub_title }}</td>
+                      <td class="td-actions text-right">
+                        <button  onclick="ajax_enroll('{{ course.id }}');" id="view_{{ course.id }}_btn" name="view_{{ course.id }}_btn" type="button" rel="tooltip" class="btn btn-info  btn-sm">
+                         Continue
+                        </button>
+                        <button   onclick="ajax_disenroll_modal('{{ course.id }}');" id="del_{{ course.id }}_btn" name="del_{{ course.id }}_btn" type="button" rel="tooltip" class="btn btn-info  btn-sm">
+                          Disenroll
+                           </button>
+                       
+               
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+      
+          
             </div>
-
-            <!-- Card footer -->
-            <div class="card-footer links-light">
-              <span class="float-left pt-2">
-                <a><i class="fas fa-share-alt mr-2"></i></a>
-                <a><i class="fas fa-heart-o mr-2"></i>10</a>
-              </span>
-              <span class="float-right">
-                <a href="" class="waves-effect p-2">Live Preview <i class="far fa-image ml-1"></i></a>
-              </span>
-            </div>
-
           </div>
-          <!-- Card -->
-
-      </div>
-      <!-- Card row -->
+      
         </div>
+
+
+        {% endif %}
+
+
+
+<!--disenroll mod  -->
+<div class="modal fade" id="disenroll_modal" role="dialog">
+    <div class="modal-dialog" style="width:50%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h2 class="modal-title" id="myModalLabel">Warning</h2>
+            </div>
+            <div class="modal-body">
+                <div class="well">
+                    <p>When you disenroll from a course, all your course work (including final marks) will get deleted! Furthermore, all deletions are permanent, your course cannot be retrieved once deleted.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="$('#disenroll_modal').modal('hide');"
+                           type="button"
+                          class="btn-lg btn-default">
+                    <i class="fa fa-circle-o"></i> Cancel
+                </button>
+                <button type="button"
+                       class="btn-lg btn-danger"
+                     onclick="ajax_disenroll_course({{ course.id }});">
+                    <i class="fa fa-check-circle"></i> Yes I Understand, Disenroll from this Course
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--end of disenroll mod   -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- begening of dynamic view -->
+
+
+
+<!-- end of dynamic view -->
+      
+        </div>
+<!-- end of courses div id -->
+
+
+
+
+
+
+
         <div class="tab-pane" id="messages">
             <div class="text-center mt-3 mb-5">
                 <!-- 
@@ -896,4 +906,148 @@
 {% include "landpage/main/js.html" %}  
 
 <div id="ajax_logout"></div>
+
+<!-- Modal -->
+<div id="ajax_modal_placeholder"
+   name="ajax_modal_placeholder"></div>
+<!-- end modal -->
+<script>
+        /**
+         *  Function will call AJAX function to enroll into a specific course for the
+         *  current logged on user.
+         */
+        function ajax_enroll(course_id)
+        {
+            var url = 'enroll';
+    
+            $.ajax( url, {
+               data: {
+                   'course_id' : course_id,
+                   'csrfmiddlewaretoken': '{{ csrf_token }}',
+               },
+               type: 'post',
+               success: function(result) {
+                   // success code execution here
+                   if (result.status == 'success')
+                   {
+                       window.location = 'course/' + course_id + '/announcements';
+                   }
+               },
+               error: function(xhr,status,error) {
+                   // error code here
+               },
+               complete: function(xhr,status) {
+                   // completion code here
+               }
+            });
+        }
+    </script>
+
+<script>
+    function ajax_refresh_enrollments_table()
+    {
+        $.ajax( 'enrollment_table', {
+            data: {
+               'csrfmiddlewaretoken': '{{ csrf_token }}',
+            },
+            type: 'post',
+               success: function(result) {
+               // success code execution here
+               $('#ajax_table_placeholder').html(result); // Update UI.
+            },
+            error: function(xhr,status,error) {
+               // error code here
+            },
+            complete: function(xhr,status) {
+               // completion code here
+            }
+        });
+    }
+    
+    function ajax_continue_course(course_id)
+    {
+        var url = 'enroll';
+    
+        $.ajax( url, {
+           data: {
+               'course_id' : course_id,
+               'csrfmiddlewaretoken': '{{ csrf_token }}',
+           },
+           type: 'post',
+           success: function(result) {
+               // success code execution here
+               if (result.status == 'success')
+               {
+                    window.location = 'course/' + course_id + '/announcement';
+               }
+           },
+           error: function(xhr,status,error) {
+               // error code here
+           },
+           complete: function(xhr,status) {
+               // completion code here
+           }
+        });
+    }
+
+    function ajax_disenroll_modal(course_id)
+    {
+        $('#del_' + course_id + '_btn').prop("disabled", true); // Lock button
+        $.ajax( 'disenroll_modal', {
+            data: {
+               'csrfmiddlewaretoken': '{{ csrf_token }}',
+               'course_id': course_id,
+            },
+            type: 'post',
+            success: function(result) {
+               // success code execution here
+               $('#ajax_modal_placeholder').html(result); // Update UI.
+               $('#disenroll_modal').modal();             // Unhide view.
+            },
+            error: function(xhr,status,error) {
+               // error code here
+            },
+            complete: function(xhr,status) {
+               // completion code here
+            }
+        });
+    }
+
+       $(document).ready(function(){
+        $('#disenroll_modal').on('hidden.bs.modal', function (e) {
+            $('#ajax_modal_placeholder').html('');
+            $('#del_{{ course.id }}_btn').prop("disabled", false); // Unlock button
+        });
+    });
+    
+    /**
+     *  Function will call AJAX function to delete the teacher's course.
+     */
+    function ajax_disenroll_course(course_id)
+    {
+        $('#del_' + course_id + '_btn').prop("disabled", true); // Lock button
+        $.ajax( 'disenroll', {
+            data: {
+               'csrfmiddlewaretoken': '{{ csrf_token }}',
+               'course_id' : course_id
+            },
+            type: 'post',
+            success: function(result) {
+               // success code execution here
+               if (result.status == 'success')
+               {
+                    $('#disenroll_modal').modal('hide');
+                    ajax_refresh_enrollments_table();
+               }
+            },
+            error: function(xhr,status,error) {
+               // error code here
+            },
+            complete: function(xhr,status) {
+               // completion code here
+               $('#del_' + course_id + '_btn').prop("disabled", false); // Unlock button
+            }
+        });
+    }
+</script>
     {% endblock content %}

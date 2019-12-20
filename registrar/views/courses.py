@@ -16,7 +16,7 @@ from registrar.models import CourseSetting
 from registrar.forms import CourseForm
 
 
-@login_required(login_url='/landpage')
+@login_required(login_url='/landpageprod')
 def courses_page(request):
     course_list = Course.objects.filter(status=settings.COURSE_AVAILABLE_STATUS)
     paginator = Paginator(course_list, 25) # Show 25 courses per page

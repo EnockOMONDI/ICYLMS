@@ -1,87 +1,105 @@
-<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/courses">LADA</a>
-    </div>
-    <!-- /.navbar-header -->
-    
-    <ul class="nav navbar-top-links navbar-left">
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> My Account
-                <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-user">
-                <li>
-                    <a href="/profile"><i class="fa fa-fw fa-user"></i> Profile</a>
+
+
+
+{% load staticfiles %}
+
+<!-- 0c0b11 -->
+
+  <nav  class="navbar  navbar-default fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav" >
+      <!-- style=" box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); " -->
+    <div class="container" >
+      <div class="navbar-translate">
+          <!-- <a>
+            <img src="{% static 'img/logos/logo3.png' %}" alt="" style="width:130px; height:130px;  ">
+          </a>                -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="sr-only">Toggle navigation</span>
+             <span class="navbar-toggler-icon"></span>
+             <span class="navbar-toggler-icon"></span>
+             <span class="navbar-toggler-icon"></span>
+          </button>
+      </div>
+       <div class="collapse navbar-collapse">
+           <ul class="navbar-nav ml-auto"> 
+            
+        
+
+                <li {% if tab == 'announcements' %}class="active dropdown nav-item"{% endif %}>
+                        <a class="nav-link" href="/teacher/course/{{ course.id }}/overview"><i class="fa fa-fw fa-sitemap"></i> Overview</a> 
                 </li>
-                <li>
-                    <a href="/inbox"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                </li>
-                <li>
-                    <a href="/settings"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                </li>
-                <!-- <li>
-                    <a href="/donate"><i class="fa fa-fw fa-child"></i> Give Gift</a>
-                </li> -->
-                <li class="divider"></li>
-                <li>
-                    <a style="cursor: pointer;" onclick="ajax_logout();"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                </li>
-            </ul>
-            <!-- /.dropdown-user -->
+                <li {% if tab == 'overview' %}class="active dropdown nav-item"{% endif %}>
+                        <a class="nav-link" href="/teacher/course/{{ course.id }}/overview"><i class="fa fa-fw fa-sitemap"></i> Overview</a>
+                    </li>
+                    <li {% if tab == 'home' %}class="active dropdown nav-item"{% endif %}>
+                        <a class="nav-link" href="/teacher/course/{{ course.id }}/home"><i class="fa fa-fw fa-bullhorn"></i> Announcements</a>
+                    </li>
+                    <li  {% if tab == 'syllabus' %}class="active dropdown nav-item"{% endif %}>
+                        <a class="nav-link" href="/teacher/course/{{ course.id }}/syllabus"><i class="fa fa-fw fa-info"></i> Syllabus</a>
+                    </li>
+                    <li {% if tab == 'policy' %}class="active dropdown nav-item"{% endif %}>
+                        <a class="nav-link" href="/teacher/course/{{ course.id }}/policy"><i class="fa fa-fw fa-legal"></i> Grading and Policy</a>
+                    </li>
+                    <li {% if tab == 'lectures ' %}class="active dropdown nav-item"{% endif %}>
+                        <a class="nav-link" href="/teacher/course/{{ course.id }}/lectures"><i class="fa fa-fw fa-video-camera"></i> Lectures</a>
+                    </li>
+                    <li {% if tab == 'assignments' %}class="active dropdown nav-item"{% endif %}>
+                        <a class="nav-link" href="/teacher/course/{{ course.id }}/assignments"><i class="fa fa-fw fa-book"></i> Assignments</a>
+                    </li>
+                    <li {% if tab == 'quizzes' %}class="active dropdown nav-item"{% endif %}>
+                        <a class="nav-link" href="/teacher/course/{{ course.id }}/quizzes"><i class="fa fa-fw fa-star-half"></i> Quizzes</a>
+                    </li>
+                    <li {% if tab == 'exams' %}class="active dropdown nav-item"{% endif %}>
+                        <a class="nav-link" href="/teacher/course/{{ course.id }}/exams"><i class="fa fa-fw fa-star"></i> Exams</a>
+                    </li>
+                    <li {% if tab == 'discussion' %}class="active dropdown nav-item"{% endif %}>
+                        <a class="nav-link" href="/teacher/course/{{ course.id }}/discussion"><i class="fa fa-fw fa-comment"></i> Discussion</a>
+                    </li>
+                    <li {% if tab == 'peer_reviews' %}class="active dropdown nav-item"{% endif %}>
+                        <a class="nav-link" href="/teacher/course/{{ course.id }}/peer_reviews"><i class="fa fa-fw fa-child"></i> Peer Review</a>
+                    </li>
+                    <li {% if tab == 'settings' %}class="active dropdown nav-item"{% endif %}>
+                        <a class="nav-link" href="/teacher/course/{{ course.id }}/settings"><i class="fa fa-fw fa-cogs"></i> Settings</a>
+                    </li>
+              <div class="dropdown ">
+                  {% if request.user.is_authenticated %}
+                 
+                <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ user.first_name }} {{ user.last_name }}
+                </button>
+                <div class="dropdown-menu" >
+                <a class="dropdown-item" href="/profile" ><i class="material-icons">person_add</i>  Profile
+                </a>
+                <a class="dropdown-item" href="/inbox" ><i class="material-icons">person_add</i>  Inbox
+                </a>
+                <a class="dropdown-item" href="/settings" ><i class="material-icons">person_add</i>  Settings
+                </a>
+                <a class="dropdown-item"  onclick="ajax_logout();"><i class="material-icons">person_add</i> Logout
+                </a>
+              </div>   
+                {% else %}
+                <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  My Account      
+                </button>
+                <div class="dropdown-menu" >
+                  <a class="dropdown-item" onclick="ajax_popup_register();"><i class="material-icons">person_add</i>  student Sign up
+                  </a>
+                 <a class="dropdown-item" onclick="ajax_popup_login();" ><i class="material-icons">person_add</i>  student Login
+                </a>
+                {% endif %}
+               
+                </div>
+              </div>
+
         </li>
-        <!-- /.dropdown -->
-    </ul>
-    <!-- /.navbar-top-links -->
-    
-    <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav navbar-collapse">
-            <ul class="nav" id="side-menu">
-                <li {% if tab == 'overview' %}class="active"{% endif %}>
-                    <a href="/teacher/course/{{ course.id }}/overview"><i class="fa fa-fw fa-sitemap"></i> Overview</a>
-                </li>
-                <li {% if tab == 'home' %}class="active"{% endif %}>
-                    <a href="/teacher/course/{{ course.id }}/home"><i class="fa fa-fw fa-bullhorn"></i> Announcements</a>
-                </li>
-                <li  {% if tab == 'syllabus' %}class="active"{% endif %}>
-                    <a href="/teacher/course/{{ course.id }}/syllabus"><i class="fa fa-fw fa-info"></i> Syllabus</a>
-                </li>
-                <li {% if tab == 'policy' %}class="active"{% endif %}>
-                    <a href="/teacher/course/{{ course.id }}/policy"><i class="fa fa-fw fa-legal"></i> Grading and Policy</a>
-                </li>
-                <li {% if tab == 'lectures ' %}class="active"{% endif %}>
-                    <a href="/teacher/course/{{ course.id }}/lectures"><i class="fa fa-fw fa-video-camera"></i> Lectures</a>
-                </li>
-                <li {% if tab == 'assignments' %}class="active"{% endif %}>
-                    <a href="/teacher/course/{{ course.id }}/assignments"><i class="fa fa-fw fa-book"></i> Assignments</a>
-                </li>
-                <li {% if tab == 'quizzes' %}class="active"{% endif %}>
-                    <a href="/teacher/course/{{ course.id }}/quizzes"><i class="fa fa-fw fa-star-half"></i> Quizzes</a>
-                </li>
-                <li {% if tab == 'exams' %}class="active"{% endif %}>
-                    <a href="/teacher/course/{{ course.id }}/exams"><i class="fa fa-fw fa-star"></i> Exams</a>
-                </li>
-                <li {% if tab == 'discussion' %}class="active"{% endif %}>
-                    <a href="/teacher/course/{{ course.id }}/discussion"><i class="fa fa-fw fa-comment"></i> Discussion</a>
-                </li>
-                <li {% if tab == 'peer_reviews' %}class="active"{% endif %}>
-                    <a href="/teacher/course/{{ course.id }}/peer_reviews"><i class="fa fa-fw fa-child"></i> Peer Review</a>
-                </li>
-                <li {% if tab == 'settings' %}class="active"{% endif %}>
-                    <a href="/teacher/course/{{ course.id }}/settings"><i class="fa fa-fw fa-cogs"></i> Settings</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.sidebar-collapse -->
+       
+
+
+   
+        </ul>
+      </div>
     </div>
-    <!-- /.navbar-static-side -->
-</nav>
-<script>
+  </nav>
+  <script>
     $(document).ready(function(){
                       $('.dropdown-toggle').dropdown();
                       });

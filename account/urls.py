@@ -17,4 +17,5 @@ urlpatterns = patterns('',
     url(r'^donate$', donate.donate_page),
     #productionurls
     url(r'^profileprod$', profileprod.profileprod),
+    url(r'^editprod$', profileprod.editprod),
 )

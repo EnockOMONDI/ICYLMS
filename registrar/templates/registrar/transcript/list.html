@@ -1,22 +1,39 @@
 {% extends 'registrar/base.html' %}
 {% load staticfiles %}
 {% block content %}
-
-        <!-- Page Heading -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h3 class="page-header">
-                    Transcript
-                    <small>View the grades you received</small>
-                </h3>
-                <ol class="breadcrumb">
-                    <li class="active">
-                        <i class="fa fa-file-text"></i> Transcript
-                    </li>
-                </ol>
-            </div>
+<!-- <div class="row">
+        <div class="col-lg-12 text-center">
+          <br>
+          <br>
+          <h3 class="title">The following are available courses on LADA:</h3>
+            <ul class="breadcrumb">
+                <li class="active nav-link ">
+                    <i class="fa fa-university"></i>All Courses
+                </li>
+                <li class="active nav-link ">
+                    <i class="fa fa-university"></i>development
+                </li>
+            </ul>
         </div>
-        <!-- /.row -->
+    </div> -->
+
+
+<div class="row">
+        <div class="col-lg-12 text-center">
+          <br>
+          <br>
+          <br>
+       
+          <h3 class="title">View the grades you received</h3>
+            <ul class="breadcrumb">
+                <li class="active nav-link ">
+                    <i class="fa file-text"></i>Transcript
+                </li>
+             
+            </ul>
+        </div>
+    </div>
+    
 
         {% if marks.count == 0 %}
 

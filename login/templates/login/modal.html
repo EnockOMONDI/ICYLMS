@@ -1,36 +1,83 @@
-<div class="modal fade" id="login_modal" role="dialog">
-    <div class="modal-dialog" style="width:300px;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <a href="#" class="btn btn-success pull-right" data-dismiss="modal">×</a>
-                <h4>Welcome to ICYLMS </h4>
-            </div>
-            <div class="modal-body">
-                <form method="post"
-                      action='/login'
-                        name="loginForm">
-                    <p><input type="text"
-                             class="span3"
-                              name="login_username"
-                                id="login_username"
-                       placeholder="Enter Email"
-                       autocorrect="off"
-                    autocapitalize="none"
-                        ></p>
-                    <p><input type="password"
-                             class="span3"
-                              name="login_password"
-                                id="login_password"
-                       placeholder="Enter Password"></p>
-                    <p><button onclick="ajax_authenticate();"
-                                  type="button"
-                                 class="btn btn-default btn-success">Sign in
-                    </button> <a href="/forgot_password">Forgot Password</a></p>
+
+
+
+
+     <!-- Login Modal -->
+     <div class="modal fade" id="login_modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-login" role="document">
+              <div class="modal-content">
+                <div class="card card-signup card-plain">
+                  <div class="modal-header">
+                    <div class="card-header card-header-primary text-center">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+                      <!-- <a><img src="static/img/logo3.png" alt="" style="width:80px; height:80px "></a> -->
+
+                       <div class="social-line">
+                            <h3 class="modal-title" id="myModalLabel">Student registration</h3>
+                        <!-- <a href="#pablo" class="btn btn-just-icon btn-link">
+                          <i class="fa fa-facebook-square"></i>
+                        </a>
+                        <a href="#pablo" class="btn btn-just-icon btn-link">
+                          <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#pablo" class="btn btn-just-icon btn-link">
+                          <i class="fa fa-google-plus"></i>
+                        </a> -->
+                      </div> 
+                    </div>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="modal-body">
+
+                        <form method="post"
+                        action='/login'
+                          name="loginForm">
+
+
+                          <div class="form-group">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                      <i class="material-icons">mail</i>
+                                    </span>
+                                  </div>
+                                  <input type="text" class="form-control" name="login_username" id="login_username" placeholder="Enter Email" autocorrect="off" autocapitalize="none">
+
+                                </div>
+                              </div>
+
+
+                          <div class="form-group">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                      <i class="material-icons">lock_outline</i>
+                                    </span>
+                                  </div>
+                                  <input type="password" class="form-control" name="login_password" id="login_password" placeholder="Enter Password">
+
+                                </div>
+                              </div>
+                              <br>
+                              <div class="modal-footer justify-content-center">
+                        <button onclick="ajax_authenticate();"
+                                    type="button"
+                                    class="btn btn-primary btn-round">Sign in
+                      </button> 
+                      <a href="/forgot_password">Forgot Password</a>
+                      <br>   <br>    <br>   <br>
+                    </div>
+                  </div>
+              
                 </form>
+              
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
-</div>
+          </div>
+          <!--  End of Login Modal -->
+
 
 <script>
     /**
@@ -120,3 +167,174 @@
         });
     }
 </script>
+
+
+
+
+
+              <!-- Login Modal -->
+              <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-login" role="document">
+                      <div class="modal-content">
+                        <div class="card card-signup card-plain">
+                          <div class="modal-header">
+                            <div class="card-header card-header-primary text-center">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+                              <a><img src="../../static/img/currioeffectlogowhite2.png " alt="" style="width:170px; height:100px "></a>
+  
+                              <div class="social-line">
+                                <a href="#pablo" class="btn btn-just-icon btn-link">
+                                  <i class="fa fa-facebook-square"></i>
+                                </a>
+                                <a href="#pablo" class="btn btn-just-icon btn-link">
+                                  <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#pablo" class="btn btn-just-icon btn-link">
+                                  <i class="fa fa-google-plus"></i>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-body">
+                            <form class="form" method="" action="#">
+                              <p class="description text-center">Or Be Classical</p>
+                              <div class="card-body">
+                                <div class="form-group">
+                                  <div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">
+                                        <i class="material-icons">face</i>
+                                      </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="First Name...">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">
+                                        <i class="material-icons">mail</i>
+                                      </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Email...">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">
+                                        <i class="material-icons">lock_outline</i>
+                                      </span>
+                                    </div>
+                                    <input type="password" placeholder="Password..." class="form-control" />
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                          <div class="modal-footer justify-content-center">
+                              <a href="#pablo" class="btn btn-primary btn-round">Login</a>
+                          </div>
+                          <div class="modal-footer justify-content-center">
+                              <a   href="#pablo" data-toggle="modal" data-target="#signupModal" class="btn btn-primary btn-round" >or  SignUp here.</a>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--  End of Login Modal -->
+  
+  
+  
+  
+  
+  
+                    <!-- Register Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-signup" role="document">
+          <div class="modal-content">
+            <div class="card card-signup card-plain">
+              <div class="modal-header">
+              
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <i class="material-icons">clear</i>
+                </button>
+              </div>
+              <div class="modal-body">
+               
+               
+                  <div class="col-md-12 mr-auto">
+                      <h3 class="modal-title card-title">Register</h3>
+                    <div class="social text-center">
+                      <button class="btn btn-just-icon btn-round btn-twitter">
+                        <i class="fa fa-twitter"></i>
+                      </button>
+                      <button class="btn btn-just-icon btn-round btn-dribbble">
+                        <i class="fa fa-dribbble"></i>
+                      </button>
+                      <button class="btn btn-just-icon btn-round btn-facebook">
+                        <i class="fa fa-facebook"> </i>
+                      </button>
+                      <h4> or be classical </h4>
+                    </div>
+                    <form class="form" method="" action="#">
+                      <div class="card-body">
+                        <div class="form-group">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                <i class="material-icons">face</i>
+                              </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="First Name...">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                <i class="material-icons">mail</i>
+                              </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Email...">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                <i class="material-icons">lock_outline</i>
+                              </span>
+                            </div>
+                            <input type="password" placeholder="Password..." class="form-control" />
+                          </div>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="" checked>
+                            <span class="form-check-sign">
+                              <span class="check"></span>
+                            </span>
+                            I agree to the
+                            <a href="#something">terms and conditions</a>.
+                          </label>
+                        </div>
+                      </div>
+                      <div class="modal-footer justify-content-center">
+                        <a href="#pablo" class="btn btn-primary btn-round">Get Started</a>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                  <div class="modal-footer justify-content-center">
+                  <a><img src="../../static/img/currioeffectlogowhite2.png " alt="" style="width:180px; height:100px "></a>
+                </div>
+              
+             
+         
+          </div>
+        </div>
+      </div>
+    </div>
+      <!--  End Modal -->
+  

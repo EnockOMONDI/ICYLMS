@@ -1,44 +1,69 @@
-<div class="modal fade" id="register_modal" role="dialog">
-    <div class="modal-dialog" style="width:450px;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h2 class="modal-title" id="myModalLabel">Student registration</h2>
-            </div>
-            <div class="modal-body" id="id_registration_form">
-                <form enctype="multipart/form-data" name="register_form" id="register_form">
-                {% for field in form %}
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="fieldWrapper">
-                                <label class="col-sm-3 control-label">
-                                    {{ field.label }}
-                                </label>
-                                <div class="col-sm-9">
+
+
+
+              <!-- Login Modal -->
+              <div class="modal fade" id="register_modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-login" role="document">
+                      <div class="modal-content">
+                        <div class="card card-signup card-plain">
+                          <div class="modal-header">
+                            <div class="card-header card-header-primary text-center">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+                              <!-- <a><img src="../../static/img/currioeffectlogowhite2.png " alt="" style="width:170px; height:100px "></a> -->
+  
+                              <div class="social-line">
+                                    <h3 class="modal-title" id="myModalLabel">Student registration</h3>
+                                <!-- <a href="#pablo" class="btn btn-just-icon btn-link">
+                                  <i class="fa fa-facebook-square"></i>
+                                </a>
+                                <a href="#pablo" class="btn btn-just-icon btn-link">
+                                  <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#pablo" class="btn btn-just-icon btn-link">
+                                  <i class="fa fa-google-plus"></i>
+                                </a> -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-body"  id="id_registration_form">
+                                <form enctype="multipart/form-data" name="register_form" id="register_form">
+                             <!-- <p class="description text-center">Or Be Classical</p> -->
+                             {% for field in form %} 
+                             <div class="card-body">
+                                <div class="form-group">
+                                  <div class="input-group">
+                                    <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                    {{ field.label }}
+                                                  </span>
+                                    </div>
                                     {{ field }}
+                                  </div>
                                 </div>
+                        
+                              </div>
+                              {% endfor %}
+                            </form>
+                            <div id="error_box" name="error_box" class="alert alert-danger alert-dismissable" hidden="true">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    ERROR: This is to be filled in by the "print_error" function. If you see this message that means there's an error with your javascript somewhere.
+                                </div>
+                          </div>
+
+                          <div class="modal-footer justify-content-center">
+                                <button type="button"
+                                class="btn btn-primary"
+                                 form="register_form"
+                              onclick="ajax_register();"> Register</button>
+                              <br><br>    <br><br>
                             </div>
                         </div>
+                      </div>
                     </div>
-                    <br/>
-                {% endfor %}
-                </form>
-                <div id="error_box" name="error_box" class="alert alert-danger alert-dismissable" hidden="true">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    ERROR: This is to be filled in by the "print_error" function. If you see this message that means there's an error with your javascript somewhere.
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button"
-                       class="btn btn-primary"
-                        form="register_form"
-                     onclick="ajax_register();">
-                    <i class="fa fa-check"></i> Register
-                </button>
-            </div>
-        </div>
-    </div>
-<!-- end modal -->
+                  </div>
+                  <!--  End of Login Modal -->
+
+
 
 <script>
     /**
