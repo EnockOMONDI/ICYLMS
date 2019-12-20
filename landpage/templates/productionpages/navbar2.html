@@ -89,25 +89,11 @@
           </li> -->
 
      
-              <li class="dropdown nav-item ">
-                  <a href="#" class=" nav-link  " data-toggle="dropdown">
+              <li class="nav-item ">
+                  <a href="/contactus" class=" nav-link  " >
                     <i class="material-icons"></i> Contact us
                   </a>
-                  <div class="dropdown-menu dropdown-with-icons">
-                      <a href=""  class="dropdown-item">
-                        <i class="material-icons">person_add</i> Location
-                      </a>
-                    <a href="" class="dropdown-item">
-                      <i class="material-icons">account_balance</i> How it works
-                    </a>
-                    <a href="" class="dropdown-item">
-                      <i class="material-icons">location_on</i> Contact Us
-                    </a>
-                    <a href=""class="dropdown-item">
-                      <i class="material-icons">location_on</i> FAQs
-                    </a>
-                   
-                  </div>
+   
                 </li>
          
 
@@ -119,7 +105,7 @@
                 <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {{ user.first_name }} {{ user.last_name }}
                 </button>
-                <div class="dropdown-menu" >
+                <div class="dropdown-menu dropdown-with-icons" >
                 <a class="dropdown-item" href="/profileprod" ><i class="material-icons">person_add</i>  Profile
                 </a>
                 <a class="dropdown-item"  onclick="ajax_logout();"><i class="material-icons">person_add</i> Logout
@@ -129,7 +115,7 @@
                 <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   My Account      
                 </button>
-                <div class="dropdown-menu" >
+                <div class="dropdown-menu dropdown-with-icons" >
                   <a class="dropdown-item" onclick="ajax_popup_register();"><i class="material-icons">person_add</i>  student Sign up
                   </a>
                  <a class="dropdown-item" onclick="ajax_popup_login();" ><i class="material-icons">person_add</i>  student Login

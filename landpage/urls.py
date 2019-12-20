@@ -32,8 +32,9 @@ urlpatterns = patterns('',
 
      #productionpages
     url(r'^landpageprod$', landpageprod.landpageprod_page, name='landpageprod'),
-    url(r'^aboutus$', landpageprod.about_us, name='aboutus'),
     url(r'^welcome$', landpageprod.welcome, name='welcome'),
+    url(r'^aboutus$', landpageprod.about_us, name='aboutus'),
+    url(r'^contactus$', landpageprod.contact_us, name='contactus'),
     # url(r'^graduants$', landpageprod.graduants_page, name='graduantspage'),
     # url(r'^edit/', views.edit, name='edit'),
                        
