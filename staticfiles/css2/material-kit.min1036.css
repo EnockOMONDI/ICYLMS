@@ -2294,15 +2294,15 @@ fieldset:disabled a.btn {
 
 .btn-primary {
    color: #fff;
-   background-color: #2196f3;
-   border-color: #2196f3;
+   background-color: #c221f3;
+   border-color: #c221f3;
    box-shadow: none
 }
 
 .btn-primary:hover {
    color: #fff;
    background-color: #222222;
-   border-color: #0c7cd5
+   border-color: #c221f3;
 }
 
 .btn-primary.focus,
@@ -13537,6 +13537,13 @@ footer .pull-center {
    background-color: #fff
 }
 
+.navbar.navbar-transparent2 {
+    background-color: transparent!important;
+    box-shadow: none;
+    padding-top: 25px;
+    color: #fff
+ }
+
 .navbar.navbar-transparent {
    background-color: transparent!important;
    box-shadow: none;
@@ -19844,8 +19851,8 @@ select.selectpicker {
 }
 
 .footer-black {
-   background: #232323;
-   background: radial-gradient(ellipse at center, #585858 0, #232323 100%);
+   background: #162029;
+   background: radial-gradient(ellipse at center, #1b2833 0, #162029 100%);
    background-size: 550% 450%
 }
 
