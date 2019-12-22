@@ -2263,7 +2263,7 @@ select.form-control-lg:not([size]):not([multiple]) {
 .btn.focus,
 .btn:focus {
    outline: 0;
-   box-shadow: 0 0 0 .2rem rgba(33, 150, 243, .25)
+   box-shadow: 0 0 0 .2rem rgba(0, 0, 0, 0.671)
 }
 
 .btn.disabled,
@@ -2307,7 +2307,7 @@ fieldset:disabled a.btn {
 
 .btn-primary.focus,
 .btn-primary:focus {
-   box-shadow: none, 0 0 0 .2rem rgba(33, 150, 243, .5)
+   box-shadow: none, 0 0 0 .2rem rgba(0, 0, 0, 0.685)
 }
 
 .btn-primary.disabled,
@@ -8472,7 +8472,7 @@ button:focus {
    color: #fff;
    background-color: #9c27b0;
    border-color: #9c27b0;
-   box-shadow: 0 2px 2px 0 rgb(31, 31, 31), 0 3px 1px -2px rgb(31, 31, 31), 0 1px 5px 0 rgb(31, 31, 31),
+   box-shadow: 0 2px 2px 0 rgb(14, 14, 14), 0 3px 1px -2px rgb(14, 14, 14), 0 1px 5px 0 rgb(14, 14, 14),
 }
 
 .btn.btn-primary.focus,
@@ -8490,7 +8490,7 @@ button:focus {
    color: #fff;
    background-color: #9124a3;
    border-color: #701c7e;
-   box-shadow: 0 2px 2px 0 rgb(31, 31, 31), 0 3px 1px -2px rgb(31, 31, 31), 0 1px 5px 0 rgb(31, 31, 31),
+   box-shadow: 0 2px 2px 0 rgb(14, 14, 14), 0 3px 1px -2px rgb(14, 14, 14), 0 1px 5px 0 rgb(14, 14, 14),
 }
 
 .btn.btn-primary.active.focus,
@@ -17397,7 +17397,7 @@ thead.thead-inverse th {
 .card-collapse .card-header a:active,
 .card-collapse .card-header a:hover,
 .card-collapse .card-header a[aria-expanded=true] {
-   color: #e91e63
+   color: #a3a3a3
 }
 
 .card-collapse .card-header a i {
@@ -19028,7 +19028,7 @@ select.selectpicker {
    border-radius: 3px;
    color: #444;
    line-height: 22px;
-   box-shadow: 0 5px 5px -2px rgba(31, 31, 31, .4)
+   box-shadow: 0 5px 5px -2px rgba(14, 14, 14, .4)
 }
 
 .index-page .header-filter:after,

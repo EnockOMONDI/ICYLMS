@@ -1,7 +1,8 @@
 from django.conf.urls import patterns, include, url
 from account.views import mail
-from account.views import profile
+# from account.views import Uprofile
 from account.views import profileprod
+from account.views import profile
 from account.views import setting
 from account.views import donate
 
