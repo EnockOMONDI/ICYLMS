@@ -1,5 +1,5 @@
 from datetime import date
-from django.db import models
+from .models import *
 from django import forms
 from django.forms import ModelForm, Textarea, TextInput, NumberInput
 from django.forms.extras.widgets import Select, SelectDateWidget
@@ -10,7 +10,12 @@ from django.core.exceptions import ValidationError
 from captcha.fields import CaptchaField
 
 
-class RegisterForm(forms.Form):
+class RegisterForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+
+
     first_name = forms.CharField(
         label='First Name',
         max_length=100,

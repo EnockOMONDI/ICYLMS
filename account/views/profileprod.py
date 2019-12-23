@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -7,29 +7,39 @@ import json
 from registrar.models import Student
 from registrar.models import Course
 from registrar.models import Announcement
-from account.forms import UserForm
+from account.forms import StudentForm
+from registration.form import RegisterForm
+from django.db import transaction
+from account.models import *
+from django.contrib import messages
+from django.utils.translation import gettext as _
+from django.http import HttpResponse
+from account.forms import UserForm,StudentForm
 
 
 
 
 
+@transaction.atomic
+def editprod(request):
+    if request.method == 'POST':
+        user_form = RegisterForm(request.POST,instance=request.user)
+        profile_form = StudentForm(request.POST, instance=request.user.student)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, _('Your profile was successfully updated!'))
+            return redirect('/courses')
+        else:
+            messages.error(request, _('Please correct the error below.'))
+    else:
+        user_form = RegisterForm(instance=request.user)
+        profile_form = StudentForm(instance=request.user.student)
+    return render(request,' account/productionpages/pages/profile.html', {
 
-# @login_required(login_url='/landpageprod')
-# def profile_page(request):
-#     return render(request, 'account/profile/view.html',{
-#         'user': request.user,
-#         'form': UserForm(instance=request.user),
-#         'tab': 'profile',
-#         'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-#         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
-#     })
 
-
-def profileprod(request):
-    return render(request, 'account/productionpages/pages/profile.html',{
-        'user': request.user,
-        'form': UserForm(instance=request.user),
-        'tab': 'profileprod',
+        'user_form': user_form,
+        'profile_form': profile_form,
         'local_css_urls': [                    
                             "css2/demo.css",
                              "css2/material-kit.min1036.css",   
@@ -51,37 +61,13 @@ def profileprod(request):
                            "js2/buttons.js",
                            "js2/demo.js",
                            "js2/material-kit.min1036.js?v=2.1.1" ],
+         
     })
 
-# @login_required()
-# def update_user(request):
-#     response_data = {'status' : 'failed', 'message' : 'unknown deletion error'}
-#     if request.is_ajax():
-#         if request.method == 'POST':
-#             form = UserForm(instance=request.user, data=request.POST)
-#             if form.is_valid():
-#                 form.instance.username = form.instance.email
-#                 form.save()
-#                 response_data = {'status' : 'success', 'message' : 'updated user'}
-#             else:
-#                 response_data = {'status' : 'failed', 'message' : json.dumps(form.errors)}
-#     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
-def editprod(request):
-    title = 'LADA | edit profile'
-    # current_user = request.user
-    # if request.method == 'POST':
-    #     form = EditProfileForm(request.POST,request.FILES)
-    #     if form.is_valid():
-    #         update = form.save(commit=False)
-    #         update.user = current_user
-    #         update.save()
-    #         # return redirect('/profileprod')
-    # else:
-    #     form = EditProfileForm()
-    return render(request,'account/productionpages/pages/edit.html', { 
-        # "title":title,
-        # "form":form,
+def profileprod(request):
+  return render(request, 'account/productionpages/pages/profile.html',{
+
         'local_css_urls': [                    
                             "css2/demo.css",
                              "css2/material-kit.min1036.css",   

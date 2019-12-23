@@ -11,8 +11,8 @@ SECRET_ALLOWED_HOSTS = ['*']
 #---------------------------------------------------------------------------#
 # Database                                                                  #
 #---------------------------------------------------------------------------#
-SECRET_DB_USER = "sean"
-SECRET_DB_PASSWORD = "Aggreyomondi90"
+SECRET_DB_USER = "postgres"
+SECRET_DB_PASSWORD = "lucy"
 
 
 #---------------------------------------------------------------------------#
@@ -21,7 +21,7 @@ SECRET_DB_PASSWORD = "Aggreyomondi90"
 SECRET_EMAIL_HOST = ''
 SECRET_EMAIL_PORT = 587
 SECRET_EMAIL_HOST_USER = ''
-SECRET_EMAIL_HOST_PASSWORD = ''
+SECRET_EMAIL_HOST_PASSWORD = '0728826517E'
 
 
 #---------------------------------------------------------------------------#

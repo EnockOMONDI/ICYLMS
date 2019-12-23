@@ -1,0 +1,77 @@
+
+/* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+--i: var(--wide, 1);
+--j: calc(1 - var(--i));
+--k: calc(1 - var(--narr, 1));
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+/* test background *
+background: 
+repeating-linear-gradient(-45deg, 
+        gainsboro 0, gainsboro 2px, 
+        transparent 0, transparent 5px);
+/* live background */
+background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/2017/kreator_rockharz_july_2018.jpg) 50%/cover fixed;
+/**/
+font: 400 1em/1.25 coda, trebuchet ms, arial, sans-serif;
+}
+body:after {
+margin-top: 1em;
+width: 25em;
+height: 1.5em;
+max-width: 100%;
+border-radius: 50%;
+background: radial-gradient(closest-side, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.35) 15%, transparent);
+filter: blur(3px);
+content: "";
+}
+@media (max-width: 43em) {
+body {
+--wide: 0 ;
+}
+}
+@media (min-width: 270px) {
+body {
+--narr: 0 ;
+}
+}
+
+p {
+--p: var(--parity, 1);
+--q: calc(1 - var(--p));
+--s: calc(1 - 2*var(--p));
+display: flex;
+flex-direction: var(--narr, column);
+align-items: center;
+justify-content: center;
+margin: calc(var(--j)*.25em) 0;
+padding: calc(var(--i)*10em/var(--n) + var(--j)*5vw) calc(var(--i)*10em + var(--j)*2vw);
+width: calc(var(--i)*40em + var(--j)*100%);
+min-height: var(--wide, calc(40em/var(--n)));
+transform: translate(calc(var(--i)*var(--s)*-1.5em));
+background: radial-gradient(at calc(var(--q)*100%) 0, rgba(0, 0, 0, calc(.5 + var(--p)*.5)), transparent 63%) calc(var(--q)*100%) 0/65% 65% no-repeat, linear-gradient(calc(var(--s)*-90deg), hsl(23, calc(var(--q)*98%), calc(27% + var(--q)*20%)), hsl(44, calc(var(--q)*92%), 52%));
+color: HSL(0, 0%, calc(var(--p)*100%));
+text-align: var(--parity, right);
+clip-path: var(--wide, circle(20em at 50% calc((.5*var(--n) - var(--idx))*40em/var(--n))));
+counter-increment: idx;
+}
+p:before {
+margin: 0 calc(var(--k)*var(--q)*.25em) 0 calc(var(--k)*var(--p)*.25em);
+order: calc(var(--k)*var(--p));
+font-size: 4em;
+content: counter(idx,decimal-leading-zero);
+}
+p:nth-child(odd) {
+--parity: 0 ;
+}
+

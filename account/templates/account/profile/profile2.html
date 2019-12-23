@@ -1,0 +1,21 @@
+
+{{ user.student.age }}
+
+
+h1>My Profile</h1>
+
+<form action="/view_profile/" method="POST">{% csrf_token %}
+    <div>First Name: {{user.student.age}}</div>
+    <div>Last Name: {{student.age}}</div>
+    <div>Bio: {{student.bio|safe}}</div>
+    {% comment %} <div>Date of Birth: {{profile.date_birth}}</div><br/>
+    {% if profile.image %}
+     <img src="{{profile.image.url}}">
+        {% else %}
+            <img src="{% static 'accounts/images/avatar.png' %}">
+    {% endif %} {% endcomment %}
+{% comment %} <br/> {% endcomment %}
+    <a href="/update_profile">Edit Profile</a>
+
+
+</form>

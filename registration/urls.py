@@ -3,5 +3,7 @@ from . import views
 
 urlpatterns = patterns('',
     url(r'^register_modal$', views.register_modal),
-    url(r'^register$', views.register),
+    url(r'^register$', views.register)
+  
+    
 )

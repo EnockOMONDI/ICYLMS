@@ -3,7 +3,9 @@ from django import forms
 from django.conf import settings
 from django.forms import ModelForm, TextInput
 from django.contrib.auth.models import User
-from account.models import PrivateMessage
+from account.models import PrivateMessage,Student
+# from account.models import Profile,Post
+from django.contrib.auth.models import User
 
 
 class PrivateMessageForm(forms.ModelForm):
@@ -49,7 +51,7 @@ class UserForm(forms.ModelForm):
     def clean(self):
         cleaned_data = super(UserForm, self).clean()
         
-        # Verify no duplicate emails occur.
+       
         try:
             email = cleaned_data.get("email")
             user = User.objects.get(email=email)
@@ -57,3 +59,11 @@ class UserForm(forms.ModelForm):
                 raise forms.ValidationError("Email already exists")
         except User.DoesNotExist:
             pass
+
+
+
+class StudentForm(forms.ModelForm):
+    
+    class Meta:
+        model = Student
+        fields = ('country',  'age','bio','interests')

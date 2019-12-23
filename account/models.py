@@ -1,6 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
-# from registrar.models import  Course
+from django.utils.translation import gettext as _
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+# from imagekit.models import ProcessedImageField
 
 
 class PrivateMessage(models.Model):
@@ -18,9 +22,16 @@ class PrivateMessage(models.Model):
         db_table = 'at_private_messages'
 
 
+
 class Student(models.Model):
     student_id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,)
+    profile_pic = models.ImageField(upload_to= 'media/', null=True)
+    bio = models.TextField(max_length=500, blank=True,null=True)
+    country = models.CharField(max_length=255, blank=True,null=True )
+    date_joined = models.DateTimeField(_('date joined'), auto_now_add=True,null=True)
+    age = models.IntegerField(null=True)
+    interests = models.CharField(max_length=30,null=True)
     
     def __str__(self):
         return self.user.first_name + " " + \
@@ -28,6 +39,28 @@ class Student(models.Model):
     
     class Meta:
         db_table = 'at_students'
+
+    # @receiver(post_save, sender=User)
+    # def create_user_profile(sender, instance, created, **kwargs):
+    #     if created:
+    #         Student.objects.create(user=instance)
+    
+
+    # @receiver(post_save, sender=User)
+    # def update_user_profile(sender, instance, created, **kwargs):
+    #     if created:
+    #         Student.objects.create(user=instance)
+    #     instance.student.save()
+    def create_student_profile(sender, **kwargs):
+        if kwargs['created']:
+            student = Student.objects.create(user=kwargs['instance'])
+
+    post_save.connect(create_student_profile, sender=User)
+    
+
+
+
+
 
 
 class Teacher(models.Model):
@@ -40,3 +73,46 @@ class Teacher(models.Model):
     
     class Meta:
         db_table = 'at_teachers'
+
+
+
+# class County(models.Model):
+#     name = models.CharField(max_length=60)
+   
+
+#     def __str__(self):
+#         return self.name
+
+
+# class Profile (models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     last_login = models.DateField(auto_now_add=True, null=True)
+#     profilePic = models.ImageField(upload_to='profilepics',null=True,blank=True)
+#     bio = models.CharField(max_length=150,blank=True)
+#     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
+#     interests = models.ForeignKey(Interests, on_delete=models.SET_NULL, null=True) 
+#     phone_number = models.IntegerField(blank =True, null = True)
+#     birth_date = models.DateField(null =True, blank = True)
+#     courses_enrolled = models.ManyToManyField('Courses', related_name='enrolled_courses', blank =True)
+
+      
+#     @receiver(post_save,sender = User)
+#     def create_user_profile(sender,instance,created, **kwargs):
+#         if created:
+#           Profile.objects.create(user=instance)
+
+#     @receiver(post_save,sender = User)
+#     def save_user_profile(sender,instance,**kwargs):
+#         instance.profile.save()
+
+
+#     def get_number_of_courses_enrolled(self):
+#         if self.courses_enrolled.count():
+#             return self.courses_enrolled.count()
+#         else:
+#             return 0
+
+
+#     def __str__(self):
+#         return self.user.first_name + " " + \
+#             self.user.last_name + " " 

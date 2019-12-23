@@ -7,6 +7,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from registration.form import RegisterForm
+from django.db import transaction
+from django.contrib import messages
+from django.utils.translation import gettext as _
 
 
 def register_modal(request):

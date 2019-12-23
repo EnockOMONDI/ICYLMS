@@ -122,8 +122,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "academicstoday_db",
-        "USER": "django",
-        "PASSWORD": "123password",
+        "USER": "postgres",
+        "PASSWORD": "lucy",
         "HOST": "localhost",
         # "PORT": " 5432",
     }
