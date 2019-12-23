@@ -88,6 +88,32 @@ def about_us(request):
                            "js2/material-kit.min1036.js?v=2.1.1" ],
     })
 
+def enroll(request):
+    return render(request, 'productionpages/page/enroll.html',{
+        'tab': 'enroll',
+        'local_css_urls': [                    
+                            "css2/demo.css",
+                             "css2/material-kit.min1036.css",   
+                            "css2/vertical-nav.css"
+                            ],
+        'local_js_urls': [ "core/jquery.min.js",
+                           "core/popper.min.js",
+                           "core/bootstrap-material-design.min.js",
+                           "js2/plugins/moment.min.js ",
+                           "js2/plugins/bootstrap-datetimepicker.js",
+                           "js2/plugins/nouislider.min.js", 
+                           "js2/plugins/jquery.sharrre.js", 
+                           "js2/plugins/bootstrap-tagsinput.js",            
+                           "js2/plugins/bootstrap-selectpicker.js",                         
+                           "js2/plugins/jasny-bootstrap.min.js",
+                           "js2/plugins/jquery.flexisel.js",
+                           "js2/modernizr.js",
+                           "js2/vertical-nav.js",
+                           "js2/buttons.js",
+                           "js2/demo.js",
+                           "js2/material-kit.min1036.js?v=2.1.1" ],
+    })
+
 def studentfaqs(request):
     return render(request, 'productionpages/page/studentfaqs.html',{
         'tab': 'studentfaqs',
