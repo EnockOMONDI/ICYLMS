@@ -39,12 +39,15 @@
               <p class="card-description" >Durration: {{ course.start_date }} to {{ course.finish_date }}</p>
 
 
+
               <button onclick="ajax_enroll('{{ course.id }}');"
               type="button"
        {% if teacher == course.teacher %}
           disabled=""
        {% endif %}
        {% if student not in course.students.all %}
+                id="view_{{ course.id }}_btn"
+             name="view_{{ course.id }}_btn"
              class="btn btn-lg btn-success">
                <i class="fa fa-pencil"></i> Enroll
        {% else %}

@@ -172,7 +172,6 @@
            }
         });
     }
-
     function ajax_disenroll_modal(course_id)
     {
         $('#del_' + course_id + '_btn').prop("disabled", true); // Lock button
@@ -192,6 +191,42 @@
             },
             complete: function(xhr,status) {
                // completion code here
+            }
+        });
+    }
+       $(document).ready(function(){
+        $('#disenroll_modal').on('hidden.bs.modal', function (e) {
+            $('#ajax_modal_placeholder').html('');
+            $('#del_{{ course.id }}_btn').prop("disabled", false); // Unlock button
+        });
+    });
+    
+    /**
+     *  Function will call AJAX function to delete the teacher's course.
+     */
+    function ajax_disenroll_course(course_id)
+    {
+        $('#del_' + course_id + '_btn').prop("disabled", true); // Lock button
+        $.ajax( 'disenroll', {
+            data: {
+               'csrfmiddlewaretoken': '{{ csrf_token }}',
+               'course_id' : course_id
+            },
+            type: 'post',
+            success: function(result) {
+               // success code execution here
+               if (result.status == 'success')
+               {
+                    $('#disenroll_modal').modal('hide');
+                    ajax_refresh_enrollments_table();
+               }
+            },
+            error: function(xhr,status,error) {
+               // error code here
+            },
+            complete: function(xhr,status) {
+               // completion code here
+               $('#del_' + course_id + '_btn').prop("disabled", false); // Unlock button
             }
         });
     }

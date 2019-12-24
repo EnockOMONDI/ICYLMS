@@ -31,7 +31,7 @@
                       <div class="card-body ">
                      
                         <br>
-                        {% if request.user.is_authenticated %}
+                        {% if request.user %}
                         <h4 class="card-description"> Hi, <strong>{{ user.first_name }} {{ user.last_name }}</strong></h4>
                         {% endif %}
                         <h2 class="card-title">

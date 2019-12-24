@@ -439,6 +439,8 @@
     <!-- Section: Modals -->
 
     <!-- Section: Profile -->
+
+    {% include "registrar/nav.html" %}
     <section>
 
       <!-- Grid row -->
@@ -446,6 +448,8 @@
 
         <div class="col-md-4 mb-4">
             <br>
+            <br>
+         
           
             <!-- <div class="modal-footer justify-content-center">
                 <button type="button" class="btn btn-outline-primary" onclick="ajax_logout();" ><i class="material-icons"></i>Logout</button>
@@ -522,13 +526,15 @@
         <div class="col-lg-8 col-md-12 text-center">
   <!-- Tabs with icons on Card -->
   <br>
-
+  <br>
+  <br>
   <div class="card card-nav-tabs">
     <div class="card-header card-header-primary">
       <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
       <div class="nav-tabs-navigation">
         <div class="nav-tabs-wrapper">
           <ul class="nav nav-tabs" data-tabs="tabs">
+<!--             
             <li class="nav-item">
               <a class="nav-link active" href="#courses" data-toggle="tab">
                 <i class="material-icons">book</i> Courses enrolled
@@ -540,15 +546,22 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#settings" data-toggle="tab">
-                <i class="material-icons">edit</i> edit Profile
+              <a class="nav-link" href="#transcripts" data-toggle="tab">
+                <i class="material-icons">list</i> Transcripts
               </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#settings" data-toggle="tab">
-                  <i class="material-icons">build</i> Settings
+                <a class="nav-link" href="#certificates" data-toggle="tab">
+                  <i class="material-icons">assignment</i> Certificates
                 </a>
-              </li>
+              </li> -->
+          
+              <li class="nav-item">
+                  <a class="nav-link" href="#edit" data-toggle="tab">
+                    <i class="material-icons">edit</i> edit Profile
+                  </a>
+                </li>
+             
           </ul>
         </div>
       </div>
@@ -777,7 +790,7 @@
                       </div> 
                     <div class="tab-pane" id="pill2">
                                <!--                 tables -->
-                  <div id="tables">
+                     <div id="tables">
                     
                       <div class="row">
                         <div class="col-md-12">
@@ -832,15 +845,213 @@
                     </div>
                    
                     <div class="tab-pane" id="pill3">
-                      </div>
-
+                        <!--                 tables -->
+             
+             
+               <div class="row">
+                 <div class="col-md-12">
+                   <h4>Send a message </h4>
+                 </div>
+               
+                 <div class="col-lg-8 col-md-12 col-sm-4 ml-auto mr-auto">
+                    <form role="form">
+                        
+                        <div class="form-group">
+                        <div class="input-group">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                        <i class="material-icons">email</i>
+                        </span>
+                    </div>
+               
+                            <input class="form-control"
+                                      id="email"
+                                    name="email"
+                             placeholder="Enter Email of Account in LADA"
+                                    type="input">
+                                </div>
+                        <div class="form-group">
+                                <div class="input-group">
+                                        <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">group</i>
+                                        </span>
+                                    </div>
+                            
+                            <input class="form-control"
+                                      id="title"
+                                    name="title"
+                             placeholder="Enter Title"
+                                    type="input">
+                        </div>
+                        <div class="form-group">
+                        <div class="input-group">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                        <i class="material-icons">chat</i>
+                        </span>
+                        </div>
+                            <textarea id="message" name="message" class="form-control" rows="6" placeholder="Enter Message"></textarea>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                        <button onclick="ajax_send_message();"
+                                    id="send_message_btn"
+                                    name="send_message_btn"
+                                    type="button"
+                                    class="btn btn-lg btn-primary">Send Message</button>
+                    </form>
+                    <br/>
+                    <!-- Error Message Box -->
+                    <div id="error_box" name="error_box" class="alert alert-danger alert-dismissable" hidden="true">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        ERROR: This is to be filled in by the "print_error" function. If you see this message that means there's an error with your javascript somewhere.
+                    </div><!-- /.Error Message Box -->
+                </div>
+               </div>
+           
+       
+             <!--                 end tables -->
+             </div>
 
                   </div>
                 </div>
         </div>
-        <div class="tab-pane" id="settings">
+
+
+
+<!--trtranscripts-----------transcripts----------- -->
+        <div class="tab-pane" id="transcripts">
+
+     
+        
+<div class="row">
+    <div class="col-lg-12 text-center">
+      <br>
+      <br>
+      <br>
+   
+      <h3 class="title">View the grades you received</h3>
+        <ul class="breadcrumb">
+            <li class="active nav-link ">
+                <i class="fa file-text"></i>Transcript
+            </li>
+         
+        </ul>
+    </div>
+</div>
+
+
+    {% if marks.count == 0 %}
+
+    <!-- No Grades Banner -->
+    <div class="jumbotron">
+        <h3> <strong> No Grades</strong></h3>
+        <p>
+            It appears you have not completed any courses yet. To see your transcript you must complete course.
+        </p>
+        <p><a href="/courses"
+            class="btn btn-primary btn-lg"
+            role="button">Find Courses </a>
+        </p>
+    </div>
+    <!-- /.row -->
+    
+    {% else %}
+   
+   <div class="row">
+       <div class="col-lg-12">
+           <div class="table-responsive">
+               <table class="table table-hover table-striped">
+                   <thead>
+                       <tr>
+                           <th>Course Title</th>
+                           <th>Mark</th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                   {% for mark in marks %}
+                       <tr>
+                           <td>{{ mark.course.title }}</td>
+                           <td>{{ mark.percent }}%</td>
+                       </tr>
+                   {% endfor %}
+                   </tbody>
+               </table>
+           </div>
+       </div>
+   </div>
+   
+    {% endif %}
+
+
+      
+          </div>
+<!--endtrtranscripts-----------endtranscripts----------- -->
+
+<!--certificates----------certificates---------certificates  -->
+          <div class="tab-pane" id="certificates">
+          
+
+<div class="row">
+    <div class="col-lg-12 text-center">
+      <br>
+      <br>
+      <br>
+   
+      <h3 class="title">Credit received for completing courses</h3>
+        <ul class="breadcrumb">
+            <li class="active nav-link ">
+                <i  class="fa fa-certificate"></i> Certificates
+            </li>
+         
+        </ul>
+    </div>
+</div>
+
+    {% if marks.count == 0 %}
+
+    <!-- No Grades Banner -->
+    <div class="jumbotron">
+        <h3>No Completed Courses</h3>
+        <p>
+            It appears you have not completed any courses yet. To generate a certificate, you must complete a course.
+        </p>
+        <p><a href="/courses"
+             class="btn btn-primary btn-lg"
+              role="button">Find Courses </a>
+        </p>
+    </div>
+    <!-- /.row -->
+
+    {% else %}
+
+    <!-- Certificates -->
+    <div id="ajax_certificates_table"
+       name="ajax_certificates_table">
+        {% include "registrar/certificate/table.html" %}
+    </div>
+    <!-- /.row -->
+
+    {% endif %}
+    
+<!-- Modal -->
+<div id="ajax_modal"
+name="ajax_modal"></div>
+<!-- end modal -->
+{% include 'registrar/certificate/js.html' %}
+
+
+<div id="ajax_response_login"></div>
+<div id="ajax_response_register"></div>
+<div id="ajax_logout"></div>
+            </div>
+<!--endcertificates----------endcertificates---------endcertificates  -->
+        <div class="tab-pane" id="edit">
           
         </div>
+       
       </div>
     </div>
   </div>

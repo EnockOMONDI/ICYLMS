@@ -1,76 +1,32 @@
-{% extends 'account/base.html' %}
+{% extends 'productionpages/base3.html' %}
+
 {% load staticfiles %}
 {% block content %}
-
-        <!-- Page Heading -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                    Mail
-                    <small>View private messages sent to you</small>
-                </h1>
-                <ol class="breadcrumb">
-                    <li>
-                        <i class="fa fa-university"></i>  <a href="/courses">Registrar</a>
-                    </li>
-                    <li>
-                        <i class="fa fa-compass"></i> {{ user.first_name }} {{ user.last_name }}
-                    </li>
-                    <li class="active">
+{% include "registrar/nav.html" %}
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+        <div class="col-lg-12 text-center">
+        
+          <h3 class="title">View private messages sent to you</h3>
+            <ul class="breadcrumb">
+                <li class="active nav-link ">
+                 <i class="fa fa-compass"></i> {{ user.first_name }} {{ user.last_name }}
+                </li>
+                <li class="active nav-link ">
                         <i class="fa fa-envelope"></i> Inbox
-                    </li>
 
-                </ol>
-            </div>
+                </li>
+            </ul>
         </div>
+    </div>
+
         <!-- /.row -->
 
 
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Send Message</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form role="form">
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input class="form-control"
-                                          id="email"
-                                        name="email"
-                                 placeholder="Enter Email of Account in LADA"
-                                        type="input">
-                            </div>
-                            <div class="form-group">
-                                <label>Title</label>
-                                <input class="form-control"
-                                          id="title"
-                                        name="title"
-                                 placeholder="Enter Title"
-                                        type="input">
-                            </div>
-                            <div class="form-group">
-                                <label>Message</label>
-                                <textarea id="message" name="message" class="form-control" rows="6" placeholder="Enter Message"></textarea>
-                            </div>
-                            <button onclick="ajax_send_message();"
-                                        id="send_message_btn"
-                                        name="send_message_btn"
-                                        type="button"
-                                        class="btn btn-lg btn-primary">Send Message</button>
-                        </form>
-                        <br/>
-                        <!-- Error Message Box -->
-                        <div id="error_box" name="error_box" class="alert alert-danger alert-dismissable" hidden="true">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            ERROR: This is to be filled in by the "print_error" function. If you see this message that means there's an error with your javascript somewhere.
-                        </div><!-- /.Error Message Box -->
-                    </div>
-                </div>
-            </div><!-- /.col-sm-12 -->
-        </div><!-- /.row -->
-
+     
 
         <div class="row">
             <div class="col-sm-12">
@@ -114,7 +70,86 @@
                 </div>
             </div><!-- /.col-sm-12 -->
         </div><!-- /.row -->
-
+        <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Send Message</h3>
+                        </div>
+                        <!-- <div class="col-lg-3 col-sm-4">
+                                <div class="form-group">
+                                  <div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">
+                                        <i class="material-icons">group</i>
+                                      </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="With Material Icons">
+                                  </div>
+                                </div>
+                            </div> -->
+    
+                        
+                            <div class="col-lg-8 col-sm-4">
+                            <form role="form">
+                                
+                                <div class="form-group">
+                                <div class="input-group">
+                                <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                <i class="material-icons">group</i>
+                                </span>
+                            </div>
+                       
+                                    <input class="form-control"
+                                              id="email"
+                                            name="email"
+                                     placeholder="Enter Email of Account in LADA"
+                                            type="input">
+                                        </div>
+                                <div class="form-group">
+                                        <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                <i class="material-icons">group</i>
+                                                </span>
+                                            </div>
+                                    
+                                    <input class="form-control"
+                                              id="title"
+                                            name="title"
+                                     placeholder="Enter Title"
+                                            type="input">
+                                </div>
+                                <div class="form-group">
+                                <div class="input-group">
+                                <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                <i class="material-icons">group</i>
+                                </span>
+                                </div>
+                                    <textarea id="message" name="message" class="form-control" rows="6" placeholder="Enter Message"></textarea>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                                <button onclick="ajax_send_message();"
+                                            id="send_message_btn"
+                                            name="send_message_btn"
+                                            type="button"
+                                            class="btn btn-lg btn-primary">Send Message</button>
+                            </form>
+                            <br/>
+                            <!-- Error Message Box -->
+                            <div id="error_box" name="error_box" class="alert alert-danger alert-dismissable" hidden="true">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                ERROR: This is to be filled in by the "print_error" function. If you see this message that means there's an error with your javascript somewhere.
+                            </div><!-- /.Error Message Box -->
+                        </div>
+                    </div>
+                </div><!-- /.col-sm-12 -->
+            </div><!-- /.row -->
+    
 <!-- Modal -->
 <div id="ajax_modal"
    name="ajax_modal"></div>

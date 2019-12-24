@@ -61,7 +61,8 @@
                   });
        }
        </script>
-       
+        {% csrf_token %}
+        {% include "registrar/script.html" %}   
 {% block content %}
 
 
