@@ -1,10 +1,11 @@
 from django.conf.urls import patterns, include, url
 from account.views import mail
-# from account.views import Uprofile
 from account.views import profileprod
 from account.views import profile
 from account.views import setting
 from account.views import donate
+from account.views import *
+
 
 urlpatterns = patterns('',
     url(r'^profile$', profile.profile_page),
@@ -19,4 +20,7 @@ urlpatterns = patterns('',
     #productionurls
     url(r'^profileprod$', profileprod.profileprod),
     url(r'^editprod$', profileprod.editprod),
+    url(r'^update_profile$', profile.update_profile),
+    url(r'^view/profil/', profile.view_profil, ),
+
 )

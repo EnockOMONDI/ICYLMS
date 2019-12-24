@@ -3,19 +3,21 @@
 {% block content %}
         <!-- Page Heading -->
         <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                    Exams
-                    <small></small>
-                </h1>
+                <div class="col-lg-12">
+                        <br>
+                        <br>
+                        <h3 class="title">
+                            {{ course.title }}   Exams
+                  
+                 </h3>
                 <ol class="breadcrumb">
-                    <li>
+                    <!-- <li>
                         <i class="fa fa-university"></i>  <a href="/courses">Courses</a>
-                    </li>
-                    <li>
+                    </li> -->
+                    <li class="nav-link">
                         <i class="fa fa-compass"></i> {{ course.title }}
                     </li>
-                    <li class="active">
+                    <li class="nav-link">
                         <i class="fa fa-star"></i> List Exams
                     </li>
                 </ol>

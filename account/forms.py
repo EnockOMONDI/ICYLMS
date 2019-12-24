@@ -3,10 +3,10 @@ from django import forms
 from django.conf import settings
 from django.forms import ModelForm, TextInput
 from django.contrib.auth.models import User
-from account.models import PrivateMessage
+from account.models import PrivateMessage,Student
 # from account.models import Profile,Post
 from django.contrib.auth.models import User
-
+import datetime
 
 class PrivateMessageForm(forms.ModelForm):
     class Meta:
@@ -62,13 +62,8 @@ class UserForm(forms.ModelForm):
 
 
 
-# class ProfileForm(forms.ModelForm):
-#     class Meta:
-#     model = Profile
-#     fields = ('bio', 'country','birth_date','phone_number','profilePic')
-
-
-# class PostForm(forms.ModelForm):
-#     class Meta:
-#     model = Post
-#     fields = ('title', 'image')
+class StudentForm(forms.ModelForm):
+    
+    class Meta:
+        model = Student
+        fields = ('country',  'age','bio','interests')

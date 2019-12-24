@@ -1,0 +1,1251 @@
+{% extends 'productionpages/base3.html' %}
+
+{% load staticfiles%}
+{% block content %}
+
+<main>
+<div class="container-fluid">
+
+    <!-- Section: Modals -->
+    <section>
+
+      <!-- Modal: modalEditProfile -->
+      <div class="modal fade" id="modalEditProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog cascading-modal modal-lg" role="document">
+          <!-- Content -->
+          <div class="modal-content">
+
+            <!-- Modal cascading tabs -->
+            <div class="modal-c-tabs">
+
+              <!-- Nav tabs -->
+              <ul class="nav md-tabs tabs-2 light-blue darken-3" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#panel77" role="tab"><i class="fas fa-user mr-1"></i>
+                    Public info</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#panel88" role="tab"><i class="fas fa-lock mr-1"></i>
+                    Account</a>
+                </li>
+              </ul>
+
+              <!-- Tab panels -->
+              <div class="tab-content">
+                <!-- Panel 7 -->
+                <div class="tab-pane fade in show active" id="panel77" role="tabpanel">
+
+                  <!-- Body -->
+                  <div class="modal-body mb-1">
+
+                    <!-- Grid row -->
+                    <div class="row">
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- First Name -->
+                        <div class="md-form form-sm">
+                          <input type="text" id="editProfile1" class="form-control">
+                          <label for="editProfile1" class="">First name</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- Last Name -->
+                        <div class="md-form form-sm">
+                          <input type="text" id="editProfile2" class="form-control">
+                          <label for="editProfile2" class="">Last name</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- Position -->
+                        <div class="md-form form-sm">
+                          <input type="text" id="editProfile3" class="form-control">
+                          <label for="editProfile3" class="">Position</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- Company Name -->
+                        <div class="md-form form-sm">
+                          <input type="text" id="editProfile4" class="form-control">
+                          <label for="editProfile4" class="">Company name</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-12">
+
+                        <!-- Company website -->
+                        <div class="md-form form-sm">
+                          <input type="text" id="editProfile5" class="form-control">
+                          <label for="editProfile5" class="">Company website</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- Country -->
+                        <select class="mdb-select colorful-select dropdown-primary" searchable="Search here..">
+                          <option value="" disabled selected>Choose your country</option>
+                          <option value="1">USA</option>
+                          <option value="2">Germany</option>
+                          <option value="3">France</option>
+                          <option value="3">Poland</option>
+                          <option value="3">Japan</option>
+                        </select>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- City -->
+                        <div class="md-form form-sm mt-2">
+                          <input type="text" id="editProfile6" class="form-control">
+                          <label for="editProfile6" class="">City</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-12">
+
+                        <!-- Description -->
+                        <div class="md-form">
+                          <textarea type="text" id="editProfile7" class="md-textarea"></textarea>
+                          <label for="editProfile7">Description</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- Facebook -->
+                        <div class="md-form form-sm mt-2">
+                          <input type="text" id="editProfile8" class="form-control">
+                          <label for="editProfile8" class="">Facebook</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- Twitter -->
+                        <div class="md-form form-sm mt-2">
+                          <input type="text" id="editProfile9" class="form-control">
+                          <label for="editProfile9" class="">Twitter</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- LinkedIn -->
+                        <div class="md-form form-sm mt-2">
+                          <input type="text" id="editProfile10" class="form-control">
+                          <label for="editProfile10" class="">LinkedIn</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                      <!-- Grid column -->
+                      <div class="col-md-6">
+
+                        <!-- Dribbble -->
+                        <div class="md-form form-sm mt-2">
+                          <input type="text" id="editProfile11" class="form-control">
+                          <label for="editProfile11" class="">Dribbble</label>
+                        </div>
+
+                      </div>
+                      <!-- Grid column -->
+
+                    </div>
+                    <!-- Grid row -->
+
+                  </div>
+                  <!-- Footer -->
+                  <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes <i class="fas fa-check ml-1"></i></button>
+                  </div>
+
+                </div>
+                <!-- Panel 7 -->
+
+                <!-- Panel 8 -->
+                <div class="tab-pane fade" id="panel88" role="tabpanel">
+
+                  <!-- Body -->
+                  <div class="modal-body">
+                    <div class="md-form form-sm">
+                      <input type="text" id="form224" class="form-control">
+                      <label for="form24">User name</label>
+                    </div>
+
+                    <div class="md-form form-sm">
+                      <input type="text" id="form24" class="form-control">
+                      <label for="form24">Email address</label>
+                    </div>
+
+                    <p class="h5 text-center mt-5">Password change</p>
+
+                    <div class="md-form form-sm">
+                      <input type="password" id="form25" class="form-control">
+                      <label for="form25">Current password</label>
+                    </div>
+
+                    <div class="md-form form-sm">
+                      <input type="password" id="form26" class="form-control">
+                      <label for="form26">New password</label>
+                    </div>
+
+                    <div class="md-form form-sm">
+                      <input type="password" id="form27" class="form-control">
+                      <label for="form27">Confirm new password</label>
+                    </div>
+
+                  </div>
+                  <!-- Footer -->
+                  <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes <i class="fas fa-check ml-1"></i></button>
+                  </div>
+
+                </div>
+                <!-- Panel 8 -->
+              </div>
+
+            </div>
+          </div>
+          <!-- Content -->
+        </div>
+      </div>
+      <!-- Modal: modalEditProfile -->
+
+      <!-- Modal: modalFeedback -->
+      <div class="modal fade" id="modalFeedback" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog cascading-modal modal-lg" role="document">
+
+          <!-- Content -->
+          <div class="modal-content">
+
+            <!-- Header -->
+            <div class="modal-header light-blue darken-3 white-text">
+              <h4 class=""><i class="far fa-newspaper"></i> New message</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body mb-0">
+
+              <!-- Subject -->
+              <div class="md-form form-sm">
+                <input type="text" id="modalFeedback1" class="form-control">
+                <label for="modalFeedback1" class="">Subject</label>
+              </div>
+
+              <!-- Topic -->
+              <select class="mdb-select colorful-select dropdown-primary">
+                <option value="" disabled selected>Choose category</option>
+                <option value="1">Idea</option>
+                <option value="2">Feedback</option>
+                <option value="3">Bug</option>
+              </select>
+
+              <!-- Message -->
+              <div class="md-form">
+                <textarea type="text" id="modalFeedback2" class="md-textarea" style="height: 300px;"></textarea>
+                <label for="modalFeedback2">Your message</label>
+              </div>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Send <i class="fas fa-paper-plane ml-1"></i></button>
+            </div>
+
+          </div>
+          <!-- Content -->
+
+        </div>
+      </div>
+      <!-- Modal: modalFeedback -->
+
+      <!-- Modal: modalAchievment -->
+      <div class="modal fade" id="modalAchievment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog cascading-modal" role="document">
+
+          <!-- Content -->
+          <div class="modal-content">
+
+            <!-- Header -->
+            <div class="modal-header light-blue darken-3 white-text">
+              <h4 class=""><i class="far fa-newspaper"></i> Bootstrap Master</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body mb-0">
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam quibusdam modi veritatis non
+                accusamus distinctio consequuntur aliquam, assumenda tempore in illum aspernatur quia,
+                minus ex! Eius tenetur praesentium, consectetur quod!</p>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Go to <i class="fas fa-arrow-right ml-1"></i></button>
+            </div>
+
+          </div>
+          <!-- Content -->
+
+        </div>
+      </div>
+      <!-- Modal: modalAchievment -->
+
+      <!-- Modal: modalContactUser -->
+      <div class="modal fade" id="modalContactUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog cascading-modal modal-lg" role="document">
+
+          <!-- Content -->
+          <div class="modal-content">
+
+            <!-- Header -->
+            <div class="modal-header light-blue darken-3 white-text">
+              <h4 class=""><i class="fas fa-envelope-o"></i> New Message</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body mb-0">
+
+              <!-- Basic textarea -->
+              <div class="md-form">
+                <textarea type="text" id="modalContactUser1" class="md-textarea" style="height: 400px;"></textarea>
+                <label for="modalContactUser1">Your message</label>
+              </div>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary">Send <i class="fas fa-paper-plane ml-1"></i></button>
+            </div>
+
+          </div>
+          <!-- Content -->
+
+        </div>
+      </div>
+      <!-- Modal: modalContactUser -->
+
+      <!-- Modal: modalSubmitProject -->
+      <div class="modal fade" id="modalSubmitProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog cascading-modal" role="document">
+
+          <!-- Content -->
+          <div class="modal-content">
+
+            <!-- Header -->
+            <div class="modal-header light-blue darken-3 white-text">
+              <h4 class=""><i class="far fa-newspaper"></i> Submit new project</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body mb-0">
+
+              <!-- Name -->
+              <div class="md-form form-sm">
+                <input type="text" id="newProject1" class="form-control">
+                <label for="newProject1" class="">Course name</label>
+              </div>
+
+              <!-- Project URL address -->
+              <div class="md-form form-sm">
+                <input type="text" id="newProject2" class="form-control">
+                <label for="newProject2" class="">Project URL address</label>
+              </div>
+
+              <!-- Image URL -->
+              <div class="md-form form-sm">
+                <input type="text" id="newProject3" class="form-control">
+                <label for="newProject3" class="">Image URL</label>
+              </div>
+
+              <!-- Description -->
+              <div class="md-form">
+                <textarea type="text" id="newProject4" class="md-textarea"></textarea>
+                <label for="newProject4">Description</label>
+              </div>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Submit <i class="fas fa-check ml-1"></i></button>
+            </div>
+
+          </div>
+          <!-- Content -->
+
+        </div>
+      </div>
+      <!-- Modal: modalSubmitProject -->
+
+    </section>
+    <!-- Section: Modals -->
+
+    <!-- Section: Profile -->
+
+    {% include "registrar/nav.html" %}
+    <section>
+
+      <!-- Grid row -->
+      <div class="row mt-5">
+
+        <div class="col-md-4 mb-4">
+            <br>
+            <br>
+         
+          
+            <!-- <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-outline-primary" onclick="ajax_logout();" ><i class="material-icons"></i>Logout</button>
+              </div> -->
+              
+                  <div class="card card-profile card-plain" style="background-color:#fff">
+                    <div class="card-header card-avatar">
+                      <a href="#pablo">
+                        <img class="img" src="static/img/studentavatar.png"  />
+                      </a>
+                    </div>
+                    <div class="card-body ">
+                      <h4 class="card-title">{{ user.first_name }} {{ user.last_name }}</h4>
+                      <h6 class="card-category text-muted"><i class="material-icons">location_on </i> Kenya</h6>
+                      <p class="card-description">
+                        And I love you like Kanye loves Kanye. We need to restart the human foundation.
+                      </p>
+                    </div>
+
+                </div>
+           
+               
+          <!-- Section: Basic Info -->
+
+          <!-- Section: Achievements -->
+          <div class="card card-profile card-plain" style="background-color:#fff">
+            <div class="card-body text-center">
+
+              <h5><strong>Intrests</strong></h5>
+
+              <hr class="my-3">
+
+              <button type="button" class="btn btn-light-blue btn-rounded btn-sm px-3" data-toggle="modal"
+                data-target="#modalAchievment">Leadership</button>
+              <button type="button" class="btn btn-blue-grey btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">community
+               </button>
+              <button type="button" class="btn btn-default btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">community development
+               </button>
+              <button type="button" class="btn btn-deep-purple btn-rounded btn-sm px-3" data-toggle="modal"
+                data-target="#modalAchievment">Community contributor</button>
+              <button type="button" class="btn btn-indigo btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">volunteer work
+            </button>
+            </div>
+        </div>
+        
+          <!-- Section: Achievements -->
+
+          <!-- Section: Experience -->
+          <!-- <section class="card mb-4">
+            <div class="card-body">
+              <h5 class="text-center mb-4"><strong>Contributions </strong></h5>
+              <ul class="list-unstyled pt-4">
+                <li>
+                  <p>Questions <span class="badge badge-primary pull-right">14</span></p>
+                </li>
+                <hr>
+                <li>
+                  <p>Answers <span class="badge badge-primary pull-right">14</span></p>
+                </li>
+                <hr>
+            
+                <li>
+                  <p>Pull requests <span class="badge badge-primary pull-right">14</span></p>
+                </li>
+              </ul>
+            </div>
+          </section> -->
+          <!-- Section: Experience -->
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-lg-8 col-md-12 text-center">
+  <!-- Tabs with icons on Card -->
+  <br>
+  <br>
+  <br>
+  <div class="card card-nav-tabs">
+    <div class="card-header card-header-primary">
+      <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+      <div class="nav-tabs-navigation">
+        <div class="nav-tabs-wrapper">
+          <ul class="nav nav-tabs" data-tabs="tabs">
+<!--             
+            <li class="nav-item">
+              <a class="nav-link active" href="#courses" data-toggle="tab">
+                <i class="material-icons">book</i> Courses enrolled
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#messages" data-toggle="tab">
+                <i class="material-icons">chat</i> Messages
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#transcripts" data-toggle="tab">
+                <i class="material-icons">list</i> Transcripts
+              </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#certificates" data-toggle="tab">
+                  <i class="material-icons">assignment</i> Certificates
+                </a>
+              </li> -->
+          
+              <li class="nav-item">
+                  <a class="nav-link" href="#edit" data-toggle="tab">
+                    <i class="material-icons">edit</i> edit Profile
+                  </a>
+                </li>
+             
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card-body ">
+      <div class="tab-content text-center">
+        <div class="tab-pane active" id="courses">
+    <!-- Heading -->
+    <div class="text-center mt-3 mb-5">
+<!-- 
+   -->
+          <div class=" justify-content-center">
+              <a href="/courses" class="btn btn-outline-primary ">Browser other courses? </a>                             
+          </div>
+      </div>
+
+      <!-- begining of courses table -->
+     
+
+
+
+      <div id="tables">
+                    
+          <div class="row">
+            <div class="col-md-12">
+                <h3 class="title">Viewing Courses & Training bits you are currently enrolled in: </h3>
+                    <ol class="breadcrumb">
+                  <li class="active">
+                      <i class="fa fa-bookmark"></i> Enrolled:
+                  </li>
+              </ol>
+            </div>
+            {% if courses.count == 0 %}
+            <div class="col-md-12">
+                <h4> It appears you are not enrolled in any class</h4>
+                <p>Learn, grow and become a better Leader. Enroll in a class and start today!</p>
+                <div class=" justify-content-center">
+                    <a href="/courses" class="btn btn-outline-primary ">Find Courses </a>                             
+                </div>
+                
+              </div>
+              {% else %}
+
+            <div class="col-lg-8 col-md-12 ml-auto mr-auto">
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th class="text-center">Course ID</th>
+                      <th>Name</th>
+                      <th>Sub-Title</th>
+                      <th class="text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                      {% for course in courses.all %}
+                    <tr>
+                      <td class="text-center">{{ course.id }}</td>
+                      <td>{{ course.title }}</td>
+                      <td>{{ course.sub_title }}</td>
+                      <td class="td-actions text-right">
+                        <button  onclick="ajax_enroll('{{ course.id }}');" id="view_{{ course.id }}_btn" name="view_{{ course.id }}_btn" type="button" rel="tooltip" class="btn btn-info  btn-sm">
+                         Continue
+                        </button>
+                        <button   onclick="ajax_disenroll_modal('{{ course.id }}');" id="del_{{ course.id }}_btn" name="del_{{ course.id }}_btn" type="button" rel="tooltip" class="btn btn-info  btn-sm">
+                          Disenroll
+                           </button>
+                       
+               
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+      
+          
+            </div>
+          </div>
+      
+        </div>
+
+
+        {% endif %}
+
+
+
+<!--disenroll mod  -->
+<div class="modal fade" id="disenroll_modal" role="dialog">
+    <div class="modal-dialog" style="width:50%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h2 class="modal-title" id="myModalLabel">Warning</h2>
+            </div>
+            <div class="modal-body">
+                <div class="well">
+                    <p>When you disenroll from a course, all your course work (including final marks) will get deleted! Furthermore, all deletions are permanent, your course cannot be retrieved once deleted.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="$('#disenroll_modal').modal('hide');"
+                           type="button"
+                          class="btn-lg btn-default">
+                    <i class="fa fa-circle-o"></i> Cancel
+                </button>
+                <button type="button"
+                       class="btn-lg btn-danger"
+                     onclick="ajax_disenroll_course({{ course.id }});">
+                    <i class="fa fa-check-circle"></i> Yes I Understand, Disenroll from this Course
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--end of disenroll mod   -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- begening of dynamic view -->
+
+
+
+<!-- end of dynamic view -->
+      
+        </div>
+<!-- end of courses div id -->
+
+
+
+
+
+
+
+        <div class="tab-pane" id="messages">
+            <div class="text-center mt-3 mb-5">
+                <!-- 
+                        <button type="button" class="btn btn-info btn-rounded mt-4" data-toggle="modal" data-target="#modalSubmitProject">
+                          edit Profile <i class="far fa-image ml-1"></i></button> -->
+                          <h3 class="title">Messages you have recieved and sent </h3>
+                
+                      </div>
+                      <!-- Heading -->
+            <div class="row">
+               
+              <!-- Heading -->
+  
+                  <ul class="nav nav-pills nav-pills-info">
+                    <li class="nav-item">
+                      <a class="nav-link active"  href="#pill1" data-toggle="tab">Inbox</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#pill2" data-toggle="tab">Sent</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pill3" data-toggle="tab">Compose</a>
+                      </li>
+ 
+                  </ul>
+                 
+                  <div class="tab-content tab-space">
+                    <div class="tab-pane active" id="pill1">
+                                 <!--                 tables -->
+                  <div id="tables">
+                    
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h4>Messages recieved and  sent </h4>
+                        </div>
+                        <div class="col-lg-8 col-md-12 ml-auto mr-auto">
+                          <div class="table-responsive">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th class="text-center">#</th>
+                                  <th>Name</th>
+                                  <th>Job Position</th>
+                                  <th class="text-right">Actions</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td class="text-center">1</td>
+                                  <td>Andrew Mike</td>
+                                  <td>Develop</td>
+                                  <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" class="btn btn-info  btn-sm">
+                                      reply
+                                    </button>
+                                   
+                                
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="text-center">2</td>
+                                  <td>John Doe</td>
+                                  <td>Design</td>
+                                  <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" class="btn btn-info btn-sm">
+                                      reply
+                                    </button>
+                             
+                                  </td>
+                                </tr>
+                              
+                              </tbody>
+                            </table>
+                          </div>
+                  
+                      
+                        </div>
+                      </div>
+                  
+                    </div>
+                    <!--                 end tables -->
+                      </div> 
+                    <div class="tab-pane" id="pill2">
+                               <!--                 tables -->
+                     <div id="tables">
+                    
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h4>Messages recieved and  sent </h4>
+                        </div>
+                        <div class="col-lg-8 col-md-12 ml-auto mr-auto">
+                          <div class="table-responsive">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th class="text-center">#</th>
+                                  <th>Name</th>
+                                  <th>Job Position</th>
+                                  <th class="text-right">Actions</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td class="text-center">1</td>
+                                  <td>Andrew Mike</td>
+                                  <td>Develop</td>
+                                  <td class="td-actions text-right">
+                              
+                                   
+                                    <button type="button" rel="tooltip" class="btn btn-danger btn-round btn-just-icon btn-sm">
+                                      <i class="material-icons">close</i>
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="text-center">2</td>
+                                  <td>John Doe</td>
+                                  <td>Design</td>
+                                  <td class="td-actions text-right">
+                                 
+                                    <button type="button" rel="tooltip" class="btn btn-danger btn-round btn-just-icon btn-sm">
+                                      <i class="material-icons">close</i>
+                                    </button>
+                                  </td>
+                                </tr>
+                              
+                              </tbody>
+                            </table>
+                          </div>
+                  
+                      
+                        </div>
+                      </div>
+                  
+                    </div>
+                    <!--                 end tables -->
+                    </div>
+                   
+                    <div class="tab-pane" id="pill3">
+                        <!--                 tables -->
+             
+             
+               <div class="row">
+                 <div class="col-md-12">
+                   <h4>Send a message </h4>
+                 </div>
+               
+                 <div class="col-lg-8 col-md-12 col-sm-4 ml-auto mr-auto">
+                    <form role="form">
+                        
+                        <div class="form-group">
+                        <div class="input-group">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                        <i class="material-icons">email</i>
+                        </span>
+                    </div>
+               
+                            <input class="form-control"
+                                      id="email"
+                                    name="email"
+                             placeholder="Enter Email of Account in LADA"
+                                    type="input">
+                                </div>
+                        <div class="form-group">
+                                <div class="input-group">
+                                        <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">group</i>
+                                        </span>
+                                    </div>
+                            
+                            <input class="form-control"
+                                      id="title"
+                                    name="title"
+                             placeholder="Enter Title"
+                                    type="input">
+                        </div>
+                        <div class="form-group">
+                        <div class="input-group">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                        <i class="material-icons">chat</i>
+                        </span>
+                        </div>
+                            <textarea id="message" name="message" class="form-control" rows="6" placeholder="Enter Message"></textarea>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                        <button onclick="ajax_send_message();"
+                                    id="send_message_btn"
+                                    name="send_message_btn"
+                                    type="button"
+                                    class="btn btn-lg btn-primary">Send Message</button>
+                    </form>
+                    <br/>
+                    <!-- Error Message Box -->
+                    <div id="error_box" name="error_box" class="alert alert-danger alert-dismissable" hidden="true">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        ERROR: This is to be filled in by the "print_error" function. If you see this message that means there's an error with your javascript somewhere.
+                    </div><!-- /.Error Message Box -->
+                </div>
+               </div>
+           
+       
+             <!--                 end tables -->
+             </div>
+
+                  </div>
+                </div>
+        </div>
+
+
+
+<!--trtranscripts-----------transcripts----------- -->
+        <div class="tab-pane" id="transcripts">
+
+     
+        
+<div class="row">
+    <div class="col-lg-12 text-center">
+      <br>
+      <br>
+      <br>
+   
+      <h3 class="title">View the grades you received</h3>
+        <ul class="breadcrumb">
+            <li class="active nav-link ">
+                <i class="fa file-text"></i>Transcript
+            </li>
+         
+        </ul>
+    </div>
+</div>
+
+
+    {% if marks.count == 0 %}
+
+    <!-- No Grades Banner -->
+    <div class="jumbotron">
+        <h3> <strong> No Grades</strong></h3>
+        <p>
+            It appears you have not completed any courses yet. To see your transcript you must complete course.
+        </p>
+        <p><a href="/courses"
+            class="btn btn-primary btn-lg"
+            role="button">Find Courses </a>
+        </p>
+    </div>
+    <!-- /.row -->
+    
+    {% else %}
+   
+   <div class="row">
+       <div class="col-lg-12">
+           <div class="table-responsive">
+               <table class="table table-hover table-striped">
+                   <thead>
+                       <tr>
+                           <th>Course Title</th>
+                           <th>Mark</th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                   {% for mark in marks %}
+                       <tr>
+                           <td>{{ mark.course.title }}</td>
+                           <td>{{ mark.percent }}%</td>
+                       </tr>
+                   {% endfor %}
+                   </tbody>
+               </table>
+           </div>
+       </div>
+   </div>
+   
+    {% endif %}
+
+
+      
+          </div>
+<!--endtrtranscripts-----------endtranscripts----------- -->
+
+<!--certificates----------certificates---------certificates  -->
+          <div class="tab-pane" id="certificates">
+          
+
+<div class="row">
+    <div class="col-lg-12 text-center">
+      <br>
+      <br>
+      <br>
+   
+      <h3 class="title">Credit received for completing courses</h3>
+        <ul class="breadcrumb">
+            <li class="active nav-link ">
+                <i  class="fa fa-certificate"></i> Certificates
+            </li>
+         
+        </ul>
+    </div>
+</div>
+
+    {% if marks.count == 0 %}
+
+    <!-- No Grades Banner -->
+    <div class="jumbotron">
+        <h3>No Completed Courses</h3>
+        <p>
+            It appears you have not completed any courses yet. To generate a certificate, you must complete a course.
+        </p>
+        <p><a href="/courses"
+             class="btn btn-primary btn-lg"
+              role="button">Find Courses </a>
+        </p>
+    </div>
+    <!-- /.row -->
+
+    {% else %}
+
+    <!-- Certificates -->
+    <div id="ajax_certificates_table"
+       name="ajax_certificates_table">
+        {% include "registrar/certificate/table.html" %}
+    </div>
+    <!-- /.row -->
+
+    {% endif %}
+    
+<!-- Modal -->
+<div id="ajax_modal"
+name="ajax_modal"></div>
+<!-- end modal -->
+{% include 'registrar/certificate/js.html' %}
+
+
+<div id="ajax_response_login"></div>
+<div id="ajax_response_register"></div>
+<div id="ajax_logout"></div>
+            </div>
+<!--endcertificates----------endcertificates---------endcertificates  -->
+        <div class="tab-pane" id="edit">
+          
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  <!-- End Tabs with icons on Card -->
+      
+
+
+          <!-- Pagination -->
+          <!-- <nav class="my-4 d-flex justify-content-center">
+            <ul class="pagination pagination-circle pg-blue mb-0">
+        
+              <li class="page-item disabled clearfix d-none d-md-block"><a class="page-link">First</a></li>
+            
+              <li class="page-item disabled">
+                <a class="page-link" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+         
+              <li class="page-item active"><a class="page-link">1</a></li>
+              <li class="page-item"><a class="page-link">2</a></li>
+              <li class="page-item"><a class="page-link">3</a></li>
+              <li class="page-item"><a class="page-link">4</a></li>
+              <li class="page-item"><a class="page-link">5</a></li>
+     
+              <li class="page-item">
+                <a class="page-link" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+         
+              <li class="page-item clearfix d-none d-md-block"><a class="page-link">Last</a></li>
+            </ul>
+          </nav> -->
+          <!-- Pagination -->
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </section>
+    <!-- Section: Profile -->
+
+  </div>
+</main>
+<!-- Main layout -->
+
+{% include "landpage/main/js.html" %}  
+
+<div id="ajax_logout"></div>
+
+<!-- Modal -->
+<div id="ajax_modal_placeholder"
+   name="ajax_modal_placeholder"></div>
+<!-- end modal -->
+<script>
+        /**
+         *  Function will call AJAX function to enroll into a specific course for the
+         *  current logged on user.
+         */
+        function ajax_enroll(course_id)
+        {
+            var url = 'enroll';
+    
+            $.ajax( url, {
+               data: {
+                   'course_id' : course_id,
+                   'csrfmiddlewaretoken': '{{ csrf_token }}',
+               },
+               type: 'post',
+               success: function(result) {
+                   // success code execution here
+                   if (result.status == 'success')
+                   {
+                       window.location = 'course/' + course_id + '/announcements';
+                   }
+               },
+               error: function(xhr,status,error) {
+                   // error code here
+               },
+               complete: function(xhr,status) {
+                   // completion code here
+               }
+            });
+        }
+    </script>
+
+<script>
+    function ajax_refresh_enrollments_table()
+    {
+        $.ajax( 'enrollment_table', {
+            data: {
+               'csrfmiddlewaretoken': '{{ csrf_token }}',
+            },
+            type: 'post',
+               success: function(result) {
+               // success code execution here
+               $('#ajax_table_placeholder').html(result); // Update UI.
+            },
+            error: function(xhr,status,error) {
+               // error code here
+            },
+            complete: function(xhr,status) {
+               // completion code here
+            }
+        });
+    }
+    
+    function ajax_continue_course(course_id)
+    {
+        var url = 'enroll';
+    
+        $.ajax( url, {
+           data: {
+               'course_id' : course_id,
+               'csrfmiddlewaretoken': '{{ csrf_token }}',
+           },
+           type: 'post',
+           success: function(result) {
+               // success code execution here
+               if (result.status == 'success')
+               {
+                    window.location = 'course/' + course_id + '/announcement';
+               }
+           },
+           error: function(xhr,status,error) {
+               // error code here
+           },
+           complete: function(xhr,status) {
+               // completion code here
+           }
+        });
+    }
+    function ajax_disenroll_modal(course_id)
+    {
+        $('#del_' + course_id + '_btn').prop("disabled", true); // Lock button
+        $.ajax( 'disenroll_modal', {
+            data: {
+               'csrfmiddlewaretoken': '{{ csrf_token }}',
+               'course_id': course_id,
+            },
+            type: 'post',
+            success: function(result) {
+               // success code execution here
+               $('#ajax_modal_placeholder').html(result); // Update UI.
+               $('#disenroll_modal').modal();             // Unhide view.
+            },
+            error: function(xhr,status,error) {
+               // error code here
+            },
+            complete: function(xhr,status) {
+               // completion code here
+            }
+        });
+    }
+       $(document).ready(function(){
+        $('#disenroll_modal').on('hidden.bs.modal', function (e) {
+            $('#ajax_modal_placeholder').html('');
+            $('#del_{{ course.id }}_btn').prop("disabled", false); // Unlock button
+        });
+    });
+    
+    /**
+     *  Function will call AJAX function to delete the teacher's course.
+     */
+    function ajax_disenroll_course(course_id)
+    {
+        $('#del_' + course_id + '_btn').prop("disabled", true); // Lock button
+        $.ajax( 'disenroll', {
+            data: {
+               'csrfmiddlewaretoken': '{{ csrf_token }}',
+               'course_id' : course_id
+            },
+            type: 'post',
+            success: function(result) {
+               // success code execution here
+               if (result.status == 'success')
+               {
+                    $('#disenroll_modal').modal('hide');
+                    ajax_refresh_enrollments_table();
+               }
+            },
+            error: function(xhr,status,error) {
+               // error code here
+            },
+            complete: function(xhr,status) {
+               // completion code here
+               $('#del_' + course_id + '_btn').prop("disabled", false); // Unlock button
+            }
+        });
+    }
+</script>
+    {% endblock content %}

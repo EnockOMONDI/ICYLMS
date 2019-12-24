@@ -17,10 +17,10 @@
         {% for local_css_url in local_css_urls %}
             <link rel="stylesheet" href="{% static local_css_url %}">
         {% endfor %}
-        
+<!--         
         {% for local_js_url in local_js_urls %}
             <script src="{% static local_js_url %}"></script>
-        {% endfor %}
+        {% endfor %} -->
         
         <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" type="text/css">
@@ -35,10 +35,14 @@
         ![endif]>
     </head>
     
-    <body id="" class="index">
+    <body id=""  class="index-page sidebar-collapse" >
         <div id="wrapper">
             <!-- Navigation -->
             {% include "course/nav.html" %}
+            <br>
+            <br>
+            <br>
+            <br>
 
             <!-- Scripts -->
             {% csrf_token %}

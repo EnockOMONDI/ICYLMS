@@ -27,20 +27,20 @@
        
 
                 <li {% if tab == 'courses' %}class=" nav-item "{% endif %}>
-                        <a class="dropdown nav-link" href="courses"><i class="fa fa-fw fa-university"></i> Browse Courses</a>
+                        <a class="dropdown nav-link" href="/courses"><i class="fa fa-fw fa-university"></i> Browse Courses</a>
                 </li>
                 <li  {% if tab == 'enrollment' %}class="  nav-item"{% endif %}>
-                        <a class=" dropdown  nav-link" href="enrollment"><i class="fa fa-fw fa-bookmark"></i> Enrollment</a>
+                        <a class=" dropdown  nav-link" href="/enrollment"><i class="fa fa-fw fa-bookmark"></i>Courses Enrolled</a>
                 </li>
                 <!-- <li {% if tab == 'teaching' %}class="nav-link"{% endif %}>
                         <a class="active dropdown  nav-link" href="teaching"><i class="fa fa-fw fa-suitcase"></i> Teaching</a>
 
                 </li> -->
                 <li {% if tab == 'transcript' %}class=" nav-item"{% endif %}>
-                         <a class="dropdown  nav-link" href="transcript"><i class="fa fa-fw fa-file-text"></i> Transcript</a>
+                         <a class="dropdown  nav-link" href="/transcript"><i class="fa fa-fw fa-file-text"></i> Transcript</a>
                 </li>  
                 <li {% if tab == 'certificates' %}class="nav-item"{% endif %}>
-                        <a class="dropdown  nav-link" href="certificates"><i class="fa fa-fw fa-certificate"></i> Certificates</a>
+                        <a class="dropdown  nav-link" href="/certificates"><i class="fa fa-fw fa-certificate"></i> Certificates</a>
 
                 </li>
                 <li {% if tab == 'inbox' %}class="nav-item"{% endif %}>
@@ -61,7 +61,7 @@
                   {{ user.first_name }} {{ user.last_name }}
                 </button>
                 <div class="dropdown-menu" >
-                <a class="dropdown-item" class="nav-link" href="/profile" ><i class="material-icons">person_add</i>  Profile
+                <a class="dropdown-item" class="nav-link" href="/view/profil" ><i class="material-icons">person_add</i>  Profile
                 </a>
                
                 <a class="dropdown-item"  onclick="ajax_logout();"><i class="material-icons">person_add</i> Logout

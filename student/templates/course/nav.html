@@ -47,9 +47,9 @@
                 <li {% if tab == 'discussion' %}class="active dropdown nav-item"{% endif %}>
                     <a class=" nav-link" href="/course/{{ course.id }}/discussion"><i class="fa fa-fw fa-comment"></i> Discussion</a>
                 </li>
-                <li {% if tab == 'peer_reviews' %}class="active dropdown nav-item"{% endif %}>
+                <!-- <li {% if tab == 'peer_reviews' %}class="active dropdown nav-item"{% endif %}>
                     <a class=" nav-link" href="/course/{{ course.id }}/peer_reviews"><i class="fa fa-fw fa-child"></i> Peer Reviews</a>
-                </li>
+                </li> -->
                 <li {% if tab == 'credit' %}class="active dropdown nav-item"{% endif %}>
                     <a class=" nav-link" href="/course/{{ course.id }}/credit"><i class="fa fa-fw fa-sitemap"></i> Credit</a>
                 </li>
@@ -62,12 +62,12 @@
                   {{ user.first_name }} {{ user.last_name }}
                 </button>
                 <div class="dropdown-menu" >
-                <a class="dropdown-item" href="/profile" ><i class="material-icons">person_add</i>  Profile
+                <a class="dropdown-item" href="/view/profil" ><i class="material-icons">person_add</i>  Profile
                 </a>
-                <a class="dropdown-item" href="/inbox" ><i class="material-icons">person_add</i>  Inbox
-                </a>
-                <a class="dropdown-item" href="/settings" ><i class="material-icons">person_add</i>  Settings
-                </a>
+                <!-- <a class="dropdown-item" href="/inbox" ><i class="material-icons">person_add</i>  Inbox
+                </a> -->
+                <!-- <a class="dropdown-item" href="/settings" ><i class="material-icons">person_add</i>  Settings
+                </a> -->
                 <a class="dropdown-item"  onclick="ajax_logout();"><i class="material-icons">person_add</i> Logout
                 </a>
               </div>   

@@ -5,20 +5,23 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">
-                    Assignment
-                </h1>
+                  
+                            <br>
+                            <br>
+                            <h3 class="title">
+                                {{ course.title }} Assignment
+                </h3>
                 <ol class="breadcrumb">
-                    <li>
+                    <!-- <li>
                         <i class="fa fa-university"></i> <a href="/courses">Courses</a>
-                    </li>
-                    <li>
+                    </li> -->
+                    <li class="nav-link">
                         <i class="fa fa-compass"></i> {{ course.title }}
                     </li>
-                    <li>
+                    <li class="nav-link">
                         <i class="fa fa-book"></i> <a href="/course/{{ course.id }}/assignments">Assignments</a>
                     </li>
-                    <li class="active">
+                    <li class="nav-link" >
                         <i class="fa fa-book"></i> Assignment #{{ assignment.assignment_num }}
                     </li>
                 </ol>
