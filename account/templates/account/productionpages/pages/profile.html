@@ -515,10 +515,10 @@
 <!-- 
         <button type="button" class="btn btn-info btn-rounded mt-4" data-toggle="modal" data-target="#modalSubmitProject">
           edit Profile <i class="far fa-image ml-1"></i></button> -->
-          <h3 class="title">Courses & Training bits you are currently enrolled in:</h3>
+          <h3 class="title">Personal info on LADA</h3>
 
       </div>
-      <div class="card card-profile card-plain" style="background-color:#fff">
+      <!-- <div class="card card-profile card-plain" style="background-color:#fff">
           <div class="card-header card-avatar">
             {% if profile.image %}
 <img class="img" src="{{user.student.profile_pic.url}}">
@@ -531,13 +531,58 @@
           <div class="card-body ">
             <h4 class="card-title">{{ user.first_name }} {{ user.last_name }} </h4>
             <h5 class="card-category text-muted"><i class="material-icons">location_on </i>{{user.student.country}}</h5>
-            <h6 class="card-category text-muted"><i class="material-icons">location_on </i> Age: {{user.student.age}}</h6>
+            <h6 class="card-category text-muted"><i class="material-icons">person_add </i> Age: {{user.student.age}}</h6>
             <p class="card-description">
              Bio: {{user.student.bio}}
             </p>
           </div>
 
-      </div>
+      </div> -->
+
+
+      <div class="e-profile">
+          <div class="row">
+            <div class="col-12 col-sm-auto mb-4">
+              <div class="mx-auto" style="width: 140px;">
+                <div class=""  style="height: 140px">
+                  <a href="#pablo">
+                      <img class="img"  src="{% static 'img/studentavatar.png' %}"  style="height: 140px">
+
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+              <div class="text-center text-sm-left mb-5 mb-sm-0">
+                <!-- <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">dj sean</h4> -->
+                <h3 class="card-title">{{ user.first_name }} {{ user.last_name }} </h3>
+                <p class="mb-0">@{{ user.first_name }}{{ user.last_name }} </p>
+
+                <div class="text-center text-sm-left">
+                    <span class="badge badge-secondary">student</span>
+                    <div class="text-muted"><small>Joined 09 Dec 2019</small></div>
+                  </div>
+                <div class="text-muted"><small>Last seen 2 hours ago</small></div>
+
+                <div class="card-body ">
+                    
+                    <p class="card-title">
+                     Bio: {{user.student.bio}}
+                    </p>
+                  </div>
+            
+              </div>
+              <div class="text-center text-sm-right">
+                  <h5 class="card-category text-muted"><i class="material-icons">location_on </i>{{user.student.country}}</h5>
+                  <!-- <div class="text-muted"><small>Joined 09 Dec 2019</small></div> -->
+              </div>
+            </div>
+          </div>
+          <ul class="nav nav-tabs">
+            <li class="nav-item"><a href="" class="active nav-link">Settings</a></li>
+          </ul>
+    
+        </div>
         </div>
     
     
@@ -573,18 +618,32 @@
               <hr class="my-3">
 
               <button type="button" class="btn btn-light-blue btn-rounded btn-sm px-3" data-toggle="modal"
-                data-target="#modalAchievment">Leadership</button>
-              <button type="button" class="btn btn-blue-grey btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">community
-               </button>
-              <button type="button" class="btn btn-default btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">community development
-               </button>
-              <button type="button" class="btn btn-deep-purple btn-rounded btn-sm px-3" data-toggle="modal"
-                data-target="#modalAchievment">Community contributor</button>
-              <button type="button" class="btn btn-indigo btn-rounded btn-sm px-3" data-toggle="modal" data-target="#modalAchievment">volunteer work
-            </button>
+                data-target="#modalAchievment"> {{ user.student.interests }}</button>
+              
             </div>
+            
         </div>
-      
+        <div class="card card-profile card-plain" style="background-color:#fff">
+            <div class="card-body">
+                <h6 class="card-title font-weight-bold">Support</h6>
+                <p class="card-text">Get fast, free help from our friendly assistants.</p>
+               <a href="/contactus" class="btn btn-primary" >Contact Us</a> 
+              </div>
+            
+        </div>
+        <div class="card card-profile card-plain" style="background-color:#fff">
+            <div class="card-body text-center">
+
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-outline-primary" onclick="ajax_logout();" ><i class="material-icons"></i>Logout</button>
+                  </div>
+              
+            </div>
+            
+        </div>
+     
+
+     
         <!-- Section: Achievements -->
 
         <!-- Section: Experience -->
