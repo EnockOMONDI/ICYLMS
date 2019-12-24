@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.utils.translation import gettext as _
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
+import datetime
 # from imagekit.models import ProcessedImageField
 
 
@@ -26,10 +26,9 @@ class PrivateMessage(models.Model):
 class Student(models.Model):
     student_id = models.AutoField(primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE,)
-    profile_pic = models.ImageField(upload_to= 'media/', null=True)
+    profile_pic = models.ImageField(upload_to= '/profile_pic', null=True)
     bio = models.TextField(max_length=500, blank=True,null=True)
     country = models.CharField(max_length=255, blank=True,null=True )
-    date_joined = models.DateTimeField(_('date joined'), auto_now_add=True,null=True)
     age = models.IntegerField(null=True)
     interests = models.CharField(max_length=30,null=True)
     
