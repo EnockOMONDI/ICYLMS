@@ -14110,7 +14110,7 @@ small {
 .media .media-heading a,
 .title,
 .title a {
-   color: #3c4858;
+   color: #36404e;
    text-decoration: none
 }
 
@@ -14121,7 +14121,7 @@ h2.title {
 .card-description,
 .description,
 .footer-big p {
-   color: #999
+   color: #455264;
 }
 
 .text-warning {
