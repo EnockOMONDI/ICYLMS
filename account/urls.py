@@ -18,8 +18,8 @@ urlpatterns = patterns('',
     url(r'^update_password$', setting.update_password),
     url(r'^donate$', donate.donate_page),
     #productionurls
-    url(r'^profileprod$', profileprod.profileprod),
-    url(r'^editprod$', profileprod.editprod),
+    # url(r'^profileprod$', profileprod.profileprod),
+    # url(r'^editprod$', profileprod.editprod),
     url(r'^update_profile$', profile.update_profile),
     url(r'^view/profil/', profile.view_profil, ),
 
