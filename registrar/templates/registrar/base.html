@@ -25,7 +25,23 @@
         <!-- [if lt IE 9]
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+     
         ![endif]  -->
+    
+        <script>
+            UPLOADCARE_PUBLIC_KEY = 'd4d69f96f2e2dde353d1';
+            UPLOADCARE_EFFECTS = 'crop';
+            UPLOADCARE_PREVIEW_STEP = true;
+            UPLOADCARE_CLEARABLE = true;
+          </script>
+          
+          <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+          <script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.js"></script>
+          
+          <script>
+            uploadcare.registerTab('preview', uploadcareTabEffects)
+          </script>
+    
     </head>
     
     <body id=""  class="index-page sidebar-collapse" >

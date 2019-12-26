@@ -1,4 +1,4 @@
-<form enctype="multipart/form-data" name="course_form" id="course_form">
+<!-- <form enctype="multipart/form-data" name="course_form" id="course_form">
     <input type="hidden"
             id="id_id"
           name="id"
@@ -18,4 +18,28 @@
     </div>
     <br/>
     {% endfor %}
-</form>
+</form> -->
+
+
+<form enctype="multipart/form-data" name="course_form" id="course_form">
+    <!-- <p class="description text-center">Or Be Classical</p> -->
+    <input type="hidden"
+    id="id_id"
+  name="id"
+ value={% if form.instance.id != None %}"{{ form.instance.id }}"{% else %}0{% endif %}>
+    {% for field in form %} 
+    <div class="card-body">
+       <div class="form-group">
+         <div class="input-group">
+           <div class="input-group-prepend">
+                   <span class="input-group-text">
+                           {{ field.label }}
+                         </span>
+           </div>
+           {{ field }}
+         </div>
+       </div>
+
+     </div>
+     {% endfor %}
+   </form>

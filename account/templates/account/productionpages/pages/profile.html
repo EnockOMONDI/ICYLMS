@@ -498,8 +498,8 @@
         <div class="nav-tabs-wrapper">
           <ul class="nav nav-tabs" data-tabs="tabs">
             <li class="nav-item">
-              <a class="nav-link active" href="#courses" data-toggle="tab">
-                <i class="material-icons">person_add</i> {{ user.first_name }} {{ user.last_name }} Profile
+              <a class="nav-link active" href="/update_profile" data-toggle="tab">
+               Viewing {{ user.first_name }} {{ user.last_name }}  Personal info on LADA
               </a>
             </li>
            
@@ -511,13 +511,7 @@
       <div class="tab-content text-center">
         <div class="tab-pane active" id="courses">
     <!-- Heading -->
-    <div class="text-center mt-3 mb-5">
-<!-- 
-        <button type="button" class="btn btn-info btn-rounded mt-4" data-toggle="modal" data-target="#modalSubmitProject">
-          edit Profile <i class="far fa-image ml-1"></i></button> -->
-          <h3 class="title">Personal info on LADA</h3>
 
-      </div>
       <!-- <div class="card card-profile card-plain" style="background-color:#fff">
           <div class="card-header card-avatar">
             {% if profile.image %}
@@ -543,8 +537,8 @@
       <div class="e-profile">
           <div class="row">
             <div class="col-12 col-sm-auto mb-4">
-              <div class="mx-auto" style="width: 140px;">
-                <div class=""  style="height: 140px">
+              <div class="mx-auto" style="width: 180px;">
+                <div class=""  style="height: 180px">
                   <a href="#pablo">
                       <img class="img"  src="{% static 'img/studentavatar.png' %}"  style="height: 140px">
 
@@ -560,9 +554,9 @@
 
                 <div class="text-center text-sm-left">
                     <span class="badge badge-secondary">student</span>
-                    <div class="text-muted"><small>Joined 09 Dec 2019</small></div>
+                    <div class="text-muted"><small>Joined {{user.date_joined }}</small></div>
                   </div>
-                <div class="text-muted"><small>Last seen 2 hours ago</small></div>
+                <!-- <div class="text-muted"><small>Last seen 2 hours ago</small></div> -->
 
                 <div class="card-body ">
                     
@@ -576,6 +570,15 @@
                   <h5 class="card-category text-muted"><i class="material-icons">location_on </i>{{user.student.country}}</h5>
                   <!-- <div class="text-muted"><small>Joined 09 Dec 2019</small></div> -->
               </div>
+              <div class="text-center mt-3 mb-5">
+                <!-- 
+                        <button type="button" class="btn btn-info btn-rounded mt-4" data-toggle="modal" data-target="#modalSubmitProject">
+                          edit Profile <i class="far fa-image ml-1"></i></button> -->
+                          <!-- <h3 class="title">Personal info on LADA</h3> -->
+                          <a class="btn btn-outline-primary" href="/update_profile" ><i class="material-icons">edit</i>update profile</a>
+                
+                
+                      </div>
             </div>
           </div>
           <ul class="nav nav-tabs">

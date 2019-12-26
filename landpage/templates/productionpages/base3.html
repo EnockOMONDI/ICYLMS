@@ -14,6 +14,20 @@
         {% for local_css_url in local_css_urls %}
         <link rel="stylesheet" href="{% static local_css_url %}">
     {% endfor %}
+    <script>
+        UPLOADCARE_PUBLIC_KEY = 'd4d69f96f2e2dde353d1';
+        UPLOADCARE_EFFECTS = 'crop';
+        UPLOADCARE_PREVIEW_STEP = true;
+        UPLOADCARE_CLEARABLE = true;
+      </script>
+      
+      <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+      <script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.js"></script>
+      
+      <script>
+        uploadcare.registerTab('preview', uploadcareTabEffects)
+      </script>
+
 <!--     
     {% for local_js_url in local_js_urls %}
         <script src="{% static local_js_url %}"></script>

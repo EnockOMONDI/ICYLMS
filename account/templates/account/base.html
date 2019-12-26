@@ -19,7 +19,19 @@
         {% for local_css_url in local_css_urls %}
         <link rel="stylesheet" href="{% static local_css_url %}">
         {% endfor %}
-       
+        <script>
+            UPLOADCARE_PUBLIC_KEY = 'd4d69f96f2e2dde353d1';
+            UPLOADCARE_EFFECTS = 'crop';
+            UPLOADCARE_PREVIEW_STEP = true;
+            UPLOADCARE_CLEARABLE = true;
+          </script>
+          
+          <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+          <script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.js"></script>
+          
+          <script>
+            uploadcare.registerTab('preview', uploadcareTabEffects)
+          </script>
                              
         <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" type="text/css">
@@ -33,7 +45,8 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    
+
+
     <body id="" class="index">
         <div id="wrapper">
             <!-- Navigation -->

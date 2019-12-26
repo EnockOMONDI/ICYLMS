@@ -47,7 +47,7 @@ def update_profile(request):
         if profile_form.is_valid():
             profile_form.save()
             messages.success(request, _('Your profile was successfully updated!'))
-            return redirect('/view/profil/')
+            return redirect('/view/profile/')
         else:
             messages.error(request, _('Please correct the error below.'))
     else:
@@ -81,7 +81,7 @@ def update_profile(request):
 
     
 @login_required()
-def view_profil(request):
+def view_profile(request):
     student = request.user.student
     return render(request, 'account/productionpages/pages/profile.html',{'student':student,'local_css_urls': [                    
                             "css2/demo.css",

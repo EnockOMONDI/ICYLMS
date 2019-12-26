@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'pyuploadcare.dj',
     'captcha',
     'account',
     'landpage',
@@ -159,6 +160,12 @@ USE_L10N = True
 
 USE_TZ = False
 
+UPLOADCARE = {
+  # Don’t forget to set real keys when it gets real :)
+
+  'pub_key': 'd4d69f96f2e2dde353d1',
+  'secret': 'a31559dd611e70c202f4',
+}
 
 
 # Static files (CSS, JavaScript, Images) & Upload Content
