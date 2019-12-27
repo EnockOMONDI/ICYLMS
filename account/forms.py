@@ -1,12 +1,14 @@
 from django.db import models
 from django import forms
 from django.conf import settings
-from django.forms import ModelForm, TextInput
+from django.forms import ModelForm
 from django.contrib.auth.models import User
 from account.models import PrivateMessage,Student
 # from account.models import Profile,Post
 from django.contrib.auth.models import User
 import datetime
+from django.forms import ModelForm, Textarea, TextInput, NumberInput
+from django.forms.extras.widgets import Select, SelectDateWidget
 
 class PrivateMessageForm(forms.ModelForm):
     class Meta:
@@ -66,4 +68,19 @@ class StudentForm(forms.ModelForm):
     
     class Meta:
         model = Student
-        fields = ('country',  'age','bio','interests')
+        fields = {'country','age','bio','interests', 'profile_pic'}
+        labels = {
+            'country': 'country',
+            'age': 'age',
+            'bio': 'bio',
+            'interests': 'interests',
+            'profile_pic':'upload Image',   
+        }
+
+        widgets = { 
+            'interests': TextInput(attrs={'class': u'form-control','placeholder': u'Enter interests'}),
+            'bio': Textarea(attrs={'class': u'form-control','placeholder': u'Enter bio'}),
+            'country': Select(attrs={'class': u'form-control'}),
+            'age': NumberInput(attrs={'class': u'form-control','placeholder': u'Enter age'}),
+
+        }
