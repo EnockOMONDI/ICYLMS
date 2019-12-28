@@ -14,11 +14,9 @@ def forgot_password_page(request):
     return render(request, 'offlandpage/page/forgot_password.html',{
         'form': form,
         'tab': 'forget_password',
-        'local_css_urls': ["css/offlandpage.css",
-                            "bower_components/bootstrap/dist/css/bootstrap.min.css"],
-        'local_js_urls': ["bower_components/jquery/dist/jquery.min.js",
-                           "bower_components/bootstrap/dist/js/bootstrap.min.js",],
-    })
+      'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+          })
 
 
 def reset_password(request):

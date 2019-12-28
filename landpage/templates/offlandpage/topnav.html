@@ -1,14 +1,90 @@
-<!-- top navbar -->
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/landpage">LADA  </a> 
-           
-        </div>
+
+
+
+{% load staticfiles %}
+
+<!-- 0c0b11 -->
+
+<!-- 0c0b11 -->
+<!-- <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav"></nav> -->
+<nav  class="navbar  navbar-default fixed-top   navbar-expand-lg slidd" color-on-scroll="100" id="sectionsNav"  style="box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); ">
+  <div class="container" >
+    <div class="navbar-translate">
+          <a>
+            <img src="{% static 'img/logos/logo2.jpg' %}" alt="" style="width:80px; height:80px;  ">
+          </a>               
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+
+             <span class="sr-only">Toggle navigation</span>
+             <span class="navbar-toggler-icon"></span>
+             <span class="navbar-toggler-icon"></span>
+             <span class="navbar-toggler-icon"></span>
+          </button>
+      </div>
+      <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto"> 
+       
+                <li {% if tab == 'courses' %}class=" nav-item "{% endif %}>
+                        <a class="dropdown nav-link"  href="/landpageprod"><i class="fa fa-fw fa-university"></i> Home</a>
+                </li>
+                <li  {% if tab == 'enrollment' %}class="  nav-item"{% endif %}>
+                        <a class=" dropdown  nav-link" href="/terms"><i class="fa fa-fw fa-bookmark"></i>Terms of Use</a>
+                </li>
+                <!-- <li {% if tab == 'teaching' %}class="nav-link"{% endif %}>
+                        <a class="active dropdown  nav-link" href="teaching"><i class="fa fa-fw fa-suitcase"></i> Teaching</a>
+
+                </li> -->
+                <li {% if tab == 'transcript' %}class=" nav-item"{% endif %}>
+                         <a class="dropdown  nav-link" href="/privacy" ><i class="fa fa-fw fa-file-text"></i>Privacy Policy</a>
+                </li>  
+                <li {% if tab == 'certificates' %}class="nav-item"{% endif %}>
+                        <a class="dropdown  nav-link" href="/forgot_password"><i class="fa fa-fw fa-certificate"></i> Forgot password</a>
+
+                </li>
+          
+               
+
+              <li>
+              <div class="dropdown ">
+                  {% if request.user.is_authenticated %}
+                 
+                <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ user.first_name }} {{ user.last_name }}
+                </button>
+                <div class="dropdown-menu" >
+                <a class="dropdown-item" class="nav-link" href="/view/profile" ><i class="material-icons">person_add</i>  Profile
+                </a>
+               
+                <a class="dropdown-item"  onclick="ajax_logout();"><i class="material-icons">person_add</i> Logout
+                </a>
+              </div>   
+                {% else %}
+                <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  My Account      
+                </button>
+                <div class="dropdown-menu" >
+                  <a class="dropdown-item" onclick="ajax_popup_register();"><i class="material-icons">person_add</i>  student Sign up
+                  </a>
+                 <a class="dropdown-item" onclick="ajax_popup_login();" ><i class="material-icons">person_add</i>  student Login
+                </a>
+                {% endif %}
+               
+                </div>
+              </div>
+
+        </li>
+       
+
+
+   
+        </ul>
+      </div>
     </div>
-</div>
+  </nav>
+  <script>
+      $(document).ready(function(){
+                        $('.dropdown-toggle').dropdown();
+                        });
+      </script>
+
+
