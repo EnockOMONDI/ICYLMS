@@ -522,7 +522,7 @@
                 <div class=""  style="height: 180px">
                     {% if user.student.profile_pic %}
                     <a href="#pablo">
-                        <img class="img"  src="{% static 'img/studentavatar.png' %}"  style="height: 140px">
+                        <img class="img" src="{{user.student.profile_pic.url}}"  style="height: 140px">
   
                       </a>
                       {% else %}

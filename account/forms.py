@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 import datetime
 from django.forms import ModelForm, Textarea, TextInput, NumberInput, FileField
 from django.forms.extras.widgets import Select, SelectDateWidget
+from cloudinary.forms import CloudinaryFileField
 
 
 class PrivateMessageForm(forms.ModelForm):
@@ -63,20 +64,25 @@ class UserForm(forms.ModelForm):
         except User.DoesNotExist:
             pass
 
-
-
 class StudentForm(forms.ModelForm):
-    
+    profile_pic = CloudinaryFileField(
+        options = {
+            'crop': 'thumb',
+            'width': 200,
+            'height': 200,
+            'folder': 'profilepic'
+       },
+      
+    )
     class Meta:
         model = Student
-        
-        fields = {'country','age','bio','interests'  }
+        fields = {'profile_pic', 'country',  'age','bio','interests'}
         labels = {
             'country': 'Country :',
             'age': 'Age :',
             'bio': 'Bio :',
             'interests': 'Interests :',
-            # 'profile_pic' : 'Profile pic' 
+          
         }
 
         widgets = { 
@@ -84,5 +90,4 @@ class StudentForm(forms.ModelForm):
             'bio': Textarea(attrs={'class': u'form-control','placeholder': u'Enter your Bio here'}),
             'country': Select(attrs={'class': u'form-control'}),
             'age': NumberInput(attrs={'class': u'form-control','placeholder': u'Enter your age here'}),
-            # 'profile_pic' : FileField(attrs={'class': u'form-control'}),
         }

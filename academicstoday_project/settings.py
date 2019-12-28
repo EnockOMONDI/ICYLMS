@@ -12,6 +12,7 @@ import os
 import dj_database_url
 from decouple import config
 import sys
+import cloudinary
 
 
 # Import variables for our application. Basically all imported variables
@@ -67,7 +68,8 @@ INSTALLED_APPS = (
     'registrar',
     'student',
     'teacher',
-    'publisher'
+    'publisher',
+    'cloudinary'
     
 )
 
@@ -166,6 +168,13 @@ UPLOADCARE = {
   'pub_key': 'd4d69f96f2e2dde353d1',
   'secret': 'a31559dd611e70c202f4',
 }
+
+cloudinary.config(
+  cloud_name ='lada' ,
+  api_key = '991846289858872',
+  api_secret = 'PxriDvQELG9426d-3KZ1_OtbsVE',
+  secure = True
+)
 
 
 # Static files (CSS, JavaScript, Images) & Upload Content

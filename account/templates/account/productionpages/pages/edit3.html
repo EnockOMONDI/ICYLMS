@@ -46,17 +46,17 @@
               
               <div class="mx-auto" style="width: 180px;">
                 <div class=""  style="height: 180px">
-                    {% if user.student.profile_pic %}
-                    <a href="#pablo">
-                        <img class="img"  src="{% static 'img/studentavatar.png' %}"  style="height: 140px">
-  
-                      </a>
-                      {% else %}
-                  <a href="#pablo">
-                      <img class="img"  src="{% static 'img/studentavatar.png' %}"  style="height: 140px">
-
-                    </a>
-                    {% endif %}
+                        {% if user.student.profile_pic %}
+                        <a href="#pablo">
+                            <img class="img" src="{{user.student.profile_pic.url}}"  style="height: 140px">
+      
+                          </a>
+                          {% else %}
+                      <a href="#pablo">
+                          <img class="img"  src="{% static 'img/studentavatar.png' %}"  style="height: 140px">
+    
+                        </a>
+                        {% endif %}
                 </div>
               </div>
             </div>
