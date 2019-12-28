@@ -70,13 +70,13 @@ class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
         
-        fields = {'country','age','bio','interests',  }
+        fields = {'country','age','bio','interests'  }
         labels = {
             'country': 'Country :',
             'age': 'Age :',
             'bio': 'Bio :',
             'interests': 'Interests :',
-              
+            # 'profile_pic' : 'Profile pic' 
         }
 
         widgets = { 
@@ -84,4 +84,5 @@ class StudentForm(forms.ModelForm):
             'bio': Textarea(attrs={'class': u'form-control','placeholder': u'Enter your Bio here'}),
             'country': Select(attrs={'class': u'form-control'}),
             'age': NumberInput(attrs={'class': u'form-control','placeholder': u'Enter your age here'}),
+            # 'profile_pic' : FileField(attrs={'class': u'form-control'}),
         }
