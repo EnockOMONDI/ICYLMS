@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     url(r'^donate$', donate.donate_page),
     #productionurls
     # url(r'^profileprod$', profileprod.profileprod),
-    # url(r'^editprod$', profileprod.editprod),
+    url(r'^trainingbits$', profile.trainingbits),
     url(r'^update_profile$', profile.update_profile),
     url(r'^view/profile/', profile.view_profile, ),
 

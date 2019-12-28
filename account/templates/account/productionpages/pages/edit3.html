@@ -156,7 +156,149 @@
     </div>
 
 
-{% include "landpage/main/js.html" %}  
+    {% include "landpage/main/js.html" %}  
 
-<div id="ajax_logout"></div>
+    <div id="ajax_logout"></div>
+    
+    <!-- Modal -->
+    <div id="ajax_modal_placeholder"
+       name="ajax_modal_placeholder"></div>
+    <!-- end modal -->
+    <script>
+            /**
+             *  Function will call AJAX function to enroll into a specific course for the
+             *  current logged on user.
+             */
+            function ajax_enroll(course_id)
+            {
+                var url = 'enroll';
+        
+                $.ajax( url, {
+                   data: {
+                       'course_id' : course_id,
+                       'csrfmiddlewaretoken': '{{ csrf_token }}',
+                   },
+                   type: 'post',
+                   success: function(result) {
+                       // success code execution here
+                       if (result.status == 'success')
+                       {
+                           window.location = 'course/' + course_id + '/announcements';
+                       }
+                   },
+                   error: function(xhr,status,error) {
+                       // error code here
+                   },
+                   complete: function(xhr,status) {
+                       // completion code here
+                   }
+                });
+            }
+        </script>
+    
+    <script>
+        function ajax_refresh_enrollments_table()
+        {
+            $.ajax( 'enrollment_table', {
+                data: {
+                   'csrfmiddlewaretoken': '{{ csrf_token }}',
+                },
+                type: 'post',
+                   success: function(result) {
+                   // success code execution here
+                   $('#ajax_table_placeholder').html(result); // Update UI.
+                },
+                error: function(xhr,status,error) {
+                   // error code here
+                },
+                complete: function(xhr,status) {
+                   // completion code here
+                }
+            });
+        }
+        
+        function ajax_continue_course(course_id)
+        {
+            var url = 'enroll';
+        
+            $.ajax( url, {
+               data: {
+                   'course_id' : course_id,
+                   'csrfmiddlewaretoken': '{{ csrf_token }}',
+               },
+               type: 'post',
+               success: function(result) {
+                   // success code execution here
+                   if (result.status == 'success')
+                   {
+                        window.location = 'course/' + course_id + '/announcement';
+                   }
+               },
+               error: function(xhr,status,error) {
+                   // error code here
+               },
+               complete: function(xhr,status) {
+                   // completion code here
+               }
+            });
+        }
+        function ajax_disenroll_modal(course_id)
+        {
+            $('#del_' + course_id + '_btn').prop("disabled", true); // Lock button
+            $.ajax( 'disenroll_modal', {
+                data: {
+                   'csrfmiddlewaretoken': '{{ csrf_token }}',
+                   'course_id': course_id,
+                },
+                type: 'post',
+                success: function(result) {
+                   // success code execution here
+                   $('#ajax_modal_placeholder').html(result); // Update UI.
+                   $('#disenroll_modal').modal();             // Unhide view.
+                },
+                error: function(xhr,status,error) {
+                   // error code here
+                },
+                complete: function(xhr,status) {
+                   // completion code here
+                }
+            });
+        }
+           $(document).ready(function(){
+            $('#disenroll_modal').on('hidden.bs.modal', function (e) {
+                $('#ajax_modal_placeholder').html('');
+                $('#del_{{ course.id }}_btn').prop("disabled", false); // Unlock button
+            });
+        });
+        
+        /**
+         *  Function will call AJAX function to delete the teacher's course.
+         */
+        function ajax_disenroll_course(course_id)
+        {
+            $('#del_' + course_id + '_btn').prop("disabled", true); // Lock button
+            $.ajax( 'disenroll', {
+                data: {
+                   'csrfmiddlewaretoken': '{{ csrf_token }}',
+                   'course_id' : course_id
+                },
+                type: 'post',
+                success: function(result) {
+                   // success code execution here
+                   if (result.status == 'success')
+                   {
+                        $('#disenroll_modal').modal('hide');
+                        ajax_refresh_enrollments_table();
+                   }
+                },
+                error: function(xhr,status,error) {
+                   // error code here
+                },
+                complete: function(xhr,status) {
+                   // completion code here
+                   $('#del_' + course_id + '_btn').prop("disabled", false); // Unlock button
+                }
+            });
+        }
+    </script>
     {% endblock content %}

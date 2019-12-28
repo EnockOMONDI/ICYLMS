@@ -1,0 +1,85 @@
+{% extends 'productionpages/base3.html' %}
+
+{% load staticfiles%}
+{% block content %}
+<main>
+  <div class="container-fluid">
+  
+      <!-- Section: Profile -->
+      <section>
+            {% include "registrar/nav.html" %}
+        <!-- Grid row -->
+        <div class="row mt-10">
+  
+          <div class="col-md-12 mb-12">
+  
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+                
+                    <div class="card card-profile card-plain" style="background-color:#fff">
+                      <div class="card-header card-avatar">
+                      
+                      </div>
+                      <div class="card-body ">
+                     
+                        <br>
+                        {% if request.user %}
+                        <h4 class="card-description"> Sorry,  <strong>{{ user.first_name }} {{ user.last_name }}</strong></h4>
+                        {% endif %}
+                        <h4 class="card-title">
+                        Training bits are currently unavailable. kindly check back later.
+                        </h4>
+                        <div class=" justify-content-center">
+                                <a href="/courses"  class="btn btn-outline-primary" ><i class="material-icons"></i>Browse courses</a>
+            
+            
+             
+                              </div>
+                      
+                        <br>
+                      </div>
+  
+                  </div>
+             
+              
+        
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+       
+          <!-- Grid column -->
+  
+        </div>
+       
+      </section>
+      <!-- Section: Profile -->
+  
+    </div>
+  </main>
+  <!-- Main layout -->
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {% endblock content %}
