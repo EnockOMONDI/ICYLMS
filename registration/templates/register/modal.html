@@ -107,8 +107,7 @@
                'password': $form.find('input[name="password"]').val(),
                'password_repeated': $form.find('input[name="password_repeated"]').val(),
                'is_18_or_plus': $('#id_is_18_or_plus').is(':checked'),
-               'captcha_0': $form.find('input[name="captcha_0"]').val(),
-               'captcha_1': $form.find('input[name="captcha_1"]').val(),
+
                'csrfmiddlewaretoken': '{{ csrf_token }}'
             },
             type: 'POST',
@@ -123,18 +122,9 @@
                         $form.find('input[name="password"]').val()
                     );
                }
-               else
-               {
-                    refresh_captcha();
                
-                    // Make the hidden error box appear and display error.
-                    print_error(json_result.message);
-               }
             },
-            error: function(xhr,status,error) {
-               // error code here
-               refresh_captcha();
-            },
+          
             complete: function(xhr,status) {
                // completion code here
             }
@@ -162,7 +152,7 @@
                     $('#register_modal').modal('hide');
                
                     // Load up the course list.
-                    window.location = 'update_profile';
+                    window.location = '/send';
                }
                else
                {

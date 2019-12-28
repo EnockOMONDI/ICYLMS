@@ -10,6 +10,13 @@ from registration.form import RegisterForm
 from django.db import transaction
 from django.contrib import messages
 from django.utils.translation import gettext as _
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.encoding import force_bytes, force_text
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.template.loader import render_to_string
+from .tokens import account_activation_token
+from django.core.mail import send_mail
+
 
 
 def register_modal(request):
@@ -17,24 +24,6 @@ def register_modal(request):
     return render(request, 'register/modal.html',{
         'form': form,
     })
-
-
-def register(request):
-    response_data = {}
-    if request.is_ajax():
-        if request.method == 'POST':
-            form = RegisterForm(request.POST)
-            # Validate the form: the captcha field will automatically
-            # check the input
-            if form.is_valid():
-                response_data = create_user(form)  # Create our store
-            else:
-                response_data = {'status' : 'failed', 'message' : json.dumps(form.errors)}
-    else:
-        response_data = {'status' : 'failure', 'message' : 'Not acceptable request made.' }
-    return HttpResponse(json.dumps(response_data), content_type="application/json")
-
-
 def create_user(form):
     # Create the user in our database
     email = form['email'].value().lower()
@@ -46,8 +35,10 @@ def create_user(form):
         )
         user.first_name = form['first_name'].value()
         user.last_name = form['last_name'].value()
-        # user.is_active = False;  # Need email verification to change status.
+        user.is_active = True   # Need email verification to change status.
         user.save()
+        
+        
     except Exception as e:
         return {
             'status' : 'failure',
@@ -58,4 +49,56 @@ def create_user(form):
     return {
         'status' : 'success',
         'message' : 'user registered'
+        
     }
+
+
+def send_email(request): 
+    send_mail('Subject here','Here is the message.',settings.EMAIL_HOST_USER,[settings.EMAIL_HOST_USER],fail_silently=False,
+                )  
+    return HttpResponse('Activation link is invalid!')
+    
+   
+def register(request):
+    response_data = {}
+    if request.is_ajax():
+        if request.method == 'POST':
+            form = RegisterForm(request.POST)
+            # Validate the form: the captcha field will automatically
+            # check the input
+            if form.is_valid():
+                response_data = create_user(form)
+                send_mail('subject', 'body of the message', 'sender@example.com', ['receiver1@example.com', 'receiver2@example.com'])
+
+                
+            else:
+                response_data = {'status' : 'failed', 'message' : json.dumps(form.errors)}
+                
+    else:
+        response_data = {'status' : 'failure', 'message' : 'Not acceptable request made.' }
+    return HttpResponse(json.dumps(response_data),content_type="application/json",)
+
+
+def activation_sent_view(request):
+    return render(request, 'register/activation_sent.html')    
+
+
+
+
+
+    
+
+def activate(request, uidb64, token):
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.save()
+        login(request, user)
+        # return redirect('home')
+        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+    else:
+        return HttpResponse('Activation link is invalid!')

@@ -7,6 +7,8 @@ from account.models import PrivateMessage,Student
 # from account.models import Profile,Post
 from django.contrib.auth.models import User
 import datetime
+from django_countries.widgets import CountrySelectWidget
+from cloudinary.forms import CloudinaryFileField
 
 class PrivateMessageForm(forms.ModelForm):
     class Meta:
@@ -63,7 +65,15 @@ class UserForm(forms.ModelForm):
 
 
 class StudentForm(forms.ModelForm):
-    
+    profile_pic = CloudinaryFileField(
+        options = {
+            'crop': 'thumb',
+            'width': 200,
+            'height': 200,
+            'folder': 'profilepic'
+       },
+       label='Upload Photo'
+    )
     class Meta:
         model = Student
-        fields = ('country',  'age','bio','interests')
+        fields = ('profile_pic','country',  'age','bio','interests')

@@ -62,7 +62,7 @@ class RegisterForm(forms.ModelForm):
     is_18_or_plus = forms.BooleanField(
         required=False
     )
-    captcha = CaptchaField()
+    # captcha = CaptchaField()
 
     # Functions
     #------------
@@ -93,5 +93,6 @@ class RegisterForm(forms.ModelForm):
         return password_repeated
 
 
+      
 # Captcha Setup:
 # http://django-simple-captcha.readthedocs.org/en/latest/usage.html#installation

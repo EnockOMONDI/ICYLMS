@@ -4,6 +4,8 @@ from django.utils.translation import gettext as _
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 import datetime
+from django_countries.fields import CountryField
+from cloudinary.models import CloudinaryField
 # from imagekit.models import ProcessedImageField
 
 
@@ -26,9 +28,9 @@ class PrivateMessage(models.Model):
 class Student(models.Model):
     student_id = models.AutoField(primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE,)
-    profile_pic = models.ImageField(upload_to= '/profile_pic', null=True)
+    profile_pic =  CloudinaryField('image',null=True)
     bio = models.TextField(max_length=500, blank=True,null=True)
-    country = models.CharField(max_length=255, blank=True,null=True )
+    country = models.CharField(max_length=30,null=True)
     age = models.IntegerField(null=True)
     interests = models.CharField(max_length=30,null=True)
     

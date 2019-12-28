@@ -12,7 +12,7 @@ import os
 import dj_database_url
 from decouple import config
 import sys
-
+import cloudinary
 
 # Import variables for our application. Basically all imported variables
 # have a SECRET_* prefix.
@@ -66,7 +66,9 @@ INSTALLED_APPS = (
     'registrar',
     'student',
     'teacher',
-    'publisher'
+    'publisher',
+    'django_countries',
+    'cloudinary'
     
 )
 
@@ -136,13 +138,14 @@ DATABASES['default'].update(db_from_env)
 # Email
 # http://stackoverflow.com/questions/19264907/python-django-gmail-smtp-setup
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = SECRET_EMAIL_HOST
-EMAIL_PORT = SECRET_EMAIL_PORT
-EMAIL_HOST_USER = SECRET_EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = SECRET_EMAIL_HOST_PASSWORD
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-DEFAULT_TO_EMAIL = EMAIL_HOST_USER
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = SECRET_EMAIL_HOST
+# EMAIL_PORT = SECRET_EMAIL_PORT
+# EMAIL_HOST_USER = SECRET_EMAIL_HOST_USER
+# EMAIL_HOST_PASSWORD = SECRET_EMAIL_HOST_PASSWORD
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# DEFAULT_TO_EMAIL = EMAIL_HOST_USER
+
 
 
 
@@ -187,4 +190,21 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
     # Add to this list all the locations containing your static files 
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ochungeugine@gmail.com'
+EMAIL_HOST_PASSWORD = '0728826517E'
+EMAIL_PORT = 587
+
+
+
+
+cloudinary.config(
+  cloud_name ='icy' ,
+  api_key = '964521225325331',
+  api_secret = 'GOK30UbVfDdAorEEnVAHUHt0Mvc',
+  secure = True
 )

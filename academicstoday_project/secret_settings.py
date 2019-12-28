@@ -14,7 +14,7 @@ SECRET_DB_PASSWORD = "lucy"
 #---------------------------------------------------------------------------#
 # Email                                                                     #
 #---------------------------------------------------------------------------#
-SECRET_EMAIL_HOST = ''
+SECRET_EMAIL_HOST = 'smtp.gmail.com'
 SECRET_EMAIL_PORT = 587
 SECRET_EMAIL_HOST_USER = 'ochungeugine@gmail.'
 SECRET_EMAIL_HOST_PASSWORD = '0728826517E'

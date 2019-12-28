@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models, migrations
 from django.conf import settings
+import cloudinary.models
 
 
 class Migration(migrations.Migration):
@@ -25,12 +26,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='student',
             name='country',
-            field=models.CharField(max_length=255, blank=True, null=True),
-        ),
-        migrations.AddField(
-            model_name='student',
-            name='date_joined',
-            field=models.DateTimeField(verbose_name='date joined', null=True, auto_now_add=True),
+            field=models.CharField(max_length=30, null=True),
         ),
         migrations.AddField(
             model_name='student',
@@ -40,7 +36,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='student',
             name='profile_pic',
-            field=models.ImageField(null=True, upload_to='media/'),
+            field=cloudinary.models.CloudinaryField(verbose_name='image', max_length=255, null=True),
         ),
         migrations.AlterField(
             model_name='student',
