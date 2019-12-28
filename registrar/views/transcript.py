@@ -15,7 +15,7 @@ from registrar.models import CourseSetting
 from registrar.forms import CourseForm
 
 
-@login_required(login_url='/landpage')
+@login_required(login_url='/landpageprod')
 def transcript_page(request):
     courses = Course.objects.filter(status=settings.COURSE_AVAILABLE_STATUS)
     

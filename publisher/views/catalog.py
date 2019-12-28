@@ -10,7 +10,7 @@ import json
 from publisher.models import Publication
 
 
-@login_required(login_url='/landpage')
+@login_required(login_url='/landpageprod')
 def catalog_page(request):
     publication_list = Publication.objects.all()
     paginator = Paginator(publication_list, 25) # Show 25 courses per page

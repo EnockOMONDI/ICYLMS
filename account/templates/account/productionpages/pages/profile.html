@@ -486,7 +486,7 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-lg-8 col-md-12 text-center">
+        <div class="col-lg-8 col-md-8 text-center">
   <br>
   <br>
   <br>
@@ -508,8 +508,8 @@
       </div>
     </div>
     <div class="card-body ">
-      <div class="tab-content text-center">
-        <div class="tab-pane active" id="courses">
+      <!-- <div class="tab-content text-center">
+        <div class="tab-pane active" id="courses"> -->
     <!-- Heading -->
 
     
@@ -535,67 +535,54 @@
               </div>
             </div>
             <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
-              <div class="text-center text-sm-left mb-5 mb-sm-0">
-                <!-- <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">dj sean</h4> -->
-                <h3 class="card-title">{{ user.first_name }} {{ user.last_name }} </h3>
-                <p class="mb-0">@{{ user.first_name }}{{ user.last_name }} </p>
+                <div class="text-center text-sm-left mb-5 mb-sm-0">
+                    <!-- <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">dj sean</h4> -->
+                    <h3 class="card-title">   <span class="card-title"> Name:</span>  {{ user.first_name }} {{ user.last_name }} </h3>
+                    <p class="card-description">  <span class="card-title"> UserName:</span> @{{ user.first_name }}{{ user.last_name }} </p>
+                    <p class="card-description">  <span class="card-title"> Location:</span><i class="material-icons">location_on </i>{{user.student.country}}</p>
 
-                <div class="text-center text-sm-left">
-                    <span class="badge badge-secondary">student</span>
-                    <div class="text-muted"><small>Joined {{user.date_joined }}</small></div>
-                  </div>
-                <!-- <div class="text-muted"><small>Last seen 2 hours ago</small></div> -->
 
-                <div class="card-body ">
-                    
-                    <p class="card-title">
-                     Bio: {{user.student.bio}}
-                    </p>
-                  </div>
-            
-              </div>
-              <div class="text-center text-sm-right">
-                  <h5 class="card-category text-muted"><i class="material-icons">location_on </i>{{user.student.country}}</h5>
-                  <!-- <div class="text-muted"><small>Joined 09 Dec 2019</small></div> -->
-              </div>
-              <div class="text-center mt-3 mb-5">
-                <!-- 
-                        <button type="button" class="btn btn-info btn-rounded mt-4" data-toggle="modal" data-target="#modalSubmitProject">
-                          edit Profile <i class="far fa-image ml-1"></i></button> -->
-                          <!-- <h3 class="title">Personal info on LADA</h3> -->
-                          <a class="btn btn-outline-primary" href="/update_profile" ><i class="material-icons">edit</i>update profile</a>
-                
-                
+
+                    <div class="text-center text-sm-left">
+                        <span class="badge badge-secondary">student</span> <small>Joined {{user.date_joined }}</small>
+                        <!-- <div class="text-muted"><small>Joined {{user.date_joined }}</small></div> -->
                       </div>
+                    <!-- <div class="text-muted"><small>Last seen 2 hours ago</small></div> -->
+    
+                   
+                
+                  </div>
+                 
+                    
             </div>
+          
           </div>
-          <ul class="nav nav-tabs">
-            <li class="nav-item"><a href="" class="active nav-link">Settings</a></li>
-          </ul>
+     
     
-        </div>
-        </div>
+        <!-- </div>
+        </div> -->
     
     
             </div>
             </div>
+            <div class="card-body ">
+                        
+                <h5 class="card-description">
+                <span class="card-title"> Bio:</span> 
 
+                
+               </h5>
+
+   <h5 class="card-description text-center "> {{user.student.bio}}</h5>
+              
+            </div>
 
         </div>
       </div>
 
       <div class="col-md-4 mb-4">
           <br>
-          <br>
-<!-- 
-          <div class="modal-footer justify-content-center">               
-           <button type="button" class="btn btn-outline-primary" href="#editModal" ><i class="material-icons"></i>edit</button>
-
-
-              <button type="button" class="btn btn-outline-primary" onclick="ajax_logout();" ><i class="material-icons"></i>Logout</button>
-            </div>
-             -->
-          
+          <br>        
          
              
         <!-- Section: Basic Info -->
@@ -604,7 +591,7 @@
         <div class="card card-profile card-plain" style="background-color:#fff">
             <div class="card-body text-center">
 
-              <h5><strong>Interests</strong></h5>
+                <h5 class="card-title">Interests</h5>
 
               <hr class="my-3">
 
@@ -616,53 +603,16 @@
         </div>
         <div class="card card-profile card-plain" style="background-color:#fff">
             <div class="card-body">
-                <h6 class="card-title font-weight-bold">Support</h6>
+                <h5 class="card-title ">Support</h5>
                 <p class="card-text">Get fast, free help from our friendly assistants.</p>
                <a href="/contactus" class="btn btn-primary" >Contact Us</a> 
               </div>
             
         </div>
-        <div class="card card-profile card-plain" style="background-color:#fff">
-            <div class="card-body text-center">
-
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-outline-primary" onclick="ajax_logout();" ><i class="material-icons"></i>Logout</button>
-                  </div>
-              
-            </div>
-            
-        </div>
+    
      
 
      
-        <!-- Section: Achievements -->
-
-        <!-- Section: Experience -->
-        <!-- <section class="card mb-4">
-          <div class="card-body">
-
-            <h5 class="text-center mb-4"><strong>Contributions </strong></h5>
-
-            <ul class="list-unstyled pt-4">
-              <li>
-                <p>Questions <span class="badge badge-primary pull-right">14</span></p>
-              </li>
-              <hr>
-              <li>
-                <p>Answers <span class="badge badge-primary pull-right">14</span></p>
-              </li>
-              <hr>
-          
-              <li>
-                <p>Pull requests <span class="badge badge-primary pull-right">14</span></p>
-              </li>
-
-            </ul>
-
-          </div>
-        </section> -->
-        <!-- Section: Experience -->
-
       </div>
     </div>
   </div>

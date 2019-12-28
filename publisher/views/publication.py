@@ -12,7 +12,7 @@ from registrar.models import PeerReview
 from student.forms import PeerReviewForm
 
 
-@login_required(login_url='/landpage')
+@login_required(login_url='/landpageprod')
 def publication_page(request, publication_id):
     try:
         publication = Publication.objects.get(publication_id=publication_id)

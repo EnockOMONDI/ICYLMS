@@ -12,7 +12,7 @@ from publisher.models import Publication
 from registrar.models import PeerReview
 from publisher.forms import PublicationForm
 
-@login_required(login_url='/landpage')
+@login_required(login_url='/landpageprod')
 def my_publications_page(request):
     try:
         publications = Publication.objects.filter(author=request.user)

@@ -17,7 +17,7 @@ from registrar.models import CourseSetting
 from registrar.forms import CourseForm
 
 
-@login_required(login_url='/landpage')
+@login_required(login_url='/landpageprod')
 def certificates_page(request):
     # Create our student account which will build our registration around.
     try:
@@ -59,7 +59,7 @@ def certificates_table(request):
     })
 
 
-@login_required(login_url='/landpage')
+@login_required(login_url='/landpageprod')
 def change_certificate_accessiblity(request):
     response_data = {'status' : 'failed', 'message' : 'unknown error with saving'}
     if request.is_ajax():

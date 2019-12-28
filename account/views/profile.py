@@ -52,7 +52,7 @@ def update_profile(request):
             messages.error(request, _('Please correct the error below.'))
     else:
         profile_form = StudentForm(instance=request.user.student)
-    return render(request, 'account/productionpages/pages/edit.html', {
+    return render(request, 'account/productionpages/pages/edit3.html', {
         # 'user_form': user_form,
         'profile_form': profile_form,
         'local_css_urls': [                    

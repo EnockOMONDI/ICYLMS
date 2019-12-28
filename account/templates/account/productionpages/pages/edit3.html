@@ -1,0 +1,162 @@
+{% extends 'productionpages/base3.html' %}
+
+{% load staticfiles%}
+{% block content %}
+
+
+
+         
+                
+      <!-- Grid row -->
+      <div class="row mt-4 " style="padding-left:10px;">
+
+    
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-lg-8 col-md-8 text-center">
+
+  <!-- Tabs with icons on Card -->
+  <div class="card  card-plain card-nav-tabs"  style="background-color:#fff">
+    <div class="card-header card-header-primary">
+      <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+      <div class="nav-tabs-navigation">
+        <div class="nav-tabs-wrapper">
+          <ul class="nav nav-tabs" data-tabs="tabs">
+            <li class="nav-item">
+              <a class="nav-link active" href="/update_profile" data-toggle="tab">
+              {{ user.first_name }} {{ user.last_name }}  Personal info on LADA
+              </a>
+            </li>
+           
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card-body ">
+      <!-- <div class="tab-content text-center">
+        <div class="tab-pane active" id="courses"> -->
+    <!-- Heading -->
+
+    
+
+      <div class="e-profile">
+          <div class="row">
+            <div class="col-12 col-sm-auto mb-4">
+              
+              <div class="mx-auto" style="width: 180px;">
+                <div class=""  style="height: 180px">
+                    {% if user.student.profile_pic %}
+                    <a href="#pablo">
+                        <img class="img"  src="{% static 'img/studentavatar.png' %}"  style="height: 140px">
+  
+                      </a>
+                      {% else %}
+                  <a href="#pablo">
+                      <img class="img"  src="{% static 'img/studentavatar.png' %}"  style="height: 140px">
+
+                    </a>
+                    {% endif %}
+                </div>
+              </div>
+            </div>
+            <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                <div class="text-center text-sm-left mb-5 mb-sm-0">
+                    <!-- <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">dj sean</h4> -->
+                    <h3 class="card-title">   <span class="card-title"> Name:</span>  {{ user.first_name }} {{ user.last_name }} </h3>
+                    <p class="card-description">  <span class="card-title"> UserName:</span> @{{ user.first_name }}{{ user.last_name }} </p>
+                    <p class="card-description">  <span class="card-title"> Location:</span><i class="material-icons">location_on </i>{{user.student.country}}</p>
+
+
+
+                    <div class="text-center text-sm-left">
+                        <span class="badge badge-secondary">student</span> <small>Joined {{user.date_joined }}</small>
+                        <!-- <div class="text-muted"><small>Joined {{user.date_joined }}</small></div> -->
+                      </div>
+                    <!-- <div class="text-muted"><small>Last seen 2 hours ago</small></div> -->
+    
+                   
+                
+                  </div>
+                 
+                    
+            </div>
+          
+          </div>
+     
+    
+        <!-- </div>
+        </div> -->
+    
+    
+            </div>
+            </div>
+            <div class="card-body ">
+                    <div class="text-center">
+
+                            <h5 class="card-title">Edit your personal info below</h5>
+              
+                            <hr class="my-3">
+              
+                          
+                            
+                          </div>
+                    {% include "account/productionpages/pages/updateuserform.html" with form=profile_form %}
+
+
+              </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+          <br>
+          <br>        
+         
+             
+        <!-- Section: Basic Info -->
+
+        <!-- Section: Achievements -->
+        <div class="card card-profile card-plain" >
+                <div class="card-body text-center">
+    
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-outline-primary" onclick="ajax_logout();" ><i class="material-icons"></i>Logout</button>
+                      </div>
+                  
+                </div>
+                
+            </div>
+        <div class="card card-profile card-plain" style="background-color:#fff">
+            <div class="card-body text-center">
+
+              <h5 class="card-title">Interests</h5>
+
+              <hr class="my-3">
+
+              <button type="button" class="btn btn-light-blue btn-rounded btn-sm px-3" data-toggle="modal"
+                data-target="#modalAchievment"> {{ user.student.interests }}</button>
+              
+            </div>
+            
+        </div>
+        <div class="card card-profile card-plain" style="background-color:#fff">
+            <div class="card-body">
+                <h5 class="card-title ">Support</h5>
+                <p class="card-text">Get fast, free help from our friendly assistants.</p>
+               <a href="/contactus" class="btn btn-primary" >Contact Us</a> 
+              </div>
+            
+        </div>
+     
+     
+
+     
+      </div>
+    </div>
+
+
+{% include "landpage/main/js.html" %}  
+
+<div id="ajax_logout"></div>
+    {% endblock content %}
