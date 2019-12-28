@@ -7,8 +7,9 @@ from account.models import PrivateMessage,Student
 # from account.models import Profile,Post
 from django.contrib.auth.models import User
 import datetime
-from django.forms import ModelForm, Textarea, TextInput, NumberInput
+from django.forms import ModelForm, Textarea, TextInput, NumberInput, FileField
 from django.forms.extras.widgets import Select, SelectDateWidget
+
 
 class PrivateMessageForm(forms.ModelForm):
     class Meta:
@@ -68,19 +69,19 @@ class StudentForm(forms.ModelForm):
     
     class Meta:
         model = Student
-        fields = {'country','age','bio','interests', 'profile_pic'}
+        
+        fields = {'country','age','bio','interests',  }
         labels = {
-            'country': 'country',
-            'age': 'age',
-            'bio': 'bio',
-            'interests': 'interests',
-            'profile_pic':'upload Image',   
+            'country': 'Country :',
+            'age': 'Age :',
+            'bio': 'Bio :',
+            'interests': 'Interests :',
+              
         }
 
         widgets = { 
-            'interests': TextInput(attrs={'class': u'form-control','placeholder': u'Enter interests'}),
-            'bio': Textarea(attrs={'class': u'form-control','placeholder': u'Enter bio'}),
+            'interests': TextInput(attrs={'class': u'form-control','placeholder': u'Enter your interests interests'}),
+            'bio': Textarea(attrs={'class': u'form-control','placeholder': u'Enter your Bio here'}),
             'country': Select(attrs={'class': u'form-control'}),
-            'age': NumberInput(attrs={'class': u'form-control','placeholder': u'Enter age'}),
-
+            'age': NumberInput(attrs={'class': u'form-control','placeholder': u'Enter your age here'}),
         }

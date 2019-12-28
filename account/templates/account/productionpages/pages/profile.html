@@ -491,7 +491,7 @@
   <br>
   <br>
   <!-- Tabs with icons on Card -->
-  <div class="card card-nav-tabs">
+  <div class="card  card-plain card-nav-tabs"  style="background-color:#fff">
     <div class="card-header card-header-primary">
       <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
       <div class="nav-tabs-navigation">
@@ -512,37 +512,25 @@
         <div class="tab-pane active" id="courses">
     <!-- Heading -->
 
-      <!-- <div class="card card-profile card-plain" style="background-color:#fff">
-          <div class="card-header card-avatar">
-            {% if profile.image %}
-<img class="img" src="{{user.student.profile_pic.url}}">
-{% else %}
-  <img src="{% static 'img/studentavatar.png' %}">
-{% endif %}
-              
-            
-          </div>
-          <div class="card-body ">
-            <h4 class="card-title">{{ user.first_name }} {{ user.last_name }} </h4>
-            <h5 class="card-category text-muted"><i class="material-icons">location_on </i>{{user.student.country}}</h5>
-            <h6 class="card-category text-muted"><i class="material-icons">person_add </i> Age: {{user.student.age}}</h6>
-            <p class="card-description">
-             Bio: {{user.student.bio}}
-            </p>
-          </div>
-
-      </div> -->
-
+    
 
       <div class="e-profile">
           <div class="row">
             <div class="col-12 col-sm-auto mb-4">
+              
               <div class="mx-auto" style="width: 180px;">
                 <div class=""  style="height: 180px">
+                    {% if user.student.profile_pic %}
+                    <a href="#pablo">
+                        <img class="img"  src="{% static 'img/studentavatar.png' %}"  style="height: 140px">
+  
+                      </a>
+                      {% else %}
                   <a href="#pablo">
                       <img class="img"  src="{% static 'img/studentavatar.png' %}"  style="height: 140px">
 
                     </a>
+                    {% endif %}
                 </div>
               </div>
             </div>

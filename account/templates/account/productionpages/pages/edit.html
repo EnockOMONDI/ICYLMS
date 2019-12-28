@@ -8,9 +8,7 @@
 
 <div class="col-lg-12 col-md-12 text-center">
     <!-- Tabs with icons on Card -->
-    <br>
-<br>
-<br>
+
     <div class="card card-nav-tabs">
       <div class="card-header card-header-primary">
         <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
@@ -41,23 +39,22 @@
                     <div class="card">
                       <div class="card-body">
                         <div class="e-profile">
+                          <br>     <br>     <br>
                           <div class="row">
-                            <div class="col-12 col-sm-auto mb-3">
-                              <div class="mx-auto" style="width: 140px;">
-                                <!-- <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
-                                  <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
-                                </div> -->
-                                <div class=""  style="height: 140px">
+                            <div class="col-12 col-sm-auto mb-6">
+                           
+                               
+                                <div class="mx-auto"  >
                                   <a href="#pablo">
-                                    <img class="img" src="static/img/studentavatar.png"  style="height: 140px" />
+                                    <img  style="width: 180px " src="static/img/studentavatar.png"   class="img-raised rounded-circle img-fluid"/>
                                   </a>
                                 </div>
-                              </div>
+                            
                             </div>
-                            <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                            <div class="col d-flex flex-column flex-sm-row justify-content-between mb-4">
                               <div class="text-center text-sm-left mb-2 mb-sm-0">
-                                <h3 class="pt-sm-2 pb-1 mb-0 text-nowrap">{{ user.first_name }} {{ user.last_name }}</h3>
-                                <p class="mb-0">@{{ user.first_name }}{{ user.last_name }}</p>
+                                <h3 class="pt-sm-2 pb-1 mb-0 text-nowrap"> <span class= "text-muted" >Name : </span> {{ user.first_name }} {{ user.last_name }}</h3>
+                                <p class="mb-0"><span class= "text-muted" >Username: </span>  @{{ user.first_name }}{{ user.last_name }}</p>
                                 <!-- <div class="text-muted"><small>Last seen 2 hours ago</small></div> -->
                                 <!-- <div class="mt-2">
                                   <button class="btn btn-primary" type="button">

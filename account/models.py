@@ -97,7 +97,7 @@ class PrivateMessage(models.Model):
 class Student(models.Model):
     student_id = models.AutoField(primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE,)
-    profile_pic = models.ImageField(upload_to= '/profile_pic', blank=True, null=True)
+    profile_pic = models.ImageField(upload_to= '/profile_pic',blank=True, null=True)
     bio = models.TextField(max_length=500, blank=True, null=True)
     country = models.CharField(max_length=127, choices=COUNTRY_CATEGORY_TYPES,  blank=True,null=True,  default='Kenya')
     age = models.PositiveSmallIntegerField(default='18', null=True)
