@@ -25,39 +25,6 @@
         
 
             
-                <li {% if tab == 'overview' %}class="active dropdown nav-item"{% endif %}>
-                        <a class="nav-link" href="/teacher/course/{{ course.id }}/overview"><i class="fa fa-fw fa-sitemap"></i> Overview</a>
-                    </li>
-                    <li {% if tab == 'home' %}class="active dropdown nav-item"{% endif %}>
-                        <a class="nav-link" href="/teacher/course/{{ course.id }}/home"><i class="fa fa-fw fa-bullhorn"></i> Announcements</a>
-                    </li>
-                    <li  {% if tab == 'syllabus' %}class="active dropdown nav-item"{% endif %}>
-                        <a class="nav-link" href="/teacher/course/{{ course.id }}/syllabus"><i class="fa fa-fw fa-info"></i> Syllabus</a>
-                    </li>
-                    <li {% if tab == 'policy' %}class="active dropdown nav-item"{% endif %}>
-                        <a class="nav-link" href="/teacher/course/{{ course.id }}/policy"><i class="fa fa-fw fa-legal"></i> Grading and Policy</a>
-                    </li>
-                    <li {% if tab == 'lectures ' %}class="active dropdown nav-item"{% endif %}>
-                        <a class="nav-link" href="/teacher/course/{{ course.id }}/lectures"><i class="fa fa-fw fa-video-camera"></i> Lectures</a>
-                    </li>
-                    <li {% if tab == 'assignments' %}class="active dropdown nav-item"{% endif %}>
-                        <a class="nav-link" href="/teacher/course/{{ course.id }}/assignments"><i class="fa fa-fw fa-book"></i> Assignments</a>
-                    </li>
-                    <li {% if tab == 'quizzes' %}class="active dropdown nav-item"{% endif %}>
-                        <a class="nav-link" href="/teacher/course/{{ course.id }}/quizzes"><i class="fa fa-fw fa-star-half"></i> Quizzes</a>
-                    </li>
-                    <li {% if tab == 'exams' %}class="active dropdown nav-item"{% endif %}>
-                        <a class="nav-link" href="/teacher/course/{{ course.id }}/exams"><i class="fa fa-fw fa-star"></i> Exams</a>
-                    </li>
-                    <li {% if tab == 'discussion' %}class="active dropdown nav-item"{% endif %}>
-                        <a class="nav-link" href="/teacher/course/{{ course.id }}/discussion"><i class="fa fa-fw fa-comment"></i> Discussion</a>
-                    </li>
-                    <li {% if tab == 'peer_reviews' %}class="active dropdown nav-item"{% endif %}>
-                        <a class="nav-link" href="/teacher/course/{{ course.id }}/peer_reviews"><i class="fa fa-fw fa-child"></i> Peer Review</a>
-                    </li>
-                    <li {% if tab == 'settings' %}class="active dropdown nav-item"{% endif %}>
-                        <a class="nav-link" href="/teacher/course/{{ course.id }}/settings"><i class="fa fa-fw fa-cogs"></i> Settings</a>
-                    </li>
               <div class="dropdown ">
                   {% if request.user.is_authenticated %}
                  
