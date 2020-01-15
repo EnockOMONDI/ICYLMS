@@ -53,11 +53,7 @@ def create_user(form):
     }
 
 
-def send_email(request): 
-    send_mail('Subject here','Here is the message.',settings.EMAIL_HOST_USER,[settings.EMAIL_HOST_USER],fail_silently=False,
-                )  
-    return HttpResponse('Activation link is invalid!')
-    
+
    
 def register(request):
     response_data = {}
