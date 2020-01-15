@@ -71,8 +71,8 @@ class StudentForm(forms.ModelForm):
             'width': 200,
             'height': 200,
             'folder': 'profilepic'
-       },
-       label='Upload Photo'
+       }
+     
     )
     class Meta:
         model = Student

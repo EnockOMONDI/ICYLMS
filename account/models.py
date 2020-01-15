@@ -28,7 +28,7 @@ class PrivateMessage(models.Model):
 class Student(models.Model):
     student_id = models.AutoField(primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE,)
-    profile_pic =  CloudinaryField('image',null=True)
+    profile_pic =  CloudinaryField('file',null=True)
     bio = models.TextField(max_length=500, blank=True,null=True)
     country = models.CharField(max_length=30,null=True)
     age = models.IntegerField(null=True)
