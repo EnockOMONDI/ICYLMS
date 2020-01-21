@@ -59,6 +59,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'jet.dashboard',
+    'jet',
     'pyuploadcare.dj',
     'captcha',
     'account',
@@ -70,7 +72,7 @@ INSTALLED_APPS = (
     'teacher',
     'publisher',
     'cloudinary'
-    
+   
 )
 
 MIDDLEWARE_CLASSES = (

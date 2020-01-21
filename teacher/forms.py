@@ -16,6 +16,7 @@ from registrar.models import TrueFalseQuestion
 from registrar.models import ResponseQuestion
 from registrar.models import Quiz
 from registrar.models import Exam
+from cloudinary.forms import CloudinaryFileField
 
 
 class AnnouncementForm(forms.ModelForm):
@@ -32,6 +33,11 @@ class AnnouncementForm(forms.ModelForm):
 
 
 class SyllabusForm(forms.ModelForm):
+    file = CloudinaryFileField(
+      options = { 'folder': 'Syllabusfiles'
+       }, 
+        )
+
     class Meta:
         model = Syllabus
         fields = ['file']
@@ -40,7 +46,14 @@ class SyllabusForm(forms.ModelForm):
         }
 
 
+
+
+
 class PolicyForm(forms.ModelForm):
+    file = CloudinaryFileField(
+      options = { 'folder': 'policyfiles'
+       }, 
+        )
     class Meta:
         model = Policy
         fields = ['file']
@@ -77,6 +90,10 @@ class LectureForm(forms.ModelForm):
 
 
 class NoteUploadForm(forms.ModelForm):
+    file = CloudinaryFileField(
+      options = { 'folder': 'LectureNotefiles'
+       }, 
+    )
     class Meta:
         model = FileUpload
         fields = ['upload_id', 'title', 'description', 'file']

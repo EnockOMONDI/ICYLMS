@@ -19,10 +19,8 @@
     <br/>
     {% endfor %}
 </form> -->
-
-
+<!--  
 <form enctype="multipart/form-data" name="course_form" id="course_form">
-    <!-- <p class="description text-center">Or Be Classical</p> -->
     <input type="hidden"
     id="id_id"
   name="id"
@@ -42,4 +40,112 @@
 
      </div>
      {% endfor %}
-   </form>
+   </form>  -->
+
+
+
+
+<form  action=""  method="POST" enctype="multipart/form-data" name="course_form" id="course_form">
+    <input type="hidden"
+    id="id_id"
+  name="id"
+ value={% if form.instance.id != None %}"{{ form.instance.id }}"{% else %}0{% endif %}>
+    {% csrf_token %}
+ 
+
+  
+    <div class="card-body">
+     
+          <div class="row">
+              <div class="col">
+              <div class="form-group">
+              
+              </div>
+              </div>
+              </div>
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text">
+                  <i class="material-icons"></i>title:
+                  </span>
+              </div>
+  
+              {{ course_form.title}}
+        
+        </div>
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text">
+                  <i class="material-icons"></i>sub_title :
+                  </span>
+              </div>
+              {{ course_form.sub_title}}
+        
+        </div>
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text">
+                  <i class="material-icons"></i>category:
+                  </span>
+              </div>
+              {{ course_form.category}}
+        
+        </div>
+        <div class="input-group">
+            <div class="input-group-prepend">
+            <span class="input-group-text">
+            <i class="material-icons"></i>description :
+            </span>
+        </div>
+        {{ course_form.description}}
+  
+
+        
+  </div>
+
+  <div class="input-group">
+    <div class="input-group-prepend">
+    <span class="input-group-text">
+    <i class="material-icons"></i>sub_title :
+    </span>
+</div>
+{{ course_form.start_date}}
+
+</div>
+
+<div class="input-group">
+    <div class="input-group-prepend">
+    <span class="input-group-text">
+    <i class="material-icons"></i>sub_title :
+    </span>
+</div>
+{{ course_form.finish_date}}
+
+</div>
+        
+              
+       </div>
+
+       
+          <div class="col-md-6 col-sm-8">
+         
+            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+              <div class="fileinput-new thumbnail img-raised">
+               
+              </div>
+              <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+              <div>
+                <span class="btn btn-raised btn-round btn-default btn-file">
+                  <span class="fileinput-new">Select image</span>
+               
+                  <input id="id_image" name="image" type="file">
+
+                </span>
+                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+              </div>
+            </div>
+          </div>
+      
+
+         
+   </form> 

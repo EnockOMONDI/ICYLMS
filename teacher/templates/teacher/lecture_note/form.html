@@ -1,4 +1,4 @@
-<form enctype="multipart/form-data" name="lecture_note_form" id="lecture_note_form">
+<!-- <form enctype="multipart/form-data" name="lecture_note_form" id="lecture_note_form">
     <input type="hidden"
              id="id_upload_id"
            name="upload_id"
@@ -18,4 +18,71 @@
     </div>
     <br/>
     {% endfor %}
-</form>
+</form>  -->
+<form enctype="multipart/form-data" name="lecture_note_form" id="lecture_note_form">
+    <input type="hidden"
+             id="id_upload_id"
+           name="upload_id"
+          value={% if form.instance.upload_id != None %}"{{ form.instance.upload_id }}"{% else %}0{% endif %}>
+
+  
+          <div class="card-body">
+     
+            <div class="row">
+                <div class="col">
+                <div class="form-group">
+                
+                </div>
+                </div>
+                </div>
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text">
+                  <i class="material-icons"></i>title:
+                  </span>
+              </div>
+  
+              {{ lecture_note_form.title}}
+        
+        </div>
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text">
+                  <i class="material-icons"></i>description :
+                  </span>
+              </div>
+              {{lecture_note_form.description}}
+        
+        </div>
+             
+
+        
+              
+       </div>
+
+       
+          <div class="col-md-6 col-sm-8">
+         
+            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+              <div class="fileinput-new thumbnail img-raised">
+               
+              </div>
+              <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+              <div>
+                <span class="btn btn-raised btn-round btn-default btn-file">
+                  <span class="fileinput-new">Select image</span>
+               
+                  <input id="id_file" name="file" type="file">
+
+                </span>
+                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+              </div>
+            </div>
+          </div>
+      
+
+         
+   </form> 
+
+
+   

@@ -5,6 +5,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 import os
 from account.models import Student
 from account.models import Teacher
+from cloudinary.models import CloudinaryField
 
 WORTH_PERCENT_CHOICES = (
     (0, '0 %'),
@@ -108,7 +109,7 @@ class FileUpload(models.Model):
     title = models.CharField(max_length=127, null=True)
     description = models.TextField(null=True)
     upload_date = models.DateField(auto_now= True, null=True)
-    file = models.FileField(upload_to='uploads', null=True)
+    file = CloudinaryField('fileupload', null=True)
     user = models.ForeignKey(User)
     
     def delete(self, *args, **kwargs):
@@ -140,7 +141,7 @@ class Course(models.Model):
     finish_date = models.DateField(null=True)
     is_official = models.BooleanField(default=False)
     status = models.PositiveSmallIntegerField(default=settings.COURSE_UNAVAILABLE_STATUS)
-    image = models.ImageField(upload_to='uploads', null=True, blank=True)
+    image =  CloudinaryField('image', blank=True, null=True)
     students = models.ManyToManyField(Student)
     teacher = models.ForeignKey(Teacher)
 
@@ -257,7 +258,7 @@ class Announcement(models.Model):
 
 class Syllabus(models.Model):
     syllabus_id = models.AutoField(primary_key=True)
-    file = models.FileField(upload_to='uploads',null=True)
+    file = CloudinaryField('syllabusfiles', null=True)
     course = models.ForeignKey(Course)
 
     def delete(self, *args, **kwargs):
@@ -275,7 +276,7 @@ class Syllabus(models.Model):
 
 class Policy(models.Model):
     policy_id = models.AutoField(primary_key=True)
-    file = models.FileField(upload_to='uploads',null=True)
+    file = CloudinaryField('policyfiles', null=True)
     course = models.ForeignKey(Course)
 
     def delete(self, *args, **kwargs):

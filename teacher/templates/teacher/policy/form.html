@@ -1,17 +1,39 @@
-<form enctype="multipart/form-data" name="policy_form" id="policy_form">
-    {% for field in form %}
-    <div class="row">
-        <div class="form-group">
-            <div class="fieldWrapper">
-                <label class="col-sm-3 control-label">
-                    {{ field.label }}
-                </label>
-                <div class="col-sm-9">
-                    {{ field }}
-                </div>
+
+<form enctype="multipart/form-data" name="syllabus_form" id="syllabus_form">
+    <div class="card-body">
+     
+          <div class="row">
+              <div class="col">
+              <div class="form-group">
+              
+              </div>
+              </div>
+              </div>
+
+        
+              
+       </div>
+
+       
+          <div class="col-md-6 col-sm-8">
+         
+            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+              <div class="fileinput-new thumbnail img-raised">
+               
+              </div>
+              <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+              <div>
+                <span class="btn btn-raised btn-round btn-default btn-file">
+                  <span class="fileinput-new">Select PDF Document</span>
+               
+                  <input id="id_file" name="file" type="file">
+
+                </span>
+                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+              </div>
             </div>
-        </div>
-    </div>
-    <br/>
-    {% endfor %}
-</form>
+          </div>
+      
+
+         
+   </form> 
