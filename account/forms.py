@@ -65,7 +65,8 @@ class UserForm(forms.ModelForm):
             pass
 
 class StudentForm(forms.ModelForm):
-    profile_pic = CloudinaryFileField(
+    profile_pic = CloudinaryFileField(required=False,
+
         options = {
             'crop': 'thumb',
             'width': 200,
@@ -76,7 +77,7 @@ class StudentForm(forms.ModelForm):
     )
     class Meta:
         model = Student
-        fields = {'profile_pic', 'country',  'age','bio','interests'}
+        fields = { 'profile_pic', 'country',  'age','bio','interests'}
         labels = {
             'country': 'Country :',
             'age': 'Age :',
