@@ -42,8 +42,9 @@ urlpatterns = patterns('',
     url(r'^sdgdigitallab$', landpageprod.sdgdigitallab, name='sdgdigitallab'), 
     url(r'^volunteerpage$', landpageprod.volunteer, name='volunteer'),
     url(r'^digitallab$', landpageprod.digitallab , name='digitallab '),
+    url(r'^scholarship-application-form$', landpageprod.scholarship , name='scholarship'),
     # url(r'^edit/', views.edit, name='edit'),
-                     
+                  
     # Off-Convas Stuff
     url(r'^terms$', terms.terms_page, name='terms'),
     url(r'^privacy', privacy.privacy_page, name='privacy'),
