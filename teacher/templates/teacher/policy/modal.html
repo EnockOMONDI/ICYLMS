@@ -53,7 +53,7 @@ function ajax_save_policy()
     data.append('file', document.getElementById('id_file').files[0]);
     
     jQuery.ajax({
-        url: 'save_policy',
+        re_path: 'save_policy',
         data: data,
         cache: false,
         contentType: false,

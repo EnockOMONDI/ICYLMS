@@ -57,7 +57,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(serialize=False, primary_key=True)),
                 ('image_filename', models.CharField(max_length=31)),
                 ('title', models.CharField(max_length=127)),
-                ('url', models.URLField()),
+                ('re_path', models.URLField()),
             ],
             options={
                 'db_table': 'at_landpage_partners',

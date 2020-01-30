@@ -108,9 +108,9 @@
      */
     function ajax_authenticate()
     {
-        var url = 'login';
+        var re_path = 'login';
 
-        $.ajax( url, {
+        $.ajax( re_path, {
             data: {
                'username': $("#login_username").val(),
                'password': $("#login_password").val(),
@@ -146,9 +146,9 @@
      */
     function ajax_forget_password()
     {
-        var url = 'forget_password';
+        var re_path = 'forget_password';
     
-        $.ajax( url, {
+        $.ajax( re_path, {
             data: {
                'csrfmiddlewaretoken': '{{ csrf_token }}',
             },

@@ -668,11 +668,11 @@
 				
 				// if not selected to link-type of picture
 				if(linktypes.data("linktype")!="2")
-					selectionSet("createlink",linkinput.val()); // insert link url of link-input to the selected node
+					selectionSet("createlink",linkinput.val()); // insert link re_path of link-input to the selected node
 				// if selected to link-type of picture
 				else
 				{
-					selectionSet("insertImage",linkinput.val()); // insert image url of link-input to the selected node
+					selectionSet("insertImage",linkinput.val()); // insert image re_path of link-input to the selected node
 
 					// the method of all pictures in the editor
 					editor.find("img").each(function(){

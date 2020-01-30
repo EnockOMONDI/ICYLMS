@@ -39,9 +39,9 @@
      */
     function ajax_peer_review_modal(question_id, question_type, submission_id)
     {
-        var url = {{ a_submission.submission_id }} + '/peer_review_modal';
+        var re_path = {{ a_submission.submission_id }} + '/peer_review_modal';
     
-        $.ajax( url, {
+        $.ajax( re_path, {
                data: {
                     'csrfmiddlewaretoken': '{{ csrf_token }}',
                     'question_id': question_id,
@@ -65,11 +65,11 @@
 
     function ajax_save_peer_review(question_id, question_type)
     {
-        var url = {{ a_submission.submission_id }} + '/save_peer_review';
+        var re_path = {{ a_submission.submission_id }} + '/save_peer_review';
         var marks = $('#id_marks').val();
         var text = $('#id_text').val();
         
-        $.ajax( url, {
+        $.ajax( re_path, {
             data: {
                'csrfmiddlewaretoken': '{{ csrf_token }}',
                'question_id': question_id,
@@ -100,11 +100,11 @@
 
     function ajax_delete_peer_review(review_id)
     {
-        var url = {{ a_submission.submission_id }} + '/delete_peer_review';
+        var re_path = {{ a_submission.submission_id }} + '/delete_peer_review';
         var marks = $('#id_marks').val();
         var text = $('#id_text').val();
     
-        $.ajax( url, {
+        $.ajax( re_path, {
            data: {
                'csrfmiddlewaretoken': '{{ csrf_token }}',
                'review_id': review_id,
@@ -131,14 +131,14 @@
 
     function ajax_update_assignment_marks()
     {
-        var url = {{ a_submission.submission_id }} + '/update_assignment_marks';
+        var re_path = {{ a_submission.submission_id }} + '/update_assignment_marks';
     
         // create a FormData Object using your form dom element
         var data = new FormData();
         data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
     
         jQuery.ajax({
-            url: url,
+            re_path: re_path,
             data: data,
             cache: false,
             contentType: false,

@@ -8861,7 +8861,7 @@ jQuery.extend({
 	etag: {},
 
 	ajaxSettings: {
-		url: ajaxLocation,
+		re_path: ajaxLocation,
 		type: "GET",
 		isLocal: rlocalProtocol.test( ajaxLocParts[ 1 ] ),
 		global: true,
@@ -8922,7 +8922,7 @@ jQuery.extend({
 		// and when you create one that shouldn't be
 		// deep extended (see ajaxExtend)
 		flatOptions: {
-			url: true,
+			re_path: true,
 			context: true
 		}
 	},
@@ -8944,12 +8944,12 @@ jQuery.extend({
 	ajaxTransport: addToPrefiltersOrTransports( transports ),
 
 	// Main method
-	ajax: function( url, options ) {
+	ajax: function( re_path, options ) {
 
-		// If url is an object, simulate pre-1.5 signature
-		if ( typeof url === "object" ) {
-			options = url;
-			url = undefined;
+		// If re_path is an object, simulate pre-1.5 signature
+		if ( typeof re_path === "object" ) {
+			options = re_path;
+			re_path = undefined;
 		}
 
 		// Force options to be an object
@@ -9069,9 +9069,9 @@ jQuery.extend({
 
 		// Remove hash character (#7531: and string promotion)
 		// Add protocol if not provided (#5866: IE7 issue with protocol-less urls)
-		// Handle falsy url in the settings object (#10093: consistency with old signature)
-		// We also use the url parameter if available
-		s.url = ( ( url || s.url || ajaxLocation ) + "" ).replace( rhash, "" ).replace( rprotocol, ajaxLocParts[ 1 ] + "//" );
+		// Handle falsy re_path in the settings object (#10093: consistency with old signature)
+		// We also use the re_path parameter if available
+		s.re_path = ( ( re_path || s.re_path || ajaxLocation ) + "" ).replace( rhash, "" ).replace( rprotocol, ajaxLocParts[ 1 ] + "//" );
 
 		// Alias method option to type as per ticket #12004
 		s.type = options.method || options.type || s.method || s.type;
@@ -9081,7 +9081,7 @@ jQuery.extend({
 
 		// A cross-domain request is in order when we have a protocol:host:port mismatch
 		if ( s.crossDomain == null ) {
-			parts = rurl.exec( s.url.toLowerCase() );
+			parts = rurl.exec( s.re_path.toLowerCase() );
 			s.crossDomain = !!( parts &&
 				( parts[ 1 ] !== ajaxLocParts[ 1 ] || parts[ 2 ] !== ajaxLocParts[ 2 ] ||
 					( parts[ 3 ] || ( parts[ 1 ] === "http:" ? "80" : "443" ) ) !==
@@ -9119,21 +9119,21 @@ jQuery.extend({
 
 		// Save the URL in case we're toying with the If-Modified-Since
 		// and/or If-None-Match header later on
-		cacheURL = s.url;
+		cacheURL = s.re_path;
 
 		// More options handling for requests with no content
 		if ( !s.hasContent ) {
 
-			// If data is available, append data to url
+			// If data is available, append data to re_path
 			if ( s.data ) {
-				cacheURL = ( s.url += ( rquery.test( cacheURL ) ? "&" : "?" ) + s.data );
+				cacheURL = ( s.re_path += ( rquery.test( cacheURL ) ? "&" : "?" ) + s.data );
 				// #9682: remove data so that it's not used in an eventual retry
 				delete s.data;
 			}
 
-			// Add anti-cache in url if needed
+			// Add anti-cache in re_path if needed
 			if ( s.cache === false ) {
-				s.url = rts.test( cacheURL ) ?
+				s.re_path = rts.test( cacheURL ) ?
 
 					// If there is already a '_' parameter, set its value
 					cacheURL.replace( rts, "$1_=" + nonce++ ) :
@@ -9335,17 +9335,17 @@ jQuery.extend({
 		return jqXHR;
 	},
 
-	getJSON: function( url, data, callback ) {
-		return jQuery.get( url, data, callback, "json" );
+	getJSON: function( re_path, data, callback ) {
+		return jQuery.get( re_path, data, callback, "json" );
 	},
 
-	getScript: function( url, callback ) {
-		return jQuery.get( url, undefined, callback, "script" );
+	getScript: function( re_path, callback ) {
+		return jQuery.get( re_path, undefined, callback, "script" );
 	}
 });
 
 jQuery.each( [ "get", "post" ], function( i, method ) {
-	jQuery[ method ] = function( url, data, callback, type ) {
+	jQuery[ method ] = function( re_path, data, callback, type ) {
 		// shift arguments if data argument was omitted
 		if ( jQuery.isFunction( data ) ) {
 			type = type || callback;
@@ -9354,7 +9354,7 @@ jQuery.each( [ "get", "post" ], function( i, method ) {
 		}
 
 		return jQuery.ajax({
-			url: url,
+			re_path: re_path,
 			type: method,
 			dataType: type,
 			data: data,
@@ -9364,9 +9364,9 @@ jQuery.each( [ "get", "post" ], function( i, method ) {
 });
 
 
-jQuery._evalUrl = function( url ) {
+jQuery._evalUrl = function( re_path ) {
 	return jQuery.ajax({
-		url: url,
+		re_path: re_path,
 		type: "GET",
 		dataType: "script",
 		async: false,
@@ -9617,7 +9617,7 @@ if ( xhrSupported ) {
 						id = ++xhrId;
 
 					// Open the socket
-					xhr.open( options.type, options.url, options.async, options.username, options.password );
+					xhr.open( options.type, options.re_path, options.async, options.username, options.password );
 
 					// Apply custom fields if provided
 					if ( options.xhrFields ) {
@@ -9801,7 +9801,7 @@ jQuery.ajaxTransport( "script", function(s) {
 					script.charset = s.scriptCharset;
 				}
 
-				script.src = s.url;
+				script.src = s.re_path;
 
 				// Attach handlers for all browsers
 				script.onload = script.onreadystatechange = function( _, isAbort ) {
@@ -9860,8 +9860,8 @@ jQuery.ajaxSetup({
 jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 
 	var callbackName, overwritten, responseContainer,
-		jsonProp = s.jsonp !== false && ( rjsonp.test( s.url ) ?
-			"url" :
+		jsonProp = s.jsonp !== false && ( rjsonp.test( s.re_path ) ?
+			"re_path" :
 			typeof s.data === "string" && !( s.contentType || "" ).indexOf("application/x-www-form-urlencoded") && rjsonp.test( s.data ) && "data"
 		);
 
@@ -9873,11 +9873,11 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 			s.jsonpCallback() :
 			s.jsonpCallback;
 
-		// Insert callback into url or form data
+		// Insert callback into re_path or form data
 		if ( jsonProp ) {
 			s[ jsonProp ] = s[ jsonProp ].replace( rjsonp, "$1" + callbackName );
 		} else if ( s.jsonp !== false ) {
-			s.url += ( rquery.test( s.url ) ? "&" : "?" ) + s.jsonp + "=" + callbackName;
+			s.re_path += ( rquery.test( s.re_path ) ? "&" : "?" ) + s.jsonp + "=" + callbackName;
 		}
 
 		// Use data converter to retrieve json after script execution
@@ -9962,20 +9962,20 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 var _load = jQuery.fn.load;
 
 /**
- * Load a url into a page
+ * Load a re_path into a page
  */
-jQuery.fn.load = function( url, params, callback ) {
-	if ( typeof url !== "string" && _load ) {
+jQuery.fn.load = function( re_path, params, callback ) {
+	if ( typeof re_path !== "string" && _load ) {
 		return _load.apply( this, arguments );
 	}
 
 	var selector, response, type,
 		self = this,
-		off = url.indexOf(" ");
+		off = re_path.indexOf(" ");
 
 	if ( off >= 0 ) {
-		selector = jQuery.trim( url.slice( off, url.length ) );
-		url = url.slice( 0, off );
+		selector = jQuery.trim( re_path.slice( off, re_path.length ) );
+		re_path = re_path.slice( 0, off );
 	}
 
 	// If it's a function
@@ -9993,7 +9993,7 @@ jQuery.fn.load = function( url, params, callback ) {
 	// If we have elements to modify, make the request
 	if ( self.length > 0 ) {
 		jQuery.ajax({
-			url: url,
+			re_path: re_path,
 
 			// if "type" variable is undefined, then "GET" method will be used
 			type: type,

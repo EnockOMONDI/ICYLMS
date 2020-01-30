@@ -1761,7 +1761,7 @@
 	});
 
 	ts.addParser({
-		id: "url",
+		id: "re_path",
 		is: function(s) {
 			return (/^(https?|ftp|file):\/\//).test(s);
 		},

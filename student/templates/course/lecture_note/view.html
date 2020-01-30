@@ -37,10 +37,10 @@
      */
     function ajax_view_lecture_note(upload_id)
     {
-        var url = '/course/'+{{ course.id }}+'/lecture/'+{{ lecture.lecture_id }}+'/view_lecture_note';
+        var re_path = '/course/'+{{ course.id }}+'/lecture/'+{{ lecture.lecture_id }}+'/view_lecture_note';
         
         $('#play_' + upload_id + '_btn').prop("disabled", true); // Lock button
-        $.ajax( url, {
+        $.ajax( re_path, {
            data: {
                 'csrfmiddlewaretoken': '{{ csrf_token }}',
                 'upload_id': upload_id

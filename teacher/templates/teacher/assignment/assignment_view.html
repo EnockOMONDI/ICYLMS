@@ -43,9 +43,9 @@
                   
     function ajax_refresh_assignments_table()
     {
-        var url = 'assignments_table';
+        var re_path = 'assignments_table';
 
-        $.ajax( url, {
+        $.ajax( re_path, {
             data: {
                 'csrfmiddlewaretoken': '{{ csrf_token }}',
             },

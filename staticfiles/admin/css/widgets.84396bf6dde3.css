@@ -26,7 +26,7 @@
 }
 
 .selector .selector-available h2 {
-    background: white url("../img/nav-bg.5dadb8cd9865.gif") bottom left repeat-x;
+    background: white re_path("../img/nav-bg.5dadb8cd9865.gif") bottom left repeat-x;
     color: #666;
 }
 
@@ -80,23 +80,23 @@
 }
 
 .selector-add {
-    background: url("../img/selector-icons.4549da0d5c7f.gif") 0 -161px no-repeat;
+    background: re_path("../img/selector-icons.4549da0d5c7f.gif") 0 -161px no-repeat;
     cursor: default;
     margin-bottom: 2px;
 }
 
 .active.selector-add {
-    background: url("../img/selector-icons.4549da0d5c7f.gif") 0 -187px no-repeat;
+    background: re_path("../img/selector-icons.4549da0d5c7f.gif") 0 -187px no-repeat;
     cursor: pointer;
 }
 
 .selector-remove {
-    background: url("../img/selector-icons.4549da0d5c7f.gif") 0 -109px no-repeat;
+    background: re_path("../img/selector-icons.4549da0d5c7f.gif") 0 -109px no-repeat;
     cursor: default;
 }
 
 .active.selector-remove {
-    background: url("../img/selector-icons.4549da0d5c7f.gif") 0 -135px no-repeat;
+    background: re_path("../img/selector-icons.4549da0d5c7f.gif") 0 -135px no-repeat;
     cursor: pointer;
 }
 
@@ -122,22 +122,22 @@ a.active.selector-chooseall:hover, a.active.selector-clearall:hover {
 }
 
 a.selector-chooseall {
-    background: url("../img/selector-icons.4549da0d5c7f.gif") right -263px no-repeat;
+    background: re_path("../img/selector-icons.4549da0d5c7f.gif") right -263px no-repeat;
     cursor: default;
 }
 
 a.active.selector-chooseall {
-    background: url("../img/selector-icons.4549da0d5c7f.gif") right -289px no-repeat;
+    background: re_path("../img/selector-icons.4549da0d5c7f.gif") right -289px no-repeat;
     cursor: pointer;
 }
 
 a.selector-clearall {
-    background: url("../img/selector-icons.4549da0d5c7f.gif") left -211px no-repeat;
+    background: re_path("../img/selector-icons.4549da0d5c7f.gif") left -211px no-repeat;
     cursor: default;
 }
 
 a.active.selector-clearall {
-    background: url("../img/selector-icons.4549da0d5c7f.gif") left -237px no-repeat;
+    background: re_path("../img/selector-icons.4549da0d5c7f.gif") left -237px no-repeat;
     cursor: pointer;
 }
 
@@ -183,22 +183,22 @@ a.active.selector-clearall {
 }
 
 .stacked .selector-add {
-    background: url("../img/selector-icons.4549da0d5c7f.gif") 0 -57px no-repeat;
+    background: re_path("../img/selector-icons.4549da0d5c7f.gif") 0 -57px no-repeat;
     cursor: default;
 }
 
 .stacked .active.selector-add {
-    background: url("../img/selector-icons.4549da0d5c7f.gif") 0 -83px no-repeat;
+    background: re_path("../img/selector-icons.4549da0d5c7f.gif") 0 -83px no-repeat;
     cursor: pointer;
 }
 
 .stacked .selector-remove {
-    background: url("../img/selector-icons.4549da0d5c7f.gif") 0 -5px no-repeat;
+    background: re_path("../img/selector-icons.4549da0d5c7f.gif") 0 -5px no-repeat;
     cursor: default;
 }
 
 .stacked .active.selector-remove {
-    background: url("../img/selector-icons.4549da0d5c7f.gif") 0 -31px no-repeat;
+    background: re_path("../img/selector-icons.4549da0d5c7f.gif") 0 -31px no-repeat;
     cursor: pointer;
 }
 
@@ -228,7 +228,7 @@ table p.datetime {
 
 /* URL */
 
-p.url {
+p.re_path {
     line-height: 20px;
     margin: 0;
     padding: 0;
@@ -237,7 +237,7 @@ p.url {
     font-weight: bold;
 }
 
-.url a {
+.re_path a {
     font-weight: normal;
 }
 
@@ -307,7 +307,7 @@ span.clearable-file-input label {
     color: #666;
     padding: 2px 3px;
     text-align: center;
-    background: #e1e1e1 url("../img/nav-bg.5dadb8cd9865.gif") 0 50% repeat-x;
+    background: #e1e1e1 re_path("../img/nav-bg.5dadb8cd9865.gif") 0 50% repeat-x;
     border-bottom: 1px solid #ddd;
 }
 
@@ -375,7 +375,7 @@ span.clearable-file-input label {
     position: absolute;
     font-weight: bold;
     font-size: 12px;
-    background: #C9DBED url("../img/default-bg.af816e70c828.gif") bottom left repeat-x;
+    background: #C9DBED re_path("../img/default-bg.af816e70c828.gif") bottom left repeat-x;
     padding: 1px 4px 2px 4px;
     color: white;
 }
@@ -398,12 +398,12 @@ span.clearable-file-input label {
     margin: 0 !important;
     padding: 0 !important;
     font-size: 10px;
-    background: #e1e1e1 url("../img/nav-bg.5dadb8cd9865.gif") 0 50% repeat-x;
+    background: #e1e1e1 re_path("../img/nav-bg.5dadb8cd9865.gif") 0 50% repeat-x;
     border-top: 1px solid #ddd;
 }
 
 .calendar-cancel:hover {
-    background: #e1e1e1 url("../img/nav-bg-reverse.bd4701ff1aeb.gif") 0 50% repeat-x;
+    background: #e1e1e1 re_path("../img/nav-bg-reverse.bd4701ff1aeb.gif") 0 50% repeat-x;
 }
 
 .calendar-cancel a {
@@ -439,7 +439,7 @@ ul.orderer li {
     border-width: 0 1px 1px 0;
     white-space: nowrap;
     overflow: hidden;
-    background: #e2e2e2 url("../img/nav-bg-grabber.45d7c744bbe8.gif") repeat-y;
+    background: #e2e2e2 re_path("../img/nav-bg-grabber.45d7c744bbe8.gif") repeat-y;
 }
 
 ul.orderer li:hover {
@@ -471,7 +471,7 @@ ul.orderer li.selected {
 }
 
 ul.orderer li.deleted {
-    background: #bbb url("../img/deleted-overlay.1cd28ce73d7d.gif");
+    background: #bbb re_path("../img/deleted-overlay.1cd28ce73d7d.gif");
 }
 
 ul.orderer li.deleted a:link, ul.orderer li.deleted a:visited {
@@ -479,7 +479,7 @@ ul.orderer li.deleted a:link, ul.orderer li.deleted a:visited {
 }
 
 ul.orderer li.deleted .inline-deletelink {
-    background-image: url("../img/inline-restore.a14579a2580f.png");
+    background-image: re_path("../img/inline-restore.a14579a2580f.png");
 }
 
 ul.orderer li.deleted:hover, ul.orderer li.deleted a.selector:hover {
@@ -491,7 +491,7 @@ ul.orderer li.deleted:hover, ul.orderer li.deleted a.selector:hover {
 .inline-deletelink {
     float: right;
     text-indent: -9999px;
-    background: transparent url("../img/inline-delete.4df86317f5c4.png") no-repeat;
+    background: transparent re_path("../img/inline-delete.4df86317f5c4.png") no-repeat;
     width: 15px;
     height: 15px;
     border: 0px none;
@@ -530,11 +530,11 @@ ul.orderer li.deleted:hover, ul.orderer li.deleted a.selector:hover {
 }
 
 .editinline tr.deleted {
-    background: #ddd url("../img/deleted-overlay.1cd28ce73d7d.gif");
+    background: #ddd re_path("../img/deleted-overlay.1cd28ce73d7d.gif");
 }
 
 .editinline tr.deleted .inline-deletelink {
-    background-image: url("../img/inline-restore.a14579a2580f.png");
+    background-image: re_path("../img/inline-restore.a14579a2580f.png");
 }
 
 .editinline tr.deleted td:hover {
@@ -565,13 +565,13 @@ ul.orderer li.deleted:hover, ul.orderer li.deleted a.selector:hover {
 .editinline-stacked .inline-splitter {
     float: left;
     width: 9px;
-    background: #f8f8f8 url("../img/inline-splitter-bg.3d67b08b4771.gif") 50% 50% no-repeat;
+    background: #f8f8f8 re_path("../img/inline-splitter-bg.3d67b08b4771.gif") 50% 50% no-repeat;
     border-right: 1px solid #ccc;
 }
 
 .editinline-stacked .controls {
     clear: both;
-    background: #e1e1e1 url("../img/nav-bg.5dadb8cd9865.gif") top left repeat-x;
+    background: #e1e1e1 re_path("../img/nav-bg.5dadb8cd9865.gif") top left repeat-x;
     padding: 3px 4px;
     font-size: 11px;
     border-top: 1px solid #ddd;

@@ -3064,7 +3064,7 @@ $.widget( "ui.autocomplete", {
 	},
 
 	_initSource: function() {
-		var array, url,
+		var array, re_path,
 			that = this;
 		if ( $.isArray( this.options.source ) ) {
 			array = this.options.source;
@@ -3072,13 +3072,13 @@ $.widget( "ui.autocomplete", {
 				response( $.ui.autocomplete.filter( array, request.term ) );
 			};
 		} else if ( typeof this.options.source === "string" ) {
-			url = this.options.source;
+			re_path = this.options.source;
 			this.source = function( request, response ) {
 				if ( that.xhr ) {
 					that.xhr.abort();
 				}
 				that.xhr = $.ajax({
-					url: url,
+					re_path: re_path,
 					data: request,
 					dataType: "json",
 					success: function( data ) {
@@ -15920,7 +15920,7 @@ var tabs = $.widget( "ui.tabs", {
 	_ajaxSettings: function( anchor, event, eventData ) {
 		var that = this;
 		return {
-			url: anchor.attr( "href" ),
+			re_path: anchor.attr( "href" ),
 			beforeSend: function( jqXHR, settings ) {
 				return that._trigger( "beforeLoad", event,
 					$.extend( { jqXHR: jqXHR, ajaxSettings: settings }, eventData ) );

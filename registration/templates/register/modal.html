@@ -98,8 +98,8 @@
         var $form = $('#register_form');
         
         // Send registration AJAX call to the server.
-        var url = 'register';
-        $.ajax( url, {
+        var re_path = 'register';
+        $.ajax( re_path, {
             data: {
                'first_name': $form.find('input[name="first_name"]').val(),
                'last_name': $form.find('input[name="last_name"]').val(),
@@ -136,9 +136,9 @@
      */
     function ajax_authenticate(username, password)
     {
-        var url = 'login';
+        var re_path = 'login';
     
-        $.ajax( url, {
+        $.ajax( re_path, {
             data: {
                'username': username,
                'password': password,
@@ -193,11 +193,11 @@
    */
   function refresh_captcha()
   {
-      var url = location.protocol + "//" + window.location.hostname + ":"
+      var re_path = location.protocol + "//" + window.location.hostname + ":"
       + location.port + "/captcha/refresh/";
       
       // Make the AJAX-call
-      $.getJSON(url, {}, function(json) {
+      $.getJSON(re_path, {}, function(json) {
                 //var $form = $('modal-body').parents('register_form');
                 var $form = $('#register_form');
                 $form.find('input[name="captcha_0"]').val(json.key);

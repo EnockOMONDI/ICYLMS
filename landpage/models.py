@@ -62,7 +62,7 @@ class LandpageCoursePreview(models.Model):
 
 class LandpageTopPickCourse(models.Model):
     id = models.AutoField(primary_key=True)
-    course = models.ForeignKey(Course)
+    course = models.ForeignKey(Course,on_delete=models.CASCADE)
     
     def __str__(self):
         return self.course
@@ -106,10 +106,10 @@ class LandpagePartner(models.Model):
     id = models.AutoField(primary_key=True)
     image_filename = models.CharField(max_length=31)
     title = models.CharField(max_length=127)
-    url = models.URLField()
+    re_path = models.URLField()
     
     def __str__(self):
-        return self.title + ' ' + self.url
+        return self.title + ' ' + self.re_path
     
     class Meta:
         db_table = 'at_landpage_partners'
@@ -199,7 +199,7 @@ class LandpagePartner(models.Model):
 # class Comment(models.Model):
 #     comment = models.CharField(max_length=60,blank=True,null=True)
 #     comment_date = models.DateTimeField(auto_now_add=True)
-#     user = models.ForeignKey(User)
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
 #     image = models.ForeignKey(Image,on_delete=models.CASCADE)
 
 #     def __str__(self):

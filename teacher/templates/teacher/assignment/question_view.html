@@ -47,9 +47,9 @@
                   
     function ajax_refresh_questions_table()
     {
-        var url = {{ assignment.assignment_id }} + '/questions_table';
+        var re_path = {{ assignment.assignment_id }} + '/questions_table';
                       
-        $.ajax( url, {
+        $.ajax( re_path, {
             data: {
                'csrfmiddlewaretoken': '{{ csrf_token }}',
             },
@@ -69,26 +69,26 @@
     
     function ajax_question(question_id, question_type)
     {
-        var url;
+        var re_path;
         if (question_type == 0)
         {
-            url = {{ assignment.assignment_id }} + '/question_type_modal';
+            re_path = {{ assignment.assignment_id }} + '/question_type_modal';
         }
         else if (question_type == {{ ESSAY_QUESTION_TYPE }})
         {
-            url = {{ assignment.assignment_id }} + '/question_essay_modal'
+            re_path = {{ assignment.assignment_id }} + '/question_essay_modal'
         }
         else if (question_type == {{ MULTIPLECHOICE_QUESTION_TYPE }})
         {
-            url = {{ assignment.assignment_id }} + '/question_multiple_choice_modal'
+            re_path = {{ assignment.assignment_id }} + '/question_multiple_choice_modal'
         }
         else if (question_type == {{ TRUEFALSE_QUESTION_TYPE }})
         {
-            url = {{ assignment.assignment_id }} + '/question_true_false_modal'
+            re_path = {{ assignment.assignment_id }} + '/question_true_false_modal'
         }
         else if (question_type == {{ RESPONSE_QUESTION_TYPE }})
         {
-            url = {{ assignment.assignment_id }} + '/question_response_modal'
+            re_path = {{ assignment.assignment_id }} + '/question_response_modal'
         }
 
         if (question_id == 0)
@@ -100,7 +100,7 @@
             $('#edit_'+question_id+'_'+question_type+'_btn').prop("disabled", true); // Lock button
         }
 
-        $.ajax( url, {
+        $.ajax( re_path, {
             data: {
                 'csrfmiddlewaretoken': '{{ csrf_token }}',
                 'question_id': question_id,
@@ -123,9 +123,9 @@
 
     function ajax_delete_question(question_id, question_type)
     {
-        var url = {{ assignment.assignment_id }} + '/delete_question';
+        var re_path = {{ assignment.assignment_id }} + '/delete_question';
         $('#del_'+question_id+'_'+question_type+'_btn').prop("disabled", true); // Lock button
-        $.ajax( url, {
+        $.ajax( re_path, {
             data: {
                 'csrfmiddlewaretoken': '{{ csrf_token }}',
                 'question_id' : question_id,

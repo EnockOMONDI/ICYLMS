@@ -97,7 +97,7 @@
         data.append('thread_id', thread_id);
     
         jQuery.ajax({
-            url: thread_id + '/insert_post',
+            re_path: thread_id + '/insert_post',
             data: data,
             cache: false,
             contentType: false,
@@ -127,9 +127,9 @@
 
     function ajax_delete_thread(thread_id)
     {
-        var url = 'delete_thread';
+        var re_path = 'delete_thread';
     
-        $.ajax( url, {
+        $.ajax( re_path, {
             data: {
                'csrfmiddlewaretoken': '{{ csrf_token }}',
                'thread_id': thread_id,

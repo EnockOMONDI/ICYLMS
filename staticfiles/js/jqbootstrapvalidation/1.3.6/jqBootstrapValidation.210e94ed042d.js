@@ -623,7 +623,7 @@
         init: function ($this, name) {
           return {
             validatorName: name,
-            url: $this.data("validation" + name + "Ajax"),
+            re_path: $this.data("validation" + name + "Ajax"),
             lastValue: $this.val(),
             lastValid: true,
             lastFinished: true
@@ -640,7 +640,7 @@
             validator.lastValid = true;
             validator.lastFinished = false;
             $.ajax({
-              url: validator.url,
+              re_path: validator.re_path,
               data: "value=" + value + "&field=" + $this.attr("name"),
               dataType: "json",
               success: function (data) {

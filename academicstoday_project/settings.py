@@ -192,7 +192,6 @@ TEMPLATE_DIRS = (
     # Add to this list all the locations containing your static files 
 )
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'ochungeugine@gmail.com'

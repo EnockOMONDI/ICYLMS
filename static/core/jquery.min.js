@@ -2837,7 +2837,7 @@
         lastModified: {},
         etag: {},
         ajaxSettings: {
-            url: tb.href,
+            re_path: tb.href,
             type: "GET",
             isLocal: Fb.test(tb.protocol),
             global: !0,
@@ -2868,7 +2868,7 @@
                 "text xml": r.parseXML
             },
             flatOptions: {
-                url: !0,
+                re_path: !0,
                 context: !0
             }
         },
@@ -2923,16 +2923,16 @@
                         return e && e.abort(b), A(0, b), this
                     }
                 };
-            if (s.promise(y), o.url = ((b || o.url || tb.href) + "").replace(Hb, tb.protocol + "//"), o.type = c.method || c.type || o.method || o.type, o.dataTypes = (o.dataType || "*").toLowerCase().match(L) || [""], null == o.crossDomain) {
+            if (s.promise(y), o.re_path = ((b || o.re_path || tb.href) + "").replace(Hb, tb.protocol + "//"), o.type = c.method || c.type || o.method || o.type, o.dataTypes = (o.dataType || "*").toLowerCase().match(L) || [""], null == o.crossDomain) {
                 j = d.createElement("a");
                 try {
-                    j.href = o.url, j.href = j.href, o.crossDomain = Lb.protocol + "//" + Lb.host != j.protocol + "//" + j.host
+                    j.href = o.re_path, j.href = j.href, o.crossDomain = Lb.protocol + "//" + Lb.host != j.protocol + "//" + j.host
                 } catch (z) {
                     o.crossDomain = !0
                 }
             }
             if (o.data && o.processData && "string" != typeof o.data && (o.data = r.param(o.data, o.traditional)), Nb(Ib, o, c, y), k) return y;
-            l = r.event && o.global, l && 0 === r.active++ && r.event.trigger("ajaxStart"), o.type = o.type.toUpperCase(), o.hasContent = !Gb.test(o.type), f = o.url.replace(Cb, ""), o.hasContent ? o.data && o.processData && 0 === (o.contentType || "").indexOf("application/x-www-form-urlencoded") && (o.data = o.data.replace(Bb, "+")) : (n = o.url.slice(f.length), o.data && (f += (vb.test(f) ? "&" : "?") + o.data, delete o.data), o.cache === !1 && (f = f.replace(Db, "$1"), n = (vb.test(f) ? "&" : "?") + "_=" + ub++ + n), o.url = f + n), o.ifModified && (r.lastModified[f] && y.setRequestHeader("If-Modified-Since", r.lastModified[f]), r.etag[f] && y.setRequestHeader("If-None-Match", r.etag[f])), (o.data && o.hasContent && o.contentType !== !1 || c.contentType) && y.setRequestHeader("Content-Type", o.contentType), y.setRequestHeader("Accept", o.dataTypes[0] && o.accepts[o.dataTypes[0]] ? o.accepts[o.dataTypes[0]] + ("*" !== o.dataTypes[0] ? ", " + Kb + "; q=0.01" : "") : o.accepts["*"]);
+            l = r.event && o.global, l && 0 === r.active++ && r.event.trigger("ajaxStart"), o.type = o.type.toUpperCase(), o.hasContent = !Gb.test(o.type), f = o.re_path.replace(Cb, ""), o.hasContent ? o.data && o.processData && 0 === (o.contentType || "").indexOf("application/x-www-form-urlencoded") && (o.data = o.data.replace(Bb, "+")) : (n = o.re_path.slice(f.length), o.data && (f += (vb.test(f) ? "&" : "?") + o.data, delete o.data), o.cache === !1 && (f = f.replace(Db, "$1"), n = (vb.test(f) ? "&" : "?") + "_=" + ub++ + n), o.re_path = f + n), o.ifModified && (r.lastModified[f] && y.setRequestHeader("If-Modified-Since", r.lastModified[f]), r.etag[f] && y.setRequestHeader("If-None-Match", r.etag[f])), (o.data && o.hasContent && o.contentType !== !1 || c.contentType) && y.setRequestHeader("Content-Type", o.contentType), y.setRequestHeader("Accept", o.dataTypes[0] && o.accepts[o.dataTypes[0]] ? o.accepts[o.dataTypes[0]] + ("*" !== o.dataTypes[0] ? ", " + Kb + "; q=0.01" : "") : o.accepts["*"]);
             for (m in o.headers) y.setRequestHeader(m, o.headers[m]);
             if (o.beforeSend && (o.beforeSend.call(p, y, o) === !1 || k)) return y.abort();
             if (x = "abort", t.add(o.complete), y.done(o.success), y.fail(o.error), e = Nb(Jb, o, c, y)) {
@@ -2963,7 +2963,7 @@
     }), r.each(["get", "post"], function(a, b) {
         r[b] = function(a, c, d, e) {
             return r.isFunction(c) && (e = e || d, d = c, c = void 0), r.ajax(r.extend({
-                url: a,
+                re_path: a,
                 type: b,
                 dataType: e,
                 data: c,
@@ -2972,7 +2972,7 @@
         }
     }), r._evalUrl = function(a) {
         return r.ajax({
-            url: a,
+            re_path: a,
             type: "GET",
             dataType: "script",
             cache: !0,
@@ -3028,7 +3028,7 @@
         if (o.cors || Sb && !b.crossDomain) return {
             send: function(e, f) {
                 var g, h = b.xhr();
-                if (h.open(b.type, b.url, b.async, b.username, b.password), b.xhrFields)
+                if (h.open(b.type, b.re_path, b.async, b.username, b.password), b.xhrFields)
                     for (g in b.xhrFields) h[g] = b.xhrFields[g];
                 b.mimeType && h.overrideMimeType && h.overrideMimeType(b.mimeType), b.crossDomain || e["X-Requested-With"] || (e["X-Requested-With"] = "XMLHttpRequest");
                 for (g in e) h.setRequestHeader(g, e[g]);
@@ -3078,7 +3078,7 @@
                 send: function(e, f) {
                     b = r("<script>").prop({
                         charset: a.scriptCharset,
-                        src: a.url
+                        src: a.re_path
                     }).on("load error", c = function(a) {
                         b.remove(), c = null, a && f("error" === a.type ? 404 : 200, a.type)
                     }), d.head.appendChild(b[0])
@@ -3098,8 +3098,8 @@
             return this[a] = !0, a
         }
     }), r.ajaxPrefilter("json jsonp", function(b, c, d) {
-        var e, f, g, h = b.jsonp !== !1 && (Ub.test(b.url) ? "url" : "string" == typeof b.data && 0 === (b.contentType || "").indexOf("application/x-www-form-urlencoded") && Ub.test(b.data) && "data");
-        if (h || "jsonp" === b.dataTypes[0]) return e = b.jsonpCallback = r.isFunction(b.jsonpCallback) ? b.jsonpCallback() : b.jsonpCallback, h ? b[h] = b[h].replace(Ub, "$1" + e) : b.jsonp !== !1 && (b.url += (vb.test(b.url) ? "&" : "?") + b.jsonp + "=" + e), b.converters["script json"] = function() {
+        var e, f, g, h = b.jsonp !== !1 && (Ub.test(b.re_path) ? "re_path" : "string" == typeof b.data && 0 === (b.contentType || "").indexOf("application/x-www-form-urlencoded") && Ub.test(b.data) && "data");
+        if (h || "jsonp" === b.dataTypes[0]) return e = b.jsonpCallback = r.isFunction(b.jsonpCallback) ? b.jsonpCallback() : b.jsonpCallback, h ? b[h] = b[h].replace(Ub, "$1" + e) : b.jsonp !== !1 && (b.re_path += (vb.test(b.re_path) ? "&" : "?") + b.jsonp + "=" + e), b.converters["script json"] = function() {
             return g || r.error(e + " was not called"), g[0]
         }, b.dataTypes[0] = "json", f = a[e], a[e] = function() {
             g = arguments
@@ -3118,7 +3118,7 @@
         var d, e, f, g = this,
             h = a.indexOf(" ");
         return h > -1 && (d = pb(a.slice(h)), a = a.slice(0, h)), r.isFunction(b) ? (c = b, b = void 0) : b && "object" == typeof b && (e = "POST"), g.length > 0 && r.ajax({
-            url: a,
+            re_path: a,
             type: e || "GET",
             dataType: "html",
             data: b

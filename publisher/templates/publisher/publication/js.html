@@ -30,11 +30,11 @@
 
     function ajax_save_peer_review(peer_review_id)
     {
-        var url = '/publication/' + {{ publication.publication_id }} + '/save_peer_review';
+        var re_path = '/publication/' + {{ publication.publication_id }} + '/save_peer_review';
         var marks = $('#id_marks').val();
         var text = $('#id_text').val();
     
-        $.ajax( url, {
+        $.ajax( re_path, {
             data: {
                'csrfmiddlewaretoken': '{{ csrf_token }}',
                'peer_review_id': peer_review_id,
@@ -64,8 +64,8 @@
 
     function ajax_delete_peer_review(peer_review_id)
     {
-        var url = '/publication/' + {{ publication.publication_id }} + '/delete_peer_review';
-        $.ajax( url, {
+        var re_path = '/publication/' + {{ publication.publication_id }} + '/delete_peer_review';
+        $.ajax( re_path, {
             data: {
             'csrfmiddlewaretoken': '{{ csrf_token }}',
             'peer_review_id': peer_review_id,

@@ -10,7 +10,7 @@ h1>My Profile</h1>
     <div>Bio: {{student.bio|safe}}</div>
     {% comment %} <div>Date of Birth: {{profile.date_birth}}</div><br/>
     {% if profile.image %}
-     <img src="{{profile.image.url}}">
+     <img src="{{profile.image.re_path}}">
         {% else %}
             <img src="{% static 'accounts/images/avatar.png' %}">
     {% endif %} {% endcomment %}

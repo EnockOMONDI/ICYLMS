@@ -42,7 +42,7 @@ Password (Again): <Enter your own value again>
 - - - - - - - - - - - - - - - - - - - - - - - -
 
 3)
-Go to the url and play around:
+Go to the re_path and play around:
 http://127.0.0.1:8000/admin
 
 

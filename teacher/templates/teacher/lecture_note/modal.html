@@ -46,7 +46,7 @@
      */
     function ajax_create_lecture_note()
     {
-        var url = '/teacher/course/'+{{ course.id }}+'/lecture/'+{{ lecture.lecture_id }}+'/save_lecture_note';
+        var re_path = '/teacher/course/'+{{ course.id }}+'/lecture/'+{{ lecture.lecture_id }}+'/save_lecture_note';
         
         $('#submit_lecture_note_btn').prop("disabled", true); // Lock button
         
@@ -58,7 +58,7 @@
         data.append('description', $('#id_description').val());
         data.append('file', document.getElementById('id_file').files[0]);
         jQuery.ajax({
-            url: url,
+            re_path: re_path,
             data: data,
             cache: false,
             contentType: false,

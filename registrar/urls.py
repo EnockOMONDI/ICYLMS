@@ -1,6 +1,5 @@
-from django.conf.urls import patterns, include, url
-
-from registrar.views import courses
+from django.conf.urls import patterns, include, re_path
+from django.urls import  re_pathfrom registrar.views import courses
 from registrar.views import enrollment
 from registrar.views import teaching
 from registrar.views import transcript
@@ -8,31 +7,31 @@ from registrar.views import certificate
 
 urlpatterns = patterns('',
     # Courses
-    url(r'^courses$', courses.courses_page),
-    url(r'^enroll$', courses.enroll),
+    re_path(r'^courses$', courses.courses_page),
+    re_path(r'^enroll$', courses.enroll),
 
     # Enrollment(s)
-    url(r'^enrollment$', enrollment.enrollment_page),
-    url(r'^enrollment_table$', enrollment.enrollment_table),
-    url(r'^disenroll_modal$', enrollment.disenroll_modal),
-    url(r'^disenroll', enrollment.disenroll),
+    re_path(r'^enrollment$', enrollment.enrollment_page),
+    re_path(r'^enrollment_table$', enrollment.enrollment_table),
+    re_path(r'^disenroll_modal$', enrollment.disenroll_modal),
+    re_path(r'^disenroll', enrollment.disenroll),
          
     # Teaching
-    url(r'^teaching$', teaching.teaching_page),
-    url(r'^refresh_teaching_table$', teaching.refresh_teaching_table),
+    re_path(r'^teaching$', teaching.teaching_page),
+    re_path(r'^refresh_teaching_table$', teaching.refresh_teaching_table),
                        
-    url(r'^course_modal$', teaching.course_modal),
-    url(r'^save_course$', teaching.save_course),
-    url(r'^delete_course_modal$', teaching.delete_course_modal),
-    url(r'^course_delete$', teaching.course_delete),
+    re_path(r'^course_modal$', teaching.course_modal),
+    re_path(r'^save_course$', teaching.save_course),
+    re_path(r'^delete_course_modal$', teaching.delete_course_modal),
+    re_path(r'^course_delete$', teaching.course_delete),
                     
     # Transcript
-    url(r'^transcript$', transcript.transcript_page),
+    re_path(r'^transcript$', transcript.transcript_page),
                        
     # Certificate(s)
-    url(r'^certificates$', certificate.certificates_page),
-    url(r'^certificates_table$', certificate.certificates_table),
-    url(r'^change_certificate_accessiblity$', certificate.change_certificate_accessiblity),
-    url(r'^certificate/(\d+)$', certificate.certificate_page),
-    url(r'^certificate_permalink_modal$', certificate.certificate_permalink_modal),
+    re_path(r'^certificates$', certificate.certificates_page),
+    re_path(r'^certificates_table$', certificate.certificates_table),
+    re_path(r'^change_certificate_accessiblity$', certificate.change_certificate_accessiblity),
+    re_path(r'^certificate/(\d+)$', certificate.certificate_page),
+    re_path(r'^certificate_permalink_modal$', certificate.certificate_permalink_modal),
 )

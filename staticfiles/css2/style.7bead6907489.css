@@ -21,7 +21,7 @@ repeating-linear-gradient(-45deg,
         gainsboro 0, gainsboro 2px, 
         transparent 0, transparent 5px);
 /* live background */
-background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/2017/kreator_rockharz_july_2018.jpg) 50%/cover fixed;
+background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), re_path(https://s3-us-west-2.amazonaws.com/s.cdpn.io/2017/kreator_rockharz_july_2018.jpg) 50%/cover fixed;
 /**/
 font: 400 1em/1.25 coda, trebuchet ms, arial, sans-serif;
 }

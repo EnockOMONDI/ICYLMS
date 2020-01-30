@@ -52,11 +52,11 @@ class Command(BaseCommand):
             id=1,
             image_filename="duplexsoft.png",
             title="Duplexsoft",
-            url="www.duplexsoft.com"
+            re_path="www.duplexsoft.com"
         )
         LandpagePartner.objects.create(
             id=2,
             image_filename="eurasiasoft.png",
             title="Eurasiasoft",
-            url="www.eurasiasoft.com"
+            re_path="www.eurasiasoft.com"
         )

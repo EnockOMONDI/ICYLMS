@@ -66,7 +66,7 @@
         data.append('answer', $('#id_answer').is(':checked'));
 
         jQuery.ajax({
-            url: {{ quiz.quiz_id }} + '/save_question',
+            re_path: {{ quiz.quiz_id }} + '/save_question',
             data: data,
             cache: false,
             contentType: false,

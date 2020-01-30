@@ -47,7 +47,7 @@
         data.append('answer', answer);
     
         jQuery.ajax({
-            url: {{ quiz.quiz_id }} + '/submit_tf_quiz_answer',
+            re_path: {{ quiz.quiz_id }} + '/submit_tf_quiz_answer',
             data: data,
             cache: false,
             contentType: false,
@@ -71,7 +71,7 @@
         var data = new FormData();
         data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
         jQuery.ajax({
-            url: {{ quiz.quiz_id }} + '/submit_quiz',
+            re_path: {{ quiz.quiz_id }} + '/submit_quiz',
             data: data,
             cache: false,
             contentType: false,

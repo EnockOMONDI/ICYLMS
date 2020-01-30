@@ -12,7 +12,7 @@
                 <div class="card-header card-header-image" >
                         {% if course.image != None and course.image != '' %}
                   <a href="#pablo">
-                    <img src="{{ course.image.url }}" height="100%" width="100%"   alt="">
+                    <img src="{{ course.image.re_path }}" height="100%" width="100%"   alt="">
                     {% else %}
                     <img src="static/img/dummy.png"  alt="">
                     <!-- Missing Image! -->

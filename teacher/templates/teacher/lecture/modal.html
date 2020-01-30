@@ -42,7 +42,7 @@
     });
     
     /**
-     * Function looks at the youtube url and either returns the URL or if
+     * Function looks at the youtube re_path and either returns the URL or if
      * it detects a user added a iframe image, it then parses out the stuff
      * and returns only the URL. Also if URL is simply copied from browser URL
      * then parse out the YouTube ID and return embedded link.
@@ -61,8 +61,8 @@
                 {
                     var code = split[i];
                     var url_with_doublequotes = code.split('=')[1];
-                    var url = str = url_with_doublequotes.replace(/"/g, "");
-                    youtube_url = url;
+                    var re_path = str = url_with_doublequotes.replace(/"/g, "");
+                    youtube_url = re_path;
                     break;
                 }
             }
@@ -104,7 +104,7 @@
         data.append('vimeo_url', $('#id_vimeo_url').val());
         data.append('preferred_service', $('#id_preferred_service').val());
         jQuery.ajax({
-            url: 'save_lecture',
+            re_path: 'save_lecture',
             data: data,
             cache: false,
             contentType: false,

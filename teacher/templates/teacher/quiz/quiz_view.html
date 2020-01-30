@@ -43,9 +43,9 @@
                   
     function ajax_refresh_quizzes_table()
     {
-        var url = 'quizzes_table';
+        var re_path = 'quizzes_table';
         
-        $.ajax( url, {
+        $.ajax( re_path, {
             data: {
                'csrfmiddlewaretoken': '{{ csrf_token }}',
             },

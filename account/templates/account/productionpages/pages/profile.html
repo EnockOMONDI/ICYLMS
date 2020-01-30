@@ -493,7 +493,7 @@
                   <div class="card card-profile card-plain" style="background-color:#fff">
                     <div class="card-header card-avatar">
                       {% if student.profile_pic %}
-     <img class="img" src="{{user.student.profile_pic.url}}">
+     <img class="img" src="{{user.student.profile_pic.re_path}}">
         {% else %}
             <img src="{% static 'img/studentavatar.png' %}">
         {% endif %}

@@ -46,8 +46,8 @@
                   
     function ajax_refresh_lecture_notes_table()
     {
-        var url = '/teacher/course/'+{{ course.id }}+'/lecture/'+{{ lecture.lecture_id }}+'/lecture_notes_table';
-        $.ajax( url, {
+        var re_path = '/teacher/course/'+{{ course.id }}+'/lecture/'+{{ lecture.lecture_id }}+'/lecture_notes_table';
+        $.ajax( re_path, {
             data: {
                 'csrfmiddlewaretoken': '{{ csrf_token }}',
             },
@@ -71,7 +71,7 @@
      */
     function ajax_lecture_note_modal(upload_id)
     {
-        var url = '/teacher/course/'+{{ course.id }}+'/lecture/'+{{ lecture.lecture_id }}+'/lecture_note_modal';
+        var re_path = '/teacher/course/'+{{ course.id }}+'/lecture/'+{{ lecture.lecture_id }}+'/lecture_note_modal';
         if (upload_id == 0)
         {
             $('#add_lecture_note_btn').prop("disabled", true); // Lock button
@@ -80,7 +80,7 @@
         {
             $('#edit_'+upload_id+'_btn').prop("disabled", true); // Lock button
         }
-        $.ajax( url, {
+        $.ajax( re_path, {
             data: {
                 'csrfmiddlewaretoken': '{{ csrf_token }}',
                 'upload_id': upload_id
@@ -105,9 +105,9 @@
      */
     function ajax_delete_lecture_note(upload_id)
     {
-        var url = '/teacher/course/'+{{ course.id }}+'/lecture/'+{{ lecture.lecture_id }}+'/delete_lecture_note';
+        var re_path = '/teacher/course/'+{{ course.id }}+'/lecture/'+{{ lecture.lecture_id }}+'/delete_lecture_note';
         $('#del_'+upload_id+'_btn').prop("disabled", true); // Lock button
-        $.ajax( url, {
+        $.ajax( re_path, {
             data: {
                 'csrfmiddlewaretoken': '{{ csrf_token }}',
                 'upload_id' : upload_id

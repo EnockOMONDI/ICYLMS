@@ -31,7 +31,7 @@
                 <p>{{ publication.description }}</p>
                 <br>
                 </br>
-                <iframe id="pdf_publication" src="{{ publication.file.url }}" width="100%" height="650px"></iframe>
+                <iframe id="pdf_publication" src="{{ publication.file.re_path }}" width="100%" height="650px"></iframe>
                 <br>
                 <p>
                 <button onclick="ajax_peer_review_modal(0);"

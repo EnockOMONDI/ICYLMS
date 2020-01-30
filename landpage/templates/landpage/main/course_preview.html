@@ -10,7 +10,7 @@
                 <!-- Course Picture -->
                 <div class="col-lg-12">
                     {% if course.image != None and course.image != '' %}
-                    <img src="{{ course.image.url }}" height="100%" width="100%" />
+                    <img src="{{ course.image.re_path }}" height="100%" width="100%" />
                     {% else %}
                     Missing Image!
                     {% endif %}

@@ -36,8 +36,6 @@ def editprod(request):
         user_form = RegisterForm(instance=request.user)
         profile_form = StudentForm(instance=request.user.student)
     return render(request,' account/productionpages/pages/profile.html', {
-
-
         'user_form': user_form,
         'profile_form': profile_form,
         'local_css_urls': [                    

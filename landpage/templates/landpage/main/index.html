@@ -143,7 +143,7 @@
                     <img src="{% static 'img/00.jpeg' %}"
                         class="img-responsive" alt="">
                     {% else %}
-                    <img src="{{ top_pick.course.image.url }}"
+                    <img src="{{ top_pick.course.image.re_path }}"
                         class="img-responsive" alt="">
                     {% endif %}
                     
@@ -170,7 +170,7 @@
         <div class="row">
             {% for partner in partners %}
             <div class="col-md-3 col-sm-6">
-                <a href="http://{{ partner.url }}">
+                <a href="http://{{ partner.re_path }}">
                     <img src="{% static 'img/' %}logos/{{ partner.image_filename }}"
                        class="img-responsive img-centered"
                          alt=""{{ partner.title }}>

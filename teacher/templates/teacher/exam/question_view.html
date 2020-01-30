@@ -65,14 +65,14 @@
     
     function ajax_question(question_id, question_type)
     {
-        var url;
+        var re_path;
         if (question_type == 0)
         {
-            url = {{ exam.exam_id }} + '/question_type_modal';
+            re_path = {{ exam.exam_id }} + '/question_type_modal';
         }
         else if (question_type == {{ MULTIPLECHOICE_QUESTION_TYPE }})
         {
-            url = {{ exam.exam_id }} + '/question_multiple_choice_modal'
+            re_path = {{ exam.exam_id }} + '/question_multiple_choice_modal'
         }
         
         if (question_id == 0)
@@ -84,7 +84,7 @@
             $('#edit_'+question_id+'_'+question_type+'_btn').prop("disabled", true); // Lock button
         }
 
-        $.ajax( url, {
+        $.ajax( re_path, {
             data: {
                 'csrfmiddlewaretoken': '{{ csrf_token }}',
                 'question_id': question_id,

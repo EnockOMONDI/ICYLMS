@@ -101,9 +101,9 @@
          */
         function ajax_enroll(course_id)
         {
-            var url = 'enroll';
+            var re_path = 'enroll';
     
-            $.ajax( url, {
+            $.ajax( re_path, {
                data: {
                    'course_id' : course_id,
                    'csrfmiddlewaretoken': '{{ csrf_token }}',
@@ -149,9 +149,9 @@
     
     function ajax_continue_course(course_id)
     {
-        var url = 'enroll';
+        var re_path = 'enroll';
     
-        $.ajax( url, {
+        $.ajax( re_path, {
            data: {
                'course_id' : course_id,
                'csrfmiddlewaretoken': '{{ csrf_token }}',

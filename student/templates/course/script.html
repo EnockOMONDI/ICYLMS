@@ -6,9 +6,9 @@
  */
 function ajax_logout()
 {
-    var url = '/logout';
+    var re_path = '/logout';
             
-    $.ajax( url, {
+    $.ajax( re_path, {
         data: {
            'csrfmiddlewaretoken': '{{ csrf_token }}',
         },

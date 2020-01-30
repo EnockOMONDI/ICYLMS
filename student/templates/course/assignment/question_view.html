@@ -49,7 +49,7 @@
         data.append('file', document.getElementById(file_id).files[0]);
         
         jQuery.ajax({
-            url: {{ assignment.assignment_id }} + '/submit_e_assignment_answer',
+            re_path: {{ assignment.assignment_id }} + '/submit_e_assignment_answer',
             data: data,
             cache: false,
             contentType: false,
@@ -88,7 +88,7 @@
         data.append('answer', answer);
     
         jQuery.ajax({
-            url: {{ assignment.assignment_id }} + '/submit_mc_assignment_answer',
+            re_path: {{ assignment.assignment_id }} + '/submit_mc_assignment_answer',
             data: data,
             cache: false,
             contentType: false,
@@ -116,7 +116,7 @@
         data.append('answer', answer);
     
         jQuery.ajax({
-            url: {{ assignment.assignment_id }} + '/submit_tf_assignment_answer',
+            re_path: {{ assignment.assignment_id }} + '/submit_tf_assignment_answer',
             data: data,
             cache: false,
             contentType: false,
@@ -147,7 +147,7 @@
         data.append('answer', text);
     
         jQuery.ajax({
-            url: {{ assignment.assignment_id }} + '/submit_r_assignment_answer',
+            re_path: {{ assignment.assignment_id }} + '/submit_r_assignment_answer',
             data: data,
             cache: false,
             contentType: false,
@@ -171,7 +171,7 @@
         var data = new FormData();
         data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
         jQuery.ajax({
-            url: {{ assignment.assignment_id }} + '/submit_assignment',
+            re_path: {{ assignment.assignment_id }} + '/submit_assignment',
             data: data,
             cache: false,
             contentType: false,

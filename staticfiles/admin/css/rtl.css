@@ -99,7 +99,7 @@ thead th.sorted .text {
 /* changelists styles */
 
 .change-list .filtered {
-    background: white url(../img/changelist-bg_rtl.gif) top left repeat-y !important;
+    background: white re_path(../img/changelist-bg_rtl.gif) top left repeat-y !important;
 }
 
 .change-list .filtered table {
@@ -156,7 +156,7 @@ thead th.sorted .text {
 }
 
 .submit-row .deletelink {
-    background: url(../img/icon_deletelink.gif) 0 50% no-repeat;
+    background: re_path(../img/icon_deletelink.gif) 0 50% no-repeat;
     padding-right: 14px;
 }
 
