@@ -1,8 +1,5 @@
 from django.contrib import admin
-
-## Special Thanks:
-## http://www.djangobook.com/en/2.0/chapter06.html
-#
+from registrar.models import Order, CartItem, LineItem
 from registrar.models import FileUpload
 from registrar.models import Course
 from registrar.models import CourseSubmission
@@ -30,6 +27,22 @@ from registrar.models import ResponseQuestion
 from registrar.models import ResponseSubmission
 from registrar.models import PeerReview
 
+
+# class CAdmin(admin.ModelAdmin):
+#     list_display =['id', 'name', 'price']
+
+
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'email', 'date', 'paid']
+
+
+class OrderItemAdmin(admin.ModelAdmin):
+    list_display = ['id', 'price', 'quantity', 'course']
+
+
+class LineItemAdmin(admin.ModelAdmin):
+    list_display = ['id', 'price', 'quantity', 'date_added', 'order']
+
 admin.site.register(FileUpload)
 admin.site.register(Course)
 admin.site.register(CourseSubmission)
@@ -56,3 +69,17 @@ admin.site.register(TrueFalseQuestion)
 admin.site.register(TrueFalseSubmission)
 admin.site.register(ResponseQuestion)
 admin.site.register(ResponseSubmission)
+# admin.site.register(Product, ProductAdmin)
+admin.site.register(Order, OrderAdmin)
+admin.site.register(CartItem, OrderItemAdmin)
+admin.site.register(LineItem, LineItemAdmin)
+
+
+
+
+# Register your models here.
+
+
+
+
+

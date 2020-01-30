@@ -1,13 +1,13 @@
 from django.db import models
 from django import forms
-from django.forms import ModelForm, Textarea, TextInput
-from django.forms.extras.widgets import Select, SelectDateWidget
+# from django.forms import ModelForm, Textarea, TextInput
+# from django.forms.extras.widgets import Select, SelectDateWidget
 from registrar.models import Course
 from cloudinary.forms import CloudinaryFileField
 import datetime
-from django.forms import ModelForm, Textarea, TextInput, NumberInput, FileField
-from django.forms.extras.widgets import Select, SelectDateWidget
-
+from django.forms import ModelForm, Textarea, TextInput, NumberInput, FileField , Select, SelectDateWidget
+# from django.forms.extras.widgets import Select, SelectDateWidget
+from registrar.models import Order
 
 
 class CourseForm(forms.ModelForm):
@@ -23,10 +23,10 @@ class CourseForm(forms.ModelForm):
 
     class Meta:
         model = Course
-        fields = ['title', 'sub_title', 'category', 'description', 'start_date', 'finish_date', 'image']
+        fields = ['title', 'sub_title', 'price', 'category', 'description', 'start_date', 'finish_date', 'image']
         labels = {
             'sub_title': 'Sub Title',
-            # 'image': 'Upload Image',
+            'price': 'Price',
             'start_date': 'Start Date',
             'finish_date': 'Finish Date',
         }
@@ -39,3 +39,23 @@ class CourseForm(forms.ModelForm):
             'finish_date': SelectDateWidget(),
         }
 
+
+
+
+class CartForm(forms.Form):
+    quantity = forms.IntegerField(initial='1')
+    course_id = forms.IntegerField(widget=forms.HiddenInput)
+
+    def __init__(self, request, *args, **kwargs):
+        self.request = request
+        super(CartForm, self).__init__(*args, **kwargs)
+
+
+class CheckoutForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        exclude = ('paid',)
+
+        widgets = {
+            'address': forms.Textarea(attrs={'row': 5, 'col': 8}),
+        }

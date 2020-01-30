@@ -1,4 +1,5 @@
-from django.conf.urls import patterns, include, url
+from django.urls import include
+from django.urls import path, re_path
 
 from landpage.views import txt
 from landpage.views import landpage
@@ -15,47 +16,43 @@ sitemaps = {
     'static': StaticViewSitemap,
 }
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Custom Files
-    url(r'^robots\.txt$', txt.robots_txt_page, name='robots'),
-    url(r'^humans\.txt$', txt.humans_txt_page, name='humans'),
+    re_path(r'^robots\.txt$', txt.robots_txt_page, name='robots'),
+    re_path(r'^humans\.txt$', txt.humans_txt_page, name='humans'),
                        
     # Google Verify
-    url(r'^googlee81f1c16590924d1.html$', google.google_verify_page, name='google_plus_verify'),
-    url(r'^googlee81f1c16590924d1$', google.google_verify_page),
+    re_path(r'^googlee81f1c16590924d1.html$', google.google_verify_page, name='google_plus_verify'),
+    re_path(r'^googlee81f1c16590924d1$', google.google_verify_page),
                        
     # Landpage
-    url(r'^$',landpageprod.landpageprod_page, name='landpageprod'),
-    url(r'^landpage$', landpage.landpage_page),
-    url(r'^course_preview_modal$', landpage.course_preview_modal),
-    url(r'^save_contact_us_message$', landpage.save_contact_us_message),
+    re_path(r'^$',landpageprod.landpageprod_page, name='landpageprod'),
+    re_path(r'^landpage$', landpage.landpage_page),
+    re_path(r'^course_preview_modal$', landpage.course_preview_modal),
+    re_path(r'^save_contact_us_message$', landpage.save_contact_us_message),
 
      #productionpages
-    url(r'^landpageprod$', landpageprod.landpageprod_page, name='landpageprod'),
-    url(r'^welcome$', landpageprod.welcome, name='welcome'),
-    url(r'^aboutus$', landpageprod.about_us, name='aboutus'),
-    url(r'^enrollnow$', landpageprod.enrollnow, name='enrollnow'),
-    url(r'^studentfaqs$', landpageprod.studentfaqs, name='studentfaqs'),
-    url(r'^sdgfaqs$', landpageprod.sdgfaqs, name='sdgfaqs'),
-    url(r'^benefits', landpageprod.benefits, name=' benefits'),
-    url(r'^contactus$', landpageprod.contactus, name='contactus'), 
-    url(r'^sdgdigitallab$', landpageprod.sdgdigitallab, name='sdgdigitallab'), 
-    url(r'^volunteerpage$', landpageprod.volunteer, name='volunteer'),
-    url(r'^digitallab$', landpageprod.digitallab , name='digitallab '),
-    url(r'^scholarship-application-form$', landpageprod.scholarship , name='scholarship'),
-    # url(r'^edit/', views.edit, name='edit'),
+    re_path(r'^landpageprod$', landpageprod.landpageprod_page, name='landpageprod'),
+    re_path(r'^welcome$', landpageprod.welcome, name='welcome'),
+    re_path(r'^aboutus$', landpageprod.about_us, name='aboutus'),
+    re_path(r'^enrollnow$', landpageprod.enrollnow, name='enrollnow'),
+    re_path(r'^studentfaqs$', landpageprod.studentfaqs, name='studentfaqs'),
+    re_path(r'^sdgfaqs$', landpageprod.sdgfaqs, name='sdgfaqs'),
+    re_path(r'^benefits', landpageprod.benefits, name=' benefits'),
+    re_path(r'^contactus$', landpageprod.contactus, name='contactus'), 
+    re_path(r'^sdgdigitallab$', landpageprod.sdgdigitallab, name='sdgdigitallab'), 
+    re_path(r'^volunteerpage$', landpageprod.volunteer, name='volunteer'),
+    re_path(r'^digitallab$', landpageprod.digitallab , name='digitallab '),
+    re_path(r'^scholarship-application-form$', landpageprod.scholarship , name='scholarship'),
+    # re_path(r'^edit/', views.edit, name='edit'),
                   
     # Off-Convas Stuff
-    url(r'^terms$', terms.terms_page, name='terms'),
-    url(r'^privacy', privacy.privacy_page, name='privacy'),
-    url(r'^forgot_password$', forgot_password.forgot_password_page, name='forgot_password'),
-    url(r'^reset_password$', forgot_password.reset_password, name='reset_password'),
+    re_path(r'^terms$', terms.terms_page, name='terms'),
+    re_path(r'^privacy', privacy.privacy_page, name='privacy'),
+    re_path(r'^forgot_password$', forgot_password.forgot_password_page, name='forgot_password'),
+    re_path(r'^reset_password$', forgot_password.reset_password, name='reset_password'),
                        
     # Sitemap
-    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
-)
-
-# Captchas
-urlpatterns += patterns('',
-    url(r'^captcha/', include('captcha.urls')),
-)
+    re_path(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    re_path(r'^captcha/', include('captcha.urls')),
+]

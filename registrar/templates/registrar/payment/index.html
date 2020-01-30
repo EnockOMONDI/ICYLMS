@@ -1,0 +1,19 @@
+{% extends 'registrar/base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <h2>Available Courses</h2>
+            
+            {% for course in all_courses %}
+                <div class="col-lg-4">
+                    <h3><a href="{% url 'course_detail' 'course_id'  %}">{{ course.title }}</a></h3>
+                    <p>Price ${{ course.price }}</p>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock %}

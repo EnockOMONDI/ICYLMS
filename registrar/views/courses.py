@@ -19,7 +19,7 @@ from registrar.forms import CourseForm
 @login_required(login_url='/login_modal')
 def courses_page(request):
     course_list = Course.objects.filter(status=settings.COURSE_AVAILABLE_STATUS)
-    paginator = Paginator(course_list, 25) # Show 25 courses per page
+    paginator = Paginator(course_list, 4) # Show 25 courses per page
     page = request.GET.get('page')
     try:
         courses = paginator.page(page)

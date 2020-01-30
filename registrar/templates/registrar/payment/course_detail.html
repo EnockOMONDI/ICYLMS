@@ -1,0 +1,30 @@
+{% extends 'registrar/base.html' %}
+
+{% block title %}
+    {{ Course.title }} |
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+
+            <p><a href="{% url 'index' %}">All Courses </a> &gt;
+                {{ course.title }}
+            </p>
+
+                <h2>{{ course.title }}</h2>
+                <p>Price ${{ course.price }}</p>
+               
+                <form action="{% url 'course_detail' course.id  %}" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" value="Add to cart" class="btn btn-primary" >
+                </form>
+
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -7,8 +7,8 @@ from account.models import PrivateMessage,Student
 # from account.models import Profile,Post
 from django.contrib.auth.models import User
 import datetime
-from django.forms import ModelForm, Textarea, TextInput, NumberInput, FileField
-from django.forms.extras.widgets import Select, SelectDateWidget
+from django.forms import ModelForm, Textarea, TextInput, NumberInput, FileField, Select
+# from django.forms.extras.widgets import Select, SelectDateWidget
 from cloudinary.forms import CloudinaryFileField
 
 
