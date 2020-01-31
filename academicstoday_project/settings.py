@@ -63,6 +63,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'paypal.standard.ipn',
     'pyuploadcare.dj',
+    'ecommerce_app',
     'captcha',
      'jet',
     'account',
@@ -100,6 +101,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'ecommerce_app.context_processor.cart_item_count',
+
             ],
         },
     },
@@ -182,6 +185,23 @@ cloudinary.config(
 # Static files (CSS, JavaScript, Images) & Upload Content
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 # 'Sites Framework' requires this line.
+# Password validation
+# https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
 
 
 

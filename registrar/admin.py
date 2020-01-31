@@ -1,5 +1,5 @@
 from django.contrib import admin
-from registrar.models import Order, CartItem, LineItem
+# from registrar.models import Order, CartItem, LineItem
 from registrar.models import FileUpload
 from registrar.models import Course
 from registrar.models import CourseSubmission
@@ -32,16 +32,16 @@ from registrar.models import PeerReview
 #     list_display =['id', 'name', 'price']
 
 
-class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'email', 'date', 'paid']
+# class OrderAdmin(admin.ModelAdmin):
+#     list_display = ['id', 'name', 'email', 'date', 'paid']
 
 
-class OrderItemAdmin(admin.ModelAdmin):
-    list_display = ['id', 'price', 'quantity', 'course']
+# class OrderItemAdmin(admin.ModelAdmin):
+#     list_display = ['id', 'price', 'quantity', 'course_id']
 
 
-class LineItemAdmin(admin.ModelAdmin):
-    list_display = ['id', 'price', 'quantity', 'date_added', 'order']
+# class LineItemAdmin(admin.ModelAdmin):
+#     list_display = ['id', 'price', 'quantity', 'date_added', 'order']
 
 admin.site.register(FileUpload)
 admin.site.register(Course)
@@ -70,9 +70,9 @@ admin.site.register(TrueFalseSubmission)
 admin.site.register(ResponseQuestion)
 admin.site.register(ResponseSubmission)
 # admin.site.register(Product, ProductAdmin)
-admin.site.register(Order, OrderAdmin)
-admin.site.register(CartItem, OrderItemAdmin)
-admin.site.register(LineItem, LineItemAdmin)
+# admin.site.register(Order, OrderAdmin)
+# admin.site.register(CartItem, OrderItemAdmin)
+# admin.site.register(LineItem, LineItemAdmin)
 
 
 

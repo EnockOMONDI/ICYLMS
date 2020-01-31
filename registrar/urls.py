@@ -5,7 +5,7 @@ from registrar.views import enrollment
 from registrar.views import teaching
 from registrar.views import transcript
 from registrar.views import certificate
-from registrar.views import payment
+# from registrar.views import payment
 
 urlpatterns = [
     # Courses
@@ -36,14 +36,14 @@ urlpatterns = [
     url(r'^change_certificate_accessiblity$', certificate.change_certificate_accessiblity),
     url(r'^certificate/(\d+)$', certificate.certificate_page),
     url(r'^certificate_permalink_modal$', certificate.certificate_permalink_modal),
-    url(r'^allcourse/', payment.index, name='index'),
-    url(r'^course/<int:course_id>/',payment.show_course, name='course_detail'),
-    url(r'^cart/', payment.show_cart, name='show_cart'),
-    url(r'^checkout/', payment.checkout, name='checkout'),
-    url(r'^process-payment/', payment.process_payment, name='process_payment'),
-    url(r'^payment-done/', payment.payment_done, name='payment_done'),
-    url(r'^payment-cancelled/', payment.payment_canceled, name='payment_cancelled'),
-    url(r'^paypal/', include('paypal.standard.ipn.urls')),
+    # url(r'^allcourse/', payment.index, name='index'),
+    # url(r'^course/<int:course_id>/',payment.show_course, name='course_detail'),
+    # url(r'^cart/', payment.show_cart, name='show_cart'),
+    # url(r'^checkout/', payment.checkout, name='checkout'),
+    # url(r'^process-payment/', payment.process_payment, name='process_payment'),
+    # url(r'^payment-done/', payment.payment_done, name='payment_done'),
+    # url(r'^payment-cancelled/', payment.payment_canceled, name='payment_cancelled'),
+    # url(r'^paypal/', include('paypal.standard.ipn.urls')),
     
 
 
