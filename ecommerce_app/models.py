@@ -1,4 +1,6 @@
 from django.db import models
+from registrar.models import Course
+from django.contrib.auth.models import User
 
 
 class Product(models.Model):
@@ -7,6 +9,7 @@ class Product(models.Model):
     slug = models.SlugField()
     description = models.TextField()
     image = models.ImageField(upload_to='products_images/', blank=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -37,6 +40,7 @@ class Order(models.Model):
     address = models.CharField(max_length=191)
     date = models.DateTimeField(auto_now_add=True)
     paid = models.BooleanField(default=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return "{}:{}".format(self.id, self.email)

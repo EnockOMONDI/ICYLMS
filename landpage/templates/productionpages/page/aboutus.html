@@ -1,7 +1,8 @@
-{% extends 'productionpages/basewithbg.html' %}
+{% extends 'productionpages/basewithbgvendors.html' %}
 
 {% load staticfiles%}
 {% block content %}
+{% include "productionpages/nav.html" %}
 
 <div class="page-header " style="   margin-top:-20px;   margin-bottom:-160px;" data-parallax="false" >
     <div class="container">
@@ -105,73 +106,8 @@
 
 
 
-    <footer class="footer footer-black footer-big" >
-            <div class="container">
-              <div class="content">
-                <div class="row">
-                  <div class="col-md-4">
-                    <h5>About Us</h5>
-                    <p>The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as ForMission College, accredited by York St John University and Newman University in Birmingham, Africa for SDGs and ICY AFRICA which runs the Springdale Foundation and other global partners.
-                    </p>
-                  </div>
-                  <div class="col-md-4">
-                    <h5>Social Feed</h5>
-                    <div class="social-feed">
-                      <div class="feed-line">
-                        <i class="fa fa-twitter"></i>
-                        <p>.</p>
-                      </div>
-                      <div class="feed-line">
-                        <i class="fa fa-twitter"></i>
-                        <p>.</p>
-                      </div>
-                      <div class="feed-line">
-                        <i class="fa fa-facebook-square"></i>
-                        <p>.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <h5>Trending Topics</h5>
-                    <div class="gallery-feed">
-                      <img src="assets/img/faces/card-profile6-square.jpg" class="img img-raised rounded" alt="">
-                      <img src="assets/img/faces/christian.jpg" class="img img-raised rounded" alt="">
-                      <img src="assets/img/faces/card-profile4-square.jpg" class="img img-raised rounded" alt="">
-                      <img src="assets/img/faces/card-profile1-square.jpg" class="img img-raised rounded" alt="">
-                      <img src="assets/img/faces/marc.jpg" class="img img-raised rounded" alt="">
-                      <img src="assets/img/faces/kendall.jpg" class="img img-raised rounded" alt="">
-                      <img src="assets/img/faces/card-profile5-square.jpg" class="img img-raised rounded" alt="">
-                      <img src="assets/img/faces/card-profile2-square.jpg" class="img img-raised rounded" alt="">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr>
-              <ul class="float-left">
-                <li>
-                  <a href="#pablo">
-                  FAQS
-                  </a>
-                </li>
-                <li>
-                  <a href="#pablo">
-                    Payment
-                  </a>
-                </li>
-                <li>
-                  <a href="#pablo">
-                    Contact Us
-                  </a>
-                </li>
-              </ul>
-              <div class="copyright float-right">
-                Copyright &#xA9;
-                <script>
-                  document.write(new Date().getFullYear())
-                </script> Leadership and Development Academy.
-              </div>
-            </div>
-          </footer>
+    {% include "productionpages/page/footer.html" %}
+
           {% include "landpage/main/js.html" %}  
           <div id="ajax_response_login"></div>
           <div id="ajax_response_register"></div>
