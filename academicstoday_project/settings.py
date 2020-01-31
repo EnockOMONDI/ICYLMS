@@ -129,13 +129,14 @@ CAPTCHA_FONT_SIZE = 52
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "academicstoday_dbnew",
-        "USER": "django",
-        "PASSWORD": "123password",
+        "NAME": "academicstoday_db",
+        "USER": "postgres",
+        "PASSWORD": "lucy",
         "HOST": "localhost",
         # "PORT": " 5432",
     }
 }
+
 
 
 DATABASES['default'].update(db_from_env)
