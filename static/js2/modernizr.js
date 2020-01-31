@@ -384,7 +384,7 @@ window.Modernizr = (function( window, document, undefined ) {
         if(is(prefixed, "string") || is(prefixed, "undefined")) {
           return testProps(props, prefixed);
 
-        // otherwise, they called .prefixed('requestAnimationFrame', window[, elem])
+        // otherwise, they called .prefixed('requestAnimationFrame', window[ elem])
         } else {
           props = (prop + ' ' + (domPrefixes).join(ucProp + ' ') + ucProp).split(' ');
           return testDOMProps(props, prefixed, elem);

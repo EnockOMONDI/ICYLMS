@@ -1,5 +1,5 @@
 # Django & Python
-from django.core.urlresolvers import resolve
+from  django.urls import reverse import resolve
 from django.http import HttpRequest
 from django.http import QueryDict
 from django.test import TestCase

@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, re_path
+from django.conf.urls import include, re_path
 
 from . import views
 from django.urls import  re_path# Import custom views.
@@ -14,7 +14,7 @@ from student.views import discussion
 from student.views import peer_review
 from student.views import credit
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Announcement
     re_path(r'^course/(\d+)/announcements$', announcement.announcements_page),
 
@@ -87,4 +87,4 @@ urlpatterns = patterns('',
     # Credit
     re_path(r'^course/(\d+)/credit$', credit.credit_page),
     re_path(r'^course/(\d+)/submit_credit_application$', credit.submit_credit_application),
-)
+]

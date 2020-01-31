@@ -5260,14 +5260,14 @@ jQuery.fn.extend({
 			return this;
 		}
 		if ( typeof types === "object" ) {
-			// ( types-object [, selector] )
+			// ( types-object [ selector] )
 			for ( type in types ) {
 				this.off( type, selector, types[ type ] );
 			}
 			return this;
 		}
 		if ( selector === false || typeof selector === "function" ) {
-			// ( types [, fn] )
+			// ( types [ fn] )
 			fn = selector;
 			selector = undefined;
 		}
@@ -8493,7 +8493,7 @@ jQuery.fn.extend({
 		return this.on( types, selector, data, fn );
 	},
 	undelegate: function( selector, types, fn ) {
-		// ( namespace ) or ( selector, types [, fn] )
+		// ( namespace ) or ( selector, types [ fn] )
 		return arguments.length === 1 ? this.off( selector, "**" ) : this.off( types, selector || "**", fn );
 	}
 });

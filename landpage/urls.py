@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, re_path
+from django.conf.urls import include, re_path
 
 from landpage.views import txt
 from landpage.views import landpage
@@ -15,7 +15,7 @@ sitemaps = {
     'static': StaticViewSitemap,
 }
 
-urlpatterns = patterns('',
+urlpatterns=(
     # Custom Files
     re_path(r'^robots\.txt$', txt.robots_txt_page, name='robots'),
     re_path(r'^humans\.txt$', txt.humans_txt_page, name='humans'),
@@ -49,6 +49,6 @@ urlpatterns = patterns('',
 )
 
 # Captchas
-urlpatterns += patterns('',
+urlpatterns += (
     re_path(r'^captcha/', include('captcha.urls')),
 )

@@ -35,7 +35,7 @@ function cancelEventPropagation(e) {
     if (e.stopPropagation) e.stopPropagation();
 }
 
-// quickElement(tagType, parentReference [, textInChildNode, attribute, attributeValue ...]);
+// quickElement(tagType, parentReference [ textInChildNode, attribute, attributeValue ...]);
 function quickElement() {
     var obj = document.createElement(arguments[0]);
     if (arguments[2]) {

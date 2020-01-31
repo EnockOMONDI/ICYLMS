@@ -37,7 +37,7 @@ def create_user(form):
         user.last_name = form['last_name'].value()
         user.is_active = True   # Need email verification to change status.
         user.save()
-        send_mail('Subject here','Here is the message.',settings.EMAIL_HOST_USER,[email],fail_silently=False,))
+        send_mail('Subject here','Here is the message.',settings.EMAIL_HOST_USER,[email],fail_silently=False)
         
     except Exception as e:
         return {

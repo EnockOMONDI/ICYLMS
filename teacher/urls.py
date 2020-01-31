@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, re_path
+from django.conf.urls import include, re_path
 
 from . import views
 from django.urls import  re_path# Import custom views.
@@ -15,7 +15,7 @@ from teacher.views import discussion
 from teacher.views import peer_review
 from teacher.views import setting
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Syllabus
     re_path(r'^teacher/course/(\d+)/overview$', overview.overview_page),
     re_path(r'^teacher/course/(\d+)/submit_course_for_review$', overview.submit_course_for_review),
@@ -125,4 +125,4 @@ urlpatterns = patterns('',
     # Settings
     re_path(r'^teacher/course/(\d+)/settings$', setting.settings_page),
     re_path(r'^teacher/course/(\d+)/suspend_course$', setting.suspend_course),
-)
+]

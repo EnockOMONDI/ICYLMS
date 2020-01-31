@@ -1,9 +1,9 @@
-from django.conf.urls import patterns, include, re_path
+from django.conf.urls import include, re_path
 from publisher.views import catalog
 from publisher.views import my_publication
 from publisher.views import publication
 from django.urls import  re_path
-urlpatterns = patterns('',
+urlpatterns = [
     # Publications(s)
     re_path(r'^publish$', catalog.catalog_page),
     re_path(r'^publication/(\d+)$', publication.publication_page),
@@ -17,4 +17,4 @@ urlpatterns = patterns('',
     re_path(r'^my_publication_modal$', my_publication.my_publication_modal),
     re_path(r'^save_publication$', my_publication.save_publication),
     re_path(r'^delete_publication$', my_publication.delete_publication),
-)
+]

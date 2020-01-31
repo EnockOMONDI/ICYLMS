@@ -1,11 +1,12 @@
-from django.conf.urls import patterns, include, re_path
-from django.urls import  re_pathfrom registrar.views import courses
+
+from django.urls import  re_path
+from registrar.views import courses
 from registrar.views import enrollment
 from registrar.views import teaching
 from registrar.views import transcript
 from registrar.views import certificate
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Courses
     re_path(r'^courses$', courses.courses_page),
     re_path(r'^enroll$', courses.enroll),
@@ -34,4 +35,4 @@ urlpatterns = patterns('',
     re_path(r'^change_certificate_accessiblity$', certificate.change_certificate_accessiblity),
     re_path(r'^certificate/(\d+)$', certificate.certificate_page),
     re_path(r'^certificate_permalink_modal$', certificate.certificate_permalink_modal),
-)
+]
