@@ -1,8 +1,7 @@
-{% extends 'productionpages/base3.html' %}
+{% extends 'account/base3.html' %}
 
 {% load staticfiles%}
 {% block content %}
-
 
 
          
@@ -60,10 +59,12 @@
                 </div>
               </div>
             </div>
+
             <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+   
                 <div class="text-center text-sm-left mb-5 mb-sm-0">
                     <!-- <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">dj sean</h4> -->
-                    <h3 class="card-title">   <span class="card-title"> Name:</span>  {{ user.first_name }} {{ user.last_name }} </h3>
+                    <h4 class="card-title">   <span class="card-title"> Name:</span>  {{ user.first_name }} {{ user.last_name }} </h4>
                     <p class="card-description">  <span class="card-title"> UserName:</span> @{{ user.first_name }}{{ user.last_name }} </p>
                     <p class="card-description">  <span class="card-title"> Location:</span><i class="material-icons">location_on </i>{{user.student.country}}</p>
 
@@ -84,23 +85,19 @@
           
           </div>
      
-    
-        <!-- </div>
-        </div> -->
-    
-    
             </div>
             </div>
-            <div class="card-body ">
-                    <div class="text-center">
+            <div class="text-center">
 
-                            <h5 class="card-title">Edit your personal info below</h5>
-              
-                            <hr class="my-3">
-              
-                          
-                            
-                          </div>
+                    <h3 class="card-title">Edit your personal info below</h3>
+      
+                    <hr class="my-3">
+      
+                  
+                    
+                  </div>
+            <div class="card-body ">
+                  
                     {% include "account/productionpages/pages/updateuserform.html" with form=profile_form %}
 
 
@@ -110,8 +107,7 @@
       </div>
 
       <div class="col-md-4 mb-4">
-          <br>
-          <br>        
+                
          
              
         <!-- Section: Basic Info -->
