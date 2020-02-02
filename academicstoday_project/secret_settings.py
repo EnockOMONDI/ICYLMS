@@ -18,10 +18,10 @@ SECRET_KEY = 'xd#vc@mec1c0+wz^y&_i^-og&oy$mkn%_yky&xe^fo()mio$up'
 #---------------------------------------------------------------------------#
 # Email                                                                     #
 #---------------------------------------------------------------------------#
-SECRET_EMAIL_HOST = ''
+SECRET_EMAIL_HOST = 'settings@leadershipanddevelopmentacademy.com'
 SECRET_EMAIL_PORT = 587
 SECRET_EMAIL_HOST_USER = ''
-SECRET_EMAIL_HOST_PASSWORD = ''
+SECRET_EMAIL_HOST_PASSWORD = 'settingspassword'
 
 
 #---------------------------------------------------------------------------#
