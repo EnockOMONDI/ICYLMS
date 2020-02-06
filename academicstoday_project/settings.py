@@ -210,7 +210,7 @@ AUTH_PASSWORD_VALIDATORS = [
  
 # PAYPAL_RECEIVER_EMAIL = 'africaforsdgs2019@gmail.com'
 PAYPAL_RECEIVER_EMAIL = 'africaforsdgs2019@gmail.com'
-PAYPAL_TEST = True
+# PAYPAL_TEST = True
 
 SITE_ID = 1
 STATIC_URL = '/static/'
