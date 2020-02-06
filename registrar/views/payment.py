@@ -65,8 +65,7 @@ def checkout(request):
             o = Order(
                 name = cleaned_data.get('name'),
                 email = cleaned_data.get('email'),
-                postal_code = cleaned_data.get('postal_code'),
-                address = cleaned_data.get('address'),
+           
             )
             o.save()
 

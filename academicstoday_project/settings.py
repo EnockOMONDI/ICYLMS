@@ -209,7 +209,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
  
 # PAYPAL_RECEIVER_EMAIL = 'africaforsdgs2019@gmail.com'
-PAYPAL_RECEIVER_EMAIL = 'sb-nqppp947385@business.example.com'
+PAYPAL_RECEIVER_EMAIL = 'africaforsdgs2019@gmail.com'
 PAYPAL_TEST = True
 
 SITE_ID = 1

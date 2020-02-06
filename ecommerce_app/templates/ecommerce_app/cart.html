@@ -6,6 +6,88 @@
 
 {% block content %}
 
+
+
+<div class="pricing-2" id="pricing-2">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 ml-auto mr-auto text-center">
+              <h2 class="title"> Best plan for you</h2>
+              <ul class="nav nav-pills nav-pills-rose">
+                <!-- <li class="nav-item">
+                  <a class="nav-link active" href="#pill1" data-toggle="tab">Monthly</a>
+                </li> -->
+                <li class="nav-item">
+                  <a class="nav-link" href="#pill2" data-toggle="tab">Until Course Completion</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+     
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card card-pricing card-plain">
+                <div class="card-body ">
+                  <h6 class="card-category"></h6>
+                  <h1 class="card-title">
+                        {% for item in cart_items %}
+                    <small>$</small>{{ item.price }}
+                    <!-- <small>/mo</small> -->
+                  </h1>
+                  <ul>
+                    <li>
+                      <b></b> Course  | {{ item.product.name }}  </li>
+                    <!-- <li>
+                      <b>Total cost</b> </li>
+                    <li>
+                      <b>55</b> Personal Contacts</li>
+                    <li>
+                      <b>5.000</b> Messages</li> -->
+                  </ul>
+                </div>
+                {% endfor %}
+                {% if cart_item_count %}
+     
+                <div class="card-footer justify-content-center">
+                  <a href="{% url 'checkout' %}" class="btn btn-rose btn-round">
+                   Proceed to payment
+                  </a>
+                </div>
+                          
+            {% endif %}
+              </div>
+            </div>
+   
+            <div class="col-md-6">
+              <!-- <div class="card card-pricing card-plain">
+                <div class="card-body ">
+                  <h6 class="card-category">Platinum</h6>
+                  <h1 class="card-title">
+                    <small>$</small>199
+                    <small>/mo</small>
+                  </h1>
+                  <ul>
+                    <li>
+                      <b>1000</b> Projects</li>
+                    <li>
+                      <b>100</b> Team Members</li>
+                    <li>
+                      <b>550</b> Personal Contacts</li>
+                    <li>
+                      <b>50.000</b> Messages</li>
+                  </ul>
+                </div>
+                <div class="card-footer justify-content-center">
+                  <a href="#pablo" class="btn btn-rose btn-round">
+                    Get Started
+                  </a>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- 
     <h2>My Cart</h2>
     
     {% if cart_item_count %}
@@ -21,7 +103,7 @@
         </tr>
         </thead>
         <tbody>
-        {% for item in cart_items %}
+                {% for item in cart_items %}
             <tr>
                 <td>{{ item.product.name }}</td>
                 <td>{{ item.price }}</td>
@@ -64,7 +146,7 @@
     </table>
     {% else %}
         <p>Cart Empty</p>
-    {% endif %}
+    {% endif %} -->
 
 
 {% endblock %}

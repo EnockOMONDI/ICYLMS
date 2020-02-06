@@ -15,8 +15,10 @@ from django.views.decorators.csrf import csrf_exempt
 def index(request):
     all_products = Product.objects.all()
     return render(request, "ecommerce_app/index.html", {
-                                    'all_products': all_products,
-                                    })
+     'all_products': all_products,
+     'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+          })
 
 
 def show_product(request, product_id, product_slug):
@@ -34,7 +36,9 @@ def show_product(request, product_id, product_slug):
     return render(request, 'ecommerce_app/product_detail.html', {
                                             'product': product,
                                             'form': form,
-                                            })
+    'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+    'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+    })
 
 
 def show_cart(request):
@@ -48,9 +52,11 @@ def show_cart(request):
     cart_items = cart.get_all_cart_items(request)
     cart_subtotal = cart.subtotal(request)
     return render(request, 'ecommerce_app/cart.html', {
-                                            'cart_items': cart_items,
-                                            'cart_subtotal': cart_subtotal,
-                                            })
+      'cart_items': cart_items,
+      'cart_subtotal': cart_subtotal,
+       'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+          })
 
 
 def checkout(request):
@@ -61,8 +67,7 @@ def checkout(request):
             o = Order(
                 name = cleaned_data.get('name'),
                 email = cleaned_data.get('email'),
-                postal_code = cleaned_data.get('postal_code'),
-                address = cleaned_data.get('address'),
+                
             )
             o.save()
 
@@ -83,11 +88,11 @@ def checkout(request):
 
             messages.add_message(request, messages.INFO, 'Order Placed!')
             return redirect('process_payment')
-
-
     else:
         form = CheckoutForm()
-        return render(request, 'ecommerce_app/checkout.html', locals())
+        return render(request, 'ecommerce_app/checkout.html',  locals())
+     
+    
 
 def process_payment(request):
     order_id = request.session.get('order_id')
@@ -109,7 +114,10 @@ def process_payment(request):
     }
  
     form = PayPalPaymentsForm(initial=paypal_dict)
-    return render(request, 'ecommerce_app/process_payment.html', {'order': order, 'form': form})
+    return render(request, 'ecommerce_app/process_payment.html', {'order': order, 'form': form,
+        'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+          })
 
 @csrf_exempt
 def payment_done(request):
