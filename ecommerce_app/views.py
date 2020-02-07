@@ -105,12 +105,11 @@ def process_payment(request):
         'item_name': 'Order {}'.format(order.id),
         'invoice': str(order.id),
         'currency_code': 'USD',
-        'notify_url': 'http://{}{}'.format(host,
-                                           reverse('paypal-ipn')),
-        'return_url': 'http://{}{}'.format(host,
-                                           reverse('payment_done')),
-        'cancel_return': 'http://{}{}'.format(host,
-                                              reverse('payment_cancelled')),
+        'notify_url': 'https://www.leadershipanddevelopmentacademy.com/payment/
+                                         
+        'return_url': 'https://www.leadershipanddevelopmentacademy.com/payment/payment-done/',
+        'cancel_return': 'https://www.leadershipanddevelopmentacademy.com/payment/payment_canceled/'
+                                             
     }
  
     form = PayPalPaymentsForm(initial=paypal_dict)
