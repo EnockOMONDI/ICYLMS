@@ -108,7 +108,7 @@ def process_payment(request):
         'notify_url': 'https://www.leadershipanddevelopmentacademy.com/payment/',
                                          
         'return_url': 'https://www.leadershipanddevelopmentacademy.com/payment/payment-done/',
-        'cancel_return': 'https://www.leadershipanddevelopmentacademy.com/payment/payment_canceled/'
+        'cancel_return': 'https://www.leadershipanddevelopmentacademy.com/payment/payment-canceled/'
                                              
     }
  
