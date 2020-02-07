@@ -36,18 +36,3 @@ class CheckoutForm(forms.ModelForm):
 
 
         }
-
-        # fields = { 'profile_pic', 'country',  'age','bio','interests'}
-        # labels = {
-        #     'country': 'Country :',
-        #     'age': 'Age :',
-        #     'bio': 'Bio :',
-        #     'interests': 'Interests :',
-          
-        # }
-
-        # widgets = { 
-        #     'address': TextInput(attrs={'class': u'form-control','placeholder': u'Enter your interests interests'}),
-        #     '': TextInput(attrs={'class': u'form-control','placeholder': u'Enter your Bio here'}),
-        #     'age': NumberInput(attrs={'class': u'form-control','placeholder': u'Enter your age here'}),
-        # }

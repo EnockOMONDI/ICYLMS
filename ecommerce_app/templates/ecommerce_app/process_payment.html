@@ -1,9 +1,19 @@
 {% extends 'ecommerce_app/base.html' %}
- 
+{% load staticfiles %}
 {% block title %}Make Payment{% endblock %}
  
 {% block content %}
 <br><br><br><br><br><br>
-    <h4>Pay with PayPal</h4>
-    {{ form.render }}
+
+
+
+
+
+
+          <div class="card  card-plain card-nav-tabs"  style="background-color:#fff">
+        <div class="card-body ">
+                <h2><small>Pay with PayPal</small></h2>
+                {{ form.render }}
+        </div>
+    </div>
 {% endblock %}

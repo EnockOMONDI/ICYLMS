@@ -1,0 +1,94 @@
+<div class="col-lg-8 col-sm-6">
+    <form  action=""  method="POST" enctype="multipart/form-data" name="checkout_form" id="checkout_form">
+        {% csrf_token %}
+      
+      
+        <div class="card-body">
+         
+              <div class="row">
+                  <div class="col">
+                  <div class="form-group">
+                  
+                  </div>
+                  </div>
+                  </div>
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                      <span class="input-group-text">
+                      <i class="material-icons"></i>Name:
+                      </span>
+                  </div>
+                  {{ form.name}}
+            
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                <span class="input-group-text">
+                <i class="material-icons"></i>email:
+                </span>
+            </div>
+            {{ form.email}}
+      
+      </div>
+                
+       
+    
+    
+            
+                  
+           </div>
+    
+           
+              <div class="col-md-6 col-sm-8 ">
+             
+                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                  <div class="fileinput-new thumbnail img-raised">
+                   
+                  </div>
+                  <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+                  <div>
+                    <span class="btn btn-raised btn-round btn-default btn-file">
+                      <span class="fileinput-new">Select image</span>
+                   
+                      <input id="id_profile_pic" name="profile_pic" type="file">
+    
+                    </span>
+                    <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                  </div>
+                  <div class="col d-flexjustify-content-center ">
+                        <button class="btn btn-lg btn-primary btn-round"  type="submit" accept="image/*" >Save changes</button>                  
+                                     </div>
+                </div>
+              
+              </div>
+          
+       
+             
+       </form>
+       
+     
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+
+            <h2>Checkout</h2>
+
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+
+
+            <form action="" method="post">
+                <table>
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Place Order"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>

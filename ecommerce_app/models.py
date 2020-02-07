@@ -35,8 +35,8 @@ class CartItem(models.Model):
 
 
 class Order(models.Model):
-    name = models.CharField(max_length=191)
-    email = models.EmailField()
+    name = models.TextField(max_length=50, blank=True, null=True)
+    email = models.TextField(max_length=50, blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
     paid = models.BooleanField(default=False)
  
