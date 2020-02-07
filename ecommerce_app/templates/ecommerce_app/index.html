@@ -34,9 +34,9 @@
             <div class="card-header card-header-image" >
                     {% if product.image  %}
               <a href="#pablo">
-                <img src="{{ product.image.url }}" height="200" width="200"   alt="">
+                <img src="{{ product.image.url }}" height="250" width="200"   alt="">
                 {% else %}
-                <img src="{% static 'img/dummy.png' %}" height="200" width="200"   alt="">
+                <img src="{% static 'img/dummy.png' %}" height="250" width="200"   alt="">
                 <!-- Missing Image! -->
             {% endif %}
               </a>
@@ -57,7 +57,7 @@
 
           <div class="buttons">
             <a href="{% url 'product_detail' product.pk product.slug %}"  class="btn btn-primary btn btn-round ">
-                <strong>Enroll now</strong>  ${{ product.price }}
+                <strong>Enroll now   ${{ product.price }}</strong> 
             </a>
           </div>
 
