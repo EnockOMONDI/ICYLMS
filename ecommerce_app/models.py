@@ -1,6 +1,7 @@
 from django.db import models
 from registrar.models import Course
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 
 class Product(models.Model):
@@ -8,7 +9,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=7, decimal_places=2)
     slug = models.SlugField()
     description = models.TextField()
-    image = models.ImageField(upload_to='products_images/', blank=True)
+    image = CloudinaryField('image', blank=True, null=True)
    
 
     def __str__(self):

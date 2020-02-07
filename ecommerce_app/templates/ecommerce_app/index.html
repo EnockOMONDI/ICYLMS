@@ -1,11 +1,10 @@
 {% extends 'ecommerce_app/base.html' %}
-
+{% load staticfiles %}
 {% block content %}
 
-
-
 <br>
 <br>
+
 <br>
 <br>
  <div class="row">
@@ -33,15 +32,19 @@
         <!-- <h3 class="title text-center">{{ course.title }}</h3>  -->
           <div class="card" style=" box-shadow: 0 8px 16px 0 #c5c5c5; padding:10px; border-radius: 6px;">
             <div class="card-header card-header-image" >
-                    {% if product.image != None and product.image != '' %}
+                    {% if product.image  %}
               <a href="#pablo">
                 <img src="{{ product.image.url }}" height="200" width="200"   alt="">
                 {% else %}
-                <img src="static/img/dummy.png"  alt="">
+                <img src="{% static 'img/dummy.png' %}" height="200" width="200"   alt="">
                 <!-- Missing Image! -->
             {% endif %}
               </a>
             </div>
+
+     
+
+
             <div class="card-body">
             
               <h4 class="card-title text-center">
