@@ -124,9 +124,15 @@ def process_payment(request):
 
 @csrf_exempt
 def payment_done(request):
-    return render(request, 'ecommerce_app/payment_done.html')
+    return render(request, 'ecommerce_app/payment_done.html',
+       {   'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+          },)
  
  
 @csrf_exempt
 def payment_canceled(request):
-    return render(request, 'ecommerce_app/payment_cancelled.html')
+    return render(request, 'ecommerce_app/payment_cancelled.html',
+       {   'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+          },)
