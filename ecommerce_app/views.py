@@ -107,8 +107,8 @@ def process_payment(request):
         'currency_code': 'USD',
         'notify_url': 'https://www.leadershipanddevelopmentacademy.com/payment/',
                                          
-        'return_url': 'https://www.leadershipanddevelopmentacademy.com/payment/payment-done/',
-        'cancel_return': 'https://www.leadershipanddevelopmentacademy.com/payment/payment-canceled/'
+        'return_url': 'https://www.leadershipanddevelopmentacademy.com/payment-done/payment_done/',
+        'cancel_return': 'https://www.leadershipanddevelopmentacademy.com/payment-cancelled/payment_canceled/'
                                              
     }
  
