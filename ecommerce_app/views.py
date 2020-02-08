@@ -109,7 +109,7 @@ def process_payment(request):
         'item_name': 'Order {}'.format(order.id),
         'invoice': str(order.id),
         'currency_code': 'USD',
-        'notify_url': 'https://www.leadershipanddevelopmentacademy.com/payment/',
+        'notify_url': 'https://www.leadershipanddevelopmentacademy.com/paypal/',
                                          
         'return_url': 'https://www.leadershipanddevelopmentacademy.com/payment/payment-done/',
         'cancel_return': 'https://www.leadershipanddevelopmentacademy.com/payment/payment-cancelled/'
