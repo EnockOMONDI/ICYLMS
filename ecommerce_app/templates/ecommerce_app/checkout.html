@@ -16,20 +16,20 @@
               <h3><small>Just one more step to go!</small></h3>
             </div>
             <form action="" method="post">
-                   
+              {% csrf_token %}   
                       
             <div class="row">
-                    {% csrf_token %}
+                   
               <div class="col-lg-4 col-sm-8">
                 <div class="form-group ">
                   <label for="id_name" class="bmd-label-floating">Enter your name</label>
-                  <input type="text" class="form-control" id="id_name" required="true">
+                  <input type="text" class="form-control" required id="id_name" >
                 </div>
               </div>
               <div class="col-lg-4 col-sm-8">
                 <div class="form-group ">
                   <label for="id_email" class="bmd-label-floating">enter your email </label>
-                  <input  type="email" class="form-control" id="id_email" required="true">
+                  <input  type="email" class="form-control" required id="id_email" >
                   <span class="input-group-text">
                     <i class="fa fa-group"></i>
                   </span>
