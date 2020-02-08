@@ -67,7 +67,7 @@ def checkout(request):
             o = Order(
                 name = cleaned_data.get('name'),
                 email = cleaned_data.get('email'),
-                
+             
             )
             o.save()
 
@@ -91,9 +91,9 @@ def checkout(request):
     else:
         form = CheckoutForm()
         return render(request, 'ecommerce_app/checkout.html',
-        {   'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
-          },
+        # {   'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        # 'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+        #   },
          locals())
      
     

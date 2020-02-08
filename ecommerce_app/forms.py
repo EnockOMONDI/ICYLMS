@@ -14,25 +14,36 @@ class CartForm(forms.Form):
         self.request = request
         super(CartForm, self).__init__(*args, **kwargs)
 
+        
 
 class CheckoutForm(forms.ModelForm):
     class Meta:
         model = Order
         exclude = ('paid',)
-        fields = { 'name', 'email'}
-        labels = {
-           'email' :'email :',
-           'name' : 'name :'
-
-          
-        }
 
         widgets = {
-            # 'address': forms.Textarea(attrs={'row': 5, 'col': 8}),
-
-            'name': TextInput(attrs={'class': u'form-control','placeholder': u'Enter your name here'}),
-            'email': TextInput(attrs={'class': u'form-control','placeholder': u'Enter your email here'}),
-
-
-
+            'address': forms.Textarea(attrs={'row': 5, 'col': 8}),
         }
+
+
+# class CheckoutForm(forms.ModelForm):
+#     class Meta:
+#         model = Order
+#         exclude = ('paid',)
+#         fields = { 'name', 'email'}
+#         labels = {
+#            'email' :'email :',
+#            'name' : 'name :'
+
+          
+#         }
+
+#         widgets = {
+         
+
+#             'name': TextInput(attrs={'class': u'form-control','placeholder': u'Enter your name here'}),
+#             'email': TextInput(attrs={'class': u'form-control','placeholder': u'Enter your email here'}),
+
+
+
+#         }
