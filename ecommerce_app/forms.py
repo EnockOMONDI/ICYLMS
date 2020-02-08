@@ -14,7 +14,7 @@ class CartForm(forms.Form):
         self.request = request
         super(CartForm, self).__init__(*args, **kwargs)
 
-        
+
 
 class CheckoutForm(forms.ModelForm):
     class Meta:
@@ -24,7 +24,7 @@ class CheckoutForm(forms.ModelForm):
         widgets = {
             'address': forms.Textarea(attrs={'row': 5, 'col': 8}),
         }
-
+   
 
 # class CheckoutForm(forms.ModelForm):
 #     class Meta:
