@@ -44,6 +44,9 @@ urlpatterns = [
     re_path(r'^volunteerpage$', landpageprod.volunteer, name='volunteer'),
     re_path(r'^digitallab$', landpageprod.digitallab , name='digitallab '),
     re_path(r'^scholarship-application-form$', landpageprod.scholarship , name='scholarship'),
+    re_path(r'^paymentfaqs', landpageprod.paymentfaqs , name='paymentfaqs'),
+
+    
     # re_path(r'^edit/', views.edit, name='edit'),
                   
     # Off-Convas Stuff

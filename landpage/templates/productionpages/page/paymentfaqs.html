@@ -1,0 +1,99 @@
+{% extends 'productionpages/basewithbgvendors.html' %}
+
+{% load staticfiles %}
+{% block content %}
+{% include "productionpages/nav.html" %}
+
+
+      <div class="page-header" data-parallax="false" style="background-image: url('../assets/img/bg8.jpg')">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h2 class="title" style="color:#fff">Frequently asked Payment questions and Issues  </h2>
+              <h4 style="color:#fff" >If you can't find an answer to your question. Kindly don't hesitate to contact us here  <a href="/contactus" >Contact us </a> </h4> 
+              <br>
+           
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main main-raised">
+        <div class="container">
+          <div class="section text-center">
+           
+             <!--                 collapse -->
+        <div id="collapse">
+                <div class="card-title text-center">
+                  <h2>Questions</h2>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="accordion" role="tablist">
+                      <div class="card card-collapse">
+                        <div class="card-header" role="tab" id="headingOne">
+                          <h5 class="description">
+                            <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                     <h3>Question #1</h3>
+                              <i class="material-icons">keyboard_arrow_down</i>
+                            </a>
+                          </h5>
+                        </div>
+                        <div id="collapseOne" class="collapse show " role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            <h4>Question 1 will be inserted here</h4>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card card-collapse">
+                        <div class="card-header" role="tab" id="headingTwo">
+                          <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                   <h3> Question #2</h3>
+                              <i class="material-icons">keyboard_arrow_down</i>
+                            </a>
+                          </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                          <div class="card-body">
+                              <h4>Question 2 will be inserted here</h4>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card card-collapse">
+                        <div class="card-header" role="tab" id="headingThree">
+                          <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                             <h3>                                    Question #3
+                              </h3>
+                              <i class="material-icons">keyboard_arrow_down</i>
+                            </a>
+                          </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                          <div class="card-body">
+                              <h4>Question 3 will be inserted here</h4>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--                 end collapse -->
+          </div>
+       
+          
+        </div>
+      </div>
+    
+
+
+      {% include "productionpages/page/footer.html" %} 
+          
+          {% include "landpage/main/js.html" %}  
+          <div id="ajax_response_login"></div>
+          <div id="ajax_response_register"></div>
+          <div id="ajax_logout"></div>
+              {% endblock %}

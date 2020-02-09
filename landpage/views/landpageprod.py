@@ -98,6 +98,13 @@ def digitallab(request):
         'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
           })
 
+def paymentfaqs(request):
+    return render(request, 'productionpages/page/paymentfaqs.html',{
+        'tab': 'volunteer',
+     'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+          })
+
 
 
 
