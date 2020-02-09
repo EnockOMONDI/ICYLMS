@@ -15,8 +15,10 @@ from django.views.decorators.csrf import csrf_exempt
 def index(request):
     all_products = Product.objects.all()
     return render(request, "ecommerce_app/index.html", {
-                                    'all_products': all_products,
-                                    })
+     'all_products': all_products,
+     'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+          })
 
 
 def show_product(request, product_id, product_slug):
@@ -34,7 +36,9 @@ def show_product(request, product_id, product_slug):
     return render(request, 'ecommerce_app/product_detail.html', {
                                             'product': product,
                                             'form': form,
-                                            })
+    'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+    'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+    })
 
 
 def show_cart(request):
@@ -48,21 +52,25 @@ def show_cart(request):
     cart_items = cart.get_all_cart_items(request)
     cart_subtotal = cart.subtotal(request)
     return render(request, 'ecommerce_app/cart.html', {
-                                            'cart_items': cart_items,
-                                            'cart_subtotal': cart_subtotal,
-                                            })
+      'cart_items': cart_items,
+      'cart_subtotal': cart_subtotal,
+       'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+          })
 
 
 def checkout(request):
+   
     if request.method == 'POST':
-        form = CheckoutForm(request.POST)
+        form = CheckoutForm(request, request.POST)
+        
         if form.is_valid():
-            cleaned_data = form.cleaned_data
+            request.form_data = form.cleaned_data
+            data = request.form_data
             o = Order(
-                name = cleaned_data.get('name'),
-                email = cleaned_data.get('email'),
-                postal_code = cleaned_data.get('postal_code'),
-                address = cleaned_data.get('address'),
+                name = data.get('name'),
+                email =data.get('email'),
+             
             )
             o.save()
 
@@ -83,11 +91,15 @@ def checkout(request):
 
             messages.add_message(request, messages.INFO, 'Order Placed!')
             return redirect('process_payment')
-
-
     else:
-        form = CheckoutForm()
-        return render(request, 'ecommerce_app/checkout.html', locals())
+        form = CheckoutForm(request)
+        return render(request, 'ecommerce_app/checkout.html',
+        # {   'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        # 'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+        #   },
+         locals())
+     
+    
 
 def process_payment(request):
     order_id = request.session.get('order_id')
@@ -100,22 +112,30 @@ def process_payment(request):
         'item_name': 'Order {}'.format(order.id),
         'invoice': str(order.id),
         'currency_code': 'USD',
-        'notify_url': 'http://{}{}'.format(host,
-                                           reverse('paypal-ipn')),
-        'return_url': 'http://{}{}'.format(host,
-                                           reverse('payment_done')),
-        'cancel_return': 'http://{}{}'.format(host,
-                                              reverse('payment_cancelled')),
+        'notify_url': 'https://www.leadershipanddevelopmentacademy.com/paypal/',
+                                         
+        'return_url': 'https://www.leadershipanddevelopmentacademy.com/payment/payment-done/',
+        'cancel_return': 'https://www.leadershipanddevelopmentacademy.com/payment/payment-cancelled/'
+                                             
     }
  
     form = PayPalPaymentsForm(initial=paypal_dict)
-    return render(request, 'ecommerce_app/process_payment.html', {'order': order, 'form': form})
+    return render(request, 'ecommerce_app/process_payment.html', {'order': order, 'form': form,
+        'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+          })
 
 @csrf_exempt
 def payment_done(request):
-    return render(request, 'ecommerce_app/payment_done.html')
+    return render(request, 'ecommerce_app/payment_done.html',
+       {   'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+          },)
  
  
 @csrf_exempt
 def payment_canceled(request):
-    return render(request, 'ecommerce_app/payment_cancelled.html')
+    return render(request, 'ecommerce_app/payment_cancelled.html',
+       {   'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+          },)

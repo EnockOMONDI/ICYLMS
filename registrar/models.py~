@@ -157,8 +157,6 @@ class Course(models.Model):
     class Meta:
         db_table = 'at_courses'
 
-
-
 # class Trainingbit(models.Model):
 #     id = models.AutoField(primary_key=True)
 #     title = models.CharField(max_length=127)
@@ -185,15 +183,19 @@ class Course(models.Model):
 #     class Meta:
 #         db_table = 'at_trainingbit'
 
-class Purchase_Course(models.Model):
+class Enroll_Course(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     purchaser = models.ForeignKey( User, on_delete=models.CASCADE)
 
-
     def __str__(self):
-        return str(self.purchaser) + " " + str(self.course)
+        return str(self.student) + " " + str(self.course)
 
-    
+    def enroll(self,course,student):
+        course=Course.objects.get(
+                id=course_id
+            )
+        student=
+
 
 
 class CourseSubmission(models.Model):

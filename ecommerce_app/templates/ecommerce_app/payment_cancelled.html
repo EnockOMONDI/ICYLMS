@@ -1,6 +1,6 @@
 {% extends 'ecommerce_app/base.html' %}
 {% load staticfiles %}
-{% block title %}Make Payment{% endblock %}
+{% block title %} Payment Cancelled{% endblock %}
  
 {% block content %}
 <br><br><br><br><br><br>
@@ -12,8 +12,9 @@
 
           <div class="card  card-plain card-nav-tabs"  style="background-color:#fff">
         <div class="card-body ">
-                <h2><small>Pay with PayPal</small></h2>
-                {{ form.render }}
+                <h2><small>Your payment was not completed.</small></h2>
+                <h3><small>Your payment was cancelled.</small></h3>
+              
         </div>
     </div>
 {% endblock %}

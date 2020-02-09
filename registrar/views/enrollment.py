@@ -15,6 +15,7 @@ from registrar.models import CourseSetting
 from registrar.forms import CourseForm
 
 
+
 @login_required(login_url='/landpageprod')
 def enrollment_page(request):
     # Create our student account which will build our registration around.
