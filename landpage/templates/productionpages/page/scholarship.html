@@ -1,69 +1,51 @@
+
+
 {% extends 'productionpages/base4.html' %}
 
 {% load staticfiles %}
 {% block content %}
+{% include "productionpages/nav.html" %}
 
 
 
-
+<br><br><br><br>
 <div class="cd-section" id="contactus">
         <!--     *********    CONTACT US 1     *********      -->
         <div class="contactus-1 section-image  header-filter " style="background-image: url('../../../static/img/bg9min.png ');">
           <div class="container">
                 <!-- <button href="/landpageprod" class="btn btn-primary pull-right">Back to home</button> -->
-   
-                   
+                <!-- <div class="card-stats justify-content-center">
+                        <a href="/landpageprod" class="btn btn-primary pull-right" > Back to home </a>
+                      </div> -->
             <div class="row">
   
              
-              <div class="col-md-8 ml-auto mr-auto text-center">
-                <h3 class="title">General Information and Instructions to applicants.</h3>
-                <p class="description" style="color:aliceblue">The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as For Mission College, accredited by  Newman University in Birmingham, Africa for SDGs, ICY AFRICA which runs the Springdale Foundation and Alongsiders Online Academy providing training and  digital resourses.</p>
-                <p class="description" style="color:aliceblue">This Fellowship comes with a scholarship for tuition which covers a 12- month period for diploma level and 3 years for a professional B.A Degree on leadership and sustainable development, comprising a rigorous training, research and practical application programme on Leadership and sustainable.</p>
-                <p class="description" style="color:aliceblue"> All participants must come up with a practical prototype allinged to a specific sustainable development goal(SDGs) to be Implemented at Community level.</p>
-
-                <!-- <div class="info info-horizontal">
-                  <div class="icon icon-primary">
-                    <i class="material-icons">pin_drop</i>
-                  </div>
-                  <div class="description">
-                    <h4 class="info-title">Find us at the office</h4>
-                    <p> Nairobi, Kenya
-                      <br>  Hurlingham Court, Argwings Kodhek Rd
-                      <br> Studio House 5th floor
-                    </p>
-                  </div>
-                </div> -->
-                <!-- <div class="info info-horizontal">
-                  <div class="icon icon-primary">
-                    <i class="material-icons">phone</i>
-                  </div>
-                  <div class="description">
-                    <h4 class="info-title">Give us a ring</h4>
-                    <p> Joe Bonga
-                      <br> 
-                      +254 738795426
-                      <br> Mon - Fri, 8:00-18:00
-                    </p>
-                  </div>
-                </div> -->
-              </div>
-            </div>
-              <div class="col-md-10 ml-auto mr-auto text-center">
-                <div class="card card-contact">
+              <div class="col-md-6">
+                    <h3 class="title" style="color:#fff">General Information and Instructions to applicants. </h3>
+                    <h6 style="color:#fff" >The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as For Mission College, accredited by  Newman University in Birmingham, Africa for SDGs, ICY AFRICA which runs the Springdale Foundation and Alongsiders Online Academy providing training and  digital resourses.</h6> 
+                    <h6 style="color:#fff" >This Fellowship comes with a scholarship for tuition which covers a 12- month period for diploma level and 3 years for a professional B.A Degree on leadership and sustainable development, comprising a rigorous training, research and practical application programme on Leadership and sustainable. </h6>
+                    <h6 style="color:#fff" >All participants must come up with a practical prototype allinged to a specific sustainable development goal(SDGs) to be Implemented at Community level.</h6>
+                   
+                    
+              
+                    <div class="info info-horizontal">
+                
+                  <!-- <div class="description">
+                    <h4 class="info-title">Fill the form below to Join the programme. </h4>
                   
+                  </div> -->
+                </div>
+            
+              </div>
+              <div class="col-md-6 ml-auto">
+                <div class="card card-contact">
+                  <form id="contact-form" method="post">
                     <div class="card-header card-header-raised card-header-primary text-center">
                       <h4 class="card-title">Application Form</h4>
                     </div>
-                    <div class="card-body " style="height:600px">
+                    <div class="card-body">
                         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe-faa_Gkz0k1GjyQqNInV0qIFqEZ0VOdaaAQ5u9TLr9GbbVA/viewform?embedded=true" class="col-md-12 text-center " height="400px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-                        <br>   
-                        <br>
-                        <br>
-                        <br>
-                        <!-- <h6 class="card-title">Personal Information</h6>
-                      <div class="row">
-                           
+                      <!-- <div class="row">
                         <div class="col-md-6">
                           <div class="form-group label-floating is-empty">
                             <label class="bmd-label-floating">First name</label>
@@ -72,58 +54,36 @@
                           </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group label-floating is-empty">
-                              <label class="bmd-label-floating">Last name</label>
-                              <input type="text" name="name" class="form-control">
-                              <span class="material-input"></span>
-                            </div>
+                          <div class="form-group label-floating is-empty">
+                            <label class="bmd-label-floating">Last name</label>
+                            <input type="text" name="name" class="form-control">
+                            <span class="material-input"></span>
                           </div>
-                      </div>
-                      <div class="row">
-                           
-                            <div class="col-md-4">
-                              <div class="form-group label-floating is-empty">
-                                <label class="bmd-label-floating">Country</label>
-                                <input type="text" name="name" class="form-control">
-                                <span class="material-input"></span>
-                              </div>
-                            </div>
-                            <div class="col-md-4">
-                              <div class="form-group label-floating is-empty">
-                                <label class="bmd-label-floating">Male or female</label>
-                                <input type="text" name="name" class="form-control">
-                                <span class="material-input"></span>
-                              </div>
-                            </div>
-                            <div class="col-md-4">
+                        </div>
+                        <div class="col-md-6">
                                 <div class="form-group label-floating is-empty">
-                                  <label class="bmd-label-floating">Last name</label>
-                                  <input type="text" name="name" class="form-control">
+                                  <label class="bmd-label-floating">Phone number</label>
+                                  <input type="Number" name="name" class="form-control">
                                   <span class="material-input"></span>
                                 </div>
                               </div>
-                          </div>
+                      </div>
                       <div class="form-group label-floating is-empty">
                         <label class="bmd-label-floating">Email address</label>
                         <input type="email" name="email" class="form-control">
                         <span class="material-input"></span>
-                      </div>
-                      <div class="form-group label-floating is-empty">
-                        <label for="exampleMessage1" class="bmd-label-floating">Your Message</label>
-                        <textarea name="message" class="form-control" id="exampleMessage1" rows="6"></textarea>
-                        <span class="material-input"></span>
                       </div> -->
                     </div>
-                    <div class="card-stats justify-content-center">
-                        <a href="/landpageprod" class="btn btn-primary pull-right" >Back to Site</a>
-                      </div>
-                 
+                    <!-- <div class="card-footer justify-content-center">
+                     
+                      <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                    </div> -->
+                  </form>
                 </div>
               </div>
-          
+            </div>
           </div>
         </div>
-  
         <!--     *********    END CONTACT US 1      *********      -->
  <!--     *********    BIG FOOTER     *********      -->
  <!-- <footer class="footer footer-black footer-big">
