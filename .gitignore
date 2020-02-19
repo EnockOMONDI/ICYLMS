@@ -200,9 +200,9 @@ academicstoday-env/
 *.cfg
 academicstoday_project/secret_settings_example.py/
 academicstoday_project/secret_settings.py/
-academicstoday_project/settings.py
+academicstoday_project/settings.py/
 virtual/
-
+login/
 
 *.pyc
 __pycache__
