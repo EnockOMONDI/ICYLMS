@@ -6,7 +6,7 @@
 ![course](8.png)
 ![page ](7.png)
 ![page ](6.png)
-# OMS FOR ONLINE SHOP (currio effect)
+# LEADERSHIP AND DEVELOPMENT ACADEMY COURSE MANAGEMENT SYSTEM
 #### A piece of software that functions as a virtual classroom for learners and a management hub for administrators. This app makes it possible to easily keep track of course administration, documentation, reporting and delivery, all from one central control panel.
 
 #### By ****Enock OMONDI****
