@@ -200,9 +200,9 @@ academicstoday-env/
 *.cfg
 ICYLMS/academicstoday_project/secret_settings_example.py/
 ICYLMS/cademicstoday_project/secret_settings.py/
-ICYLMS/academicstoday_project/settings.py/
+settings.py/
 ICYLMS/academicstoday_project/dd.py/
-ICYLMS/academicstoday_project/ddd.py/
+academicstoday_project/dddd.py
 virtual/
 
 
