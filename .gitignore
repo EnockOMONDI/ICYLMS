@@ -201,6 +201,7 @@ academicstoday-env/
 academicstoday_project/secret_settings_example.py/
 academicstoday_project/secret_settings.py/
 academicstoday_project/settings.py/
+academicstoday_project/dd.py/
 virtual/
 
 
