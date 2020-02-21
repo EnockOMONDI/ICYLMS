@@ -4,7 +4,9 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
+
 class Product(models.Model):
+    # course = models.OneToOneField(Course,default=1, on_delete=models.PROTECT )
     name = models.CharField(max_length=191)
     price = models.DecimalField(max_digits=7, decimal_places=2)
     slug = models.SlugField()

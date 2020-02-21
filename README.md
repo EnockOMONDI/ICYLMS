@@ -1,3 +1,8 @@
+# LEADERSHIP AND DEVELOPMENT ACADEMY COURSE MANAGEMENT SYSTEM
+#### A piece of software that functions as a virtual classroom for learners and a management hub for administrators. This app makes it possible to easily keep track of course administration, documentation, reporting and delivery, all from one central control panel.
+
+#### By ****Enock OMONDI****
+
 ![Landing page](1.png)
 ![Landing page 2](2.png)
 ![Landing page 3](3.png)
@@ -6,10 +11,6 @@
 ![course](8.png)
 ![page ](7.png)
 ![page ](6.png)
-# LEADERSHIP AND DEVELOPMENT ACADEMY COURSE MANAGEMENT SYSTEM
-#### A piece of software that functions as a virtual classroom for learners and a management hub for administrators. This app makes it possible to easily keep track of course administration, documentation, reporting and delivery, all from one central control panel.
-
-#### By ****Enock OMONDI****
 
 ## Requirements
 * Browser
@@ -33,7 +34,9 @@
 
 
 ## Technologies used
-* Django - The web framework used
+* django-rest-framework  - The web framework used
+* aws-s3
+* material-design
 * Python - Language
 * html/css/bootstrap4- Used for-frontend
 * Postgresql-Database

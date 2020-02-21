@@ -60,13 +60,16 @@ def show_cart(request):
 
 
 def checkout(request):
+   
     if request.method == 'POST':
-        form = CheckoutForm(request.POST)
+        form = CheckoutForm(request, request.POST)
+        
         if form.is_valid():
-            cleaned_data = form.cleaned_data
+            request.form_data = form.cleaned_data
+            data = request.form_data
             o = Order(
-                name = cleaned_data.get('name'),
-                email = cleaned_data.get('email'),
+                name = data.get('name'),
+                email =data.get('email'),
              
             )
             o.save()
@@ -89,12 +92,13 @@ def checkout(request):
             messages.add_message(request, messages.INFO, 'Order Placed!')
             return redirect('process_payment')
     else:
-        form = CheckoutForm()
+        form = CheckoutForm(request)
         return render(request, 'ecommerce_app/checkout.html',
-        # {   'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-        # 'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
-        #   },
-         locals())
+        { 
+        'form':form,
+        'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+            })
      
     
 

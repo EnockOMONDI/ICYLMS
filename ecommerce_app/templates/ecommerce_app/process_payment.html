@@ -3,17 +3,49 @@
 {% block title %}Make Payment{% endblock %}
  
 {% block content %}
-<br><br><br><br><br><br>
+<div class="pricing-2" id="pricing-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 ml-auto mr-auto text-center">
+          <h2 class="title">Pay with PayPal</h2>
+          <ul class="nav nav-pills nav-pills-rose">
+            <!-- <li class="nav-item">
+              <a class="nav-link active" href="#pill1" data-toggle="tab">Monthly</a>
+            </li> -->
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#pill2" data-toggle="tab">kindly confirm your details below so that we can proceed with payments</a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+ 
+      <div class="row">
+        <div class="col-md-6 col-lg-12">
+          <div class="card card-pricing card-plain">
+            <div class="card-body ">
+                {{ form.render }}
+            </div>
+ 
+        
+                      
+    
+          </div>
+        </div>
+
+    
+      </div>
+    </div>
+  </div>
 
 
 
 
 
 
-          <div class="card  card-plain card-nav-tabs"  style="background-color:#fff">
+          <!-- <div class="card  card-plain card-nav-tabs"  style="background-color:#fff">
         <div class="card-body ">
                 <h2><small>Pay with PayPal</small></h2>
                 {{ form.render }}
         </div>
-    </div>
+    </div> -->
 {% endblock %}

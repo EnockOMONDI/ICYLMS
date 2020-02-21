@@ -55,10 +55,13 @@
               </p>
           <!-- <p class="card-description" >Durration: {{ course.start_date }} to {{ course.finish_date }}</p> -->
 
-          <div class="buttons">
+          <div class="buttons text-center" >
             <a href="{% url 'product_detail' product.pk product.slug %}"  class="btn btn-primary btn btn-round ">
-                <strong>Enroll now   ${{ product.price }}</strong> 
+                <strong>Enroll${{ product.price }}</strong> 
             </a>
+            <a href="{% url 'product_detail' product.pk product.slug %}"  class="btn btn-primary btn btn-round ">
+              <strong>Quick overview  </strong> 
+          </a>
           </div>
 
 
