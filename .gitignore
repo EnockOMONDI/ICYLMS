@@ -198,9 +198,9 @@ academicstoday_project/staticfiles
 
 academicstoday-env/
 *.cfg
-academicstoday_project/secret_settings_example.py
-cademicstoday_project/secret_settings.py
-academicstoday_project/settings.py
+# academicstoday_project/secret_settings_example.py
+# cademicstoday_project/secret_settings.py
+# academicstoday_project/settings.py
 virtual/
 
 
