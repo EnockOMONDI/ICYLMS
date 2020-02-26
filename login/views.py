@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.core import serializers
+from django.core.mail import send_mail
 
 import json
 from django.http import HttpResponse
@@ -8,6 +9,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.conf import settings
+
 
 
 def login_modal(request):

@@ -143,14 +143,13 @@ DATABASES['default'].update(db_from_env)
 
 # Email
 # http://stackoverflow.com/questions/19264907/python-django-gmail-smtp-setup
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
-EMAIL_HOST = SECRET_EMAIL_HOST
-EMAIL_PORT = SECRET_EMAIL_PORT
-EMAIL_HOST_USER = SECRET_EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = SECRET_EMAIL_HOST_PASSWORD
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-DEFAULT_TO_EMAIL = EMAIL_HOST_USER
+EMAIL_HOST =  'smtp.gmail.com'
+EMAIL_PORT = 578
+EMAIL_HOST_USER = 'djseanizellkenya@gmail.com'
+EMAIL_HOST_PASSWORD = 'seanizelllivekeke1234'
+
 
 
 
@@ -208,7 +207,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
  
-PAYPAL_RECEIVER_EMAIL = 'africaforsdgs2019@gmail.com'
+
 PAYPAL_RECEIVER_EMAIL = 'africaforsdgs2019@gmail.com'
 PAYPAL_TEST = False  
 PAYPAL_CLIENT_ID = 'AYxM9ft3x-ODD8P60XP1fI7cljyjve2vY3Oaa2rzsyIMad7VcxhJABtlJBzhcP6-eztRghDfg3kn4Ato'
