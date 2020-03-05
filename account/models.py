@@ -7,61 +7,19 @@ import datetime
 from cloudinary.models import CloudinaryField
 # from imagekit.models import ProcessedImageField
 
-COUNTRY_CATEGORY_TYPES = (
-('Algeria', 'Algeria'),
-('Angola', 'Angola'),
-('Benin', 'Benin'),
-('Botswana', 'Botswana'),
-('Burkina Faso', 'Burkina Faso'),
-('Burundi', 'Burundi'),
-('Cape Verde', 'Cape Verde'),
-('Cameroon', 'Cameroon'),
-('Central African Republic', 'Central African Republic'),
-('Chad', 'Chad'),
-('Comoros', 'Comoros'),
-('Congo Democratic Republic', 'Congo Democratic Republic'),
-('Congo, Republic of the', 'Congo, Republic of the'),
-('Cote dIvoire', 'Cote dIvoire'),
-('Djibouti', 'Djibouti'),
-('Egypt', 'Egypt'),
-('Equatorial Guinea', 'Equatorial Guinea'),
-('Eritrea', 'Eritrea'),
-('Eswatini', 'Eswatini'),
-('Ethiopia', 'Ethiopia'),
-('Gabon', 'Gabon'),
-('Gambia', 'Gambia'),
-('Ghana', 'Ghana'),
-('Guinea', 'Guinea'),
-('Guinea-Bissau', 'Guinea-Bissau'),
-('Kenya', 'Kenya'),
-('Lesotho', 'Lesotho'),
-('Liberia', 'Liberia'),
-('Libya', 'Libya'),
-('Madagascar', 'Madagascar'),
-('Malawi', 'Malawi'),
-('Mali', 'Mali'),
-('Mauritania', 'Mauritania'),
-('Mauritius', 'Mauritius'),
-('Morocco', 'Morocco'),
-('Mozambique', 'Mozambique'),
-('Namibia', 'Namibia'),
-('Niger', 'Niger'),
-('Nigeria', 'Nigeria'),
-('Rwanda', 'Rwanda'),
-('Sao Tome and Principe', 'Sao Tome and Principe'),
-('Senegal', 'Senegal'),
-('Seychelles', 'Seychelles'),
-('Sierra Leone', 'Sierra Leone'),
-('Somalia', 'Somalia'),
-('South Africa', 'South Africa'),
-('South Sudan', 'South Sudan'),
-('Sudan', 'Sudan'),
-('Tanzania', 'Tanzania'),
-('Togo', 'Togo'),
-('Tunisia', 'Tunisia'),
-('Uganda', 'Uganda' ),
-('Zambia', 'Zambia' )
-)
+
+class Country(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
+
+class City(models.Model):
+    country = models.ForeignKey(Country,related_name="cities", on_delete=models.CASCADE )
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
 
 class PrivateMessage(models.Model):
     id = models.AutoField(primary_key=True)
@@ -84,10 +42,11 @@ class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_pic =  CloudinaryField('image', blank=True, null=True)
     bio = models.TextField(max_length=500, blank=True, null=True)
-    country = models.CharField(max_length=127, choices=COUNTRY_CATEGORY_TYPES,  blank=True,null=True,  default='Kenya')
+    country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, blank=True)
+    city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, blank=True)
     age = models.PositiveSmallIntegerField(default='18', null=True)
     interests = models.CharField(max_length=30,null=True)
-    is_enrolled=models.BooleanField(default=False)
+   
     
     def __str__(self):
         return self.user.first_name + " " + \
