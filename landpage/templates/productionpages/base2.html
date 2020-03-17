@@ -10,7 +10,12 @@
         <link rel="icon" href="../../favicon.ico"> 
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         <title>Leadership and Development Academy</title>
-     
+        <link rel="stylesheet" href="static/css/font-awesome.min.css">
+        <link rel="stylesheet" href="static/css/all.min.css">
+        <link rel="stylesheet" href="static/css/brands.min.css">
+        <link rel="stylesheet" href="static/css/svg-with-js.min.css.min.css">
+        <link rel="stylesheet" href="static/css/solid.min.css">
+        <link rel="stylesheet" href="static/css/regular.min.css">
         {% for local_css_url in local_css_urls %}
         <link rel="stylesheet" href="{% static local_css_url %}">
     {% endfor %}
@@ -43,9 +48,9 @@
         uploadcare.registerTab('preview', uploadcareTabEffects)
       </script>     
 </head>
-<body class="index-page sidebar-collapse" style="background-color:rgb(250, 250, 250)">
+<body class="index-page sidebar-collapse" style="background-color:rgb(255, 255, 255)">
 
-{% include "productionpages/navbar2.html" %}
+{% include "productionpages/nav3.html" %}
 {% block content %}
 
 

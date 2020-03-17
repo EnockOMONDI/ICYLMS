@@ -17054,7 +17054,7 @@ thead.thead-inverse th {
 .card .card-header-success,
 .card.card-rotate.bg-success .back,
 .card.card-rotate.bg-success .front {
-   background: linear-gradient(60deg, #66bb6a, #388e3c)
+    background: linear-gradient(60deg, #a449b4,#9c27b0)
 }
 
 .card.bg-warning,
