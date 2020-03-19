@@ -3021,12 +3021,31 @@ tbody.collapse.show {
    margin-left: 0
 }
 
+.dropdown-menu2 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: .25rem;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12)
+ }
 .dropdown-menu {
    position: absolute;
    top: 100%;
    left: 0;
    z-index: 1000;
-   float: left;
+   float: right;
    min-width: 10rem;
    padding: .5rem 0;
    margin: .125rem 0 0;
@@ -13304,7 +13323,7 @@ footer .pull-center {
 }
 
 .navbar .navbar-toggler .navbar-toggler-icon {
-   background-color: #555
+   background-color: rgb(24, 24, 24)
 }
 
 .navbar.fixed-top {
@@ -13432,7 +13451,7 @@ footer .pull-center {
 }
 
 .navbar.bg-primary .navbar-toggler .navbar-toggler-icon {
-   background-color: #fff
+   background-color: rgb(22, 22, 22)
 }
 
 .navbar.bg-info {
@@ -13449,7 +13468,7 @@ footer .pull-center {
 }
 
 .navbar.bg-info .navbar-toggler .navbar-toggler-icon {
-   background-color: #fff
+   background-color: rgb(27, 27, 27)
 }
 
 .navbar.bg-warning {
@@ -13466,7 +13485,7 @@ footer .pull-center {
 }
 
 .navbar.bg-warning .navbar-toggler .navbar-toggler-icon {
-   background-color: #fff
+   background-color: rgb(26, 26, 26)
 }
 
 .navbar.bg-rose {
@@ -13483,7 +13502,7 @@ footer .pull-center {
 }
 
 .navbar.bg-rose .navbar-toggler .navbar-toggler-icon {
-   background-color: #fff
+   background-color: rgb(26, 26, 26)
 }
 
 .navbar.bg-danger {
@@ -13500,7 +13519,7 @@ footer .pull-center {
 }
 
 .navbar.bg-danger .navbar-toggler .navbar-toggler-icon {
-   background-color: #fff
+   background-color: rgb(24, 24, 24)
 }
 
 .navbar.bg-success {
@@ -13517,7 +13536,7 @@ footer .pull-center {
 }
 
 .navbar.bg-success .navbar-toggler .navbar-toggler-icon {
-   background-color: #fff
+   background-color: rgb(20, 20, 20)
 }
 
 .navbar.bg-dark {
@@ -13534,9 +13553,11 @@ footer .pull-center {
 }
 
 .navbar.bg-dark .navbar-toggler .navbar-toggler-icon {
-   background-color: #fff
+    background-color: rgb(24, 24, 24)
 }
-
+.navbar.navbar-dark .navbar-toggler .navbar-toggler-icon {
+    background-color: rgb(24, 24, 24)
+}
 .navbar.navbar-transparent2 {
     background-color: transparent!important;
     box-shadow: none;
@@ -14121,7 +14142,7 @@ h2.title {
 .card-description,
 .description,
 .footer-big p {
-   color: #455264;
+   color: #3b4757;
 }
 
 .text-warning {
@@ -17054,7 +17075,7 @@ thead.thead-inverse th {
 .card .card-header-success,
 .card.card-rotate.bg-success .back,
 .card.card-rotate.bg-success .front {
-   background: linear-gradient(60deg, #66bb6a, #388e3c)
+    background: linear-gradient(60deg, #a449b4,#9c27b0)
 }
 
 .card.bg-warning,
