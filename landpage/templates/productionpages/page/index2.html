@@ -199,17 +199,7 @@
         <a href="#pablo"> 
         </h4>
    
-        <div class="card-stats text-center">
-            {% if request.user.is_authenticated %}
-            <a href="/scholarship-application-form" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >APPLY FOR SCHOLARSHIP</a>
-
-            
-            {% else %}
-
-            <a href="/scholarship-application-form" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >APPLY FOR SCHOLARSHIP</a>
-
-            {% endif %}
-        </div>
+    
         <br><br>
       </div>
  
@@ -260,6 +250,18 @@
                 <span class="sr-only">Next</span>
               </a> -->
             </div>
+          </div>
+          <br>
+          <div class="card-stats text-center">
+              {% if request.user.is_authenticated %}
+              <a href="/scholarship-application-form" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >APPLY FOR SCHOLARSHIP</a>
+  
+              
+              {% else %}
+  
+              <a href="/scholarship-application-form" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >APPLY FOR SCHOLARSHIP</a>
+  
+              {% endif %}
           </div>
           <!-- End Carousel Card -->
         </div>
