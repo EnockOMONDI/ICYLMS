@@ -17,6 +17,35 @@
          
        
             <div class="row">
+          
+            
+              <div class="col-md-12 col-lg-6">
+                  <br> <br> <br> <br>
+                <h1 class="card-category text-info text-center "> <b>Leadership and Development Academy</b> </h1>
+                <h2 class="card-title text-center ">
+                  <a href="#pablo" > Learn Where Leaders Learn</a>
+                </h2>
+                <h4 class="card-description ">
+                  Explore Leadership courses, Study online, build professional Leadership skills, connect with an online Community of leaders from all over the world. Get a diploma upon course completion or even take your learning further and earn a degree.
+                  <a href="#pablo"> 
+                </h4>
+                <br><br>
+                				
+                <div class="card-stats text-center">
+
+                  						
+														{% if request.user.is_authenticated %}
+														<a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >View All Courses</a>
+
+													  
+														{% else %}
+														<a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Enroll now</a>
+
+													
+														{% endif %}
+                </div>
+                <br><br>
+              </div>
               <div class="col-md-6">
                   <div class="col-md-12 mr-auto ml-auto">
                       <!-- Carousel Card -->
@@ -75,34 +104,6 @@
                   </a>
              
               </div> -->
-              </div>
-            
-              <div class="col-md-12 col-lg-6">
-                  <br> <br> <br> <br>
-                <h1 class="card-category text-info text-center "> <b>Leadership and Development Academy</b> </h1>
-                <h2 class="card-title text-center ">
-                  <a href="#pablo" > Learn Where Leaders Learn</a>
-                </h2>
-                <h4 class="card-description ">
-                  Explore Leadership courses, Study online, build professional Leadership skills, connect with an online Community of leaders from all over the world. Get a diploma upon course completion or even take your learning further and earn a degree.
-                  <a href="#pablo"> 
-                </h4>
-                <br><br>
-                				
-                <div class="card-stats text-center">
-
-                  						
-														{% if request.user.is_authenticated %}
-														<a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >View All Courses</a>
-
-													  
-														{% else %}
-														<a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Enroll now</a>
-
-													
-														{% endif %}
-                </div>
-                <br><br>
               </div>
             </div>
          
