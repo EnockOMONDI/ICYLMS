@@ -241,7 +241,7 @@ $(window).resize(function(){
 		<div class="container" >
 	
 	<a>
-				<img src="{% static 'img/logos/logo2.jpg' %}" alt="" style="width:90px; height:90px; padding: 5px;  ">
+				<img src="{% static 'img/logos/logo2.jpg' %}" alt="" style="width:100px; height:100px; padding: 5px;  ">
 			</a>  
 				<button    class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
 				 <span class="sr-only">Toggle navigation</span>
@@ -254,8 +254,8 @@ $(window).resize(function(){
 			<ul class="navbar-nav ml-auto">
 			
 				<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<h6 class="card-category text-info "> 	<i class="material-icons">receipt</i><b>Courses</b></h6>
+						<a class="nav-link " href="#" id="navbarDropdown"   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<h6 class="card-category text-info "> 	<i class="material-icons">library_books</i><b>Courses</b></h6>
 										</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 	
@@ -263,7 +263,7 @@ $(window).resize(function(){
 						<div class="container">
 							<div class="row">
 					
-								<div class="col-md-3">
+								<div class="col-md-4">
 										<div class="card card-blog text-center">
 												<div class="card-header card-header-image">
 													<a href="#pablo">
@@ -272,10 +272,22 @@ $(window).resize(function(){
 													</a>
 												</div>
 												<div class="card-body">
+														<i class="material-icons text-info">check</i>
+
 														<p class="card-description">
 																Earn a professional or academic accreditation
 															</p>
-																<a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >View All Courses</a>
+<br>
+
+															{% if request.user.is_authenticated %}
+															<a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >View All Courses</a>
+
+														  
+															{% else %}
+															<a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >View All Courses</a>
+
+														
+															{% endif %}
 														
 															
 												</div>
@@ -283,39 +295,54 @@ $(window).resize(function(){
 	
 				
 							</div>
-							<div class="col-md-3">
+							<div class="col-md-4">
 									<div class="card card-blog text-center">
 											<div class="card-header card-header-image">
 												<a href="#pablo">
-														<img class="img" src="static/img/coursespic.jpg" >
+														<img class="img" src="static/img/trainingbitspic.jpg" >
 											
 												</a>
 											</div>
 											<div class="card-body">
+											
+													<i class="material-icons text-info">check</i>
+														
+														   
 													<p class="card-description">
-															Earn a professional or academic accreditation
+															Gain new and improved personal leadership skills
 														</p>
-															<a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >View All Courses</a>
+														 
+														
 													
 														
+														{% if request.user.is_authenticated %}
+														<a href="/trainingbits" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >View All Training bits</a>
+
+													  
+														{% else %}
+														<a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >View All Training bits</a>
+
+													
+														{% endif %}
 											</div>
 										</div>
 
 			
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-4">
 								<div class="card card-blog text-center">
 										<div class="card-header card-header-image">
 											<a href="#pablo">
-													<img class="img" src="static/img/coursespic.jpg" >
+													<img class="img" src="static/img/dip.png" >
 										
 											</a>
 										</div>
 										<div class="card-body">
+												<i class="material-icons text-info">check</i>
+
 												<p class="card-description">
-														Earn a professional or academic accreditation
-													</p>
-														<a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >View All Courses</a>
+													Engage with a powerful network of leaders and alumni, accelerate Africa’s growth													</p>
+														<a href="https://www.facebook.com/leadershipacademyafrica/" target="_blank" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Connect<i class="material-icons">share</i></a>
 												
 													
 										</div>
@@ -323,11 +350,11 @@ $(window).resize(function(){
 
 		
 					</div>
-					<div class="col-md-3">
+					<!-- <div class="col-md-3">
 							<div class="card card-blog text-center">
 									<div class="card-header card-header-image">
 										<a href="#pablo">
-												<img class="img" src="static/img/coursespic.jpg" >
+												<img class="img" src="static/img/degree.jpg" >
 									
 										</a>
 									</div>
@@ -335,14 +362,14 @@ $(window).resize(function(){
 											<p class="card-description">
 													Earn a professional or academic accreditation
 												</p>
-													<a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >View All Courses</a>
+													<a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >View All</a>
 											
 												
 									</div>
 								</div>
 
 	
-				</div>
+				</div> -->
 							</div>
 						</div>
 						<!--  /.container  -->
@@ -351,8 +378,8 @@ $(window).resize(function(){
 					</div>
 				</li>
 				<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<h6 class="card-category text-info "> 	<i class="material-icons">receipt</i><b>OUR STORY</b></h6>
+						<a class="nav-link " href="#" id="navbarDropdown"   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<h6 class="card-category text-info "><i class="material-icons">public</i><b>OUR STORY</b></h6>
 										</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 	
@@ -360,73 +387,58 @@ $(window).resize(function(){
 						<div class="container">
 							<div class="row">
 					
-								<div class="col-md-3">
-										<div class="card bg-success text-center">
+								<div class="col-md-4">
+										<div class="">
 												<div class="card-body ">
 											
-													<h5 class="card-title">
-													Who we are
-													</h5>
+		
 													<p class="card-description">
 													</p>
-	
-															<a href="/redirected_login" style=" background-color:#ffffff" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >LEARN MORE</a>
-											
+		<br><br>
+													<a href="/aboutus" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Who we are</a>
+		
 												</div>
-											</div>
+											</div> 
 	
 				
 							</div>
-							<div class="col-md-3">
+							<div class="col-md-4">
 								
-											<div class="card bg-success text-center">
-													<div class="card-body ">
-												
-														<h4 class="card-title">
-													Our Educational partners
-														</h4>
-														<p class="card-description">
-														</p>
-		
-																<a href="/redirected_login" style=" background-color:#ffffff" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >LEARN MORE</a>
-												
-													</div>
-												</div>
+									<div class="">
+											<div class="card-body ">
+										
+	
+												<p class="card-description">
+												</p>
+	<br><br>
+												<a href="/sdgdigitallab" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Our innovation</a>
+	
 											</div>
-						<div class="col-md-3">
-								<div class="card bg-success text-center">
-										<div class="card-body ">
-									
-											<h5 class="card-title">
-										How it works
-											</h5>
-											<p class="card-description">
-											</p>
+										</div> 
+											</div>
+						<div class="col-md-4">
+								<div class="container">
+										<div class="row">
 
-													<a href="/redirected_login" style=" background-color:#ffffff" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >LEARN MORE</a>
-									
+
 										</div>
-									</div>
+									  </div>
+
+									  <div class="">
+											<div class="card-body ">
+										
+	
+												<p class="card-description">
+												</p>
+	<br><br>
+												<a href="/aboutus" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Our educational Partners</a>
+	
+											</div>
+										</div> 
 
 		
 					</div>
-					<div class="col-md-3">
-							<div class="card bg-success text-center">
-									<div class="card-body ">
-								
-										<h5 class="card-title">
-								Our Innovations
-										</h5>
-										<p class="card-description">
-										</p>
-
-												<a href="/redirected_login" style=" background-color:#ffffff" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >LEARN MORE</a>
-								
-									</div>
-								</div>
-
-	
-				</div>
+			
 							</div>
 						</div>
 						<!--  /.container  -->
@@ -436,16 +448,17 @@ $(window).resize(function(){
 				</li>
 		
 				<li class="nav-item">
-						<a class="nav-link "  href="#">
-								<h6 class="card-category text-info "> 	<i class="material-icons">receipt</i><b>Why Enroll?</b></h6>
+						<a class="nav-link "  href="/about">
+								<h6 class="card-category text-info "> <i class="material-icons">wb_sunny</i><b>Why Enroll?</b></h6>
 
 							
 						</a>
 						</li>
 		
 				<li class="nav-item">
-						<a class="nav-link "  href="#">
-								<h6 class="card-category text-info "><b>Apply for Scholaships</b>	</h6>	
+						<a class="nav-link "  href="/scholarship-application-form">
+								<h6 class="card-category text-info "> 	<i class="material-icons">school</i><b>Apply for Scholarship</b></h6>
+	
 							</a>
 			
 						</li>
