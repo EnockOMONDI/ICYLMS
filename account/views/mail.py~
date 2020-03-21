@@ -94,11 +94,10 @@ def delete_private_message(request):
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 def email_users(request):
-    users=User.objects.all().values_list('email',flat=True)
+    users=User.objects.all().values_list('email',)
     rcpt=[]
     for user in users:
-        rcpt.append(user)  
-    send_mail('Welcome to LADA.',"Thank you for Registering with us",EMAIL_HOST_USER,rcpt,fail_silently=False)
-    return  HttpResponse("welcome email")
+        print(type(user))
+    send_mail('Subject here','Here is the message.',EMAIL_HOST_USER,users,fail_silently=False)
    
 

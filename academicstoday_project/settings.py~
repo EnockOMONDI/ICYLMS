@@ -161,6 +161,12 @@ EMAIL_HOST_USER = 'ochungeugine@gmail.com'
 EMAIL_HOST_PASSWORD = '0728826517Ef'
 EMAIL_PORT = 587
 
+PAYPAL_RECEIVER_EMAIL = 'africaforsdgs2019@gmail.com'
+PAYPAL_TEST = False  
+PAYPAL_CLIENT_ID = 'AYxM9ft3x-ODD8P60XP1fI7cljyjve2vY3Oaa2rzsyIMad7VcxhJABtlJBzhcP6-eztRghDfg3kn4Ato'
+PAYPAL_CLIENT_SECRET = 'EDe6n1w19IPRTPdBwm10QSBxyF5o9ZEeH0R7mSJeI7yGLvhMS-7mOwMgcNPhUZg6zUpPUlnKsIDWE3Y3'
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
