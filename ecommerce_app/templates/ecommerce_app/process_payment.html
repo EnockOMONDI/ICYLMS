@@ -5,9 +5,11 @@
 {% block content %}
 <div class="pricing-2" id="pricing-2">
     <div class="container">
+        <br>       <br>
       <div class="row">
-        <div class="col-md-6 ml-auto mr-auto text-center">
-          <h2 class="title">Pay with PayPal</h2>
+        
+        <div class="col-md-6 ml-auto mr-auto text-center"  style="background-color:#fff">
+          <h2 class="card-descreption"> <b>Pay with PayPal</b> </h2>
           <ul class="nav nav-pills nav-pills-rose">
             <!-- <li class="nav-item">
               <a class="nav-link active" href="#pill1" data-toggle="tab">Monthly</a>
@@ -17,21 +19,22 @@
             </li> -->
           </ul>
         </div>
+   
       </div>
  
       <div class="row">
-        <div class="col-md-6 col-lg-12">
-          <div class="card card-pricing card-plain">
-            <div class="card-body ">
-                {{ form.render }}
-            </div>
- 
+     
+          <div class="col-md-6 ml-auto mr-auto col-lg-12">
+              <div class="card card-pricing card-plain">
+                <div class="card-body ">
+                    {{ form.render }}
+                </div>
+     
+            
+                          
         
-                      
-    
-          </div>
-        </div>
-
+              </div>
+            </div>
     
       </div>
     </div>
@@ -48,4 +51,9 @@
                 {{ form.render }}
         </div>
     </div> -->
+    {% include "landpage/main/js.html" %}  
+    <div id="ajax_response_login"></div>
+    <div id="ajax_response_register"></div>
+    <div id="ajax_logout"></div>
+    <div id="fb-root"></div>
 {% endblock %}

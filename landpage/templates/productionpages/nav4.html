@@ -1,5 +1,6 @@
-{% load staticfiles %}
 
+
+{% load static %}
 <!-- 
 <nav class="navbar  fixed-top  navbar-expand-lg navbar-light bg-light " id="sectionsNav2">
 		<div class="container">
@@ -143,141 +144,111 @@
 		</nav> -->
 		
 		<style>
-        /* adds some margin below the link sets  */
-      .navbar .dropdown-menu div[class*="col"] {
-         margin-bottom:1rem;
-      }
-      
-      .navbar .dropdown-menu {
-        border:none;
-        background-color:#ffffff!important;
-      }
-      
-      /* breakpoint and up - mega dropdown styles */
-      @media screen and (min-width: 992px) {
-        
-        /* remove the padding from the navbar so the dropdown hover state is not broken */
-      .navbar {
-        padding-top:0px;
-        padding-bottom:0px;
-      }
-      
-      /* remove the padding from the nav-item and add some margin to give some breathing room on hovers */
-      .navbar .nav-item {
-        padding:.5rem .5rem;
-        margin:0 .25rem;
-      }
-      
-      /* makes the dropdown full width  */
-     
-      
-      .navbar .dropdown-menu {
-        width:40%;
-      
-        float:right;
-      /*  height of nav-item  */
-        top:72px;
-        
-        display:block;
-        visibility: hidden;
-        opacity: 0;
-        transition: visibility 0s, opacity 0.3s linear;
-        
-      }
-        
-       
-      
-        
-        /* shows the dropdown menu on hover */
-      .navbar .dropdown:hover .dropdown-menu, .navbar .dropdown .dropdown-menu:hover {
-        display:block;
-        visibility: visible;
-        opacity: 1;
-        transition: visibility 0s, opacity 0.3s linear;
-      }
-        
-        .navbar .dropdown-menu {
-          border: 1px solid rgba(160, 160, 160, 0.15);
-           background-color: rgb(0, 0, 0);
-        }
-      
-      }
-      
-      
-      
-          </style>
-      <script>
-      
-      $(document).ready(function() {
-       // executes when HTML-Document is loaded and DOM is ready
-      
-      // breakpoint and up  
-      $(window).resize(function(){
-        if ($(window).width() >= 980){	
-      
-            // when you hover a toggle show its dropdown menu
-            $(".navbar .dropdown-toggle").hover(function () {
-               $(this).parent().toggleClass("show");
-               $(this).parent().find(".dropdown-menu").toggleClass("show"); 
-             });
-      
-              // hide the menu when the mouse leaves the dropdown
-            $( ".navbar .dropdown-menu" ).mouseleave(function() {
-              $(this).removeClass("show");  
-            });
-        
-          // do something here
-        }	
-      });  
-        
-        
-      
-      // document ready  
+	/* adds some margin below the link sets  */
+.navbar .dropdown-menu div[class*="col"] {
+   margin-bottom:1rem;
+}
+
+.navbar .dropdown-menu {
+  border:none;
+  background-color:#ffffff!important;
+}
+
+/* breakpoint and up - mega dropdown styles */
+@media screen and (min-width: 992px) {
+  
+  /* remove the padding from the navbar so the dropdown hover state is not broken */
+.navbar {
+  padding-top:0px;
+  padding-bottom:0px;
+}
+
+/* remove the padding from the nav-item and add some margin to give some breathing room on hovers */
+.navbar .nav-item {
+  padding:.5rem .5rem;
+  margin:0 .25rem;
+}
+
+
+.navbar .dropdown-menu{
+    width:40%;
+
+	float:right;
+/*  height of nav-item  */
+  top:72px;
+  
+  display:block;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s linear;
+  
+}
+
+  
+ 
+
+  
+  /* shows the dropdown menu on hover */
+.navbar .dropdown:hover .dropdown-menu, .navbar .dropdown .dropdown-menu:hover {
+  display:block;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.3s linear;
+}
+  
+  .navbar .dropdown-menu {
+    border: 1px solid rgba(160, 160, 160, 0.15);
+     background-color: rgb(0, 0, 0);
+  }
+
+}
+
+
+
+		</style>
+<script>
+
+$(document).ready(function() {
+ // executes when HTML-Document is loaded and DOM is ready
+
+// breakpoint and up  
+$(window).resize(function(){
+	if ($(window).width() >= 980){	
+
+      // when you hover a toggle show its dropdown menu
+      $(".navbar .dropdown-toggle").hover(function () {
+         $(this).parent().toggleClass("show");
+         $(this).parent().find(".dropdown-menu").toggleClass("show"); 
+       });
+
+        // hide the menu when the mouse leaves the dropdown
+      $( ".navbar .dropdown-menu" ).mouseleave(function() {
+        $(this).removeClass("show");  
       });
-      </script>
+  
+		// do something here
+	}	
+});  
+  
+  
 
-
+// document ready  
+});
+</script>
 
 <nav class="navbar  fixed-top  navbar-expand-lg  bg-primary" color-on-scroll="100" id="sectionsNav">
 		<div class="container" >
-	
-	<a>
-				<img src="{% static 'img/logos/logo2.jpg' %}" alt="" style="width:100px; height:100px; padding: 5px;  ">
-			</a>  
-				<button    class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-				 <span class="sr-only">Toggle navigation</span>
-				 <span class="navbar-toggler-icon"></span>
-				 <span class="navbar-toggler-icon"></span>
-				 <span class="navbar-toggler-icon"></span>
-			</button>
+
 	
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto">
 			
-
 		
-		
-				<li class="nav-item">
-						<a class="nav-link "  href="/aboutus">
-								<h6 class="card-category text-info "> <i class="material-icons">wb_sunny</i><b>Why Enroll?</b></h6>
-
-							
-						</a>
-						</li>
-		
-				<li class="nav-item">
-						<a class="nav-link "  href="/scholarship-application-form">
-								<h6 class="card-category text-info "> 	<i class="material-icons">school</i><b>Apply for Scholarship</b></h6>
-	
-							</a>
-			
-						</li>
-						
 						<li>
 								<div class="dropdown ">
 										{% if request.user.is_authenticated %}
 									 
-									<button class="dropdown-toggle btn btn-primary  btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown2" aria-haspopup="true" aria-expanded="false">
 										{{ user.first_name }} {{ user.last_name }}
 									</button>
 									<div class="dropdown-menu dropdown-with-icons  "  >
@@ -297,14 +268,7 @@
 								
 								</div>
 			
-          </li>
-          <li>
-              
-              <div class="buttons">
-                 <a href="{% url 'show_cart' %}" class="btn btn-primary  btn-block">Cart: {{ cart_item_count }} item</a> 
-             
-               </div>
-             </li>
+					</li>
 			</ul>
 
 		</div>
@@ -312,7 +276,3 @@
 	
 </div>
 	</nav>
-
-
-
-

@@ -5,25 +5,7 @@
 
 {% block content %}
 
-    <!-- <div class="container">
-        <div class="row">
 
-            <p><a href="{% url 'index' %}">All Courses </a> &gt;
-                {{ product.name }}
-            </p>
-
-                <h2>{{ product.name }}</h2>
-                <p>Price ${{ product.price }}</p>
-
-                <form action="{% url 'product_detail' product.id product.slug %}" method="post">
-                    {% csrf_token %}
-                    {{ form }}
-                    <input type="submit" value="Add to cart" class="btn btn-primary" >
-                </form>
-
-        </div>
-
-    </div> -->
     <br><br>
     <div class="section section-tabs">
       <div class="container">
@@ -32,12 +14,13 @@
        
           <div class="row">
             <div class="col-md-6">
-              <h3>
-                <small>Here is an Overview of {{ product.name }}</small>
-              </h3>
+             
               <!-- Tabs with icons on Card -->
-              <div class="card card-nav-tabs">
+              <div class="card  card-plain card-nav-tabs"  style="background-color:#fff">
                 <div class="card-header card-header-primary">
+                    <h4>
+                    <b> {{ product.name }} Course Overview </b>   
+                      </h4>
                   <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
                   <div class="nav-tabs-navigation">
                     <div class="nav-tabs-wrapper">
@@ -64,7 +47,7 @@
                 <div class="card-body ">
                   <div class="tab-content text-center">
                     <div class="tab-pane active" id="description">
-                      <p>  {{ product.description }}</p>
+                  <h4 class="card-description" >    {{ product.description }}</h4>
                     </div>
                     <!-- <div class="tab-pane" id="messages">
                       <p>{{ product.name }} </p>
@@ -92,18 +75,16 @@
               </div>
               <div class="card-body text-center">
               
-                <h4 class="card-title text-center">
-                  <a href="{% url 'product_detail' product.pk product.slug %}">{{ product.name }}</a>
+                <h4 class="card-description text-center">
+                  <a href="{% url 'product_detail' product.pk product.slug %}"> <b> {{ product.name }}</b></a>
                 </h4>
-                <p class="card-text">
-                      {{ product.description }}
-                </p>
+                <h4 class="card-description" >    {{ product.description }}</h4>
             <!-- <p class="card-description" >Durration: {{ course.start_date }} to {{ course.finish_date }}</p> -->
   
             <form action="{% url 'product_detail' product.id product.slug %}" method="post">
               {% csrf_token %}
               {{ form }}
-              <input type="submit" value="Checkout" class="btn btn-primary " >
+              <input type="submit" value="Enroll" class="btn btn-primary " >
           </form>
   
   
@@ -114,18 +95,12 @@
         </div>
       </div>
     </div>
-    <!-- 	            end nav tabs -->
+  
 
-    <div class="section section-blog">
-        <div class="container">
-          <div class="row " >
-        
-            <div class="col-md-3">
-           
-            </div>
-        
-          </div>
-        </div>
-      </div>
 
+      {% include "landpage/main/js.html" %}  
+      <div id="ajax_response_login"></div>
+      <div id="ajax_response_register"></div>
+      <div id="ajax_logout"></div>
+      <div id="fb-root"></div>
 {% endblock %}

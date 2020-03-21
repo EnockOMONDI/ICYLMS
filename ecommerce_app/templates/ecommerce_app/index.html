@@ -3,20 +3,139 @@
 {% block content %}
 
 <br>
-<br>
 
-<br>
-<br>
- <div class="row">
-    <div class="col-lg-12 text-center">
 
-      <!-- <h3 class="title">The following are available courses on LADA:</h3> -->
-      <ul class="breadcrumb">
-            <li class="active nav-link title ">
-              The following are available courses on LADA:
-            </li>
+
+ <div class="row ">
+    <div class="col-lg-12 ">
+
+   <!-- Tabs with icons on Card -->
+   <div class="card  card-plain card-nav-tabs ">
+      <br>
+      <br>
+      <br>
+    
+      <br>
+     <div  class="col-lg-12 ">
+       <div class=" row">
+             
+       
+      
+       <div class="col-lg-4">
+         
+     
+      <div class="card-header card-header-primary " >
+          <h4> <b>Filter</b>  <i class="material-icons">autorenew</i></h4>
+        <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+        <div class="nav-tabs-navigation">
+          <div class="nav-tabs-wrapper">
+
+        
+            <ul class="nav nav-tabs" data-tabs="tabs">
+              <li class="nav-item">
+                <a class="nav-link active" href="#Courses" data-toggle="tab">
+                  Courses
+                </a>
+        
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#Trainingbits" data-toggle="tab">
+               Training bits
+                </a>
+              </li>
           
-        </ul>
+            </ul>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="col-md-8  bg-white rounded shadow-sm ">
+    <div class="row">
+      <div class="col-md-12 mr-auto ml-auto">
+          <h3 class="card-category text-info"> <b> Quick Facts: Online LADA</b> </h3>
+          <ul>
+              <li>Taught in Multiple Language</li>
+              <li> <strong>Delivered online</strong>  You can study from home </li>
+              <li>Uses the unique Action Learning methodology
+                </li>
+              <li>Focus 100% on real-time topics of relevance to leadership and Development challenges facing Africa
+                </li>
+                <li>You will receive academic support from a qualified tutor</li>
+                <li>You can apply for scholarships to finance your study</li>
+                <li>Earn a Certificate upon completion of study</li>
+            
+                
+            </ul>
+        
+
+          </div>
+        </div>
+
+
+
+  </div>
+
+  </div>
+  <hr style="width:50%;">
+  <h3 class="card-description text-center"> <b>EXPLORE  ALL</b> </h3>
+
+</div>
+
+      <div class="card-body ">
+        <div class="tab-content text-center">
+            <div class="tab-pane active" id="Courses">
+          
+              {% for product in all_products %}
+              <div class="col-lg-3">
+              <!-- <h3 class="title text-center">{{ course.title }}</h3>  -->
+                <div class="card card-plain "  style="background-color:#fff" >
+                  <div class="card-header card-header-image" >
+                          {% if product.image  %}
+                    <a href="">
+                      <img src="{{ product.image.url }}" height="250" width="250"   alt="">
+                      {% else %}
+                      <img src="{% static 'img/dummy.png' %}" height="250" width="250"   alt="">
+                      <!-- Missing Image! -->
+                  {% endif %}
+                    </a>
+                  </div>
+      
+           
+      
+      
+                  <div class="card-body">
+                  
+                    <h5 class="card-description text-center">
+                      <a href="{% url 'product_detail' product.pk product.slug %}"><b>{{ product.name }} </b> </a>
+                    </h5>
+                    <h5 class="card-description" >    {{ product.description }}</h5>
+                <!-- <p class="card-description" >Durration: {{ course.start_date }} to {{ course.finish_date }}</p> -->
+      
+                <div class="buttons text-center" >
+                  <a href="{% url 'product_detail' product.pk product.slug %}"  class="btn btn-primary btn  ">
+                      <strong>Enroll${{ product.price }}</strong> 
+                  </a>
+                  <a href="{% url 'product_detail' product.pk product.slug %}"  class="btn btn-primary btn ">
+                    <strong>Quick overview  </strong> 
+                </a>
+                </div>
+      
+      
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+          </div>
+          <div class="tab-pane" id="Trainingbits">
+              <p> There currently no Traiing bits on the portal</p>
+            </div>
+        
+       
+        </div>
+      </div>
+    </div>
+    <!-- End Tabs with icons on Card -->
+        
     
     </div>
 </div>
@@ -24,54 +143,25 @@
         <a href="{% url 'show_cart' %}" class="btn btn-primary btn btn-round pull-right ">Cart: {{ cart_item_count }} item</a> 
     
       </div> -->
+  
 <div class="section section-blog">
+    
     <div class="container">
+       
       <div class="row " >
-         {% for product in all_products %}
-        <div class="col-md-4">
-        <!-- <h3 class="title text-center">{{ course.title }}</h3>  -->
-          <div class="card" style=" box-shadow: 0 8px 16px 0 #c5c5c5; padding:10px; border-radius: 6px;">
-            <div class="card-header card-header-image" >
-                    {% if product.image  %}
-              <a href="#pablo">
-                <img src="{{ product.image.url }}" height="250" width="200"   alt="">
-                {% else %}
-                <img src="{% static 'img/dummy.png' %}" height="250" width="200"   alt="">
-                <!-- Missing Image! -->
-            {% endif %}
-              </a>
-            </div>
-
-     
+        <div class="col-lg-3">
+          
 
 
-            <div class="card-body">
-            
-              <h4 class="card-title text-center">
-                <a href="{% url 'product_detail' product.pk product.slug %}">{{ product.name }}</a>
-              </h4>
-              <p class="card-text">
-                    {{ product.description }}
-              </p>
-          <!-- <p class="card-description" >Durration: {{ course.start_date }} to {{ course.finish_date }}</p> -->
-
-          <div class="buttons text-center" >
-            <a href="{% url 'product_detail' product.pk product.slug %}"  class="btn btn-primary btn btn-round ">
-                <strong>Enroll${{ product.price }}</strong> 
-            </a>
-            <a href="{% url 'product_detail' product.pk product.slug %}"  class="btn btn-primary btn btn-round ">
-              <strong>Quick overview  </strong> 
-          </a>
-          </div>
-
-
-            </div>
-          </div>
         </div>
-        {% endfor %}
+   
       </div>
     </div>
   </div>
 
-
+  {% include "landpage/main/js.html" %}  
+  <div id="ajax_response_login"></div>
+  <div id="ajax_response_register"></div>
+  <div id="ajax_logout"></div>
+  <div id="fb-root"></div>
 {% endblock %}
