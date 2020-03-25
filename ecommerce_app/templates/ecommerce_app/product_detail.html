@@ -109,8 +109,11 @@
                                               <h5 class="card-title">Module 1</h5>
                                             
                                               <p class="card-text">Leadership</p>
-                                              <a href="#" class="btn btn-primary" style="box-shadow: 0 8px 16px 0 #c5c5c5;">enroll</a>
-                                            </div>
+                                              <form action="{% url 'product_detail' product.id product.slug %}" method="post">
+                                                  {% csrf_token %}
+                                                  {{ form }}
+                                                  <input type="submit" value="Enroll" class="btn btn-primary " >
+                                              </form>                                            </div>
                                           </div> 
                             </div>
                 
@@ -125,8 +128,11 @@
                                           <h5 class="card-title">Module 2 </h5>
                                         
                                           <p class="card-text">Transformational Leadership</p>
-                                          <a href="#" class="btn btn-primary" style="box-shadow: 0 8px 16px 0 #c5c5c5;">enroll</a>
-                                        </div>
+                                          <form action="{% url 'product_detail' product.id product.slug %}" method="post">
+                                              {% csrf_token %}
+                                              {{ form }}
+                                              <input type="submit" value="Enroll" class="btn btn-primary " >
+                                          </form>                                        </div>
                                       </div> 
                         </div>
                         <div class="col-md-4">
@@ -140,8 +146,11 @@
                                       <h5 class="card-title">Module 3</h5>
                                     
                                       <p class="card-text">Leadership intelligence</p>
-                                      <a href="#" class="btn btn-primary" style="box-shadow: 0 8px 16px 0 #c5c5c5;">enroll</a>
-                                    </div>
+                                      <form action="{% url 'product_detail' product.id product.slug %}" method="post">
+                                          {% csrf_token %}
+                                          {{ form }}
+                                          <input type="submit" value="Enroll" class="btn btn-primary " >
+                                      </form>                                    </div>
                                   </div> 
                     </div>
                             </div>
