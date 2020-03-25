@@ -5,7 +5,7 @@ from .models import Product, Order, CartItem, LineItem
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display =['id', 'name', 'price']
+    list_display =['id', 'name', 'price',]
 
 
 class OrderAdmin(admin.ModelAdmin):
