@@ -146,13 +146,39 @@
                                           <h5 class="card-title">Module 2 </h5>
                                         
                                           <p class="card-text">Transformational Leadership</p>
-                                          <form action="{% url 'product_detail' product.id product.slug %}" method="post">
-                                              {% csrf_token %}
-                                              {{ form }}
-                                              <input type="submit" value="Enroll" class="btn btn-default " >
-                                          </form>                                        </div>
+                                          <div class="col-md-12  ml-auto mr-auto text-center">
+                 
+                                              <div class="buttons">
+                                                  <a href="" class="btn btn-primary btn-round " >
+                                                      <span class="material-icons">
+                                                          monetization_on
+                                                          </span>    {{ product.price }} 
+                                                    </a>
+                                          <button class="btn btn-default btn-round " data-toggle="modal" data-target="#smallAlertModal">
+                                             Enroll Now
+                                            </button>                                        </div>
                                       </div> 
-                        </div>
+                        </div>                </div> 
+
+                      </div>
+                        <!-- small modal -->
+  <div class="modal fade" id="smallAlertModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-small" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+          </div>
+          <div class="modal-body text-center">
+            <h5>You must complete Module 1 to proceed to module 2? </h5>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-link" data-dismiss="modal">Never mind</button>
+            <button type="button" class="btn btn-success btn-link">Yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--    end small modal -->
                         <div class="col-md-4">
                                
                             <div class="card" style="width: 22rem; box-shadow: 0 8px 16px 0 #c5c5c5;  border-radius: 6px;" >
