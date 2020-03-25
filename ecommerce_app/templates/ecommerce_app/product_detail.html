@@ -110,8 +110,28 @@
                                               <form action="{% url 'product_detail' product.id product.slug %}" method="post">
                                                   {% csrf_token %}
                                                   {{ form }}
-                                                  <input type="submit" value="Enroll" class="btn btn-primary " >
-                                              </form>                                            </div>
+
+                                             
+                                                  <div class="col-md-12  ml-auto mr-auto text-center">
+                 
+                                                      <div class="buttons  ">
+                                                        <a href="" class="btn btn-primary btn-round " >
+                                                          <span class="material-icons">
+                                                              monetization_on
+                                                              </span>    {{ product.price }} 
+                                                        </a>
+                                                        <!-- <a href="" class="btn btn-primary btn-sm btn-round " >
+                                                            <span class="material-icons">
+                                                                monetization_on
+                                                                </span>   {{ product.price }}
+                                                        </a> -->
+                                                        <input type="submit" value="Enroll Now" class="btn btn-primary  btn-round   "   >
+                                                      </form> 
+                                                        </a>
+                                                      </div>
+                                                    </div>
+                                           
+                                         </div>
                                           </div> 
                             </div>
                 
@@ -129,7 +149,7 @@
                                           <form action="{% url 'product_detail' product.id product.slug %}" method="post">
                                               {% csrf_token %}
                                               {{ form }}
-                                              <input type="submit" value="Enroll" class="btn btn-primary " >
+                                              <input type="submit" value="Enroll" class="btn btn-default " >
                                           </form>                                        </div>
                                       </div> 
                         </div>
