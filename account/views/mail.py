@@ -8,6 +8,13 @@ import json
 import datetime
 from account.models import PrivateMessage
 from account.forms import PrivateMessageForm
+from django.core.mail import send_mail
+from django.contrib.auth.models import User
+from academicstoday_project.secret_settings import EMAIL_HOST_USER
+from django.core.mail import send_mass_mail
+from django.core.mail.message import EmailMultiAlternatives
+from django.template.loader import get_template
+from django.template import Context
 
 @login_required(login_url='/landpage')
 def mail_page(request):
@@ -24,6 +31,8 @@ def mail_page(request):
         'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
     })
+
+
 
 
 @login_required()
@@ -89,3 +98,31 @@ def delete_private_message(request):
             
             response_data = {'status' : 'success', 'message' : 'deleted private message'}
     return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+
+
+# def email_users(request):
+#     # users=User.objects.all().values_list('email',flat=True)
+#     users = User.objects.all()
+#     for user in users:
+#         subject = 'Welcome to Leadership and development Academy '
+#         msg = f'testtesttest {user.first_name} {user.first_name} '
+#         from_email = 'onboarding@leadershipacademyafrica.com'
+#         messages = [(subject,msg,from_email,[user.email])]
+#         send_mass_mail((messages),fail_silently=False)
+#     return  HttpResponse("welcome email")
+
+
+def email_users(request):
+
+    users = User.objects.all()
+    for user in users:
+        # context = Context ({'first_name': user.first_name, 'last_name': user.last_name})
+        subject ='Welcome to Leadership and development Academy '
+        from_email = 'onboarding@leadershipacademyafrica.com'
+        to = [user.email]
+        message =render_to_string('account/mail/email_template.html')
+        messages = EmailMultiAlternatives (subject,text_alternative ,from_email,[user.email])
+        messages.attach_alternative(html_alternative, "text/html")
+    #     send_mass_mail((messages),fail_silently=False)
+    # return  HttpResponse("welcome email")

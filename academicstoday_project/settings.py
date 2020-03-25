@@ -141,16 +141,6 @@ DATABASES = {
 DATABASES['default'].update(db_from_env)
 
 
-# Email
-# http://stackoverflow.com/questions/19264907/python-django-gmail-smtp-setup
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST =  'smtp.gmail.com'
-EMAIL_PORT = 578
-EMAIL_HOST_USER = 'djseanizellkenya@gmail.com'
-EMAIL_HOST_PASSWORD = 'seanizelllivekeke1234'
-
-
 
 
 # Internationalization
@@ -166,19 +156,6 @@ USE_L10N = True
 
 USE_TZ = False
 
-UPLOADCARE = {
-  # Don’t forget to set real keys when it gets real :)
-
-  'pub_key': 'd4d69f96f2e2dde353d1',
-  'secret': 'a31559dd611e70c202f4',
-}
-
-cloudinary.config(
-  cloud_name ='lada' ,
-  api_key = '991846289858872',
-  api_secret = 'PxriDvQELG9426d-3KZ1_OtbsVE',
-  secure = True
-)
 
 
 # Static files (CSS, JavaScript, Images) & Upload Content
@@ -204,19 +181,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 
-
-
- 
-
-PAYPAL_RECEIVER_EMAIL = 'africaforsdgs2019@gmail.com'
-PAYPAL_TEST = False  
-PAYPAL_CLIENT_ID = 'AYxM9ft3x-ODD8P60XP1fI7cljyjve2vY3Oaa2rzsyIMad7VcxhJABtlJBzhcP6-eztRghDfg3kn4Ato'
-PAYPAL_CLIENT_SECRET = 'EDe6n1w19IPRTPdBwm10QSBxyF5o9ZEeH0R7mSJeI7yGLvhMS-7mOwMgcNPhUZg6zUpPUlnKsIDWE3Y3'
-
-# PAYPAL_RECEIVER_EMAIL = 'rennyopascal@gmail.com'
-# PAYPAL_TEST = False  
-# PAYPAL_CLIENT_ID = 'AXvkBngcxRDy96UenCWYPR5BPzGo-N40NT5wj1n7yeRiTtGq-U8qTbJQlznNY9uQ9lGb7pkPbImbCYzd'
-# PAYPAL_CLIENT_SECRET = 'EFZ6RzSswSiZpM3AwZ_HVIjEfE0UP-SYKv_NMALWhe7Ula-tP_3kqJjI5UxqEF76S3ZD7AFlhug4eTb_'
 
 SITE_ID = 1
 STATIC_URL = '/static/'

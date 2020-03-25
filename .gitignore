@@ -206,4 +206,4 @@ virtual/
 
 *.pyc
 __pycache__
-secret_settings
+academicstoday_project/secret_settings
