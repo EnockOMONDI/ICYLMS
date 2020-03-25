@@ -18,7 +18,7 @@
                 <form action="{% url 'product_detail' product.id product.slug %}" method="post">
                     {% csrf_token %}
                     {{ form }}
-                    <input type="submit" value="Add to cart" class="btn btn-primary" >
+                    <input type="submit" value="Add to cart" class="btn btn-default" >
                 </form>
 
         </div>
@@ -120,12 +120,12 @@
                                                               monetization_on
                                                               </span>    {{ product.price }} 
                                                         </a>
-                                                        <!-- <a href="" class="btn btn-primary btn-sm btn-round " >
+                                                        <!-- <a href="" class="btn btn-default btn-sm btn-round " >
                                                             <span class="material-icons">
                                                                 monetization_on
                                                                 </span>   {{ product.price }}
                                                         </a> -->
-                                                        <input type="submit" value="Enroll Now" class="btn btn-primary  btn-round   "   >
+                                                        <input type="submit" value="Enroll Now" class="btn btn-default  btn-round   "   >
                                                       </form> 
                                                         </a>
                                                       </div>
@@ -149,7 +149,7 @@
                                           <div class="col-md-12  ml-auto mr-auto text-center">
                  
                                               <div class="buttons">
-                                                  <a href="" class="btn btn-primary btn-round " >
+                                                  <a href="" class="btn btn-default btn-round " >
                                                       <span class="material-icons">
                                                           monetization_on
                                                           </span>    {{ product.price }} 
@@ -177,7 +177,7 @@
                                       <div class="col-md-12  ml-auto mr-auto text-center">
                  
                                           <div class="buttons">
-                                              <a href="" class="btn btn-primary btn-round " >
+                                              <a href="" class="btn btn-default btn-round " >
                                                   <span class="material-icons">
                                                       monetization_on
                                                       </span>    {{ product.price }} 
@@ -205,7 +205,7 @@
                                     <div class="col-md-12  ml-auto mr-auto text-center">
                
                                         <div class="buttons">
-                                            <a href="" class="btn btn-primary btn-round " >
+                                            <a href="" class="btn btn-default btn-round " >
                                                 <span class="material-icons">
                                                     monetization_on
                                                     </span>    {{ product.price }} 
@@ -234,7 +234,7 @@
                                     <div class="col-md-12  ml-auto mr-auto text-center">
                
                                         <div class="buttons">
-                                            <a href="" class="btn btn-primary btn-round " >
+                                            <a href="" class="btn btn-default btn-round " >
                                                 <span class="material-icons">
                                                     monetization_on
                                                     </span>    {{ product.price }} 
@@ -262,7 +262,7 @@
                                     <div class="col-md-12  ml-auto mr-auto text-center">
                
                                         <div class="buttons">
-                                            <a href="" class="btn btn-primary btn-round " >
+                                            <a href="" class="btn btn-default btn-round " >
                                                 <span class="material-icons">
                                                     monetization_on
                                                     </span>    {{ product.price }} 
@@ -290,7 +290,7 @@
                                     <div class="col-md-12  ml-auto mr-auto text-center">
                
                                         <div class="buttons">
-                                            <a href="" class="btn btn-primary btn-round " >
+                                            <a href="" class="btn btn-default btn-round " >
                                                 <span class="material-icons">
                                                     monetization_on
                                                     </span>    {{ product.price }} 
@@ -318,7 +318,7 @@
                                     <div class="col-md-12  ml-auto mr-auto text-center">
                
                                         <div class="buttons">
-                                            <a href="" class="btn btn-primary btn-round " >
+                                            <a href="" class="btn btn-default btn-round " >
                                                 <span class="material-icons">
                                                     monetization_on
                                                     </span>    {{ product.price }} 
@@ -346,7 +346,7 @@
                                     <div class="col-md-12  ml-auto mr-auto text-center">
                
                                         <div class="buttons">
-                                            <a href="" class="btn btn-primary btn-round " >
+                                            <a href="" class="btn btn-default btn-round " >
                                                 <span class="material-icons">
                                                     monetization_on
                                                     </span>    {{ product.price }} 
@@ -371,7 +371,7 @@
                         <form action="{% url 'product_detail' product.id product.slug %}" method="post">
                             {% csrf_token %}
                             {{ form }}
-                            <input type="submit" value="Enroll" class="btn btn-primary " >
+                            <input type="submit" value="Enroll" class="btn btn-default " >
                         </form>
                 
                       </div>
@@ -395,14 +395,14 @@
 <a href="{% url 'product_detail' product.pk product.slug %}">{{ product.name }}</a>
               
                 <p class="card-text">   {{ product.description }}</p>
-                <a href="#" class="btn btn-primary" style="box-shadow: 0 8px 16px 0 #c5c5c5;">enroll</a>
+                <a href="#" class="btn btn-default" style="box-shadow: 0 8px 16px 0 #c5c5c5;">enroll</a>
               </div>
             </div> 
 
             <form action="{% url 'product_detail' product.id product.slug %}" method="post">
               {% csrf_token %}
               {{ form }}
-              <input type="submit" value="Checkout" class="btn btn-primary " >
+              <input type="submit" value="Checkout" class="btn btn-default " >
           </form>
   
   
