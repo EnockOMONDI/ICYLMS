@@ -54,7 +54,7 @@
                           REQUIREMENTS 
                           </a>
                         </li>
-                  >
+               
                         <li class="nav-item">
                             <a class="nav-link" href="#modules" data-toggle="tab">
                            MODULES
@@ -71,9 +71,13 @@
                   </div>
                 </div>
                 <div class="card-body ">
-                  <div class="tab-content text-center">
+                  <div class="tab-content ">
                     <div class="tab-pane active" id="description">
-                      <p>  {{ product.description }}</p>
+                        <h3>
+                            <b>{{ product.name }}  Overview  </b> 
+                   
+                                 </h3>
+                      <p >  {{ product.description }}</p>
                     </div>
                     <div class="tab-pane" id="requirements">
                       <p>{{ product.requirements }} </p>
