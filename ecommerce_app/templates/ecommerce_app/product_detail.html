@@ -33,7 +33,7 @@
           <div class="row">
             <div class="col-md-12 text-center">
               <h3>
-         <b>{{ product.name }}  Overview  </b> 
+         <b> Here is an Overview of {{ product.name }}</b> 
 
               </h3>
               <br>
@@ -60,16 +60,10 @@
                           </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#modules" data-toggle="tab">
-                           MODULES
-                            </a>
-                          </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="#apply" data-toggle="tab">
                            APPLY
                             </a>
                           </li>
-                        
                       </ul>
                     </div>
                   </div>
@@ -85,72 +79,8 @@
                     <div class="tab-pane" id="fees">
                       <p>$90</p>
                     </div>
-
-                    <div class="tab-pane" id="modules">
-                      <div class="container">
-                          <div class="col-lg-12"> 
-                          <div class="row " >
-                        
-                            <div class="col-md-4">
-                               
-                                    <div class="card" style="width: 22rem; box-shadow: 0 8px 16px 0 #c5c5c5;  border-radius: 6px;" >
-                                            <img style="border-radius: 6px;  box-shadow: 0 8px 16px 0 #c5c5c5;" src="{% static 'img/00.jpeg' %}"
-                                            class=" img-responsive" height="100%" width="100%"  alt="">
-                                            
-                                            <div class="card-body text-center">
-                                                    <br>
-                                              <h5 class="card-title">Module 1</h5>
-                                            
-                                              <p class="card-text">Leadership</p>
-                                              <a href="#" class="btn btn-primary" style="box-shadow: 0 8px 16px 0 #c5c5c5;">enroll</a>
-                                            </div>
-                                          </div> 
-                            </div>
-                
-                            <div class="col-md-4">
-                               
-                                <div class="card" style="width: 22rem; box-shadow: 0 8px 16px 0 #c5c5c5;  border-radius: 6px;" >
-                                        <img style="border-radius: 6px;  box-shadow: 0 8px 16px 0 #c5c5c5;" src="{% static 'img/00.jpeg' %}"
-                                        class=" img-responsive" height="100%" width="100%"  alt="">
-                                        
-                                        <div class="card-body text-center">
-                                                <br>
-                                          <h5 class="card-title">Module 2 </h5>
-                                        
-                                          <p class="card-text">Transformational Leadership</p>
-                                          <a href="#" class="btn btn-primary" style="box-shadow: 0 8px 16px 0 #c5c5c5;">enroll</a>
-                                        </div>
-                                      </div> 
-                        </div>
-                        <div class="col-md-4">
-                               
-                            <div class="card" style="width: 22rem; box-shadow: 0 8px 16px 0 #c5c5c5;  border-radius: 6px;" >
-                                    <img style="border-radius: 6px;  box-shadow: 0 8px 16px 0 #c5c5c5;" src="{% static 'img/00.jpeg' %}"
-                                    class=" img-responsive" height="100%" width="100%"  alt="">
-                                    
-                                    <div class="card-body text-center">
-                                            <br>
-                                      <h5 class="card-title">Module 3</h5>
-                                    
-                                      <p class="card-text">Leadership intelligence</p>
-                                      <a href="#" class="btn btn-primary" style="box-shadow: 0 8px 16px 0 #c5c5c5;">enroll</a>
-                                    </div>
-                                  </div> 
-                    </div>
-                            </div>
-                          </div>
-                        
-                          </div>
-
-                   </div>
-
                     <div class="tab-pane" id="apply">
-                        <form action="{% url 'product_detail' product.id product.slug %}" method="post">
-                            {% csrf_token %}
-                            {{ form }}
-                            <input type="submit" value="Enroll" class="btn btn-primary " >
-                        </form>
-                
+                        <p>$90</p>
                       </div>
                   </div>
                 </div>
@@ -193,13 +123,64 @@
     <!-- 	            end nav tabs -->
 
 
-     
+        <div class="container">
+          <div class="col-lg-12"> 
+          <div class="row " >
+        
+            <div class="col-md-4">
+               
+                    <div class="card" style="width: 22rem; box-shadow: 0 8px 16px 0 #c5c5c5;  border-radius: 6px;" >
+                            <img style="border-radius: 6px;  box-shadow: 0 8px 16px 0 #c5c5c5;" src="{% static 'img/00.jpeg' %}"
+                            class=" img-responsive" height="100%" width="100%"  alt="">
+                            
+                            <div class="card-body text-center">
+                                    <br>
+                              <h5 class="card-title">Module 1</h5>
+                            
+                              <p class="card-text">Leadership</p>
+                              <a href="#" class="btn btn-primary" style="box-shadow: 0 8px 16px 0 #c5c5c5;">enroll</a>
+                            </div>
+                          </div> 
+            </div>
+
+            <div class="col-md-4">
+               
+                <div class="card" style="width: 22rem; box-shadow: 0 8px 16px 0 #c5c5c5;  border-radius: 6px;" >
+                        <img style="border-radius: 6px;  box-shadow: 0 8px 16px 0 #c5c5c5;" src="{% static 'img/00.jpeg' %}"
+                        class=" img-responsive" height="100%" width="100%"  alt="">
+                        
+                        <div class="card-body text-center">
+                                <br>
+                          <h5 class="card-title">Module 2 </h5>
+                        
+                          <p class="card-text">Transformational Leadership</p>
+                          <a href="#" class="btn btn-primary" style="box-shadow: 0 8px 16px 0 #c5c5c5;">enroll</a>
+                        </div>
+                      </div> 
+        </div>
+        <div class="col-md-4">
+               
+            <div class="card" style="width: 22rem; box-shadow: 0 8px 16px 0 #c5c5c5;  border-radius: 6px;" >
+                    <img style="border-radius: 6px;  box-shadow: 0 8px 16px 0 #c5c5c5;" src="{% static 'img/00.jpeg' %}"
+                    class=" img-responsive" height="100%" width="100%"  alt="">
+                    
+                    <div class="card-body text-center">
+                            <br>
+                      <h5 class="card-title">Module 3</h5>
+                    
+                      <p class="card-text">Leadership intelligence</p>
+                      <a href="#" class="btn btn-primary" style="box-shadow: 0 8px 16px 0 #c5c5c5;">enroll</a>
+                    </div>
+                  </div> 
+    </div>
+            </div>
+          </div>
+        
+          </div>
         </div>
 
 
-      
-  
-  
+
    
 
 
