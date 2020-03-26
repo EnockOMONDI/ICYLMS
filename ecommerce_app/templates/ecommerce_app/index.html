@@ -31,16 +31,11 @@
                 <img src="{% static 'img/dummy.png' %}" height="250" width="200"   alt="">
                 <!-- Missing Image! -->
             {% endif %}
-          
-            
-              <div class="card-title">
-                <h4 class="card-title">{{ product.name }} </h4>
-              </div>
-    
+         
        
                 <div class="card-body ">
                     
-              
+                  <h4 class="card-title">{{ product.name }} </h4>
                 
                   <p class="card-text">  {{ product.description|truncatechars:80 }}</p>
                   <div class="card-footer ">
