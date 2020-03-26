@@ -23,7 +23,7 @@
          {% for product in all_products %}
         <div class="col-md-4">
       
-            <div class="card" style="width: 23rem; padding: 10px; box-shadow: 0 8px 16px 0 #c5c5c5;  border-radius: 6px;" >
+            <div class="card" style="padding: 10px; box-shadow: 0 8px 16px 0 #c5c5c5;  border-radius: 6px;" >
                 {% if product.image  %} 
               <img style="border-radius: 6px;  box-shadow: 0 8px 16px 0 #c5c5c5;" src="{{ product.image.url }}"
                 class=" img-responsive" height="100%" width="100%"  alt="">
@@ -32,32 +32,30 @@
                 <!-- Missing Image! -->
             {% endif %}
                 
-                <div class="card-body text-center">
+                <div class="card-body ">
                     
                   <h4 class="card-title">{{ product.name }} </h4>
                 
                   <p class="card-text">  {{ product.description|truncatechars:80 }}</p>
-
-                </div>
-                <div class="col-md-12  ml-auto mr-auto text-center">
-                 
-                    <div class="buttons  ">
-                      <a href="" class="btn btn-primary btn-sm btn-round " >
+                  <div class="card-footer ">
+                    <div class="author">
+                      <a href="#pablo">
+                      
                         <span class="material-icons">
-                            watch_later
-                            </span>     12 months
-                      </a>
-                      <!-- <a href="" class="btn btn-primary btn-sm btn-round " >
-                          <span class="material-icons">
-                              monetization_on
-                              </span>   {{ product.price }}
-                      </a> -->
-                      <a href="{% url 'product_detail' product.pk product.slug %}"  class="btn btn-primary btn btn-round btn-sm ">
-                          <strong>Quick overview  </strong> 
+                          watch_later
+                          </span> 12 Months
                       </a>
                     </div>
+                    <div class="stats ml-auto">
+                      <a href="{% url 'product_detail' product.pk product.slug %}"  class="btn btn-primary btn btn-round btn-sm ">
+                        <strong> Overview  </strong> 
+                    </a>
+                    </div>
                   </div>
-                      
+             
+   
+              </div>
+           
                 
              
               </div> 
