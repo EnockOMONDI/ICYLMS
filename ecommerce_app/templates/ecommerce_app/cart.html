@@ -38,6 +38,7 @@
                         <div class="card-body ">
                           <h6 class="card-category"></h6>
                           <h1 class="card-title">
+                        
                                 {% for item in cart_items %}
                             <small>$</small>{{ item.price }}
                             <!-- <small>/mo</small> -->
@@ -45,7 +46,9 @@
                           <ul>
                             <li>
                                 <h4><b> Course  | {{ item.product.name }}  </li></b></h4>
+                             
                               
+                                
                             <!-- <li>
                               <b>Total cost</b> </li>
                             <li>
@@ -53,6 +56,7 @@
                             <li>
                               <b>5.000</b> Messages</li> -->
                           </ul>
+                          
                         </div>
                         {% endfor %}
                         {% if cart_item_count %}
