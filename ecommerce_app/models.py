@@ -12,6 +12,7 @@ class Product(models.Model):
     slug = models.SlugField()
     description = models.TextField()
     image = CloudinaryField('image', blank=True, null=True)
+    duration = models.CharField(max_length=191)
    
 
     def __str__(self):
