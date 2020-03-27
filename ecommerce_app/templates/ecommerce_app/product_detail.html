@@ -369,10 +369,12 @@
                    </div>
 
                     <div class="tab-pane" id="apply">
+                        
+                     
                         <form action="{% url 'product_detail' product.id product.slug %}" method="post">
                             {% csrf_token %}
                             {{ form }}
-                            <input type="submit" value="Enroll" class="btn btn-default " >
+                            <input type="submit" value="START YOUR JOURNEY OF BECOMING A LEADER" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" ></a>
                         </form>
                 
                       </div>
