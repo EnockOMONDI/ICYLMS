@@ -101,28 +101,28 @@ def delete_private_message(request):
 
 
 
-# def email_users(request):
-#     # users=User.objects.all().values_list('email',flat=True)
-#     users = User.objects.all()
-#     for user in users:
-#         subject = 'Welcome to Leadership and development Academy '
-#         msg = f'testtesttest {user.first_name} {user.first_name} '
-#         from_email = 'onboarding@leadershipacademyafrica.com'
-#         messages = [(subject,msg,from_email,[user.email])]
-#         send_mass_mail((messages),fail_silently=False)
-#     return  HttpResponse("welcome email")
-
-
 def email_users(request):
-
+    # users=User.objects.all().values_list('email',flat=True)
     users = User.objects.all()
     for user in users:
-        # context = Context ({'first_name': user.first_name, 'last_name': user.last_name})
-        subject ='Welcome to Leadership and development Academy '
+        subject = 'Welcome to Leadership and development Academy '
+        msg = f'testtesttest {user.first_name} {user.first_name} '
         from_email = 'onboarding@leadershipacademyafrica.com'
-        to = [user.email]
-        message =render_to_string('account/mail/email_template.html')
-        messages = EmailMultiAlternatives (subject,text_alternative ,from_email,[user.email])
-        messages.attach_alternative(html_alternative, "text/html")
-    #     send_mass_mail((messages),fail_silently=False)
-    # return  HttpResponse("welcome email")
+        messages = [(subject,msg,from_email,[user.email])]
+        send_mass_mail((messages),fail_silently=False)
+    return  HttpResponse("welcome email")
+
+
+# def email_users(request):
+
+#     users = User.objects.all()
+#     for user in users:
+#         # context = Context ({'first_name': user.first_name, 'last_name': user.last_name})
+#         subject ='Welcome to Leadership and development Academy '
+#         from_email = 'onboarding@leadershipacademyafrica.com'
+#         to = [user.email]
+#         message =render_to_string('account/mail/email_template.html')
+#         messages = EmailMultiAlternatives (subject,text_alternative ,from_email,[user.email])
+#         messages.attach_alternative(html_alternative, "text/html")
+#     #     send_mass_mail((messages),fail_silently=False)
+#     # return  HttpResponse("welcome email")
