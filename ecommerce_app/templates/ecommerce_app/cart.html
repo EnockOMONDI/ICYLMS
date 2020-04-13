@@ -66,7 +66,14 @@
                            Proceed to payment
                           </a>
                         </div>
-                                  
+                        {% else %}
+                        <h3><b> Hey Sorry 	{{ user.first_name }} {{ user.last_name }} </li></b></h3>
+                        <h4><b> No Course Selected, Kindly pick a Course to proceed </li></b></h4>
+                      <br>  <br>
+                        <button class=" btn btn-primary  btn-block"  type="button" >
+                            <a style="color:#ffffff" href="/payment"><i class="material-icons"></i> Pick a Course
+                            </a>
+                        </button>           
                     {% endif %}
                       </div>
         </div>   

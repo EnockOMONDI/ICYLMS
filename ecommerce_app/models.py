@@ -31,7 +31,9 @@ class Modules(models.Model):
     Module_duration = models.CharField(max_length=191)
     module_image = CloudinaryField('image', blank=True, null=True)
 
-   
+    
+    def __str__(self):
+        return self.Module_name
 
 class Units(models.Model):
     Modules = models.ForeignKey(Modules,on_delete=models.CASCADE,related_name='units')
@@ -41,7 +43,8 @@ class Units(models.Model):
     Month =  models.CharField(max_length=80) 
     unit_description = models.TextField()
     
-  
+    def __str__(self):
+        return self.Unit_name
     
 
 

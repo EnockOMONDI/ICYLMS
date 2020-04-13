@@ -24,37 +24,27 @@ def index(request):
 
 def show_product(request, product_id, product_slug):
     product = get_object_or_404(Product, id=product_id)
-
+    modules =product.modules.all()
     if request.method == 'POST':
         form = CartForm(request, request.POST)
         if form.is_valid():
             request.form_data = form.cleaned_data
             cart.add_item_to_cart(request)
             return redirect('show_cart')
+           
 
     
     form = CartForm(request, initial={'product_id': product.id})
     return render(request, 'ecommerce_app/product_detail.html', {
                                             'product': product,
+                                            'modules': modules,
                                             'form': form,
     'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
     'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
     })
 
-def get_modules(request, pk):
-    product = Product.objects.get(pk=pk)
-    modules = Modules.objects.filter(product=product)
-    
-    
-    
- 
-    return render(request, 'ecommerce_app/product_modules.html', {
-                                            'product': product,
-                                            'modules': modules,
-    'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-    'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
-    })
-    
+
+
 
 def show_cart(request):
 
