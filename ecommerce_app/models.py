@@ -20,7 +20,7 @@ class Product(models.Model):
     Validator_name = models.CharField(max_length=191)
     Course_module_file = CloudinaryField('file', blank=True, null=True)
     duration = models.CharField(max_length=191)
-    Validation = models.CharField(max_length=191)
+    Validation = models.CharField(max_length=191,blank=True, null=True)
     Delivery = models.CharField(max_length=191, blank=True, null=True)
 
    
