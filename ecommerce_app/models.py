@@ -16,6 +16,8 @@ class Product(models.Model):
     slug = models.SlugField()
     description = models.TextField()
     image = CloudinaryField('image', blank=True, null=True)
+    Validator_image = CloudinaryField('image', blank=True, null=True)
+    Validator_name = CloudinaryField('image', blank=True, null=True)
     Course_module_file = CloudinaryField('file', blank=True, null=True)
     duration = models.CharField(max_length=191)
     Validation = models.CharField(max_length=191)
