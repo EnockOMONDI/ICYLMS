@@ -4,6 +4,10 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
+STATUS = (
+    (0,"Offline"),
+    (1,"Online")
+)
 
 class Product(models.Model):
     # course = models.OneToOneField(Course,default=1, on_delete=models.PROTECT )
@@ -13,10 +17,32 @@ class Product(models.Model):
     description = models.TextField()
     image = CloudinaryField('image', blank=True, null=True)
     duration = models.CharField(max_length=191)
+    Validation = models.CharField(max_length=191)
+    Delivery = models.CharField(max_length=191, blank=True, null=True)
+
    
 
     def __str__(self):
         return self.name
+
+class Modules(models.Model):
+    Product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='modules')
+    Module_name = models.CharField(max_length=80)
+    Module_duration = models.CharField(max_length=191)
+    module_image = CloudinaryField('image', blank=True, null=True)
+
+   
+
+class Units(models.Model):
+    Modules = models.ForeignKey(Modules,on_delete=models.CASCADE,related_name='units')
+    Unit_number = models.CharField(max_length=80)
+    Unit_name = models.CharField(max_length=191)
+    unit_duration = models.CharField(max_length=191)
+    Month =  models.CharField(max_length=80) 
+    unit_description = models.TextField()
+    
+  
+    
 
 
 class CartItem(models.Model):

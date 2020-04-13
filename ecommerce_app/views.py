@@ -6,6 +6,7 @@ from .models import Product, Order, LineItem
 from .forms import CartForm, CheckoutForm
 from . import cart
 from decimal import Decimal
+from .models import Product,Modules,Units
 from paypal.standard.forms import PayPalPaymentsForm
 from django.views.decorators.csrf import csrf_exempt
 
@@ -40,6 +41,20 @@ def show_product(request, product_id, product_slug):
     'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
     })
 
+def get_modules(request, pk):
+    product = Product.objects.get(pk=pk)
+    modules = Modules.objects.filter(product=product)
+    
+    
+    
+ 
+    return render(request, 'ecommerce_app/product_modules.html', {
+                                            'product': product,
+                                            'modules': modules,
+    'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+    'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+    })
+    
 
 def show_cart(request):
 
