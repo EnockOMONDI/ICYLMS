@@ -16,6 +16,7 @@ class Product(models.Model):
     slug = models.SlugField()
     description = models.TextField()
     image = CloudinaryField('image', blank=True, null=True)
+    Course_module_file = CloudinaryField('file', blank=True, null=True)
     duration = models.CharField(max_length=191)
     Validation = models.CharField(max_length=191)
     Delivery = models.CharField(max_length=191, blank=True, null=True)
@@ -30,6 +31,8 @@ class Modules(models.Model):
     Module_name = models.CharField(max_length=80)
     Module_duration = models.CharField(max_length=191)
     module_image = CloudinaryField('image', blank=True, null=True)
+    module_file = CloudinaryField('file', blank=True, null=True)
+    module_description = models.TextField()
 
     
     def __str__(self):
