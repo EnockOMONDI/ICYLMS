@@ -73,11 +73,23 @@
                 <div class="card-body col-md-12 text-center ">
                   <div class="tab-content ">
                     <div class="tab-pane active" id="description">
-                        <h2>
-                            <b> </b> 
-                   
-                                 </h2>
-                      <p class="  ">  {{ product.description }}</p>
+                        <div class="container">
+        
+                            <div class="row">
+                                <div class="col-md-3 p-5 mb-5  text-center bg-white rounded shadow-sm " >              
+                                    <img style="border-radius: 6px;  " src="{{ product.image.url }}"
+                                    class=" img-responsive" height="100%" width="100%"  alt="">                     
+                                
+                                       
+                                      </div>
+                                      <div class="col-md-9 p-5 mb-5  bg-white rounded shadow-sm " >
+
+                                        <p>{{product.description}}</p>
+                                        </div>
+                                                
+                      
+                            </div>
+                          </div>
                       <br>
                       <h2>
                           <b>  Course Outline  </b> 
