@@ -98,7 +98,7 @@
 
 
 
-<nav class="navbar  fixed-top  navbar-expand-lg  " color-on-scroll="100" id="sectionsNav">
+<nav class="navbar  fixed-top  navbar-expand-lg  " style="background-color:#ffffff!important; box-shadow: 0px 1px 10px #999;" color-on-scroll="100" id="sectionsNav">
 		<div class="container" >
 	
 	<a>
@@ -147,7 +147,7 @@
 									</a>
 								</div>   
 									{% else %}
-									<button class=" btn btn-primary  btn-block"  type="button" >
+									<button class=" btn btn-primary  btn-sm"  type="button" >
 											<a style="color:#ffffff" href="/redirected_login"><i class="material-icons"></i>  Sign In
 											</a>
 									</button>
@@ -161,7 +161,7 @@
           <li>
               
               <div class="buttons">
-                 <a href="{% url 'show_cart' %}" class="btn btn-primary btn-sm">Course: {{ cart_item_count  }} {{product.name}} </a> 
+                 <a href="{% url 'show_cart' %}" class="btn btn-primary btn-sm">Course: {{ cart_item_count  }} Selected</a> 
              
                </div>
 			 </li>
@@ -194,9 +194,11 @@
 	}
 	.goog-te-menu2 {
 	  max-width: 100%;
+	
 	}
+
 	.goog-te-menu-value {
-	  color: #fff !important;&:before {
+	  color: #fff!important;&:before {
 		font-family: 'Material Icons';
 		content: "\E927";
 	
@@ -214,6 +216,8 @@
 		font-family: 'Material Icons';
 		content: "\E5C5";
 		font-size: 1.5rem;
+		color:#ffffff!important;
+
 	
 	  }  
 	}

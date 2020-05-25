@@ -15,66 +15,74 @@
   <div class="container">
     <!--                nav tabs	             -->
  
-    <hr>
+    <!-- <hr> -->
       <div class="row">
       
-                <div class="col-md-6 ml-auto mr-auto text-center  p-5 bg-white rounded shadow-sm mb-5" >
+                <div class="col-md-6 ml-auto mr-auto ml-auto text-center  p-5 bg-white rounded shadow-sm mb-5" >
               
-                        <h3 class="card-description"> <b>STEP 1 of 3</b></h3>
-                       <div class="p-5 rounded shadow-sm mb-5" style="background-color:#f3f3f3 ; ">
+                        <h4 class="card-description"> <b>STEP 1 of 3</b></h4>
+                        <div class="card-body ">
+                            <h6 class="card-category"></h6>
+                            <h3 class="card-title">
+                                <h5 class="card-description"> <b>Course Picked</b></h5>
+
+                                  {% for item in cart_items %}
+
+                              <!-- <small>/mo</small> -->
+                            </h3>
+
+                            <ul>
+                              <li>
+                                  <h4><b> Course  | {{ item.product.name }} | $ {{ item.product.price }} </b></h4>
+                                </li>
+                               
+                                
+                                  
+                              <!-- <li>
+                                <b>Total cost</b> </li>
+                              <li>
+                                <b>55</b> Personal Contacts</li>
+                              <li>
+                                <b>5.000</b> Messages</li> -->
+                            </ul>
+                            
+                          </div>
+                          {% endfor %}
                       
-                        <h4 class="card-description"><b> "</b> When you receive your Certificate, you have the credentials to justify the skills you have learned. You also have the confidence to take on new challenges toward trasforming your community and the world.<b> "</b></h4>
-                        <a>
-                              <img src="{% static 'img/logos/logo2.jpg' %}" style="width:120px; height:120px; padding: 5px;  ">
+                              {% if cart_item_count %}
+                         
+                          <div class="card-footer justify-content-center">
+                            <a href="{% url 'checkout' %}" class="btn btn-primary  btn-round">
+                             Proceed to payment
                             </a>
+                          </div>
+                          {% else %}
+                          <h3><b> Hey Sorry 	{{ user.first_name }} {{ user.last_name }} </li></b></h3>
+                          <h4><b> No Course Selected, Kindly pick a Course to proceed </li></b></h4>
+                        <br>  <br>
+                          <button class=" btn btn-primary  btn-block"  type="button" >
+                              <a style="color:#ffffff" href="/payment"><i class="material-icons"></i> Pick a Course
+                              </a>
+                          </button>           
+                      {% endif %}
                   </div>
                           
-                     
+              
+									 
+					
                     
 
         </div>
         <div class="col-md-4 ml-auto mr-auto p-5 bg-white rounded shadow-sm mb-5">
                 <div class="card card-pricing card-plain">
-                        <div class="card-body ">
-                          <h6 class="card-category"></h6>
-                          <h1 class="card-title">
-                        
-                                {% for item in cart_items %}
-                            <small>$</small>{{ item.price }}
-                            <!-- <small>/mo</small> -->
-                          </h1>
-                          <ul>
-                            <li>
-                                <h4><b> Course  | {{ item.product.name }}  </li></b></h4>
-                             
-                              
-                                
-                            <!-- <li>
-                              <b>Total cost</b> </li>
-                            <li>
-                              <b>55</b> Personal Contacts</li>
-                            <li>
-                              <b>5.000</b> Messages</li> -->
-                          </ul>
-                          
-                        </div>
-                        {% endfor %}
-                        {% if cart_item_count %}
-             
-                        <div class="card-footer justify-content-center">
-                          <a href="{% url 'checkout' %}" class="btn btn-primary  btn-round">
-                           Proceed to payment
-                          </a>
-                        </div>
-                        {% else %}
-                        <h3><b> Hey Sorry 	{{ user.first_name }} {{ user.last_name }} </li></b></h3>
-                        <h4><b> No Course Selected, Kindly pick a Course to proceed </li></b></h4>
-                      <br>  <br>
-                        <button class=" btn btn-primary  btn-block"  type="button" >
-                            <a style="color:#ffffff" href="/payment"><i class="material-icons"></i> Pick a Course
+                    <div class="p-5 rounded shadow-sm mb-5" style="background-color:#f3f3f3 ; ">
+                      
+                        <h4 class="card-description"><b> "</b> When you receive your Certificate, you have the credentials to justify the skills you have learned. You also have the confidence to take on new challenges toward trasforming your community and the world.<b> "</b></h4>
+                        <a>
+                              <img src="{% static 'img/logos/logo2.jpg' %}" style="width:120px; height:120px; padding: 5px;  ">
                             </a>
-                        </button>           
-                    {% endif %}
+                     
+                 
                       </div>
         </div>   
  
