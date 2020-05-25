@@ -45,9 +45,10 @@
                       
                         <span class="material-icons">
                           watch_later
-                          </span> {{ product.duration }} year 
+                          </span> <b> {{ product.duration }} years</b>    
                       </a>
                     </div>
+ 
                     <div class="stats ml-auto">
                       <a href="{% url 'product_detail' product.pk product.slug %}"  class="btn btn-primary btn btn-round btn-sm ">
                         <strong> Overview  </strong> 
