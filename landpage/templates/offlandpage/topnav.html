@@ -2,87 +2,334 @@
 
 
 {% load staticfiles %}
+{% load staticfiles %}
 
-<!-- 0c0b11 -->
 
-<!-- 0c0b11 -->
-<!-- <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav"></nav> -->
-<nav  class="navbar   bg-white fixed-top   navbar-expand-lg slidd" color-on-scroll="100" id="sectionsNav"  style="box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); ">
-  <div class="container" >
-    <div class="navbar-translate">
-          <a>
-            <img src="{% static 'img/logos/logo2.jpg' %}" alt="" style="width:80px; height:80px;  ">
-          </a>               
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-
-             <span class="sr-only">Toggle navigation</span>
-             <span class="navbar-toggler-icon"></span>
-             <span class="navbar-toggler-icon"></span>
-             <span class="navbar-toggler-icon"></span>
-          </button>
-      </div>
-      <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ml-auto"> 
+		<style>
+        /* adds some margin below the link sets  */
+      .navbar .dropdown-menu div[class*="col"] {
+         margin-bottom:1rem;
+      }
+      
+      .navbar .dropdown-menu {
+        border:none;
+        background-color:#fffafa!important;
+      }
+      
+      /* breakpoint and up - mega dropdown styles */
+      @media screen and (min-width: 992px) {
+        
+        /* remove the padding from the navbar so the dropdown hover state is not broken */
+      .navbar {
+        padding-top:0px;
+        padding-bottom:0px;
+      }
+      
+      /* remove the padding from the nav-item and add some margin to give some breathing room on hovers */
+      .navbar .nav-item {
+        padding:.5rem .5rem;
+				margin:0 .25rem;
+				color:#9c27b0;
+      }
+      
+      /* makes the dropdown full width  */
+     
+      
+      .navbar .dropdown-menu {
+        width:40%;
+      
+        float:right;
+      /*  height of nav-item  */
+        top:30px;
+        
+        display:block;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.3s linear;
+        
+      }
+        
        
-                <li {% if tab == 'courses' %}class=" nav-item "{% endif %}>
-                        <a class="dropdown nav-link"  href="/landpageprod"><i class="fa fa-fw fa-university"></i> Home</a>
-                </li>
-                <li  {% if tab == 'enrollment' %}class="  nav-item"{% endif %}>
-                        <a class=" dropdown  nav-link" href="/terms"><i class="fa fa-fw fa-bookmark"></i>Terms of Use</a>
-                </li>
-                <!-- <li {% if tab == 'teaching' %}class="nav-link"{% endif %}>
-                        <a class="active dropdown  nav-link" href="teaching"><i class="fa fa-fw fa-suitcase"></i> Teaching</a>
-
-                </li> -->
-                <li {% if tab == 'transcript' %}class=" nav-item"{% endif %}>
-                         <a class="dropdown  nav-link" href="/privacy" ><i class="fa fa-fw fa-file-text"></i>Privacy Policy</a>
-                </li>  
-                <li {% if tab == 'certificates' %}class="nav-item"{% endif %}>
-                        <a class="dropdown  nav-link" href="/forgot_password"><i class="fa fa-fw fa-certificate"></i> Forgot password</a>
-
-                </li>
-          
-               
-
-              <li>
-              <div class="dropdown ">
-                  {% if request.user.is_authenticated %}
-                 
-                <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  {{ user.first_name }} {{ user.last_name }}
-                </button>
-                <div class="dropdown-menu" >
-                <a class="dropdown-item" class="nav-link" href="/view/profile" ><i class="material-icons">person_add</i>  Profile
-                </a>
-               
-                <a class="dropdown-item"  onclick="ajax_logout();"><i class="material-icons">person_add</i> Logout
-                </a>
-              </div>   
-                {% else %}
-                <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  My Account      
-                </button>
-                <div class="dropdown-menu" >
-                 <a class="dropdown-item"  class="nav-link" href="/redirected_login" ><i class="material-icons">person_add</i>  student Login
-                </a>
-                {% endif %}
-               
-                </div>
-              </div>
-
-        </li>
-       
-
-
-   
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <script>
-      $(document).ready(function(){
-                        $('.dropdown-toggle').dropdown();
-                        });
+      
+        
+        /* shows the dropdown menu on hover */
+      .navbar .dropdown:hover .dropdown-menu, .navbar .dropdown .dropdown-menu:hover {
+        display:block;
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0s, opacity 0.3s linear;
+      }
+        
+        .navbar .dropdown-menu {
+          border: 1px solid rgba(160, 160, 160, 0.041);
+           background-color: rgb(255, 255, 255);
+        }
+      
+      }
+      
+      
+      
+          </style>
+      <script>
+      
+      $(document).ready(function() {
+       // executes when HTML-Document is loaded and DOM is ready
+      
+      // breakpoint and up  
+      $(window).resize(function(){
+        if ($(window).width() >= 980){	
+      
+            // when you hover a toggle show its dropdown menu
+            $(".navbar .dropdown-toggle").hover(function () {
+               $(this).parent().toggleClass("show");
+               $(this).parent().find(".dropdown-menu").toggleClass("show"); 
+             });
+      
+              // hide the menu when the mouse leaves the dropdown
+            $( ".navbar .dropdown-menu" ).mouseleave(function() {
+              $(this).removeClass("show");  
+            });
+        
+          // do something here
+        }	
+      });  
+        
+        
+      
+      // document ready  
+      });
       </script>
 
 
+
+<nav class="navbar  fixed-top  navbar-expand-lg  " style="background-color:#ffffff!important; box-shadow: 0px 1px 10px #999;" color-on-scroll="100" id="sectionsNav">
+		<div class="container" >
+	
+	<a>
+				<img src="{% static 'img/logos/logo2.jpg' %}" alt="" style="width:100px; height:100px; padding: 5px;  ">
+			</a>  
+				<button   class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+				 <span class="sr-only">Toggle navigation</span>
+				 <span class="navbar-toggler-icon"></span>
+				 <span class="navbar-toggler-icon"></span>
+				 <span class="navbar-toggler-icon"></span>
+			</button>
+	
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+			
+           
+        <li {% if tab == 'courses' %}class=" nav-item "{% endif %}>
+          <a class="dropdown nav-link"  href="/landpageprod"><i class="fa fa-fw fa-university"></i> Home</a>
+  </li>
+  <li  {% if tab == 'enrollment' %}class="  nav-item"{% endif %}>
+          <a class=" dropdown  nav-link" href="/terms"><i class="fa fa-fw fa-bookmark"></i>Terms of Use</a>
+  </li>
+  <!-- <li {% if tab == 'teaching' %}class="nav-link"{% endif %}>
+          <a class="active dropdown  nav-link" href="teaching"><i class="fa fa-fw fa-suitcase"></i> Teaching</a>
+
+  </li> -->
+  <li {% if tab == 'transcript' %}class=" nav-item"{% endif %}>
+           <a class="dropdown  nav-link" href="/privacy" ><i class="fa fa-fw fa-file-text"></i>Privacy Policy</a>
+  </li>  
+  <li {% if tab == 'certificates' %}class="nav-item"{% endif %}>
+          <a class="dropdown  nav-link" href="/forgot_password"><i class="fa fa-fw fa-certificate"></i> Forgot password</a>
+
+  </li>
+		
+		
+	
+						
+						<li>
+								<div class="dropdown ">
+										{% if request.user.is_authenticated %}
+									 
+									<button class="dropdown-toggle btn btn-primary btn-sm "  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										{{ user.first_name }} {{ user.last_name }}
+									</button>
+									<div class="dropdown-menu dropdown-with-icons  "  >
+									<a class="dropdown-item " href="/view/profile" ><i class="material-icons">person_add</i>  Profile
+									</a>
+									<a class="dropdown-item"  onclick="ajax_logout();"><i class="material-icons">person_add</i> Logout
+									</a>
+								</div>   
+									{% else %}
+									<button class=" btn btn-primary  btn-sm"  type="button" >
+											<a style="color:#ffffff" href="/redirected_login"><i class="material-icons"></i>  Sign In
+											</a>
+									</button>
+								
+									{% endif %}
+								 
+								
+								</div>
+			
+          </li>
+    
+			 <li class="nav-item ">
+					
+				<div  id="google_translate_element"></div>
+
+			</li>
+			</ul>
+
+		</div>
+	
+	
+</div>
+</nav>
+<style>
+
+	.goog-te-gadget {
+	  font-family: Roboto, 'Open Sans', sans-serif!important;
+	  text-transform: uppercase;
+	}
+	.goog-te-gadget-simple  {
+	  background-color: #9c27b0!important;
+	  border: 1px solid rgba(255,255,255,0.50) !important;
+	  padding: 2px!important;
+	  border-radius: 4px!important;
+	  font-size: 0.8rem!important;
+	  cursor: pointer;
+	
+	}
+	.goog-te-menu2 {
+	  max-width: 100%;
+	
+	}
+
+	.goog-te-menu-value {
+	  color: #fff!important;&:before {
+		font-family: 'Material Icons';
+		content: "\E927";
+	
+		font-size: 2rem;
+	 
+	  } 
+	}
+	.goog-te-menu-value span:nth-child(5) {
+	  display:none;
+	}
+	.goog-te-menu-value span:nth-child(3) {
+	  border:none!important;
+	  font-family: 'Material Icons';
+	  &:after {
+		font-family: 'Material Icons';
+		content: "\E5C5";
+		font-size: 1.5rem;
+		color:#ffffff!important;
+
+	
+	  }  
+	}
+	
+	.goog-te-gadget-icon {
+		background-image: none!important;
+		display: none;
+	   
+	}
+	
+	
+	.goog-te-banner-frame.skiptranslate {display: none!important;
+	} 
+	body {top: 0px!important;}
+	
+	/* ================================== *\
+		Mediaqueries
+	\* ================================== */
+	@media (max-width: 667px) {
+		#google_translate_element {
+			bottom: calc(100% - 50% - 53px);
+			left: 16px!important;
+			width: 100%!important;
+			goog-te-gadget {
+				width:100%!important;
+			}
+			.skiptranslate {
+				width:100%!important;			
+			}
+			.goog-te-gadget-simple {
+				width: calc(100% - 32px)!important;
+				text-align: center;
+			}	
+		}
+	}
+	
+	
+	
+	
+	</style>
+	
+	
+		<script type="text/javascript">
+			function googleTranslateElementInit() {
+			  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,sw,fr,en,mt,it,tl,pa,pt,th,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+			}
+						  
+		$('document').ready(function () {
+		
+		
+		// RESTYLE THE DROPDOWN MENU
+		$('#google_translate_element').on("click", function () {
+		
+		// Change font family and color
+		$("iframe").contents().find(".goog-te-menu2-item div, .goog-te-menu2-item:link div, .goog-te-menu2-item:visited div, .goog-te-menu2-item:active div, .goog-te-menu2 *")
+			.css({
+				'color': '#544F4B',
+				'font-family': 'Roboto',
+								'width':'100%'
+			});
+		// Change menu's padding
+		$("iframe").contents().find('.goog-te-menu2-item-selected').css ('display', 'none');
+			
+				// Change menu's padding
+		$("iframe").contents().find('.goog-te-menu2').css ('padding', '0px');
+		
+		// Change the padding of the languages
+		$("iframe").contents().find('.goog-te-menu2-item div').css('padding', '20px');
+		
+		// Change the width of the languages
+		$("iframe").contents().find('.goog-te-menu2-item').css('width', '100%');
+		$("iframe").contents().find('td').css('width', '100%');
+		
+		// Change hover effects
+		$("iframe").contents().find(".goog-te-menu2-item div").hover(function () {
+			$(this).css('background-color', '#9c27b0').find('span.text').css('color', 'white');
+		}, function () {
+			$(this).css('background-color', 'white').find('span.text').css('color', '#544F4B');
+		});
+		
+		// Change Google's default blue border
+		$("iframe").contents().find('.goog-te-menu2').css('border', 'none');
+		
+		// Change the iframe's box shadow
+		$(".goog-te-menu-frame").css('box-shadow', '0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3)');
+		
+		
+		
+		// Change the iframe's size and position?
+		$(".goog-te-menu-frame").css({
+			'height': '100%',
+			'width': '100%',
+			'top': '0px'
+		});
+		// Change iframes's size
+		$("iframe").contents().find('.goog-te-menu2').css({
+			'height': '100%',
+			'width': '100%'
+		});
+		});
+		});
+			</script>
+			<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	
+	
+	
+	
+
+      
+  <script>
+    $(document).ready(function(){
+                      $('.dropdown-toggle').dropdown();
+                      });
+    </script>
