@@ -8,7 +8,7 @@ import json
 import datetime
 from account.models import PrivateMessage
 from account.forms import PrivateMessageForm
-from django.core.mail import send_mail
+from django.core.mail import send_mail,send_mass_mail
 from django.contrib.auth.models import User
 from academicstoday_project.settings import EMAIL_HOST_USER
 
@@ -94,11 +94,13 @@ def delete_private_message(request):
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 def email_users(request):
-    users=User.objects.all().values_list('email',flat=True)
-    rcpt=[]
+    # users=User.objects.all().values_list('email',flat=True)
+    users = User.objects.all()
     for user in users:
-        rcpt.append(user)  
-    send_mail('Welcome to LADA.',"Thank you for Registering with us",EMAIL_HOST_USER,rcpt,fail_silently=False)
-    return  HttpResponse("welcome email")
-   
+        subject = 'Welcome to Leadership and development Academy '
+        msg = f'testtesttest {user.first_name} {user.first_name} '
+        from_email = EMAIL_HOST_USER
+        messages = [(subject,msg,from_email,[user.email])]
+        send_mass_mail((messages),fail_silently=False)
+    return HttpResponse("welcome email")
 

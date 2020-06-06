@@ -17,6 +17,7 @@ urlpatterns = [
     re_path(r'', include('student.urls')),
     re_path(r'', include('teacher.urls')),
     re_path(r'', include('publisher.urls')),
+    re_path('accounts/', include('django.contrib.auth.urls')),
     re_path(r'payment/', include('ecommerce_app.urls')),
     re_path(r'paypal/', include('paypal.standard.ipn.urls')),
     

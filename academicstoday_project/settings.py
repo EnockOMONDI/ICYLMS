@@ -67,6 +67,7 @@ INSTALLED_APPS = (
     'captcha',
      'jet',
     'account',
+    'accounts',
     'landpage',
     'registration',
     'login',
