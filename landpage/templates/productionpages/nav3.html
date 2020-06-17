@@ -225,6 +225,7 @@
 
 
 
+
 		</style>
 <script>
 
@@ -233,7 +234,7 @@ $(document).ready(function() {
 
 // breakpoint and up  
 $(window).resize(function(){
-	if ($(window).width() >= 980){	
+	if ($(window).width() >= 992){	
 
       // when you hover a toggle show its dropdown menu
       $(".navbar .dropdown-toggle").hover(function () {
@@ -270,10 +271,10 @@ margin-top:0%;"color-on-scroll="100" id="sectionsNav">
  <h6 style="color:#fff">menu</h6>
 			</button>
 	
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<div class="collapse navbar-collapse"  data-hover="dropdown" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto">
 			
-				<li class="nav-item dropdown">
+				<li class="nav-item dropdown  ">
 						<a class="nav-link dropdown-toggle  " href="#" id="navbarDropdown"   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="material-icons">library_books</i>Courses
 										</a>
@@ -412,7 +413,7 @@ margin-top:0%;"color-on-scroll="100" id="sectionsNav">
 	
 					</div>
 				</li>
-				<li class="nav-item dropdown">
+				<li class="nav-item dropdown ">
 						<a class="nav-link dropdown-toggle  " href="#" id="navbarDropdown"   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="material-icons">public</i>OUR STORY
 										</a>
