@@ -9,6 +9,7 @@ STATUS = (
     (1,"Online")
 )
 
+
 class Product(models.Model):
     # course = models.OneToOneField(Course,default=1, on_delete=models.PROTECT )
     name = models.CharField(max_length=191)
@@ -21,6 +22,7 @@ class Product(models.Model):
     Course_module_file = CloudinaryField('file', blank=True, null=True)
     duration = models.CharField(max_length=191)
     Delivery = models.CharField(max_length=191, blank=True, null=True)
+  
 
    
 

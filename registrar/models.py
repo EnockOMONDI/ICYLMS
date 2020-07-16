@@ -143,7 +143,7 @@ class Course(models.Model):
     image =  CloudinaryField('image', blank=True, null=True)
     students = models.ManyToManyField(Student)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
-    # price = models.DecimalField(max_digits=7, decimal_places=2)
+    price = models.DecimalField(max_digits=7, decimal_places=2,  blank=True, null=True)
 
 
     def delete(self, *args, **kwargs):

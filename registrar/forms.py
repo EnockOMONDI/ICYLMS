@@ -26,7 +26,7 @@ class CourseForm(forms.ModelForm):
         fields = ['title', 'sub_title', 'category', 'description', 'start_date', 'finish_date', 'image']
         labels = {
             'sub_title': 'Sub Title',
-            # 'price': 'Price',
+            'price': 'Price',
             'start_date': 'Start Date',
             'finish_date': 'Finish Date',
         }
@@ -37,6 +37,7 @@ class CourseForm(forms.ModelForm):
             'category': Select(attrs={'class': u'form-control'}),
             'start_date': SelectDateWidget(),
             'finish_date': SelectDateWidget(),
+             'price': NumberInput(attrs={'class': u'form-control','placeholder': u'Course price'})
         }
 
 

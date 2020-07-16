@@ -57,11 +57,7 @@
             <!-- Scripts -->
             {% csrf_token %}
             <script>
-                
-                /**
-                 *  Function will call AJAX function to load the login modal.
-                 */
-            function ajax_logout()
+           function ajax_logout()
             {
                 var url = '/logout';
                 
@@ -83,7 +79,11 @@
                        });
             }
             </script>
-            
+                            
+                /**
+                 *  Function will call AJAX function to load the login modal.
+                 */
+ 
             <!-- MAIN -->
             <div id="page-wrapper" style="min-height: 564px;">
                 <div class="container-fluid">
