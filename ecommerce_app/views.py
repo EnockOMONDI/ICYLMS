@@ -41,13 +41,13 @@ def home(request):
           })
 
 def shortcoursedetail(request):
-    return render(request, 'ecommerce_app/coursedetail/detail-4.html',{
+    return render(request, 'ecommerce_app/shortcoursedetail/detail-4.html',{
         'tab': 'shortcoursedetail',
      'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
         'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS
           })
 def shortcoursedetail2(request):
-    return render(request, 'ecommerce_app/coursedetail/detail-2.html',{
+    return render(request, 'ecommerce_app/shortcoursedetail/detail-2.html',{
         'tab': 'shortcoursedetail2',
      'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
         'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS

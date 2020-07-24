@@ -27,7 +27,7 @@ def shortcourselectures_page(request, shortcourse_id):
         shortcourselectures = ShortCourseLecture.objects.filter(shortcourse_id=shortcourse_id).order_by('week_num', 'lecture_num')
     except ShortCourseLecture.DoesNotExist:
         shortcourselectures = None
-    return render(request, 'ecommerce_app/coursedetail/detail-4.html',{
+    return render(request, 'ecommerce_app/shortcoursedetail/detail-4.html',{
         'shortcourse' : shortcourse,
         'shortcourselectures' : shortcourselectures,
         'NO_VIDEO_PLAYER': settings.NO_VIDEO_PLAYER,

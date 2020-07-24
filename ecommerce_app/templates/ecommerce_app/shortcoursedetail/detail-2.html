@@ -1,6 +1,7 @@
-{% extends 'ecommerce_app/coursedetail/base.html' %}
+{% extends 'ecommerce_app/shortcoursedetail/base.html' %}
 {% load static %}
 {% block content %}
+		
 		
 		
         <!-- ============================================================== -->
@@ -129,30 +130,12 @@
 			<!-- ============================================================== -->	
 
 			
-			<!-- ============================ Page Title Start================================== -->
+			<!-- ============================ Course Header Info Start================================== -->
 			<div class="image-cover ed_detail_head lg theme-ov" style="background:#f4f4f4 url(assets/img/banner-4.jpg);" data-overlay="9">
 				<div class="container">
-					<div class="row align-items-center">
-						<div class="col-lg-4 col-md-5">
-							
-							<div class="property_video">
-								<div class="thumb">
-									<img class="pro_img img-fluid w100" src="assets/img/course-1.jpg" alt="7.jpg">
-									<div class="overlay_icon">
-										<div class="bb-video-box">
-											<div class="bb-video-box-inner">
-												<div class="bb-video-box-innerup">
-													<a href="https://www.youtube.com/watch?v=A8EI6JaFbv4" data-toggle="modal" data-target="#popup-video" class="theme-cl"><i class="ti-control-play"></i></a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-						</div>
+					<div class="row">
 						
-						<div class="col-lg-8 col-md-7">
+						<div class="col-lg-7 col-md-7">
 							<div class="ed_detail_wrap light">
 								<ul class="cources_facts_list">
 									<li class="facts-1">SEO</li>
@@ -188,17 +171,17 @@
 					</div>
 				</div>
 			</div>
-			<!-- ============================ Page Title End ================================== -->
+			<!-- ============================ Course Header Info End ================================== -->
 			
 			<!-- ============================ Course Detail ================================== -->
-			<section class="bg-light">
-				<div class="container">
+			<section>
+			<div class="container">
 					<div class="row">
 					
 						<div class="col-lg-8 col-md-8">
 							
 							<!-- Overview -->
-							<div class="edu_wraper">
+							<div class="edu_wraper border">
 								<h4 class="edu_title">Course Overview</h4>
 								<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>		
 								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
@@ -212,7 +195,7 @@
 								</ul>
 							</div>
 							
-							<div class="edu_wraper">
+							<div class="edu_wraper border">
 								<h4 class="edu_title">Course Circullum</h4>
 								<div id="accordionExample" class="accordion shadow circullum">
 
@@ -292,7 +275,7 @@
 							</div>
 							
 							<!-- Reviews -->
-							<div class="rating-overview">
+							<div class="rating-overview border">
 								<div class="rating-overview-box">
 									<span class="rating-overview-box-total">4.2</span>
 									<span class="rating-overview-box-percent">out of 5.0</span>
@@ -341,7 +324,7 @@
 							</div>
 							
 							<!-- instructor -->
-							<div class="single_instructor">
+							<div class="single_instructor border">
 								<div class="single_instructor_thumb">
 									<a href="#"><img src="assets/img/user-3.jpg" class="img-fluid" alt=""></a>
 								</div>
@@ -363,7 +346,7 @@
 							</div>
 							
 							<!-- Reviews -->
-							<div class="list-single-main-item fl-wrap">
+							<div class="list-single-main-item fl-wrap border">
 								<div class="list-single-main-item-title fl-wrap">
 									<h3>Item Reviews -  <span> 3 </span></h3>
 								</div>
@@ -432,7 +415,7 @@
 							</div>
 							
 							<!-- Submit Reviews -->
-							<div class="edu_wraper">
+							<div class="edu_wraper border">
 								<h4 class="edu_title">Submit Reviews</h4>
 								<div class="review-form-box form-submit">
 									<form>
@@ -474,37 +457,31 @@
 						
 						<!-- Sidebar -->
 						<div class="col-lg-4 col-md-4">
-								<div class="edu_wraper">
-										<h4 class="edu_title">Course Features</h4>
-										<ul class="lectures_lists edu_list right">
-											<li><i class="ti-user"></i>Student Enrolled:<strong>1740</strong></li>
-											<li><i class="ti-files"></i>lectures:<strong>10</strong></li>
-											<li><i class="ti-game"></i>Quizzes:<strong>4</strong></li>
-											<li><i class="ti-time"></i>Duration:<strong>60 hours</strong></li>
-											<li><i class="ti-tag"></i>Skill Level:<strong>Beginner</strong></li>
-											<li><i class="ti-flag-alt"></i>Language:<strong>English</strong></li>
-											<li><i class="ti-shine"></i>Assessment:<strong>Yes</strong></li>
-										</ul>
-									</div>
-							<div class="ed_view_box style_2">
+						
+							<div class="ed_view_box border">
 							
-								<div class="ed_author">
-									<div class="ed_author_thumb">
-										<img class="img-fluid" src="assets/img/user-5.jpg" alt="7.jpg">
-									</div>
-									<div class="ed_author_box">
-										<h4>Michael Russell</h4>
-										<span>Web Designer in Canada</span>
+								<div class="property_video sm">
+									<div class="thumb">
+										<img class="pro_img img-fluid w100" src="assets/img/banner-5.jpg" alt="7.jpg">
+										<div class="overlay_icon">
+											<div class="bb-video-box">
+												<div class="bb-video-box-inner">
+													<div class="bb-video-box-innerup">
+														<a href="https://www.youtube.com/watch?v=A8EI6JaFbv4" data-toggle="modal" data-target="#popup-video" class="theme-cl"><i class="ti-control-play"></i></a>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 								
-								<div class="ed_view_price pl-4">
+								<div class="ed_view_price">
 									<span>Acctual Price</span>
 									<h2 class="theme-cl">$ 149.00</h2>
 								</div>
-								<div class="ed_view_features pl-4">
+								<div class="ed_view_features">
 									<span>Course Features</span>
-									<ul >
+									<ul>
 										<li><i class="ti-angle-right"></i>Fully Programming</li>
 										<li><i class="ti-angle-right"></i>Help Code to Code</li>
 										<li><i class="ti-angle-right"></i>Free Trial 7 Days</li>
@@ -518,7 +495,18 @@
 								
 							</div>	
 							
-					
+							<div class="edu_wraper border">
+								<h4 class="edu_title">Course Features</h4>
+								<ul class="edu_list right">
+									<li><i class="ti-user"></i>Student Enrolled:<strong>1740</strong></li>
+									<li><i class="ti-files"></i>lectures:<strong>10</strong></li>
+									<li><i class="ti-game"></i>Quizzes:<strong>4</strong></li>
+									<li><i class="ti-time"></i>Duration:<strong>60 hours</strong></li>
+									<li><i class="ti-tag"></i>Skill Level:<strong>Beginner</strong></li>
+									<li><i class="ti-flag-alt"></i>Language:<strong>English</strong></li>
+									<li><i class="ti-shine"></i>Assessment:<strong>Yes</strong></li>
+								</ul>
+							</div>
 							
 						</div>
 					
@@ -760,5 +748,4 @@
 		<!-- ============================================================== -->
 		<!-- End Wrapper -->
 		<!-- ============================================================== -->
-
 		{% endblock %}
