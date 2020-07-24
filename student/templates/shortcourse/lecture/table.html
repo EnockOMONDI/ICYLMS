@@ -1,0 +1,59 @@
+<div id="ajax_lectures_table"
+   name="ajax_lectures_table">
+   {% if shortcourselectures.count == 0 %}
+   <div class="jumbotron">
+       <h1>Lectures</h1>
+        <p>The lectures appears to be missing. They will be up eventually.</p>
+    </div>
+    {% else %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>Week #</th>
+                            <th>Lecture #</th>
+                            <th>Title</th>
+                            <th>Watch</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for shortcourselecture in shortcourselectures %}
+                        <tr>
+                            <td>{{ shortcourselecture.week_num }}</td>
+                            <td>{{ shortcourselecture.lecture_num }}</td>
+                            <td>{{ shortcourselecture.title }}</td>
+                            <td>
+                                {% if shortcourselecture.preferred_service == YOUTUBE_VIDEO_PLAYER %}
+                                <button onclick="ajax_learn_lecture({{ shortcourselecture.lecture_id }});"
+                                             id="play_{{ shortcourselecture.lecture_id }}_btn"
+                                           name="play_{{ shortcourselecture.lecture_id }}_btn"
+                                           type="button"
+                                          class="btn btn-sm btn-primary">
+                                    <i class="fa fa-youtube"></i> Learn
+                                </button>
+                                {% elif shortcourselecture.preferred_service == VIMEO_VIDEO_PLAYER %}
+                                <button type="button"
+                                       class="btn btn-sm btn-primary"
+                                     onclick="ajax_learn_lecture({{ shortcourselecture.lecture_id }});">
+                                    <i class="fa fa-vimeo-square"></i> Learn
+                                </button>
+                                {% else %}
+                                <button type="button"
+                                       class="btn btn-sm btn-primary" disabled
+                                     onclick="">
+                                    <i class="fa fa-ban"></i> Lecture Unavailable
+                                </button>
+                                {% endif %}
+    
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>

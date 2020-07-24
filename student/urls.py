@@ -28,6 +28,9 @@ urlpatterns = [
     # Lecture
     url(r'^course/(\d+)/lectures$', lecture.lectures_page),
     url(r'^course/(\d+)/lecture$', lecture.lecture),
+    url(r'^shortcourse/(\d+)/lectures$', lecture.shortcourselectures_page),
+    url(r'^shortcourse/(\d+)/shortcourselecture$', lecture.shortcourselecture),
+                       
                        
     # Lecture Notes
     url(r'^course/(\d+)/lecture/(\d+)/notes$', lecture_note.lecture_notes_page),

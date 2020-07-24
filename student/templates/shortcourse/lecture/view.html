@@ -1,0 +1,70 @@
+{% extends 'course/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+        <!-- Page Heading -->
+        <div class="row">
+                <div class="col-lg-12">
+                        <br>
+                        <br>
+                        <h3 class="title">
+                            {{ shortcourse.title }}   Lectures
+                  
+                 </h3>
+                <ol class="breadcrumb">
+                    <!-- <li>
+                        <i class="fa fa-university"></i>  <a href="/courses">Courses</a>
+                    </li> -->
+                    <li class="nav-link">
+                        <i class="fa fa-compass"></i> {{ shortcourse.title }}
+                    </li>
+                    <li class="nav-link">
+                        <i class="fa fa-video-camera"></i> Lectures
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Weeks & Lectures -->
+        {% include "shortcourse/lecture/table.html" %}
+        <!-- /.row -->
+
+<script>    
+    /**
+     *  Function will call AJAX function to load the video player modal for the lecture.
+     */
+    function ajax_learn_lecture(lecture_id)
+    {
+        $('#play_' + lecture_id + '_btn').prop("disabled", true); // Lock button
+        $.ajax( 'shortcourselecture', {
+           data: {
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+                'lecture_id': lecture_id
+           },
+           type: 'post',
+           success: function(result) {
+                // success code execution here
+                $('#ajax_learn_lecture').html(result); // Update UI.
+                $('#lecture_modal').modal();           // Unhide view.
+           },
+           error: function(xhr,status,error) {
+                // error code here
+           },
+           complete: function(xhr,status) {
+                // completion code here
+           }
+        });
+    }
+
+    function view_lecture_notes(lecture_id)
+    {
+        $('#notes_' + lecture_id + '_btn').prop("disabled", true); // Lock button
+        window.location = '/course/'+{{ course.id }}+'/lecture/'+lecture_id+'/notes';
+    }
+</script>
+<!-- Modal -->
+<div id="ajax_learn_lecture"
+   name="ajax_learn_lecture"></div>
+<!-- /.Modal -->
+{% endblock content %}

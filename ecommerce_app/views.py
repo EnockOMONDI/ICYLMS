@@ -2,15 +2,26 @@ from django.shortcuts import render, HttpResponse, redirect, \
     get_object_or_404, reverse
 from django.contrib import messages
 from django.conf import settings
-from .models import Product, Order, LineItem
+from .models import Product, ShortCourse, Order, LineItem, ShortCourseLecture
 from .forms import CartForm, CheckoutForm
 from . import cart
 from decimal import Decimal
 from .models import Product,Modules,Units
 from paypal.standard.forms import PayPalPaymentsForm
 from django.views.decorators.csrf import csrf_exempt
+from django.core import serializers
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+import json
+from registrar.models import Student
+from registrar.models import Teacher
 
-# Create your views here.
+
+
+
+
 
 
 def index(request):
@@ -21,6 +32,186 @@ def index(request):
         'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
           })
 
+def home(request):
+    all_products = Product.objects.all()
+    return render(request, "ecommerce_app/courses/courses.html", {
+     'all_products': all_products,
+     'local_css_urls' : settings.SB_ADMIN_COURSE_LIST_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_COURSE_LIST_JS_LIBRARY_URLS
+          })
+
+def shortcoursedetail(request):
+    return render(request, 'ecommerce_app/coursedetail/detail-4.html',{
+        'tab': 'shortcoursedetail',
+     'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS
+          })
+def shortcoursedetail2(request):
+    return render(request, 'ecommerce_app/coursedetail/detail-2.html',{
+        'tab': 'shortcoursedetail2',
+     'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS
+          })
+
+def shortcourseindex(request):
+    all_shortcourse = ShortCourse.objects.all()
+  
+    try:
+         student = Student.objects.get(user=request.user)
+    except Student.DoesNotExist:
+         student = Student.objects.create(user=request.user)
+
+    # Only fetch teacher and do not create new teacher here.
+    try:
+        teacher = Teacher.objects.get(user=request.user)
+    except Teacher.DoesNotExist:
+        teacher = None
+
+    return render(request, "ecommerce_app/shortcourseindex.html", {
+      'all_shortcourse': all_shortcourse,
+      'student' : student,
+      'teacher' : teacher,
+      'user' : request.user,
+      'tab' : 'shortcourses',
+     'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+          })
+
+
+
+@login_required(login_url='/landpage')
+def shortcourselectures_page(request, shortcourse_id):
+    shortcourse = ShortCourse.objects.get(id=shortcourse_id)
+    try:
+        shortcourselectures = ShortCourseLecture.objects.filter(shortcourse_id=shortcourse_id).order_by('week_num', 'lecture_num')
+    except ShortCourseLecture.DoesNotExist:
+        shortcourselectures = None
+    return render(request, 'ecommerce_app/details.html',{
+        'shortcourse' : shortcourse,
+        'shortcourselectures' : shortcourselectures,
+        'NO_VIDEO_PLAYER': settings.NO_VIDEO_PLAYER,
+        'YOUTUBE_VIDEO_PLAYER': settings.YOUTUBE_VIDEO_PLAYER,
+        'VIMEO_VIDEO_PLAYER': settings.VIMEO_VIDEO_PLAYER,
+        'BLIPTV_VIDEO_PLAYER': settings.BLIPTV_VIDEO_PLAYER,
+        'user' : request.user,
+        'tab' : 'lectures',
+        'HAS_ADVERTISMENT': settings.APPLICATION_HAS_ADVERTISMENT,
+        'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS,
+    })
+
+
+@login_required()
+def shortcourseenroll(request):
+    response_data = {'status' : 'failure', 'message' : 'unsupported request format'}
+    if request.is_ajax():
+        shortcourse_id = int(request.POST['shortcourse_id'])
+        student = Student.objects.get(user=request.user)
+        shortcourse = ShrotCourse.objects.get(id=shortcourse_id)
+
+        # Lookup the course in the students enrollment history and if the
+        # student is not enrolled, then enroll them now.
+        try:
+            ShortCourse.objects.get(
+                students__student_id=student.student_id,
+                id=shortcourse_id
+            )
+        except ShortCourse.DoesNotExist:
+            shortcourse.students.add(student)
+        response_data = {'status' : 'success', 'message' : 'enrolled to th short course' }
+
+    return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+
+
+@login_required(login_url='/landpage')
+def shortcourseenrollment_page(request):
+    # Create our student account which will build our registration around.
+    try:
+        student = Student.objects.get(user=request.user)
+    except Student.DoesNotExist:
+        student = Student.objects.create(user=request.user)
+    try:
+        shortcourses = ShortCourse.objects.filter(students__student_id=student.student_id)
+    except ShortCourse.DoesNotExist:
+        shortcourses = None
+    return render(request, 'ecommerce_app/view.html',{
+        'student' : student,
+        'shortcourses': shortcourses,
+        'user' : request.user,
+        'tab' : 'shortcourseenrollment',
+        'HAS_ADVERTISMENT': settings.APPLICATION_HAS_ADVERTISMENT,
+        'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+    })
+
+
+@login_required()
+def shortcourseenrollment_table(request):
+    # Create our student account which will build our registration around.
+    try:
+        student = Student.objects.get(user=request.user)
+    except Student.DoesNotExist:
+        student = Student.objects.create(user=request.user)
+    try:
+        shortcourses = ShortCourse.objects.filter(students__student_id=student.student_id)
+    except ShortCourse.DoesNotExist:
+        shortcourses = None
+    return render(request, 'ecommerce_app/table.html',{
+        'student' : student,
+        'shortcourses': shortcourses,
+        'user' : request.user,
+        'tab' : 'shortcourseenrollment',
+    })
+
+@login_required()
+def shortcoursedisenroll_modal(request):
+    # Create our student account which will build our registration around.
+    try:
+        student = Student.objects.get(user=request.user)
+    except Student.DoesNotExist:
+        student = Student.objects.create(user=request.user)
+
+    shortcourse_id = int(request.POST['shortcourse_id'])
+    try:
+        shortcourse = ShortCourse.objects.get(id=shortcourse_id)
+    except ShortCourse.DoesNotExist:
+        shortcourse = None
+    return render(request, 'ecommerce_app/disenroll_modal.html',{
+        'student' : student,
+        'shortcourse': shortcourse,
+        'user' : request.user,
+    })
+
+
+@login_required()
+def shortcoursedisenroll(request):
+    response_data = {'status' : 'failure', 'message' : 'unsupported request format'}
+    if request.is_ajax():
+        shortcourse_id = int(request.POST['course_id'])
+        student = Student.objects.get(user=request.user)
+        try:
+            shortcourse = ShortCourse.objects.get(id=shortcourse_id)
+            shortcourse.students.remove(student)
+            response_data = {'status' : 'success', 'message' : 'disenrolled' }
+        except ShortCourse.DoesNotExist:
+            response_data = {'status' : 'failed', 'message' : 'record does not exist' }
+    return HttpResponse(json.dumps(response_data), content_type="application/json")
+def show_cart(request):
+    if request.method == 'POST':
+        if request.POST.get('submit') == 'Update':
+            cart.update_item(request)
+        if request.POST.get('submit') == 'Remove':
+            cart.remove_item(request)
+
+    cart_items = cart.get_all_cart_items(request)
+    cart_subtotal = cart.subtotal(request)
+    return render(request, 'ecommerce_app/cart.html', {
+      'cart_items': cart_items,
+      'cart_subtotal': cart_subtotal,
+       'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+          })
 
 def show_product(request, product_id, product_slug):
     product = get_object_or_404(Product, id=product_id)
@@ -68,22 +259,6 @@ def show_units(request, product_id, modules_id, product_slug):
 
 
 
-def show_cart(request):
-
-    if request.method == 'POST':
-        if request.POST.get('submit') == 'Update':
-            cart.update_item(request)
-        if request.POST.get('submit') == 'Remove':
-            cart.remove_item(request)
-
-    cart_items = cart.get_all_cart_items(request)
-    cart_subtotal = cart.subtotal(request)
-    return render(request, 'ecommerce_app/cart.html', {
-      'cart_items': cart_items,
-      'cart_subtotal': cart_subtotal,
-       'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
-          })
 
 
 def checkout(request):

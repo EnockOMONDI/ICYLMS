@@ -126,26 +126,26 @@ CAPTCHA_FONT_SIZE = 52
 
 
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": "academicstoday_dbnew",
-#         "USER": "django",
-#         "PASSWORD": "123password",
-#         "HOST": "localhost",
-#         "PORT": " 5432",
-#     }
-# }
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "dbr01gscv22n03",
-        "USER": "lbfikazcgtjqxp",
-        "PASSWORD": "5ef42e10426658516239911c802798825ad3ac8f3d7559c5f3c89ca229d18e34",
-        "HOST": "ec2-107-22-236-52.compute-1.amazonaws.com",
+        "NAME": "academicstoday_dbnew",
+        "USER": "django",
+        "PASSWORD": "123password",
+        "HOST": "localhost",
         "PORT": " 5432",
     }
 }
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": "dbr01gscv22n03",
+#         "USER": "lbfikazcgtjqxp",
+#         "PASSWORD": "5ef42e10426658516239911c802798825ad3ac8f3d7559c5f3c89ca229d18e34",
+#         "HOST": "ec2-107-22-236-52.compute-1.amazonaws.com",
+#         "PORT": " 5432",
+#     }
+# }
 
 
 DATABASES['default'].update(db_from_env)

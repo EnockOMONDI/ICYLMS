@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <!-- Course Picture -->
+                <div class="col-lg-3 text-left">
+                {% if shortcourse.image != None and shortcourse.image != '' %}
+                    <img src="{{ shortcourse.image.url }}" height="100%" width="100%" />
+                {% else %}
+                    Missing Image!
+                {% endif %}
+                </div>
+                <!-- Course Info -->
+                <div class="col-lg-9 text-left">
+                    <h2>{{ shortcourse.name }}<br/>
+                        {% if teacher == shortcourse.teacher %}
+                            <small>[You cannot enroll in a class you currently teach!]</small>
+                        {% else %}
+                            <small>{{ shortcourse.sub_title }}</small>
+                        {% endif %}
+                    </h2>
+                    {% if shortcourse.is_official %}<p align="left"><span class="badge">Offical</span></p>{% endif %}
+                    <p>{{ shortcourse.description }}<p>
+                    <p>Durration: {{ shortcourse.start_date }} to {{ shortcourse.finish_date }}</p>
+                    <p align="right">
+                    <button onclick="ajax_enroll({{ shortcourse.id }});"
+                               type="button"
+                        {% if teacher == shortcourse.teacher %}
+                           disabled=""
+                        {% endif %}
+                        {% if student not in shortcourse.students.all %}
+                              class="btn btn-lg btn-success">
+                                <i class="fa fa-pencil"></i> Enroll
+                        {% else %}
+                              class="btn btn-lg btn-primary">
+                            <i class="fa fa-level-down"></i> Continue
+                        {% endif %}
+                    </button>
+                    </p>
+                </div>
+                <!-- /.Course Info -->
+            </div>
+        </div>
+    </div>
+</div>

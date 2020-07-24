@@ -17,7 +17,7 @@ urlpatterns = [
     re_path(r'', include('student.urls')),
     re_path(r'', include('teacher.urls')),
     re_path(r'', include('publisher.urls')),
-    re_path(r'payment/', include('ecommerce_app.urls')),
+    re_path(r'payment/', include('ecommerce_app.urls',namespace='ecommerce_app')),
     re_path(r'paypal/', include('paypal.standard.ipn.urls')),
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

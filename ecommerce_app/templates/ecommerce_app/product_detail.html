@@ -5,27 +5,6 @@
 
 {% block content %}
 
-    <!-- <div class="container">
-        <div class="row">
-
-            <p><a href="{% url 'index' %}">All Courses </a> &gt;
-                {{ product.name }}
-            </p>
-
-                <h2>{{ product.name }}</h2>
-                <p>Price ${{ product.price }}</p>
-
-                <form action="{% url 'product_detail' product.id product.slug %}" method="post">
-                    {% csrf_token %}
-                    {{ form }}
-                    <input type="submit" value="Add to cart" class="btn btn-default" >
-                </form>
-
-        </div>
-
-    </div> -->
-<!-- <br> -->
-
 
     <div class="section section-tabs">
         <hr>
@@ -209,7 +188,7 @@
                     <div class="tab-pane" id="apply">
                         
                      
-                        <form action="{% url 'product_detail' product.id product.slug %}" method="post">
+                        <form action="{% url 'ecommerce_app:product_detail'  product.id product.slug %}" method="post">
                             {% csrf_token %}
                             {{ form }}
                             <input type="submit" value="START YOUR JOURNEY OF BECOMING A LEADER" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" ></a>
@@ -234,14 +213,14 @@
               
               <div class="card-body text-center">
                       <br>
-<a href="{% url 'product_detail' product.pk product.slug %}">{{ product.name }}</a>
+<a href="{% url 'ecommerce_app:product_detail' product.pk product.slug %}">{{ product.name }}</a>
               
                 <p class="card-text">   {{ product.description }}</p>
                 <a href="#" class="btn btn-default" style="box-shadow: 0 8px 16px 0 #c5c5c5;">enroll</a>
               </div>
             </div> 
 
-            <form action="{% url 'product_detail' product.id product.slug %}" method="post">
+            <form action="{% url 'ecommerce_app:product_detail'  product.id product.slug %}" method="post">
               {% csrf_token %}
               {{ form }}
               <input type="submit" value="Checkout" class="btn btn-default " >
