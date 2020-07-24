@@ -6845,14 +6845,18 @@ span.mod-close {
 	font-weight:600;
     display: block;
     padding: .8rem 1.5rem;
+    
 }
 .nav-pills .nav-link {
     border-radius: .25rem;
     background: #f0f3f7;
     margin-right: 0.5rem;
+    margin-top: 0.5rem;
+   
 }
 .nav-pills.light .nav-link {
     background: #ffffff;
+   
 }
 .nav-pills .nav-link.active, .show>.nav-pills .nav-link {
     color:#ffffff;
