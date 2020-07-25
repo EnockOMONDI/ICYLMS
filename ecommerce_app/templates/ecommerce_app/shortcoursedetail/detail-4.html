@@ -12,7 +12,7 @@
             <!-- Top header  -->
             <!-- ============================================================== -->
             <!-- Start Navigation -->
-
+			{% include 'ecommerce_app/navbar/navbar.html' %}
 			<!-- End Navigation -->
 			<div class="clearfix"></div>
 			<!-- ============================================================== -->
@@ -62,7 +62,88 @@
 			<section style="background:#f3f3f3">
 				<div class="container">
 					<div class="row">
-					
+							<div class="col-lg-4 col-md-4">
+						
+									<!-- Course info -->
+									<div class="ed_view_box style_3">
+									
+										<div class="property_video sm">
+											<div class="thumb">
+													{% if shortcourse.image  %} 
+												<img class="pro_img img-fluid w100" src="{{ shortcourse.image.url }}" alt="image-cover">
+												{% else %}
+												<img class="pro_img img-fluid w100" src="{% static 'assets_course_detail/img/nocourseimg.png' %}" alt="no image">
+													<!-- Missing Image! -->
+													{% endif %}
+												<div class="overlay_icon">
+													<div class="bb-video-box">
+														<div class="bb-video-box-inner">
+															<div class="bb-video-box-innerup">
+																<a href="{{shortcourse.shortcourselecture.youtube_url}}" data-toggle="modal" data-target="#popup-video" class="theme-cl"><i class="ti-control-play"></i></a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="instructor_over_info">
+													<ul>
+														<li>
+															<div class="ins_info">
+																<!-- <div class="ins_info_thumb">
+																	<img src="../../../static/assets_course_detail/img/user-8.jpg" class="img-fluid" alt="" />
+																</div> -->
+																<div class="ins_info_caption">
+																	<span>Instructor/ Trainer</span>
+																	<h4>{{shortcourse.teacher}}</h4>
+																</div>
+															</div>
+														
+														</li>
+														<li>
+															<span>Category</span>
+															{{shortcourse.category}}
+														</li>
+												
+													</ul>
+												</div>
+										</div>
+										
+										<div class="ed_view_price pl-4">
+											
+												<h5>{{shortcourse.sub_title}}</h5>
+											
+											<span>Acctual Price</span>
+											<h6 > <strike>$ 10</strike> </h6>
+										
+												<span>
+														<ul style="margin-bottom:2em;" class="cources_facts_list">
+																<li class="facts-1">Sponsored Course</li>
+																
+															</ul>
+										<div class="inline_edu_last">
+                                         <h4 class="edu_price">$ {{shortcourse.price}}  </h4>  <a href="#" class="btn btn-outline-primary btn-sm">Enroll Now<i class="ti-angle-right"></i></a>
+										</div></span>
+										</div>
+									
+										<!-- <div class="ed_view_short pl-4 pr-4 pb-2">
+											<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+										</div>
+										
+										<div class="ed_view_features half_list pl-4 pr-3">
+											<span>Course Features</span>
+											<ul>
+												<li><i class="ti-user"></i>3k Students View</li>
+												<li><i class="ti-time"></i>2 hour 30 min</li>
+												<li><i class="ti-bar-chart-alt"></i>Principiante</li>
+												<li><i class="ti-cup"></i>04 Certified</li>
+											</ul>
+										</div> -->
+
+										
+									</div>
+									
+								</div>
+							
 						<div class="col-lg-8 col-md-8">
 						
 							<div class="inline_edu_wrap">
@@ -72,6 +153,9 @@
 											<li><i class="ti-calendar"></i>Self paced online course</li>
 											<li><i class="ti-control-forward"></i>{{shortcourselectures.count}} Lectures</li>
 											<li><i class="ti-user"></i>{{shortcourse.students.count}} Student Enrolled</li>
+											<li>Discussions</li>
+											<li>Exams</li>
+											<li>Certificate</li>
 									</ul>
 								</div>	
 								<div class="inline_edu_last">
@@ -85,20 +169,20 @@
 							<!-- All Info Show in Tab -->
 							<div class="tab_box_info mt-3" >
 								<ul class="nav nav-pills mb-3 light"  id="pills-tab" role="tablist">
-									<li class="nav-item" style="box-shadow: -42px 32px 54px -2px rgba(0,0,0,0.14);">
+									<li class="nav-item" style="box-shadow: -32px 32px 54px -2px rgba(0,0,0,0.14);">
 										<a class="nav-link active" id="overview-tab" data-toggle="pill" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
 									</li>
-									<li class="nav-item"style="box-shadow: -42px 32px 54px -2px rgba(0,0,0,0.14);">
+									<li class="nav-item"style="box-shadow: -32px 32px 54px -2px rgba(0,0,0,0.14);">
 										<a class="nav-link" id="startdate-tab" data-toggle="pill" href="#startdate" role="tab" aria-controls="startdate" aria-selected="false">Start Dates</a>
 									</li>
-									<li class="nav-item"style="box-shadow: -42px 32px 54px -2px rgba(0,0,0,0.14);">
+									<li class="nav-item"style="box-shadow: -32px 32px 54px -2px rgba(0,0,0,0.14);">
 										<a class="nav-link" id="curriculum-tab" data-toggle="pill" href="#curriculum" role="tab" aria-controls="curriculum" aria-selected="false">Curriculum</a>
 									</li>
-									<li class="nav-item"style="box-shadow: -42px 32px 54px -2px rgba(0,0,0,0.14);">
+									<li class="nav-item"style="box-shadow: -32px 32px 54px -2px rgba(0,0,0,0.14);">
 										<a class="nav-link" id="instructor-tab" data-toggle="pill" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false">Instructor</a>
 									</li>
 								
-									<li class="nav-item"style="box-shadow: -42px 32px 54px -2px rgba(0,0,0,0.14);">
+									<li class="nav-item"style="box-shadow: -32px 32px 54px -2px rgba(0,0,0,0.14);">
 										<a class="nav-link" id="reviews-tab" data-toggle="pill" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Learners Reviews</a>
 									</li>
 								</ul>
@@ -382,76 +466,6 @@
 							
 						</div>
 						
-						<div class="col-lg-4 col-md-4">
-						
-							<!-- Course info -->
-							<div class="ed_view_box style_3">
-							
-								<div class="property_video sm">
-									<div class="thumb">
-											{% if shortcourse.image  %} 
-										<img class="pro_img img-fluid w100" src="{{ shortcourse.image.url }}" alt="image-cover">
-										{% else %}
-										<img class="pro_img img-fluid w100" src="{% static 'assets_course_detail/img/nocourseimg.png' %}" alt="no image">
-											<!-- Missing Image! -->
-											{% endif %}
-										<div class="overlay_icon">
-											<div class="bb-video-box">
-												<div class="bb-video-box-inner">
-													<div class="bb-video-box-innerup">
-														<a href="{{shortcourse.shortcourselecture.youtube_url}}" data-toggle="modal" data-target="#popup-video" class="theme-cl"><i class="ti-control-play"></i></a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="instructor_over_info">
-											<ul>
-												<li>
-													<div class="ins_info">
-														<!-- <div class="ins_info_thumb">
-															<img src="../../../static/assets_course_detail/img/user-8.jpg" class="img-fluid" alt="" />
-														</div> -->
-														<div class="ins_info_caption">
-															<span>Instructor/ Trainer</span>
-															<h4>{{shortcourse.teacher}}</h4>
-														</div>
-													</div>
-												</li>
-												<li>
-													<span>Category</span>
-													{{shortcourse.category}}
-												</li>
-										
-											</ul>
-										</div>
-								</div>
-								
-								<div class="ed_view_price pl-4">
-									<span>Acctual Price</span>
-									<h2 class="theme-cl"> <strike>$ {{shortcourse.price}}</strike> </h2>
-								</div>
-								
-								<!-- <div class="ed_view_short pl-4 pr-4 pb-2">
-									<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-								</div>
-								
-								<div class="ed_view_features half_list pl-4 pr-3">
-									<span>Course Features</span>
-									<ul>
-										<li><i class="ti-user"></i>3k Students View</li>
-										<li><i class="ti-time"></i>2 hour 30 min</li>
-										<li><i class="ti-bar-chart-alt"></i>Principiante</li>
-										<li><i class="ti-cup"></i>04 Certified</li>
-									</ul>
-								</div> -->
-								<div class="ed_view_link">
-									<a href="#" class="btn btn-theme enroll-btn">Enroll Now<i class="ti-angle-right"></i></a>
-								</div>
-								
-							</div>
-							
-						</div>
 					
 					</div>
 				

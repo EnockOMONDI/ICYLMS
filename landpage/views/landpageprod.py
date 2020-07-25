@@ -13,9 +13,10 @@ from django.contrib.auth.models import User
 def landpageprod_page(request):
     return render(request, 'productionpages/page/index2.html',{
         'tab': 'landpageprod',
-     'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
         'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
           })
+
 
 def welcome(request):
     return render(request, 'productionpages/page/welcome.html',{

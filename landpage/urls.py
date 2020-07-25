@@ -8,6 +8,7 @@ from landpage.views import terms
 from landpage.views import forgot_password
 from landpage.views import google
 from landpage.views import landpageprod
+from landpage.views import publicpages
 
 from django.contrib.sitemaps.views import sitemap
 from .sitemaps import StaticViewSitemap
@@ -32,6 +33,7 @@ urlpatterns = [
     re_path(r'^save_contact_us_message$', landpage.save_contact_us_message),
 
      #productionpages
+    re_path(r'^homepage$', publicpages.homepage, name='homepage'),
     re_path(r'^landpageprod$', landpageprod.landpageprod_page, name='landpageprod'),
     re_path(r'^welcome$', landpageprod.welcome, name='welcome'),
     re_path(r'^aboutus$', landpageprod.about_us, name='aboutus'),

@@ -1,0 +1,306 @@
+{% load static %}
+<div class="header header-transparent change-logo" >
+        <div class="container">
+            <nav id="navigation" class="navigation navigation-landscape">
+                <div class="nav-header">
+
+
+                    <a class="nav-brand static-logo" href="#"><img src="{% static 'assets_course_detail/img/ladalogo.png' %}" style="width:120px; height:100px;" class="logo" alt="" /></a>
+                    <a class="nav-brand fixed-logo" href="#"><img src="assets/img/logo.png" class="logo" alt="" /></a>
+                    <div class="nav-toggle"></div>
+                </div>
+                <div style="margin-top:1em;" class="nav-menus-wrapper" style="transition-property: none;">
+                    <ul class="nav-menu align-to-right" >
+                    
+                            <li  >
+                                    <a class="nav-link" href="#">	Courses<span class="submenu-indicator"></span></a>
+                                         <ul class="nav-dropdown nav-submenu">
+                                               
+                                            <li >
+                                        
+                                                    <div class="container">
+                                                            <div class="row">
+                                                            <!-- Single Article -->
+                                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                                <div class="articles_grid_style">
+                                                    <div class="articles_grid_thumb">
+                                                                    {% if request.user.is_authenticated %}
+                                                                    <a href="/payment"><img src="../../../static/img/course3.jpg" class="img-fluid" alt="allcourseimg" /></a>
+                                                                    {% else %}
+                                                                    <a href="/redirected_login"><img src="../../../static/img/course3.jpg" class="img-fluid" alt="allcourseimg" /></a>
+                                                                    {% endif %}	
+                                                    </div>
+                                                    <div class="articles_grid_caption">
+                                                    <div class="articles_grid_author justify-content-center">
+                                                                    {% if request.user.is_authenticated %}
+                                                                    <a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >All Courses </a>
+                                                                    {% else %}
+                                                                    <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >All Courses</a>
+                                                                    {% endif %}
+                                                                
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                             </div>
+                            
+                            
+                            
+                            
+                                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                                <div class="articles_grid_style">
+                                                   
+                                                    
+                                                    <div class="articles_grid_caption">
+                                                        
+                                                        <div class="articles_grid_author justify-content-center">
+                                                            
+                                                        
+                                                            {% if request.user.is_authenticated %}
+                                                            <a href="#" data-toggle="modal" data-target="#certmodal" class="btn btn-outline-primary  " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Certificate Courses</a>
+                                                            
+                                                          
+                                                            {% else %}
+                                                            <a href="#" data-toggle="modal" data-target="#certmodal" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Certificate Courses</a>
+                            
+                                                        
+                                                            {% endif %}
+                                                    
+                                                        </div>
+                                                    
+                                                        <br>
+                            
+                                                    </div>
+                                                </div>
+                                                
+                                                        <div class="articles_grid_style">
+                                                                <!-- <div class="articles_grid_thumb">
+                                                                    {% if request.user.is_authenticated %}
+                                                                    <a href="/payment"><img src="../../../static/img/coursespic.jpg" class="img-fluid" alt="" /></a>
+                                                                    {% else %}
+                                                                    <a href="/redirected_login"><img src="../../../static/img/coursespic.jpg" class="img-fluid" alt="" /></a>
+                                                                    {% endif %}
+                                                                </div> -->
+                                                        
+                                                                
+                                                                <div class="articles_grid_caption">
+                                                                    
+                                                                    <div class="articles_grid_author justify-content-center">
+                                                                        
+                                        
+                                                                    
+                                                                        {% if request.user.is_authenticated %}
+                                                                        <a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Diploma Courses</a>
+                                
+                                                                      
+                                                                        {% else %}
+                                                                        <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Diploma Courses</a>
+                                
+                                                                    
+                                                                        {% endif %}
+                                                                
+                                                                    </div>
+                                                                
+                                                                    <br>
+                                
+                                                                </div>
+                                                            </div>
+                                                    
+                                                
+                                                            <div class="articles_grid_style">
+                                                                    <!-- <div class="articles_grid_thumb">
+                                                                        {% if request.user.is_authenticated %}
+                                                                        <a href="/payment"><img src="../../../static/img/coursespic.jpg" class="img-fluid" alt="" /></a>
+                                                                        {% else %}
+                                                                        <a href="/redirected_login"><img src="../../../static/img/coursespic.jpg" class="img-fluid" alt="" /></a>
+                                                                        {% endif %}
+                                                                    </div> -->
+                                                            
+                                                                    
+                                                                    <div class="articles_grid_caption">
+                                                                        
+                                                                        <div class="articles_grid_author justify-content-center">
+                                                                            
+                                            
+                                                                        
+                                                                            {% if request.user.is_authenticated %}
+                                                                            <a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Degree /BA Courses</a>
+                                    
+                                                                          
+                                                                            {% else %}
+                                                                            <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Degree /BA Courses</a>
+                                    
+                                                                        
+                                                                            {% endif %}
+                                                                    
+                                                                        </div>
+                                                                    
+                                                                        <br>
+                                    
+                                                                    </div>
+                                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                                    <div class="articles_grid_style">
+                                             
+                                                
+                                                        
+                                                        <div class="articles_grid_caption">
+                                                            
+                                                            <div class="articles_grid_author justify-content-center">
+                                                                
+                                
+                                                            
+                                                                {% if request.user.is_authenticated %}
+                                                                <a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Masters Courses</a>
+                            
+                                                              
+                                                                {% else %}
+                                                                <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Masters Courses</a>
+                            
+                                                            
+                                                                {% endif %}
+                                                        
+                                                            </div>
+                                                        
+                                                            <br>
+                            
+                                                        </div>
+                                                    </div>
+                                                    
+                                                            <div class="articles_grid_style">
+                                                                    <!-- <div class="articles_grid_thumb">
+                                                                        {% if request.user.is_authenticated %}
+                                                                        <a href="/payment"><img src="../../../static/img/coursespic.jpg" class="img-fluid" alt="" /></a>
+                                                                        {% else %}
+                                                                        <a href="/redirected_login"><img src="../../../static/img/coursespic.jpg" class="img-fluid" alt="" /></a>
+                                                                        {% endif %}
+                                                                    </div> -->
+                                                            
+                                                                    
+                                                                    <div class="articles_grid_caption">
+                                                                        
+                                                                        <div class="articles_grid_author justify-content-center">
+                                                                            
+                                            
+                                                                        
+                                                                            {% if request.user.is_authenticated %}
+                                                                            <a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >PHD Courses</a>
+                                    
+                                                                          
+                                                                            {% else %}
+                                                                            <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >PHD Courses</a>
+                                    
+                                                                        
+                                                                            {% endif %}
+                                                                    
+                                                                        </div>
+                                                                    
+                                                                        <br>
+                                    
+                                                                    </div>
+                                                                </div>
+                                                                <div class="articles_grid_style">
+                                                                        <!-- <div class="articles_grid_thumb">
+                                                                            {% if request.user.is_authenticated %}
+                                                                            <a href="/payment"><img src="../../../static/img/coursespic.jpg" class="img-fluid" alt="" /></a>
+                                                                            {% else %}
+                                                                            <a href="/redirected_login"><img src="../../../static/img/coursespic.jpg" class="img-fluid" alt="" /></a>
+                                                                            {% endif %}
+                                                                        </div> -->
+                                                                
+                                                                        
+                                                                        <div class="articles_grid_caption">
+                                                                            
+                                                                            <div class="articles_grid_author justify-content-center">
+                                                                                
+                                                
+                                                                            
+                                                                                {% if request.user.is_authenticated %}
+                                                                                <a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Africa SDG's Digital LAB</a>
+                                        
+                                                                              
+                                                                                {% else %}
+                                                                                <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >PHD Courses</a>
+                                        
+                                                                            
+                                                                                {% endif %}
+                                                                        
+                                                                            </div>
+                                                                        
+                                                                            <br>
+                                        
+                                                                        </div>
+                                                                    </div>
+                                                    
+                                                </div>
+                              
+                                            </div>
+                                        </div>
+                                        <!--  /.container  -->
+                                
+                                               
+                                          </li>
+                            
+                                         </ul>
+                                                    </li>
+                                                    <li><a class="nav-link" href="#">Using LADA<span class="submenu-indicator"></span></a>
+                                                        <ul class="nav-dropdown nav-submenu">
+                                                            <li><a href="#">As a Learner<span class="submenu-indicator"></span></a>
+                                                                <ul class="nav-dropdown nav-submenu">
+                                                                    <li><a href="grid-with-sidebar.html">How it works</a></li>
+                                                                    <li><a href="grid-with-sidebar-2.html">Learners FAQS</a></li>
+                                                                 
+                                                                </ul>
+                                                            </li>
+                                                            <li><a href="#">As a Trainer<span class="submenu-indicator"></span></a>
+                                                                <ul class="nav-dropdown nav-submenu">
+                                                                    <li><a href="grid-with-sidebar.html">Video Tutorial</a></li>
+                                                                    <li><a href="grid-with-sidebar-2.html">Documentation</a></li>
+                                                                    <li><a href="grid-with-sidebar-3.html">Trainers FAQS</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <!-- <li><a href="find-instructor.html"> <strike>For Schools</strike> Coming soon</a></li> -->
+                                              
+                                                        </ul>
+                                                    </li>
+                                                    
+                                                    <li><a class="nav-link " href="#">About us<span class="submenu-indicator"></span></a>
+                                                        <ul class="nav-dropdown nav-submenu">
+                                                                <li><a href="about-us.html">Who we are</a></li>
+                                                                <li><a href="blog.html"> Our educational partners</a></li>
+                                                                <li><a href="blog-detail.html">Why learn with LADA</a></li>
+                                                                <li><a href="pricing.html">LADA Reviews</a></li>
+                                                                <li><a href="privacy.html">Privacy Policy</a></li>
+                                                                <li><a href="faq.html">FAQs</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li ><a class="nav-link "  href="/aboutus">Apply for Sponsorship</a></li>
+       
+                    
+                    
+                                                            {% if request.user.is_authenticated %}
+                                                            <li>
+                                                                    <a href="#"  class="btn btn-primary btn-sm " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23); " >Certificate Courses</a>
+                                            
+                                                            </li>
+                                                            <li class="login_click light">
+                                                                    <a  onclick="ajax_logout();">Logout  </a>
+                                                                </li>
+                                                                {% else %}
+                                                            <li class="login_click theme-bg">
+                                                                    <a href="#" data-toggle="modal" data-target="#signup">Sign up</a>
+                                                                </li>
+                                                                <li class="login_click light">
+                                                                        <a href="#" data-toggle="modal" data-target="#login">  ggg</a>
+                                                                    </li>
+                                                                    {% endif %}
+                                                                 <!-- End Navigation -->
+                                                                                   
+                        
+                    </ul>
+                    
+               
+                </div>
+            </nav>
+        </div>
+    </div>
