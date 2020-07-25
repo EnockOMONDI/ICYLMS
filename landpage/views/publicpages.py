@@ -10,8 +10,15 @@ from django.contrib.auth.models import User
 
 
 #newhomepage- july 2020          
-def homepage(request):
+def home_page(request):
     return render(request, 'publicpages/index.html',{
+        'tab': 'landpageprod',
+       'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS
+ })
+
+def platform_overview(request):
+    return render(request, 'publicpages/platformoverview.html',{
         'tab': 'landpageprod',
        'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
         'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS

@@ -55,7 +55,7 @@ def login_authentication(request):
 
 
 def logout_authentication(request):
-    response_data = {'status' : 'success', 'message' : 'you are logged off'}
+    response_data = {'status' : 'success', 'message' : 'you have been succesfully  logged off'}
     if request.is_ajax():
         if request.method == 'POST':
             logout(request)

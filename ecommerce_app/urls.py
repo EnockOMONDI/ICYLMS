@@ -14,7 +14,7 @@ urlpatterns = [
     path('process-payment', views.process_payment, name='process_payment'),
     path('payment-done/', views.payment_done, name='payment_done'),
     path('payment-cancelled/', views.payment_canceled, name='payment_cancelled'),
-    path('short/(\d+)', views.shortcoursedetail, name='shortcoursedetail'),
+    # path('short/(\d+)', views.shortcoursedetail, name='shortcoursedetail'),
     path('short2/', views.shortcoursedetail2, name='shortcoursedetail'),
     path('shortcourse/', views.shortcourseindex),
   

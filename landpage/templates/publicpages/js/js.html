@@ -39,15 +39,14 @@ function ajax_logout()
         },
         type: 'post',
         success: function(result) {
-        'status' , 'success', 'message' , 'you have been succesfully  logged off'
+            // success code execution here
             window.location = '/home_page';
         },
         error: function(xhr,status,error) {
             // error code here
         },
         complete: function(xhr,status) {
-       
-
+            // completion code here
         }
     });
 }

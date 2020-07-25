@@ -13,6 +13,7 @@ from landpage.views import publicpages
 from django.contrib.sitemaps.views import sitemap
 from .sitemaps import StaticViewSitemap
 
+app_name = 'landpage'
 sitemaps = {
     'static': StaticViewSitemap,
 }
@@ -25,15 +26,21 @@ urlpatterns = [
     # Google Verify
     re_path(r'^googlee81f1c16590924d1.html$', google.google_verify_page, name='google_plus_verify'),
     re_path(r'^googlee81f1c16590924d1$', google.google_verify_page),
-                       
+
+    # publicpages
+    re_path(r'^$', publicpages.home_page, name='home'),
+    re_path(r'^home_page$', publicpages.home_page, name='homepage'),
+    re_path(r'^platformoverview$', publicpages.platform_overview, name='platformoverview'),
+                      
     # Landpage
     re_path(r'^$',landpageprod.landpageprod_page, name='landpageprod'),
     re_path(r'^landpage$', landpage.landpage_page),
     re_path(r'^course_preview_modal$', landpage.course_preview_modal),
     re_path(r'^save_contact_us_message$', landpage.save_contact_us_message),
 
+     
      #productionpages
-    re_path(r'^homepage$', publicpages.homepage, name='homepage'),
+   
     re_path(r'^landpageprod$', landpageprod.landpageprod_page, name='landpageprod'),
     re_path(r'^welcome$', landpageprod.welcome, name='welcome'),
     re_path(r'^aboutus$', landpageprod.about_us, name='aboutus'),
