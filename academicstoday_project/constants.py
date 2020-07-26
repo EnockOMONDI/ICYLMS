@@ -6,14 +6,16 @@ SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS =[
                               "assets_course_detail/css/colors.css",
                               ]
 SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS = [
+   
                                "assets_course_detail/js/jquery.min.js",
-		                       "assets_course_detail/js/popper.min.js",
-		                       "assets_course_detail/js/bootstrap.min.js",
+                                "assets_course_detail/js/popper.min.js",
+		                        "assets_course_detail/js/bootstrap.min.js",
 		                       "assets_course_detail/js/select2.min.js",
 		                       "assets_course_detail/js/slick.js",
 		                       "assets_course_detail/js/jquery.counterup.min.js",
 		                       "assets_course_detail/js/counterup.min.js",
 		                       "assets_course_detail/js/custom.js"
+                               
                               ] 
 SB_ADMIN_COURSE_LIST_CSS_LIBRARY_URLS =[
                                         "assets_courses_list/vendor/perfect-scrollbar.css", 

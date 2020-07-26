@@ -2688,10 +2688,10 @@ footer.style-2 {
 ***************************************/
 /*---------- Alert Top ---------------*/
 .alert.alert_top {
-    background: #003783;
+    background: #410009;
     padding: .55rem 1.25rem;
 	margin:0;
-    font-size: 14px;
+    font-size: 16px;
     border-radius: 0;
 }
 .alert_caption {
@@ -2707,13 +2707,13 @@ footer.style-2 {
     color: #ffffff;
 }
 .alert_rate i.filled {
-    color: #FF9800;
+    color: rgb(255, 255, 255);
 }
 .alert_rate i{
    margin-right:2px;
 }
 .alert_caption {
-    color:#5ab2fe;
+    color:#ffffff;
 }
 .alert_caption a {
     color: #ffffff;
@@ -4705,9 +4705,9 @@ ul.cources_facts_list li:after {
 }
 /*----------- Modern Btn Style ------------*/
 .btn.btn-modern {
-    background: rgba(218, 11, 78,0.1);
+    background: #131b31;
 	transition:all ease 0.4s;
-    color: #9c27b0;
+    color: #ffffff;
     border-radius: 6px;
     height: 54px;
     padding: 0 5px 0 25px;
@@ -4820,12 +4820,12 @@ ul.cources_facts_list li:after {
     display: flex;
     align-items: center;
     width: 100%;
-    margin-bottom:1.5rem;
+    margin-bottom:1.2rem;
 }
 .list_facts_icons {
     width: 45px;
     height: 45px;
-    background: rgba(217, 11, 78,0.1);
+    background: rgba(255, 255, 255, 0.521);
 	box-shadow:0 7px 15px rgba(0, 22, 84, 0.1);
 	-webkit-box-shadow:0 7px 15px rgba(0, 22, 84, 0.1);
     border-radius: 6px;
@@ -4833,7 +4833,7 @@ ul.cources_facts_list li:after {
     align-items: center;
     justify-content: center;
     display: flex;
-    color: #d90b4e;
+    color: #9c27b0;
 }
 .green .list_facts_icons {
     background:rgba(0, 186, 116,0.1);
@@ -4842,7 +4842,7 @@ ul.cources_facts_list li:after {
 .list_facts_caption h4 {
     margin-bottom: 0;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 550;
 }
 .list_facts_caption p {
     margin: 0;
@@ -5300,12 +5300,12 @@ ul.badge_info li.power {
     position: relative;
 }
 .ed_rate_info .star_info i {
-    font-size: 11px;
-    color: #ced7e8;
+    font-size: 15px;
+    color: #1a1d22;
     margin-right: 1px;
 }
 .ed_rate_info .star_info i.filled {
-    color: #f1992c;
+    color: #131b31;
 }
 .review_counter {
     font-size: 12.5px;

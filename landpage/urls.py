@@ -31,6 +31,9 @@ urlpatterns = [
     re_path(r'^$', publicpages.home_page, name='home'),
     re_path(r'^home_page$', publicpages.home_page, name='homepage'),
     re_path(r'^platformoverview$', publicpages.platform_overview, name='platformoverview'),
+    re_path(r'^ourstory$', publicpages.our_story, name='ourstory'),
+    re_path(r'^scholarship$', publicpages.scholarship , name='scholarship'),
+    re_path(r'^contact$', publicpages.contactus , name='contact'),
                       
     # Landpage
     re_path(r'^$',landpageprod.landpageprod_page, name='landpageprod'),
@@ -52,7 +55,7 @@ urlpatterns = [
     re_path(r'^sdgdigitallab$', landpageprod.sdgdigitallab, name='sdgdigitallab'), 
     re_path(r'^volunteerpage$', landpageprod.volunteer, name='volunteer'),
     re_path(r'^digitallab$', landpageprod.digitallab , name='digitallab '),
-    re_path(r'^scholarship-application-form$', landpageprod.scholarship , name='scholarship'),
+    re_path(r'^scholarship-application-form$', landpageprod.scholarship , name='scholarship2'),
     re_path(r'^paymentfaqs', landpageprod.paymentfaqs , name='paymentfaqs'),
 
     

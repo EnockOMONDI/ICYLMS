@@ -5,8 +5,8 @@
                 <div class="nav-header">
 
 
-                    <a class="nav-brand static-logo" href="#"><img src="{% static 'assets_course_detail/img/ladalogo.png' %}" style="width:120px; height:100px;" class="logo" alt="" /></a>
-                    <a class="nav-brand fixed-logo" href="#"><img src="{% static 'assets_course_detail/img/ladalogo.png' %}" class="logo" alt="" /></a>
+                    <a class="nav-brand static-logo" href="{% url 'landpage:home' %}"><img src="{% static 'assets_course_detail/img/ladalogo.png' %}" style="width:120px; height:100px;" class="logo" alt="" /></a>
+                    <a class="nav-brand fixed-logo"  href="{% url 'landpage:home' %}"><img src="{% static 'assets_course_detail/img/ladalogo.png' %}" class="logo" alt="" /></a>
                     <div class="nav-toggle"></div>
                 </div>
                 <div style="margin-top:1em;" class="nav-menus-wrapper" style="transition-property: none;">
@@ -237,41 +237,42 @@
                             
                                          </ul>
                                                     </li>
-                                                    <li><a class="nav-link" href="#">Using LADA<span class="submenu-indicator"></span></a>
-                                                        <ul class="nav-dropdown nav-submenu">
-                                                             <li><a href="{% url 'landpage:platformoverview' %}">Our platform Overview</a></li>
-                                                            <li><a href="#">As a Learner<span class="submenu-indicator"></span></a>
-                                                                <ul class="nav-dropdown nav-submenu">
-                                                                    <li><a href="grid-with-sidebar.html">How it works</a></li>
-                                                                    <li><a href="grid-with-sidebar-2.html">Learners FAQS</a></li>
-                                                                 
-                                                                </ul>
-                                                            </li>
-                                                            <li><a href="#">As a Trainer<span class="submenu-indicator"></span></a>
-                                                                <ul class="nav-dropdown nav-submenu">
-                                                                    <li><a href="grid-with-sidebar.html">Video Tutorial</a></li>
-                                                                    <li><a href="grid-with-sidebar-2.html">Documentation</a></li>
-                                                                    <li><a href="grid-with-sidebar-3.html">Trainers FAQS</a></li>
-                                                                </ul>
-                                                            </li>
-                                                            <!-- <li><a href="find-instructor.html"> <strike>For Schools</strike> Coming soon</a></li> -->
-                                              
-                                                        </ul>
-                                                    </li>
-                                                    
-                                                    <li><a class="nav-link " href="#">About us<span class="submenu-indicator"></span></a>
-                                                        <ul class="nav-dropdown nav-submenu">
-                                                                <li><a href="about-us.html">Who we are</a></li>
-                                                                <li><a href="blog.html"> Our educational partners</a></li>
-                                                                <li><a href="blog-detail.html">Why learn with LADA</a></li>
-                                                                <li><a href="pricing.html">LADA Reviews</a></li>
-                                                                <li><a href="privacy.html">Privacy Policy</a></li>
-                                                                <li><a href="faq.html">FAQs</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li ><a class="nav-link "  href="/aboutus">Apply for Scholarship</a></li>
-                                                    <li ><a class="nav-link "  href="/aboutus">Need Some Help?</a></li>
-                                                    
+                                                     <li><a class="nav-link" href="{% url 'landpage:platformoverview' %}">Using LADA<span class="submenu-indicator"></span></a>
+                            <ul class="nav-dropdown nav-submenu">
+                                    <li><a href="{% url 'landpage:platformoverview' %}">Our platform Overview</a></li>
+                                <li><a  href="{% url 'landpage:platformoverview' %}">As a Learner<span class="submenu-indicator"></span></a>
+                                    <ul class="nav-dropdown nav-submenu">
+                                        <li><a  href="{% url 'landpage:platformoverview' %}">How it works</a></li>
+                                        <li><a  href="{% url 'landpage:platformoverview' %}">Learners FAQS</a></li>
+                                     
+                                    </ul>
+                                </li>
+                                <li><a  href="{% url 'landpage:platformoverview' %}">As a Trainer<span class="submenu-indicator"></span></a>
+                                    <ul class="nav-dropdown nav-submenu">
+                                        <li><a  href="{% url 'landpage:platformoverview' %}">Video Tutorial</a></li>
+                                        <li><a  href="{% url 'landpage:platformoverview' %}">Documentation</a></li>
+                                        <li><a  href="{% url 'landpage:platformoverview' %}">Trainers FAQS</a></li>
+                                    </ul>
+                                </li>
+                                <!-- <li><a href="find-instructor.html"> <strike>For Schools</strike> Coming soon</a></li> -->
+                  
+                            </ul>
+                        </li>
+                        
+                        <li><a class="nav-link " href="{% url 'landpage:ourstory' %}">About us<span class="submenu-indicator"></span></a>
+                            <ul class="nav-dropdown nav-submenu">
+                                    <li><a href="{% url 'landpage:ourstory' %}">Who we are</a></li>
+                                   
+                                     <li><a  href="{% url 'landpage:ourstory' %}"> Our educational partners</a></li>
+                                    <li><a  href="{% url 'landpage:ourstory' %}">Why learn with LADA</a></li>
+                                    <li><a  href="{% url 'landpage:ourstory' %}">LADA Reviews</a></li>
+                             
+                            </ul>
+                        </li>
+                        <li ><a class="nav-link "  href="{% url 'landpage:scholarship' %}">Apply for Scholarship</a></li>
+                        <li ><a class="nav-link "  href="{% url 'landpage:contact' %}">Need Some Help?</a></li>
+                        
+			            
                                                     <ul class="nav-menu nav-menu-social align-to-right">
                     
                     
