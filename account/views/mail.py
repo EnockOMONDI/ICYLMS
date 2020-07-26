@@ -16,7 +16,7 @@ from django.core.mail.message import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.template import Context
 
-@login_required(login_url='/landpage')
+@login_required(login_url='login:redirect_login')
 def mail_page(request):
     try:
         email = request.user.email

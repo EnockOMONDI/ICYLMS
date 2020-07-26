@@ -1,4 +1,5 @@
 {% load static %}
+{% include 'publicpages/googletranslate.html' %}  
 <div class="header header-transparent change-logo" >
         <div class="container">
             <nav id="navigation" class="navigation navigation-landscape">
@@ -270,28 +271,43 @@
                             </ul>
                         </li>
                         <li ><a class="nav-link "  href="{% url 'landpage:scholarship' %}">Apply for Scholarship</a></li>
-                        <li ><a class="nav-link "  href="{% url 'landpage:contact' %}">Need Some Help?</a></li>
-                        
-			            
+                        {% if request.user.is_authenticated %}
+                        <!-- <li ><a class="nav-link "  href="{% url 'landpage:contact' %}">Need Some Help?</a></li> -->
+                        {% else %}
+                                                <li ><a class="nav-link "  href="{% url 'landpage:contact' %}">Need Some Help?</a></li>
+                                                {% endif %}
+			   
                                                     <ul class="nav-menu nav-menu-social align-to-right">
                     
-                    
+                                                  
                                                             {% if request.user.is_authenticated %}
-                                                            <li class="login_click theme-bg">
+                                                            <li  class="login_click  theme-bg">
                                                              
-                                                                <a href="/view/profile">{{ user.first_name }} {{ user.last_name }}</a>
+                                                                <a href="/view/profile">{{ user.first_name }} </a>
                                                             </li>
                                                             <li class="login_click light">
                                                                     <a style="cursor: pointer;" onclick="ajax_logout();">Logout </a>
                                                                 </li>
+                                                                <li  >
+					
+                                                                    <div  id="google_translate_element"></div>
+                                            
+                                                                </li>
                                                                 {% else %}
                                                             <li class="login_click theme-bg">
-                                                                    <a href="#" data-toggle="modal" data-target="#signup">Sign up</a>
+                                                                    <a href="#" data-toggle="modal" data-target="#signup">Sign In</a>
                                                                 </li>
-                                                                <li class="login_click light">
+                                                                <li  >
+					
+                                                                    <div  id="google_translate_element"></div>
+                                            
+                                                                </li>
+                                                                <!-- <li class="login_click light">
                                                                         <a href="#" data-toggle="modal" data-target="#login"> login</a>
-                                                                    </li>
+                                                                    </li> -->
                                                                     {% endif %}
+         
+                                                                 
                                                                  <!-- End Navigation -->
                                                                 </ul>  
                                                                                    
