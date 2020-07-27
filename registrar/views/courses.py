@@ -42,15 +42,15 @@ def courses_page(request):
     except Teacher.DoesNotExist:
         teacher = None
 
-    return render(request, 'registrar/courses/list.html',{
+    return render(request, 'registrar/courses/list2020.html',{
         'courses' : courses,
         'student' : student,
         'teacher' : teacher,
         'user' : request.user,
         'tab' : 'courses',
         'HAS_ADVERTISMENT': settings.APPLICATION_HAS_ADVERTISMENT,
-        'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+        'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS
     })
 
 

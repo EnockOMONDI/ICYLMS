@@ -278,54 +278,55 @@
                              
                             </ul>
                         </li>
-                        <li ><a class="nav-link "  href="{% url 'landpage:scholarship' %}">Apply for Scholarship</a></li>
-                        {% if request.user.is_authenticated %}
-                        <!-- <li ><a class="nav-link "  href="{% url 'landpage:contact' %}">Need Some Help?</a></li> -->
-                        {% else %}
-                                                <li ><a class="nav-link "  href="{% url 'landpage:contact' %}">Need Some Help?</a></li>
-                                                {% endif %}
-			   
-                                                    <ul class="nav-menu nav-menu-social align-to-right">
-                    
-                                                  
-                                                            {% if request.user.is_authenticated %}
-                                                            <li  class="login_click  theme-bg">
-                                                             
-                                                                <a href="/view/profile">{{ user.first_name }} </a>
-                                                            </li>
-                                                            <li class="login_click light">
-                                                                    <a style="cursor: pointer;" onclick="ajax_logout();">Logout </a>
-                                                                </li>
-                                                                <li  >
-					
-                                                                    <div  id="google_translate_element"></div>
-                                            
-                                                                </li>
-                                                                {% else %}
-                                                            <li class="login_click theme-bg">
-                                                                    <a href="#" data-toggle="modal" data-target="#login">Sign In</a>
-                                                                </li>
-                                                                <li  >
-					
-                                                                    <div  id="google_translate_element"></div>
-                                            
-                                                                </li>
-                                                                <!-- <li class="login_click light">
-                                                                        <a href="#" data-toggle="modal" data-target="#login"> login</a>
-                                                                    </li> -->
-                                                                    {% endif %}
-         
-                                                                 
-                                                                 <!-- End Navigation -->
-                                                                </ul>  
-                                                            
-                              
-                             	
-                    </ul>
-         
-                </div>
-            </nav>
-        </div>
-    </div>
+<li >
+<a class="nav-link "  href="{% url 'landpage:scholarship' %}">Apply for Scholarship</a>
+</li>
+{% if request.user.is_authenticated %}
+<!-- <li ><a class="nav-link "  href="{% url 'landpage:contact' %}">Need Some Help?</a></li> -->
+{% else %}
+<li ><a class="nav-link "  href="{% url 'landpage:contact' %}">Need Some Help?</a></li>
+{% endif %}
 
-       
+<ul class="nav-menu nav-menu-social align-to-right">
+
+
+{% if request.user.is_authenticated %}
+<li  class="login_click  theme-bg">
+
+<a href="/view/profile">{{ user.first_name }} </a>
+</li>
+<li class="login_click light">
+<a style="cursor: pointer;" onclick="ajax_logout();">Logout </a>
+</li>
+<li  >
+
+<div  id="google_translate_element"></div>
+
+</li>
+{% else %}
+<li class="login_click theme-bg">
+<a href="#" data-toggle="modal" data-target="#login">Sign In</a>
+</li>
+<li  >
+
+<div  id="google_translate_element"></div>
+
+</li>
+<!-- <li class="login_click light">
+<a href="#" data-toggle="modal" data-target="#login"> login</a>
+</li> -->
+{% endif %}
+
+
+<!-- End Navigation -->
+</ul>  
+
+
+
+</ul>
+
+</div>
+</nav>
+</div>
+</div>
+

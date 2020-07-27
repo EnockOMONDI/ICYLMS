@@ -1,0 +1,375 @@
+{% extends 'registrar/base.html' %}
+{% load staticfiles %}
+{% block content %}
+         <!-- ============================================================== -->
+        <!-- Main wrapper - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div id="main-wrapper">
+		
+                <!-- ============================================================== -->
+                <!-- Top header  -->
+                <!-- ============================================================== -->
+                {% include "registrar/nav2020.html" %}
+                <div class="clearfix"></div>
+                <!-- ============================================================== -->
+                <!-- Top header  -->
+                <!-- ============================================================== -->
+           
+                <!-- ============================ Featured Courcses Start ================================== -->
+                <section class="bg-light">
+                    <div class="container">
+                        
+                        <div class="row justify-content-center">
+                            <div class="col-lg-12 col-md-12 mb-3">
+                                <div class="sec-heading2">
+                                        {% if courses.object_list.count == 0 %}
+                                    <div class="sec-left">
+                                            <h1>Courses Unavailable</h1> 
+                                        <p>Please check back at a later time when the course become available.</p>
+                                    </div>
+                                    {% else %}
+                                    <div class="sec-left">
+                                            <h2>All Courses</h2> 
+                                        </div>
+                                         {% endif %}
+                                    <div class="sec-right">
+                                        <ul class="nav nav-tabs side-cates">
+                                          <li class="nav-item">
+                                            <a class="nav-link active" href="javascript:void(0);">Design</a>
+                                          </li>
+                                          <li class="nav-item">
+                                            <a class="nav-link" href="javascript:void(0);">Development</a>
+                                          </li>
+                                          <li class="nav-item">
+                                            <a class="nav-link" href="javascript:void(0);">Business</a>
+                                          </li>
+                                          <li class="nav-item" href="javascript:void(0);">
+                                            <a class="nav-link" href="javascript:void(0);">Accounting</a>
+                                          </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% include 'registrar/courses/course_row.html' %}
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+    
+                                <div class="arrow_slide three_slide arrow_middle">
+                
+                                    <!-- Single Slide -->
+                                    {% for course in courses %}
+                                    <div class="singles_items">
+                                        <div class="education_block_grid style_2">
+                                            <div class="education_block_thumb n-shadow">
+                                                    {% if course.image != None and course.image != '' %}
+                                                <a href="course-detail.html"><img  src="{{ course.image.url }}" class="img-fluid" alt=""></a>
+                                                {% else %}
+                                                <a href="course-detail.html"> <img src="static/img/dummy.png"  class="img-fluid" alt=""></a>
+                                                <!-- Missing Image! -->
+                                            {% endif %}
+                                                <div class="cources_price">Free</div>
+                                            </div>
+                                            
+                                            <div class="education_block_body">
+                                                <h4 class="bl-title"><a href="course-detail.html">{{ course.title }}</a></h4>
+                                            </div>
+                                            <div class="education_block_body">
+                                                    <h4 class="bl-title"><a href="course-detail.html">{{ course.title }}</a></h4>
+                                                </div>
+                                                <h5>{{ course.description }}</h5>
+                                            
+                                            <div class="cources_info_style3">
+                                                <ul>
+                                                    <li><i class="ti-eye mr-2"></i>9882 Views</li>
+                                                    <li><i class="ti-time mr-2"></i>{{ course.start_date }} to {{ course.finish_date }}</li>
+                                                    <li><i class="ti-star text-warning mr-2"></i>4.7 Reviews</li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <div class="education_block_footer">
+                                                <div class="education_block_author">
+                                                    <div class="path-img"><a href="instructor-detail.html"><img  src="../../../static/assets_course_detail/img/user-2.jpg" class="img-fluid" alt=""></a></div>
+                                                    <h5><a href="instructor-detail.html">Shruti Hasan</a></h5>
+                                                </div>
+                                                <div class="foot_lecture"><i class="ti-control-skip-forward mr-2"></i>26 lectures</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    {% endfor %}
+                                
+                                </div>
+                            </div>
+    
+                        </div>
+                        
+                    </div>
+                </section>
+                <!-- ============================ Featured Courcses End ================================== -->
+                
+                <!-- ============================ Featured Category Start ================================== -->
+                <section class="bg-light">
+                    <div class="container">
+                        
+                        <div class="row justify-content-center">
+                            <div class="col-lg-12 col-md-12 mb-3">
+                                <div class="sec-heading2">
+                                    <div class="sec-left">
+                                        <h3>Got & Popular Categories</h3>
+                                    </div>
+                                    <div class="sec-right">
+                                        <a href="javascript:void(0);" class="btn-br-more">Browse More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+    
+                                <div class="arrow_slide three_slide-dots arrow_middle">
+                                    
+                                    <!-- Single Slide -->
+                                    <div class="singles_items">
+                                        <div class="edu_cat">
+                                            <div class="pic">
+                                                <a class="pic-main" href="#" style="background-image:url(assets/img/course-7.jpg);"></a>
+                                            </div>
+                                            <div class="edu_data">
+                                                <h4 class="title"><a href="#">Finance & Accounting</a></h4>
+                                                <ul class="meta">
+                                                    <li class="video"><i class="ti-video-clapper"></i>23 Videos</li>
+                                                    <li class="lessions"><i class="ti-book"></i>54 Lessions</li>
+                                                </ul>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                    
+                                    <!-- Single Slide -->
+                                    <div class="singles_items">
+                                        <div class="edu_cat">
+                                            <div class="pic">
+                                                <a class="pic-main" href="#" style="background-image:url(assets/img/course-8.jpg);"></a>
+                                            </div>
+                                            <div class="edu_data">
+                                                <h4 class="title"><a href="#">Gym & Lifestyle</a></h4>
+                                                <ul class="meta">
+                                                    <li class="video"><i class="ti-video-clapper"></i>23 Videos</li>
+                                                    <li class="lessions"><i class="ti-book"></i>54 Lessions</li>
+                                                </ul>
+                                            </div>
+                                        </div>		
+                                    </div>
+                                    
+                                    <!-- Single Slide -->
+                                    <div class="singles_items">
+                                        <div class="edu_cat">
+                                            <div class="pic">
+                                                <a class="pic-main" href="#" style="background-image:url(assets/img/course-9.jpg);"></a>
+                                            </div>
+                                            <div class="edu_data">
+                                                <h4 class="title"><a href="#">Health & Fitness</a></h4>
+                                                <ul class="meta">
+                                                    <li class="video"><i class="ti-video-clapper"></i>23 Videos</li>
+                                                    <li class="lessions"><i class="ti-book"></i>54 Lessions</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Single Slide -->
+                                    <div class="singles_items">
+                                        <div class="edu_cat">
+                                            <div class="pic">
+                                                <a class="pic-main" href="#" style="background-image:url(assets/img/course-10.jpg);"></a>
+                                            </div>
+                                            <div class="edu_data">
+                                                <h4 class="title"><a href="#">Software & Development</a></h4>
+                                                <ul class="meta">
+                                                    <li class="video"><i class="ti-video-clapper"></i>23 Videos</li>
+                                                    <li class="lessions"><i class="ti-book"></i>54 Lessions</li>
+                                                </ul>
+                                            </div>
+                                        </div>		
+                                    </div>
+                                    
+                                    <!-- Single Slide -->
+                                    <div class="singles_items">
+                                        <div class="edu_cat">
+                                            <div class="pic">
+                                                <a class="pic-main" href="#" style="background-image:url(assets/img/course-11.jpg);"></a>
+                                            </div>
+                                            <div class="edu_data">
+                                                <h4 class="title"><a href="#">Business Development</a></h4>
+                                                <ul class="meta">
+                                                    <li class="video"><i class="ti-video-clapper"></i>23 Videos</li>
+                                                    <li class="lessions"><i class="ti-book"></i>54 Lessions</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </div>
+    
+                        </div>
+                        
+                    </div>
+                </section>
+                <!-- ============================ Featured Category End ================================== -->
+                
+                <!-- ========================== Articles Section =============================== -->
+                <section>
+                    <div class="container">
+                    
+                        <div class="row justify-content-center">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="sec-heading-flex">
+                                    <h2 class="pl-2">Recent Articles</h2>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                                    
+                            <!-- Single Article -->
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="articles_grid_style">
+                                    <div class="articles_grid_thumb">
+                                        <a href="blog-detail.html"><img  src="../../../static/assets_course_detail/img/b-1.jpg" class="img-fluid" alt="" /></a>
+                                    </div>
+                                    
+                                    <div class="articles_grid_caption">
+                                        <h4>The National Minimum wage is an important part</h4>
+                                        <div class="articles_grid_author">
+                                            <div class="articles_grid_author_img"><img  src="../../../static/assets_course_detail/img/user-1.jpg" class="img-fluid" alt="" /></div>
+                                            <h4>Adam Willsone</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Single Article -->
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="articles_grid_style">
+                                    <div class="articles_grid_thumb">
+                                        <a href="blog-detail.html"><img  src="../../../static/assets_course_detail/img/b-2.jpg" class="img-fluid" alt="" /></a>
+                                    </div>
+                                    
+                                    <div class="articles_grid_caption">
+                                        <h4>The National Minimum wage is an important part</h4>
+                                        <div class="articles_grid_author">
+                                            <div class="articles_grid_author_img"><img  src="../../../static/assets_course_detail/img/user-2.jpg" class="img-fluid" alt="" /></div>
+                                            <h4>Rikki Sen</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Single Article -->
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="articles_grid_style">
+                                    <div class="articles_grid_thumb">
+                                        <a href="blog-detail.html"><img  src="../../../static/assets_course_detail/img/b-3.jpg" class="img-fluid" alt="" /></a>
+                                    </div>
+                                    
+                                    <div class="articles_grid_caption">
+                                        <h4>The National Minimum wage is an important part</h4>
+                                        <div class="articles_grid_author">
+                                            <div class="articles_grid_author_img"><img  src="../../../static/assets_course_detail/img/user-3.jpg" class="img-fluid" alt="" /></div>
+                                            <h4>Daniel Wikjones</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </section>
+                <!-- ========================== Articles Section =============================== -->
+                            
+
+   <!-- ============================== Start Newsletter ================================== -->
+{% include 'publicpages/newsletter.html' %}
+<!-- ================================= End Newsletter =============================== -->
+
+
+<!-- Log In Modal -->
+{% include 'publicpages/modal.html' %}
+<!-- end modal -->
+{% include "publicpages/footer.html" %}
+  
+<a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
+
+ 
+
+</div>
+  
+  
+
+
+
+<script>
+        /**
+         *  Function will call AJAX function to enroll into a specific course for the
+         *  current logged on user.
+         */
+        function ajax_enroll(course_id)
+        {
+            var url = 'enroll';
+    
+            $.ajax( url, {
+               data: {
+                   'course_id' : course_id,
+                   'csrfmiddlewaretoken': '{{ csrf_token }}',
+               },
+               type: 'post',
+               success: function(result) {
+                   // success code execution here
+                   if (result.status == 'success')
+                   {
+                       window.location = 'course/' + course_id + '/announcements';
+                   }
+               },
+               error: function(xhr,status,error) {
+                   // error code here
+               },
+               complete: function(xhr,status) {
+                   // completion code here
+               }
+            });
+        }
+    </script>
+    
+    
+
+{% include "publicpages/js/js.html" %}  
+<div id="ajax_response_login"></div>
+<div id="ajax_response_register"></div>
+<div id="ajax_logout"></div>
+<div id="fb-root"></div>
+{% endblock content %}
+
+
+    
+    
+
+
+
+          <!-- <button type="button" class="btn btn-info btn-rounded mt-4" data-toggle="modal" data-target="#modalSubmitProject">
+            edit Profile <i class="far fa-image ml-1"></i></button> -->
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
