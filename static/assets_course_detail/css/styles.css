@@ -4336,8 +4336,8 @@ li.login-attri .account-drop a {
 .cources_price {
     position: absolute;
     top: 15px;
-    left: 15px;
-    background: #ffffff;
+ 
+    background: #9c27b0;
     padding: 4px 15px;
     border-radius: 2px;
     box-shadow: 0px 0px 0px 4px rgba(255, 255, 255,0.2);

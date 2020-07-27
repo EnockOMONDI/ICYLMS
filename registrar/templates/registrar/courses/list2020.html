@@ -51,49 +51,146 @@
                                 </div>
                             </div>
                         </div>
-                        {% include 'registrar/courses/course_row.html' %}
+                        
+
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-    
-                                <div class="arrow_slide three_slide arrow_middle">
-                
+
+        
+                                <div class="arrow_slide four_slide arrow_middle">
+                                        <div class="singles_items ">
+                                                <div class="card" style=" box-shadow: 0 8px 16px 0 #c5c5c5; padding:10px; border-radius: 6px;">
+
+                                                <div class="card-header card-header-image" >                                            
+                                                        <div class="education_block_thumb n-shadow">
+                                                                {% if course.image != None and course.image != '' %}
+                                                            <a href="course-detail.html"><img  src="{{ course.image.url }}"  class="img-fluid" alt=""></a>
+                                                            {% else %}
+                                                            <a href="course-detail.html"> <img src="static/img/dummy.png" class="img-fluid" alt=""></a>
+                                                            <!-- Missing Image! -->
+                                                        {% endif %}
+                                                            <div>
+                                                                 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="education_block_body">
+                                                        <h4 ><a href="course-detail.html">The Complete Business Plan Course (Includes 50 Templates)</a></h4>
+                                                    </div>
+                                                    
+                                                    <div class="cources_facts">
+                                                        <ul class="cources_facts_list">
+                                                            <li class="facts-1">Expert</li>
+                                                            <li class="facts-2">Professional</li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                    <div class="education_block_footer">
+                                                            <div class="education_block_author">
+                                                                <div class="path-img"><a href="instructor-detail.html"><img src="assets/img/user-2.jpg" class="img-fluid" alt=""></a></div>
+                                                                <h5><a href="instructor-detail.html">Savitha Tripathi</a></h5>
+                                                            </div>
+                                                            <span class="education_block_time"><i class="ti-calendar mr-1"></i>20 min ago</span>
+                                                        </div>
+                                                    <div class="cources_info">
+                                                        <!-- <div class="cources_info_first">
+                                                            <ul>
+                                                                <li><strong>2,25684 Views</strong></li>
+                                                                <li class="theme-cl">4h 30min</li>
+                                                            </ul>
+                                                        </div> -->
+                                                        <div class="cources_info_last">
+                                                                <button onclick="ajax_enroll('{{ course.id }}');"
+                                                                type="button"
+                                                         {% if teacher == course.teacher %}
+                                                            disabled=""
+                                                         {% endif %}
+                                                         {% if student not in course.students.all %}
+                                                                  id="view_{{ course.id }}_btn"
+                                                               name="view_{{ course.id }}_btn"
+                                                               style="background-color:#131b31;"
+                                                               class="btn btn-sm btn-info"
+                                                              >
+                                                           
+                                                               <i class="fa fa-pencil"></i> Enroll 
+                                                         {% else %}
+                                                         style="background-color:#131b31;"
+                                                               class="btn btn-lg btn-warning">
+                                                             <i class="fa fa-level-down"></i> Continue
+                                                         {% endif %}
+                                                     </button>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="education_block_footer">
+                                                        <div class="education_block_author">
+                                                            <div class="path-img"><a href="instructor-detail.html"><img src="assets/img/user-2.jpg" class="img-fluid" alt=""></a></div>
+                                                            <h5><a href="instructor-detail.html">Savitha Tripathi</a></h5>
+                                                        </div>
+                                                        <span class="education_block_time"><i class="ti-calendar mr-1"></i>20 min ago</span>
+                                                    </div>
+                                                    
+                                                </div>	
+                                            </div>
                                     <!-- Single Slide -->
                                     {% for course in courses %}
                                     <div class="singles_items">
                                         <div class="education_block_grid style_2">
                                             <div class="education_block_thumb n-shadow">
                                                     {% if course.image != None and course.image != '' %}
-                                                <a href="course-detail.html"><img  src="{{ course.image.url }}" class="img-fluid" alt=""></a>
+                                                <a href="course-detail.html"><img  src="{{ course.image.url }}"  class="img-fluid" alt=""></a>
                                                 {% else %}
-                                                <a href="course-detail.html"> <img src="static/img/dummy.png"  class="img-fluid" alt=""></a>
+                                                <a href="course-detail.html"> <img src="static/img/dummy.png" class="img-fluid" alt=""></a>
                                                 <!-- Missing Image! -->
                                             {% endif %}
                                                 <div class="cources_price">Free</div>
                                             </div>
                                             
                                             <div class="education_block_body">
-                                                <h4 class="bl-title"><a href="course-detail.html">{{ course.title }}</a></h4>
-                                            </div>
-                                            <div class="education_block_body">
-                                                    <h4 class="bl-title"><a href="course-detail.html">{{ course.title }}</a></h4>
+                                                    <h4 class="bl-title"><a href="course-detail.html">The Complete Business Plan Course (Includes 50 Templates)</a></h4>
                                                 </div>
-                                                <h5>{{ course.description }}</h5>
-                                            
-                                            <div class="cources_info_style3">
-                                                <ul>
-                                                    <li><i class="ti-eye mr-2"></i>9882 Views</li>
-                                                    <li><i class="ti-time mr-2"></i>{{ course.start_date }} to {{ course.finish_date }}</li>
-                                                    <li><i class="ti-star text-warning mr-2"></i>4.7 Reviews</li>
-                                                </ul>
-                                            </div>
-                                            
-                                            <div class="education_block_footer">
-                                                <div class="education_block_author">
-                                                    <div class="path-img"><a href="instructor-detail.html"><img  src="../../../static/assets_course_detail/img/user-2.jpg" class="img-fluid" alt=""></a></div>
-                                                    <h5><a href="instructor-detail.html">Shruti Hasan</a></h5>
+                                                
+                                                <div class="cources_facts">
+                                                    <ul class="cources_facts_list">
+                                                        <li class="facts-1">Expert</li>
+                                                        <li class="facts-2">Professional</li>
+                                                        <li class="facts-5">Design</li>
+                                                    </ul>
                                                 </div>
-                                                <div class="foot_lecture"><i class="ti-control-skip-forward mr-2"></i>26 lectures</div>
-                                            </div>
+                                                
+                                                <div class="cources_info">
+                                                    <div class="cources_info_first">
+                                                        <ul>
+                                                            <li><strong>2,25684 Views</strong></li>
+                                                            <li class="theme-cl">4h 30min</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="cources_info_last">
+                                                            <button onclick="ajax_enroll('{{ course.id }}');"
+                                                            type="button"
+                                                     {% if teacher == course.teacher %}
+                                                        disabled=""
+                                                     {% endif %}
+                                                     {% if student not in course.students.all %}
+                                                              id="view_{{ course.id }}_btn"
+                                                           name="view_{{ course.id }}_btn"
+                                                           class="btn btn-lg btn-info">
+                                                             <i class="fa fa-pencil"></i> Enroll 
+                                                     {% else %}
+                                                           class="btn btn-lg btn-warning">
+                                                         <i class="fa fa-level-down"></i> Continue
+                                                     {% endif %}
+                                                 </button>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="education_block_footer">
+                                                    <div class="education_block_author">
+                                                        <div class="path-img"><a href="instructor-detail.html"><img src="assets/img/user-2.jpg" class="img-fluid" alt=""></a></div>
+                                                        <h5><a href="instructor-detail.html">Savitha Tripathi</a></h5>
+                                                    </div>
+                                                    <span class="education_block_time"><i class="ti-calendar mr-1"></i>20 min ago</span>
+                                                </div>
                                         </div>
                                     </div>
                                     
@@ -103,7 +200,7 @@
                             </div>
     
                         </div>
-                        
+                     
                     </div>
                 </section>
                 <!-- ============================ Featured Courcses End ================================== -->
