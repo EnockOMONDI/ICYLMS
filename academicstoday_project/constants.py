@@ -1,6 +1,32 @@
 # JavaScript Libraries
-#                                 
+#
+SB_ADMIN_2020UI_CSS_LIBRARY_URLS = [
 
+                            "assets/css/bootstrap.min.css", 
+                            "assets/fonts/all.min.css" ,
+                            "assets/fonts/line-icons/line-icons.css",
+                            "assets/extras/animate.css",
+                            "assets/extras/owl.carousel.css",
+                            "assets/extras/owl.theme.css",
+                            "assets/css/slicknav.min.css",
+                            "assets/css/responsive.css",
+                            "assets/css/main.css",
+]                              
+SB_ADMIN_2020UI_JS_LIBRARY_URLS = [
+                           "assets/js/jquery-min.js",
+                           "assets/js/popper.min.js",
+                           "assets/js/bootstrap.min.js",
+                           "assets/js/jquery.parallax.js",
+                           "assets/js/owl.carousel.min.js",
+                           "assets/js/jquery.slicknav.js",
+                           "assets/js/wow.js",
+                           "assets/js/jquery.counterup.min.js", 
+                           "assets/js/waypoints.min.js",
+                           "assets/js/form-validator.min.js ",   
+                           "assets/js/contact-form-script.js",
+                           "assets/js/main.js",
+
+]
 SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS =[
                               "assets_course_detail/css/styles.css",
                               "assets_course_detail/css/colors.css",
