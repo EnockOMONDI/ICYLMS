@@ -54,9 +54,9 @@ class RegisterForm(forms.Form):
         }),
         required=True,
     )
-    is_18_or_plus = forms.BooleanField(
-        required=False
-    )
+    # is_18_or_plus = forms.BooleanField(
+    #     required=False
+    # )
     # captcha = CaptchaField()
 
     # Functions

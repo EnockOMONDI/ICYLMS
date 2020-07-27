@@ -1,118 +1,113 @@
 {% extends 'login/base.html' %}
 {% load staticfiles %}
 {% block content %}
-<nav  class="navbar navbar-transparent  fixed-top   navbar-expand-lg " color-on-scroll="100" id="sectionsNav" >
-        <!-- style=" box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); " -->
-      <div class="container" >
-        <div class="navbar-translate">
-            <a>
-              <img src="{% static 'img/logos/logo2.jpg' %}" alt="" style="width:80px; height:80px;  ">
-            </a>               
-            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="sr-only">Toggle navigation</span>
-               <span class="navbar-toggler-icon"></span>
-               <span class="navbar-toggler-icon"></span>
-               <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-         <div class="collapse navbar-collapse">
-             <ul class="navbar-nav ml-auto"> 
-            
+<br><br>
+  <div class="container ">
+    <div class="row justify-content-center ">
+      
+      <div class="col-lg-4 col-md-12 col-xs-12 ">
+
           
-
-      <div class="card-stats justify-content-center">
-                        <a href="/landpageprod" class="btn btn-primary btn-block pull-right" > Back to home </a>
-                      </div>
+           <div class="usercontent text-center">
+                
+                <figure>
+                    <a href="#"><img class="-img-fluid" src="{% static 'assets_course_detail/img/ladalogo.png' %}" style="width:32%; " alt="THELADAlogo"></a>
+                  </figure>
                
-              
-           
-  
-  
-  
-  
-     
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!--  -->
-<div class="page-header header-filter" style="background-image: url('../assets/img/bg7.jpg'); background-size: cover; background-position: top center;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-          <form method="post"
-          action='/login'
-            name="loginForm">
-
-            <div class="card card-login card-hidden">
-              <div class="card-header card-header-primary text-center">
-                <h4 class="card-title">Login to view site</h4>
-                
-              </div>
-              <div class="card-body ">
-            
-                <span class="bmd-form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons">email</i>
-                      </span>
-                    </div>
-                    <input type="text" class="form-control" name="login_username" id="login_username" placeholder="Enter Email" autocorrect="off" autocapitalize="none">
-
-                  </div>
-                </span>
-                <span class="bmd-form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons">lock_outline</i>
-                      </span>
-                    </div>
-                    <input type="password" class="form-control" name="login_password" id="login_password" placeholder="Enter Password">
-
-                </div>
-                </span>
-              </div>
-              <div class="modal-footer justify-content-center">
-                    <button onclick="ajax_authenticate();"
-                                type="button"
-                                class="btn btn-primary btn-round">Sign in
-                  </button> 
-                  <a href="#">Forgot Password</a>
-
-                
-                 
-                </div>
-                <div class="modal-footer justify-content-center">
-                   
-                      <a href="/redirected-register">Dont have an account? <strong>Register</strong></a>
-                    
-                     
-                    </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <footer class="footer">
-        <div class="container">
-            
-              <div class="copyright">
-                      Copyright &#xA9;
-                      <script>
-                        document.write(new Date().getFullYear())
-                      </script> Leadership and Development Academy.
-
-                <br> 
-                  <a style="color:#8293f5"   href="http://www.brainlabs.co.ke/"> Powered by
-                  Brain Labs Kenya
-                  </a> 
-                    </div>
-        </div>
-      </footer>
-   
+            </div> 
+        
+      
+        <div class="page-login-form box ">
  
+          <h3 style=" font-size:32px" >
+              <span style=" font-size:30px; "><h6>Login </h6></span> <br>
+          <span> 
+          <a class="linkedin" style="color:#131b31" target="_blank" data-original-title="linkedin" href="#" data-toggle="tooltip" data-placement="top"><i class="fab fa-linkedin"></i></a> 
+          </span> 
+          <a style="color:#131b31; " class="google" target="_blank" data-original-title="google-plus" href="#" data-toggle="tooltip" data-placement="top"><i class="fab fa-google-plus"></i></a>
+       
+          </h3 >
+     
+          {% if messages %}
+          {% for message in messages %}
+        
+
+
+          <div class="alert {{ message.error}} alert-dismissible alert-success fade show" role="alert">
+              <strong>Opps, </strong> {{ message }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+          <div class="alert {{ message.success}} alert-dismissible alert-success fade show" role="alert">
+                              <strong>Perfect, {{user.first_name}} </strong> {{ message }}
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+          {% endfor %}
+          {% endif %}
+          <div id="error_box" name="error_box" class="alert alert-danger alert-dismissable" hidden="true">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            ERROR: This is to be filled in by the "print_error" function. If you see this message that means there's an error with your javascript somewhere.
+        </div>
+          <form role="form" class="login-form">
+            <div class="form-group">
+              <div class="input-icon">
+                <i class="icon fas fa-user"></i>
+                <input  type="text" class="form-control" name="login_username" id="login_username" placeholder="Enter Email" autocorrect="off" autocapitalize="none">
+              </div>
+            </div> 
+            <div class="form-group">
+              <div class="input-icon">
+                <i class="icon fas fa-unlock-alt"></i>
+                <input type="password" class="form-control" name="login_password" id="login_password" placeholder="Enter Password">
+              </div>
+            </div>                  
+            <!-- <div class="checkbox">
+              <input type="checkbox" id="remember" name="rememberme" value="forever" style="float: left;">
+              <label for="remember">Remember me</label>
+            </div> -->
+         
+          </form>
+          {% if request.GET.next %}
+          <input type="hidden" name="next" value="{{ request.GET.next }}" >                  
+          {% endif %}   
+          <div class="modal-footer justify-content-center">
+            <button style="background-color:
+            #131b31 ;font-size: 20px;" onclick="ajax_authenticate();"
+                        type="button"
+                        class="btn btn-common ">Sign in
+          </button> 
+     
+        </div>
+       
+          <ul class="form-links">
+            <li class="float-right"><a href="/forgot_password">Lost your password?</a></li>
+            <li class="float-left"><a  href="/redirected-registration">Don't have an account?</a></li>
+
+          </ul>
+          <br> 
+    
+        </div>
+        <br>    
+        <div class=" justify-content-center text-center" >
+          <h6> THE LADA  Copyright <script>
+           document.write(new Date().getFullYear())
+         </script> &#xA9; </h6>
+      
+   
+   
+       </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
 
 
 
@@ -162,7 +157,7 @@
                             $('#login_modal').modal('hide');
                    
                             // Load up the course list.
-                            window.location = '/payment';
+                            window.location = '/home_page';
                        }
                        else
                        {
@@ -205,8 +200,7 @@
             }
         </script>
         
-
-
+     
 
 
 
