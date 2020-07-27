@@ -699,27 +699,7 @@ Each learner will be expected as an individual or a group of fellows to come up 
 <div class="modal-body">
 <h4 class="modal-header-title">Log In</h4>
 <div class="login-form">
-        {% if messages %}
-        {% for message in messages %}
-        <div class="alert {{ message.error}} alert-dismissible alert-success fade show" role="alert">
-                <strong>Opps, </strong> {{ message }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-  
-            <div class="alert {{ message.success}} alert-dismissible alert-success fade show" role="alert">
-                                <strong>Perfect, {{user.first_name}} </strong> {{ message }}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-            {% endfor %}
-            {% endif %}
-            <div id="error_box" name="error_box" class="alert alert-danger alert-dismissable" hidden="true">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-              ERROR: This is to be filled in by the "print_error" function. If you see this message that means there's an error with your javascript somewhere.
-          </div>
+
 <form  role="form" class="login-form">
 
 <div class="form-group">
@@ -771,30 +751,60 @@ Each learner will be expected as an individual or a group of fellows to come up 
 <div class="modal-body">
 <h4 class="modal-header-title">Sign Up</h4>
 <div class="login-form">
-<form>
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert {{ message.error}} alert-dismissible alert-success fade show" role="alert">
+                <strong>Opps, </strong> {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+  
+            <div class="alert {{ message.success}} alert-dismissible alert-success fade show" role="alert">
+                                <strong>Perfect, {{user.first_name}} </strong> {{ message }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+            {% endfor %}
+            {% endif %}
+            <div id="error_box" name="error_box" class="alert alert-danger alert-dismissable" hidden="true">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              ERROR: This is to be filled in by the "print_error" function. If you see this message that means there's an error with your javascript somewhere.
+          </div>
+            <form enctype="multipart/form-data" class="login-form" name="register_form"  id="register_form" >
 
 <div class="form-group">
-<input type="text" class="form-control" placeholder="Full Name">
+<input type="text" class="form-control" required_id="id_first_name" id="id_first_name" name="first_name">
+</div>
+<div class="form-group">
+        <input type="text" class="form-control" name="last_name" required_id="id_second_name" placeholder="Last name">
+        </div>
+
+<div class="form-group">
+  <input type="text" id="id_email" class="form-control" autocorrect="off" autocapitalize="none" required_id="id_email"name="email" placeholder="Email Address">
 </div>
 
 <div class="form-group">
-<input type="email" class="form-control" placeholder="Email">
+ <input  type="password" name='password' class="form-control" id='id_password' required_id='id_password'  placeholder="*******">
+
 </div>
 
 <div class="form-group">
-<input type="text" class="form-control" placeholder="Username">
-</div>
-
-<div class="form-group">
-<input type="password" class="form-control" placeholder="*******">
-</div>
+        <input style="box-shadow: 2px 4px 13px -1px rgba(160, 1, 88, 0.219);" type="password" name='password_repeated' id='id_password_repeated' required_id='id_password_repeated' class="form-control" placeholder="Retype Password">
+    </div>
 
 
-<div class="form-group">
-<button type="submit" class="btn btn-md full-width pop-login">Sign Up</button>
-</div>
+
 
 </form>
+<div class="form-group">
+        <button type="button"  onclick="ajax_register();" class="btn btn-md full-width pop-login">Sign Up</button>
+        </div>
+<div class="checkbox">
+        <input style="box-shadow: 2px 4px 13px -1px rgba(231, 0, 127, 0.356);" type="checkbox" id="remember" name="rememberme" value="forever" style="float: left;">
+        <label for="remember">By creating account you agree to The LADA  <a href=""  rel="noopener noreferrer">Terms & Conditions</a> </label>
+      </div>
 </div>
 <div class="text-center">
 <p class="mt-3"><i class="ti-user mr-1"></i>Already Have An Account? <a href="#" class="link">Go For LogIn</a></p>
@@ -805,10 +815,177 @@ Each learner will be expected as an individual or a group of fellows to come up 
 </div>
 <!-- End Modal -->
 
+  
 <a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
 
 
 </div>
+  
+  
+<script>
+    /**
+     * When the 'Enter' key is pressed, lets try login in.
+     */
+    $(document).bind("keypress.13", function(event) {
+        if ($('#register_modal').is(':visible')) {
+            if (event.which == 13) {
+                ajax_register();
+            }
+        }
+    });
+                 
+    //
+    // IMPORTANT:
+    //  The following block of code will run when finished running this modal.
+    //  Please put all jQuery unbinding code here.
+    //
+    // When this model hides, we will clear the contents of it.
+    $('#register_modal').on('hidden.bs.modal', function (e) {
+        $(document).unbind("keypress.key13");
+        $('#register_modal').remove();
+        $('#ajax_response_register').html('');
+    });
+    
+    /**
+     *  Function will call AJAX function to load the register.
+     */
+    function ajax_register()
+    {
+        // Only fetch the information on the register modal.
+        var $form = $('#register_form');
+        
+        // Send registration AJAX call to the server.
+        var url = 'register';
+        $.ajax( url, {
+            data: {
+               'first_name': $form.find('input[name="first_name"]').val(),
+               'last_name': $form.find('input[name="last_name"]').val(),
+               'email': $form.find('input[name="email"]').val(),
+               'password': $form.find('input[name="password"]').val(),
+               'password_repeated': $form.find('input[name="password_repeated"]').val(),
+               'is_18_or_plus': $('#id_is_18_or_plus').is(':checked'),
+               'captcha_0': $form.find('input[name="captcha_0"]').val(),
+               'captcha_1': $form.find('input[name="captcha_1"]').val(),
+               'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            type: 'POST',
+            success: function(json_result) {
+               // success code execution here
+               if (json_result.status == "success")
+               {
+                    // Send the username & password now that it's in the
+                    // registery and then login.
+                    ajax_authenticate(
+                        $form.find('input[name="email"]').val(),
+                        $form.find('input[name="password"]').val()
+                    );
+               }
+               else
+               {
+                    refresh_captcha();
+               
+                    // Make the hidden error box appear and display error.
+                    print_error(json_result.message);
+               }
+            },
+            error: function(xhr,status,error) {
+               // error code here
+               refresh_captcha();
+            },
+            complete: function(xhr,status) {
+               // completion code here
+            }
+        });
+    }
+
+    /**
+     *  Function will call AJAX function to load the register.
+     */
+    function ajax_authenticate(username, password)
+    {
+        var url = 'login';
+    
+        $.ajax( url, {
+            data: {
+               'username': username,
+               'password': password,
+               'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            type: 'post',
+            success: function(json_result) {
+               // success code execution here
+               if (json_result.status == "success")
+               {
+                    $('#register_modal').modal('hide');
+               
+                    // Load up the course list.
+                    window.location = 'welcome';
+               }
+               else
+               {
+                    alert(json_result.message);
+               }
+            },
+            error: function(xhr,status,error) {
+               // error code here
+            },
+            complete: function(xhr,status) {
+               // completion code here
+            }
+        });
+    }
+
+    /**
+     * Prints a error box with the contents of the errors received from the server.
+     */
+    function print_error(json_result)
+    {
+        $('#error_box').prop("hidden", false); // Display error box.
+        
+        // Iterate through the JSON array of arrays and generate an error string.
+        var message = "<b>Error(s):</b><hr/>";
+        var data = $.parseJSON(json_result)
+        for (var key in data) {
+            if (data.hasOwnProperty(key)) { // this will check if key is owned by data object and not by any of it's ancestors
+                message += "<p>" + key + ": " + data[key] + "<p>";
+            }
+        }
+        
+        // Replace the error string with the contents of the error box.
+        $('#error_box').html(message);
+    }
+
+  /**
+   * The following function will cause the captcha to refresh.
+   */
+  function refresh_captcha()
+  {
+      var url = location.protocol + "//" + window.location.hostname + ":"
+      + location.port + "/captcha/refresh/";
+      
+      // Make the AJAX-call
+      $.getJSON(url, {}, function(json) {
+                //var $form = $('modal-body').parents('register_form');
+                var $form = $('#register_form');
+                $form.find('input[name="captcha_0"]').val(json.key);
+                $form.find('img.captcha').attr('src', json.image_url);
+        });
+                
+        return false;
+  }
+
+    // Add refresh button after field (this can be done in the template as well)
+    $('img.captcha').after(
+        $('<a href="#void" class="captcha-refresh">Refresh</a>')
+    );
+                       
+    // Click-handler for the refresh-link
+    $('.captcha-refresh').click(function(){
+        refresh_captcha();
+    });
+</script>
+
+
 
 
 
