@@ -5,7 +5,7 @@ from account.views import profile
 from account.views import setting
 from account.views import donate
 from account.views import *
-
+app_name = "account"
 
 urlpatterns = [
     url(r'^send_email_message$', mail. email_users),

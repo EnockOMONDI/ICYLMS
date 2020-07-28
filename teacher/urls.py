@@ -15,7 +15,7 @@ from teacher.views import overview
 from teacher.views import discussion
 from teacher.views import peer_review
 from teacher.views import setting
-
+app_name="teacher"
 urlpatterns = [
     # Syllabus
     url(r'^teacher/course/(\d+)/overview$', overview.overview_page),

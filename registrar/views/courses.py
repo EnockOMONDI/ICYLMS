@@ -11,6 +11,7 @@ from landpage.models import CoursePreview
 from registrar.models import Student
 from registrar.models import Teacher
 from registrar.models import Course
+from registrar.models import Lecture
 from registrar.models import CourseFinalMark
 from registrar.models import CourseSetting
 from registrar.forms import CourseForm
@@ -44,7 +45,7 @@ def courses_page(request):
     except Teacher.DoesNotExist:
         teacher = None
 
-    return render(request, 'ecommerce_app/courses/courses.html',{
+    return render(request, 'ecommerce_app/courses/courses.html',context={
         'courses' : courses,
         'student' : student,
         'teacher' : teacher,
@@ -68,14 +69,18 @@ def course_detail(request, course_id):
         teacher = Teacher.objects.get(user=request.user)
     except Teacher.DoesNotExist:
         teacher = None
-    return render(request, 'ecommerce_app/courses/coursedetail.html',{
+    try:
+        lectures = Lecture.objects.filter(course_id=course_id).order_by('week_num', 'lecture_num')
+    except Lecture.DoesNotExist:
+        lectures = None
+    return render(request, 'ecommerce_app/courses/coursedetail.html',context= {
     'course' : course,
      'student' : student,
      'teacher' : teacher,
+     'lectures':lectures,
      'user' : request.user,
-     'local_css_urls' : settings.SB_ADMIN_COURSE_LIST_CSS_LIBRARY_URLS,
-    'local_js_urls' : settings.SB_ADMIN_COURSE_LIST_JS_LIBRARY_URLS
- })
+     'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
+    'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS })
          
 
 

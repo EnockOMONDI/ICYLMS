@@ -14,7 +14,7 @@ from student.views import exam
 from student.views import discussion
 from student.views import peer_review
 from student.views import credit
-
+app_name="student"
 urlpatterns = [
     # Announcement
     url(r'^course/(\d+)/announcements$', announcement.announcements_page),
