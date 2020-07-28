@@ -10,6 +10,7 @@ from registrar.views import certificate
 urlpatterns = [
     # Courses
     url(r'^courses$', courses.courses_page),
+    url(r'^course/(\d+)/$', courses.course_detail),
     url(r'^enroll$', courses.enroll),
 
     # Enrollment(s)

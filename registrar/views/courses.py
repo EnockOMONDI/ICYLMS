@@ -14,6 +14,8 @@ from registrar.models import Course
 from registrar.models import CourseFinalMark
 from registrar.models import CourseSetting
 from registrar.forms import CourseForm
+from registrar.models import Student
+from registrar.models import Teacher
 
 
 @login_required(login_url='/login_modal')
@@ -53,12 +55,28 @@ def courses_page(request):
         'local_js_urls' : settings.SB_ADMIN_COURSE_LIST_JS_LIBRARY_URLS
     })
 
-def course_detail(request):
+def course_detail(request, course_id):
+    course = Course.objects.get(id=course_id)
+    # Create our student account which will build our registration around.
+    try:
+         student = Student.objects.get(user=request.user)
+    except Student.DoesNotExist:
+         student = Student.objects.create(user=request.user)
+
+    # Only fetch teacher and do not create new teacher here.
+    try:
+        teacher = Teacher.objects.get(user=request.user)
+    except Teacher.DoesNotExist:
+        teacher = None
     return render(request, 'ecommerce_app/courses/coursedetail.html',{
-        'tab': 'coursedetail',
-     'local_css_urls' : SB_ADMIN_COURSE_LIST_CSS_LIBRARY_URLS,
-        'local_js_urls' : settings.SB_ADMIN_COURSE_LIST_JS_LIBRARY_URLS
-          })
+    'course' : course,
+     'student' : student,
+     'teacher' : teacher,
+     'user' : request.user,
+     'local_css_urls' : settings.SB_ADMIN_COURSE_LIST_CSS_LIBRARY_URLS,
+    'local_js_urls' : settings.SB_ADMIN_COURSE_LIST_JS_LIBRARY_URLS
+ })
+         
 
 
 @login_required()

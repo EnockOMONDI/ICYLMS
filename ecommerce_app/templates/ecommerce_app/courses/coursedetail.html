@@ -1,4 +1,6 @@
-
+{% extends 'ecommerce_app/courses/base.html' %}
+{% load static %}
+{% block content %}
     <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
         <div class="mdk-drawer-layout__content page-content">
 
@@ -1862,33 +1864,4 @@
     </div>
     <!-- // END drawer-layout -->
 
-    <!-- jQuery -->
-    <script src="assets/vendor/jquery.min.js"></script>
-
-    <!-- Bootstrap -->
-    <script src="assets/vendor/popper.min.js"></script>
-    <script src="assets/vendor/bootstrap.min.js"></script>
-
-    <!-- Perfect Scrollbar -->
-    <script src="assets/vendor/perfect-scrollbar.min.js"></script>
-
-    <!-- DOM Factory -->
-    <script src="assets/vendor/dom-factory.js"></script>
-
-    <!-- MDK -->
-    <script src="assets/vendor/material-design-kit.js"></script>
-
-    <!-- Fix Footer -->
-    <script src="assets/vendor/fix-footer.js"></script>
-
-    <!-- App JS -->
-    <script src="assets/js/app.js"></script>
-
-
-
-
-</body>
-
-
-<!-- Mirrored from luma.humatheme.com/boxed-student-course.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 22 Jul 2020 18:46:32 GMT -->
-</html>
+    {% endblock %}
