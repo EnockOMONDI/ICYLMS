@@ -42,16 +42,23 @@ def courses_page(request):
     except Teacher.DoesNotExist:
         teacher = None
 
-    return render(request, 'registrar/courses/list2020.html',{
+    return render(request, 'ecommerce_app/courses/courses.html',{
         'courses' : courses,
         'student' : student,
         'teacher' : teacher,
         'user' : request.user,
         'tab' : 'courses',
         'HAS_ADVERTISMENT': settings.APPLICATION_HAS_ADVERTISMENT,
-        'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
-        'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS
+        'local_css_urls' : settings.SB_ADMIN_COURSE_LIST_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_COURSE_LIST_JS_LIBRARY_URLS
     })
+
+def course_detail(request):
+    return render(request, 'ecommerce_app/courses/coursedetail.html',{
+        'tab': 'coursedetail',
+     'local_css_urls' : SB_ADMIN_COURSE_LIST_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_COURSE_LIST_JS_LIBRARY_URLS
+          })
 
 
 @login_required()
