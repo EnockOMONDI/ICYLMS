@@ -1,5 +1,45 @@
 # JavaScript Libraries
 #
+
+
+                              
+SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS =[
+                              "assets_course_detail/css/styles.css",
+                              "assets_course_detail/css/colors.css",
+                              ]
+SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS = [
+                               
+                               "assets_course_detail/js/jquery.min.js",
+                               "assets_course_detail/js/popper.min.js",
+                               "assets_course_detail/js/bootstrap.min.js",
+                               "assets_course_detail/js/select2.min.js",
+		                       "assets_course_detail/js/slick.js",
+		                       "assets_course_detail/js/jquery.counterup.min.js",
+		                       "assets_course_detail/js/counterup.min.js",
+		                       "assets_course_detail/js/custom.js",
+
+                               
+                              ] 
+SB_ADMIN_COURSE_DETAIL_CSS_PLUGINS_URLS =[
+                              "assets_course_detail/css/plugins/21.css",
+                              "assets_course_detail/css/plugins/22.css",
+                              "assets_course_detail/css/plugins/23.css",
+                              "assets_course_detail/css/plugins/24.css",
+                              "assets_course_detail/css/plugins/25.css",
+                              "assets_course_detail/css/plugins/26.css",
+                              "assets_course_detail/css/plugins/27.css",
+                              "assets_course_detail/css/plugins/28.css",
+                              "assets_course_detail/css/plugins/29.css",
+                              "assets_course_detail/css/plugins/210.css",
+                              "assets_course_detail/css/plugins/212.css",
+                              "assets_course_detail/css/plugins/213.css",
+                              "assets_course_detail/css/plugins/214.css",
+                              "assets_course_detail/css/plugins/215.css",
+                              "assets_course_detail/css/plugins/216.css",
+                        
+]
+
+
 SB_ADMIN_2020UI_CSS_LIBRARY_URLS = [
 
                             "assets/css/bootstrap.min.css", 
@@ -27,22 +67,8 @@ SB_ADMIN_2020UI_JS_LIBRARY_URLS = [
                            "assets/js/main.js",
 
 ]
-SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS =[
-                              "assets_course_detail/css/styles.css",
-                              "assets_course_detail/css/colors.css",
-                              ]
-SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS = [
-   
-                               "assets_course_detail/js/jquery.min.js",
-                                "assets_course_detail/js/popper.min.js",
-		                        "assets_course_detail/js/bootstrap.min.js",
-		                       "assets_course_detail/js/select2.min.js",
-		                       "assets_course_detail/js/slick.js",
-		                       "assets_course_detail/js/jquery.counterup.min.js",
-		                       "assets_course_detail/js/counterup.min.js",
-		                       "assets_course_detail/js/custom.js"
-                               
-                              ] 
+
+
 SB_ADMIN_COURSE_LIST_CSS_LIBRARY_URLS =[
                                         "assets_courses_list/vendor/perfect-scrollbar.css", 
                                         "assets_courses_list/vendor/fix-footer.css" ,

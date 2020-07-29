@@ -38,7 +38,10 @@
     {% for local_js_url in local_js_urls %}
           <script src="{% static local_js_url %}"></script>
     {% endfor %}
-
+    {% for local_plugins_url  in local_plugins_urls  %}
+    <script src="{% static local_plugins_url %}"></script>
+{% endfor %}
+    
 
 </body>
 </html>
