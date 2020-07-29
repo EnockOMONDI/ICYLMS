@@ -139,6 +139,7 @@ celerybeat-schedule
 .venv
 venv/
 ENV/
+virtual/
 
 # Spyder project settings
 .spyderproject
@@ -197,9 +198,12 @@ academicstoday_project/staticfiles
 
 academicstoday-env/
 *.cfg
-academicstoday_project/academicstoday_project/secret_settings.py
+# academicstoday_project/secret_settings_example.py
+# cademicstoday_project/secret_settings.py
+# academicstoday_project/settings.py
 virtual/
 
 
 *.pyc
 __pycache__
+academicstoday_project/secret_settings

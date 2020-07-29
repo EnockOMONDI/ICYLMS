@@ -1,7 +1,7 @@
 from django.contrib import admin
 # from registrar.models import Order, CartItem, LineItem
 from registrar.models import FileUpload
-from registrar.models import Course
+from registrar.models import Course,ShortCourse
 from registrar.models import CourseSubmission
 from registrar.models import CourseDiscussionPost
 from registrar.models import CourseDiscussionThread
@@ -69,6 +69,7 @@ admin.site.register(TrueFalseQuestion)
 admin.site.register(TrueFalseSubmission)
 admin.site.register(ResponseQuestion)
 admin.site.register(ResponseSubmission)
+admin.site.register(ShortCourse)
 # admin.site.register(Product, ProductAdmin)
 # admin.site.register(Order, OrderAdmin)
 # admin.site.register(CartItem, OrderItemAdmin)

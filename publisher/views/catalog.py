@@ -13,7 +13,7 @@ from publisher.models import Publication
 @login_required(login_url='/landpageprod')
 def catalog_page(request):
     publication_list = Publication.objects.all()
-    paginator = Paginator(publication_list, 25) # Show 25 courses per page
+    paginator = Paginator(publication_list, 4) # Show 25 courses per page
     page = request.GET.get('page')
     try:
         publications = paginator.page(page)

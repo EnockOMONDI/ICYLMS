@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.core import serializers
+from django.core.mail import send_mail
 
 import json
 from django.http import HttpResponse
@@ -10,8 +11,21 @@ from django.http import HttpResponse
 from django.conf import settings
 
 
+
 def login_modal(request):
     return render(request, 'login/modal.html',{
+         'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+          })
+
+def login_redirect(request):
+    return render(request, 'login/login.html',{
+         'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+          })
+
+def trainingbits_redirect(request):
+    return render(request, 'login/login2.html',{
          'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
         'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
           })

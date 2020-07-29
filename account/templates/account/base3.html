@@ -1,0 +1,96 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Leadership and development academy virtual classroom for learners ">
+        <meta name="keywords" content="Educational, teaching, courses, free, learning, courseware, course, online learning, online-learning, youtube lectures, lectures, lecture, exam, exams, essay, essays, tests, tests, quiz, quizzes">
+        <link rel="shortcut icon" type="image/jpg" href="{% static 'img/logos/logo2.jpg' %}"/> 
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <title>Leadership and Development Academy</title>
+     
+        {% for local_css_url in local_css_urls %}
+        <link rel="stylesheet" href="{% static local_css_url %}">
+    {% endfor %}
+<!--     
+    {% for local_js_url in local_js_urls %}
+        <script src="{% static local_js_url %}"></script>
+    {% endfor %} -->
+   
+
+   
+<!-- Place this tag in your head or just before your close body tag. -->
+<!-- <script async defer src="https://buttons.github.io/buttons.js"></script> -->
+<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+   <!-- //for bootstrap working -->
+   <link href="https://fonts.googleapis.com/css?family=Caveat|Gloria+Hallelujah|Handlee|Modak|Nanum+Pen+Script|Roboto|Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- adsence -->
+    <script data-ad-client="ca-pub-5398818708145454" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- adsence -->
+  <script>
+        UPLOADCARE_PUBLIC_KEY = 'd4d69f96f2e2dde353d1';
+        UPLOADCARE_EFFECTS = 'crop';
+        UPLOADCARE_PREVIEW_STEP = true;
+        UPLOADCARE_CLEARABLE = true;
+      </script>
+      
+      <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+      <script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.js"></script>
+      
+      <script>
+        uploadcare.registerTab('preview', uploadcareTabEffects)
+      </script>
+
+</head>
+<body class="index-page sidebar-collapse">
+
+       <!-- Scripts -->
+       {% csrf_token %}
+       <script>
+           
+           /**
+            *  Function will call AJAX function to load the login modal.
+            */
+       function ajax_logout()
+       {
+           var url = '/logout';
+           
+           $.ajax( url, {
+                  data: {
+                  'csrfmiddlewaretoken': '{{ csrf_token }}',
+                  },
+                  type: 'post',
+                  success: function(result) {
+                  // success code execution here
+                  window.location = 'landpageprod';
+                  },
+                  error: function(xhr,status,error) {
+                  // error code here
+                  },
+                  complete: function(xhr,status) {
+                  // completion code here
+                  }
+                  });
+       }
+       </script>
+        {% csrf_token %}
+        {% include "registrar/script.html" %}   
+{% block content %}
+
+
+{% endblock %}
+<!--   Core JS Files   -->
+{% include "productionpages/page/js.html" %}
+
+    {% for local_js_url in local_js_urls %}
+          <script src="{% static local_js_url %}"></script>
+    {% endfor %}
+
+
+</body>
+</html>

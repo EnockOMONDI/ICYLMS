@@ -6,6 +6,8 @@ import os
 from account.models import Student
 from account.models import Teacher
 from cloudinary.models import CloudinaryField
+from django.urls import reverse
+
 
 WORTH_PERCENT_CHOICES = (
     (0, '0 %'),
@@ -744,48 +746,21 @@ class CourseDiscussionThread(models.Model):
 
 
 
-# class CartItem(models.Model):
-#     cart_id = models.CharField(max_length=50)
-#     price = models.DecimalField(max_digits=7, decimal_places=2)
-#     quantity = models.IntegerField()
-#     date_added = models.DateTimeField(auto_now_add=True)
-#     course_id = models.ForeignKey(Course, on_delete=models.PROTECT)
+class ShortCourse(models.Model):
+    title = models.CharField(max_length=127)
+    slug = models.CharField(max_length=127)
+    description = models.TextField(null=True)
+    users=models.ManyToManyField(User)
+    
 
-#     def __str__(self):
-#         return "{}:{}".format(self.course.name, self.id)
+    def get_absolute_url(self):
+        return reverse('registrar:shortcourse_detail', args=[self.id])
 
-#     def update_quantity(self, quantity):
-#         self.quantity = self.quantity + quantity
-#         self.save()
-
-#     def total_cost(self):
-#         return self.quantity * self.price
+    @property
+    def total_users(self):
+        return self.users.count()
+    
 
 
-# class Order(models.Model):
-#     name = models.CharField(max_length=191)
-#     email = models.EmailField()
-#     postal_code = models.IntegerField()
-#     address = models.CharField(max_length=191)
-#     date = models.DateTimeField(auto_now_add=True)
-#     paid = models.BooleanField(default=False)
-
-#     def __str__(self):
-#         return "{}:{}".format(self.id, self.email)
-
-#     def total_cost(self):
-#         return sum([ li.cost() for li in self.lineitem_set.all() ] )
-
-
-# class LineItem(models.Model):
-#     order = models.ForeignKey(Order, on_delete=models.CASCADE)
-#     course = models.ForeignKey(Course, on_delete=models.CASCADE)
-#     price = models.DecimalField(max_digits=7, decimal_places=2)
-#     quantity = models.IntegerField()
-#     date_added = models.DateTimeField(auto_now_add=True)
-
-#     def __str__(self):
-#         return "{}:{}".format(self.course.name, self.id)
-
-#     def cost(self):
-#         return self.price * self.quantity
+    def __str__(self):
+        return self.title 

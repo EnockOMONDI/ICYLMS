@@ -1,0 +1,217 @@
+{% extends 'login/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<nav  class="navbar navbar-transparent  fixed-top   navbar-expand-lg " color-on-scroll="100" id="sectionsNav" >
+        <!-- style=" box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); " -->
+      <div class="container" >
+        <div class="navbar-translate">
+            <a>
+              <img src="{% static 'img/logos/logo2.jpg' %}" alt="" style="width:80px; height:80px;  ">
+            </a>               
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="navbar-toggler-icon"></span>
+               <span class="navbar-toggler-icon"></span>
+               <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+         <div class="collapse navbar-collapse">
+             <ul class="navbar-nav ml-auto"> 
+            
+          
+
+      <div class="card-stats justify-content-center">
+                        <a href="/landpageprod" class="btn btn-primary btn-block pull-right" > Back to home </a>
+                      </div>
+               
+              
+           
+  
+  
+  
+  
+     
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--  -->
+<div class="page-header header-filter" style="background-image: url('../assets/img/bg7.jpg'); background-size: cover; background-position: top center;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+          <form method="post"
+          action='/login'
+            name="loginForm">
+
+            <div class="card card-login card-hidden">
+              <div class="card-header card-header-primary text-center">
+                <h4 class="card-title">Login to view site</h4>
+                
+              </div>
+              <div class="card-body ">
+            
+                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">email</i>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" name="login_username" id="login_username" placeholder="Enter Email" autocorrect="off" autocapitalize="none">
+
+                  </div>
+                </span>
+                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">lock_outline</i>
+                      </span>
+                    </div>
+                    <input type="password" class="form-control" name="login_password" id="login_password" placeholder="Enter Password">
+
+                </div>
+                </span>
+              </div>
+              <div class="modal-footer justify-content-center">
+                    <button onclick="ajax_authenticate();"
+                                type="button"
+                                class="btn btn-primary btn-round">Sign in
+                  </button> 
+                  <a href="/forgot_password">Forgot Password</a>
+                  <a href="/redirected-registe"></a>
+                
+                 
+                </div>
+                <div class="modal-footer justify-content-center">
+                   
+                      <a href="/redirected-register">Dont have an account? <strong>Register</strong></a>
+                    
+                     
+                    </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            
+              <div class="copyright">
+                      Copyright &#xA9;
+                      <script>
+                        document.write(new Date().getFullYear())
+                      </script> Leadership and Development Academy.
+
+                <br> 
+                  <a style="color:#8293f5"   href="http://www.brainlabs.co.ke/"> Powered by
+                  Brain Labs Kenya
+                  </a> 
+                    </div>
+        </div>
+      </footer>
+   
+ 
+
+
+
+    <script>
+            /**
+             * When the 'Enter' key is pressed, lets try login in.
+             */
+            $(document).bind("keypress.13", function(event) {
+                if ($('#login_modal').is(':visible')) {
+                    if (event.which == 13) {
+                        ajax_authenticate();
+                    }
+                }
+            });
+            
+            //
+            // IMPORTANT:
+            //  The following block of code will run when finished running this modal.
+            //  Please put all jQuery unbinding code here.
+            //
+            // When this model hides, we will clear the contents of it.
+            $('#login_modal').on('hidden.bs.modal', function (e) {
+                $(document).unbind("keypress.key13");
+                $('#login_modal').remove();
+                $('#ajax_response_login').html('');
+            });
+            
+            /**
+             *  Function will call AJAX function to load the register.
+             */
+            function ajax_authenticate()
+            {
+                var url = 'login';
+        
+                $.ajax( url, {
+                    data: {
+                       'username': $("#login_username").val(),
+                       'password': $("#login_password").val(),
+                       'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    },
+                    type: 'post',
+                    success: function(json_result) {
+                    // success code execution here
+                       if (json_result.status == "success")
+                       {
+                            // Hide & close the current popup modal.
+                            $('#login_modal').modal('hide');
+                   
+                            // Load up the course list.
+                            window.location = '/payment';
+                       }
+                       else
+                       {
+                            alert(json_result.message);
+                       }
+                    },
+                    error: function(xhr,status,error) {
+                       // error code here
+                    },
+                    complete: function(xhr,status) {
+                       // completion code here
+                    }
+                });
+            }
+        
+            /**
+             *  TODO: Implement.
+             */
+            function ajax_forget_password()
+            {
+                var url = 'forget_password';
+            
+                $.ajax( url, {
+                    data: {
+                       'csrfmiddlewaretoken': '{{ csrf_token }}',
+                    },
+                    type: 'post',
+                    success: function(result) {
+                       // success code execution here
+                       $('#ajax_response_register').html(result); // Update UI.
+                       $('#register_modal').modal();               // Unhide view.
+                    },
+                    error: function(xhr,status,error) {
+                       // error code here
+                    },
+                    complete: function(xhr,status) {
+                       // completion code here
+                    }
+                });
+            }
+        </script>
+        
+
+
+
+
+
+          {% include "landpage/main/js.html" %}  
+          <div id="ajax_response_login"></div>
+          <div id="ajax_response_register"></div>
+          <div id="ajax_logout"></div>
+  {% endblock content %}

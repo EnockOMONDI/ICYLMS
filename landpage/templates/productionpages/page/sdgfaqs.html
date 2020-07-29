@@ -2,69 +2,7 @@
 
 {% load staticfiles %}
 {% block content %}
-
-<nav  class="navbar  bg-white fixed-top   navbar-expand-lg " color-on-scroll="100" id="sectionsNav" >
-
-<!-- <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav"> -->
-        <div class="container">
-          <div class="navbar-translate">
-              <a>
-                  <img src="{% static 'img/logos/logo2.jpg' %}" alt="" style="width:80px; height:80px;  ">
-                </a>  
-            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="navbar-toggler-icon"></span>
-              <span class="navbar-toggler-icon"></span>
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-
-          
-             
-              <li class="button-container nav-item iframe-extern">
-                <a href="/landpageprod" class="btn  btn-primary   btn-round btn-block">
-                    Back to home
-                </a>
-              </li>
-            
-          
-            
-                  <li>
-                      <div class="dropdown ">
-                          {% if request.user.is_authenticated %}
-                         
-                        <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          {{ user.first_name }} {{ user.last_name }}
-                        </button>
-                        <div class="dropdown-menu dropdown-with-icons" >
-                        <a class="dropdown-item" href="view/profile" ><i class="material-icons">person_add</i>  Profile
-                        </a>
-                        <a class="dropdown-item"  onclick="ajax_logout();"><i class="material-icons">person_add</i> Logout
-                        </a>
-                      </div>   
-                        {% else %}
-                        <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          My Account      
-                        </button>
-                        <div class="dropdown-menu dropdown-with-icons" >
-                          <a class="dropdown-item" onclick="ajax_popup_register();"><i class="material-icons">person_add</i>  student Sign up
-                          </a>
-                         <a class="dropdown-item" onclick="ajax_popup_login();" ><i class="material-icons">person_add</i>  student Login
-                        </a>
-                        {% endif %}
-                       
-                        </div>
-                      </div>
-        
-                </li>
-    
-           
-            </ul>
-          </div>
-        </div>
-      </nav>
+{% include "productionpages/nav.html" %}
 
 
 
@@ -154,74 +92,7 @@
 
 
 
-    
-    <footer class="footer footer-black footer-big" >
-            <div class="container">
-              <div class="content">
-                <div class="row">
-                  <div class="col-md-4">
-                    <h5>About Us</h5>
-                    <p>The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as ForMission College, accredited by York St John University and Newman University in Birmingham, Africa for SDGs and ICY AFRICA which runs the Springdale Foundation and other global partners.
-                    </p>
-                  </div>
-                  <div class="col-md-4">
-                    <h5>Social Feed</h5>
-                    <div class="social-feed">
-                      <div class="feed-line">
-                        <i class="fa fa-twitter"></i>
-                        <p>.</p>
-                      </div>
-                      <div class="feed-line">
-                        <i class="fa fa-twitter"></i>
-                        <p>.</p>
-                      </div>
-                      <div class="feed-line">
-                        <i class="fa fa-facebook-square"></i>
-                        <p>.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <h5>Trending Topics</h5>
-                    <div class="gallery-feed">
-                      <img src="assets/img/faces/card-profile6-square.jpg" class="img img-raised rounded" alt="">
-                      <img src="assets/img/faces/christian.jpg" class="img img-raised rounded" alt="">
-                      <img src="assets/img/faces/card-profile4-square.jpg" class="img img-raised rounded" alt="">
-                      <img src="assets/img/faces/card-profile1-square.jpg" class="img img-raised rounded" alt="">
-                      <img src="assets/img/faces/marc.jpg" class="img img-raised rounded" alt="">
-                      <img src="assets/img/faces/kendall.jpg" class="img img-raised rounded" alt="">
-                      <img src="assets/img/faces/card-profile5-square.jpg" class="img img-raised rounded" alt="">
-                      <img src="assets/img/faces/card-profile2-square.jpg" class="img img-raised rounded" alt="">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr>
-              <ul class="float-left">
-                <li>
-                  <a href="#pablo">
-                  FAQS
-                  </a>
-                </li>
-                <li>
-                  <a href="#pablo">
-                    Payment
-                  </a>
-                </li>
-                <li>
-                  <a href="#pablo">
-                    Contact Us
-                  </a>
-                </li>
-              </ul>
-              <div class="copyright float-right">
-                Copyright &#xA9;
-                <script>
-                  document.write(new Date().getFullYear())
-                </script> Leadership and Development Academy.
-              </div>
-            </div>
-          </footer>  
+      {% include "productionpages/page/footer.html" %} 
           {% include "landpage/main/js.html" %}  
           <div id="ajax_response_login"></div>
           <div id="ajax_response_register"></div>

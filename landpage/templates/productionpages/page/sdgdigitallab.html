@@ -1,188 +1,156 @@
-{% extends 'productionpages/basewithbgvendors.html' %}
 
+{% extends 'productionpages/baseabout.html' %}
 {% load staticfiles %}
 {% block content %}
 
-<nav  class="navbar  bg-white fixed-top   navbar-expand-lg slidd" color-on-scroll="100" id="sectionsNav" >
-    <!-- style=" box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); " -->
-  <div class="container" >
-    <div class="navbar-translate">
-        <a>
-          <img src="{% static 'img/logos/logo2.jpg' %}" alt="" style="width:80px; height:80px;  ">
-        </a>               
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-           <span class="sr-only">Toggle navigation</span>
-           <span class="navbar-toggler-icon"></span>
-           <span class="navbar-toggler-icon"></span>
-           <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-     <div class="collapse navbar-collapse">
-         <ul class="navbar-nav ml-auto"> 
-            <li class="dropdown nav-item">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                           Our story
-                </a>
-                <div class="dropdown-menu dropdown-with-icons">
-                  <a href="/aboutus"   class="dropdown-item">
-                    <i class="material-icons">line_style</i>Who we are
-                  </a>
-                  <!-- <a href=""  class="dropdown-item">
-                    <i class="material-icons">line_style</i> What we do 
-                  </a> -->
-                  <!-- <a href=""  class="dropdown-item">
-                    <i class="material-icons">content_paste</i> FAQs
-                  </a> -->
-                </div>
-              </li>     
-      
-
-          <li class="dropdown nav-item">
-              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                <!-- <i class="material-icons">apps</i> Components --> How it works
-              </a>
-              <div class="dropdown-menu dropdown-with-icons">
-                <a href="/enrollnow"  class="dropdown-item">
-                  <i class="material-icons">layers</i>How to enroll
-                </a>
-                <a href="/studentfaqs"  class="dropdown-item">
-                  <i class="material-icons">content_paste</i> FAQs
-                </a>
-              </div>
-            </li>
-        <li class="dropdown nav-item">
-          <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-            <!-- <i class="material-icons">apps</i> Components --> Benefits
-          </a>
-          <div class="dropdown-menu dropdown-with-icons">
-            <a href="/benefits"  class="dropdown-item">
-              <i class="material-icons">layers</i> As a student
-            </a>
-            <!-- <a href=""  class="dropdown-item">
-              <i class="material-icons">line_style</i> Future Leader
-            </a> -->
-            <!-- <a href=""  class="dropdown-item">
-              <i class="material-icons">content_paste</i> 
-            </a> -->
-          </div>
-        </li>
-        <li class="dropdown nav-item">
-            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                       Our Innovations
-            </a>
-            <div class="dropdown-menu dropdown-with-icons">
-              <a href="sdgdigitallab"  class="dropdown-item">
-                <i class="material-icons">layers</i>SDG Digital Lab
-              </a>
-              <a href="/sdgfaqs"  class="dropdown-item">
-                <i class="material-icons">content_paste</i> FAQs
-              </a>
-            </div>
-          </li>
-<!--       
-        <li class="button-container nav-item iframe-extern">
-          <a href="#" target="_blank" class="btn  btn-primary  btn-round btn-block">
-            <i class="material-icons">shopping_cart</i> Cart
-          </a>
-        </li> -->
-
-   
-            <li class="nav-item ">
-                <a href="/contactus" class=" nav-link  " >
-                  <i class="material-icons"></i> Contact us
-                </a>
- 
-              </li>
-       
-
-
-            <li>
-            <div class="dropdown ">
-                {% if request.user.is_authenticated %}
-               
-              <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ user.first_name }} {{ user.last_name }}
-              </button>
-              <div class="dropdown-menu dropdown-with-icons" >
-              <a class="dropdown-item" href="/view/profile" ><i class="material-icons">person_add</i>  Profile
-              </a>
-              <a class="dropdown-item"  onclick="ajax_logout();"><i class="material-icons">person_add</i> Logout
-              </a>
-            </div>   
-              {% else %}
-              <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                My Account      
-              </button>
-              <div class="dropdown-menu dropdown-with-icons" >
-                <a class="dropdown-item" onclick="ajax_popup_register();"><i class="material-icons">person_add</i>  student Sign up
-                </a>
-               <a class="dropdown-item" onclick="ajax_popup_login();" ><i class="material-icons">person_add</i>  student Login
-              </a>
-              {% endif %}
-             
-              </div>
-            </div>
-
-      </li>
-     
-
-
- 
-      </ul>
-    </div>
-  </div>
-</nav>
 
 
 
-      <div class="page-header" data-parallax="false" style="background-image: url('../assets/img/bg8.jpg')">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <h2 class="title" style="color:#fff">SDG DIGITAL LAB Programme </h2>
-              <h4 style="color:#fff" >SDG Digital Lab is a platform for creative minds that support knowledge, skills and attitude that promotes innovative, implementable and scalable ideas towards meeting urgent social, economic and environmental challenges facing Africa.</h4> 
-              <br>
-              <div class="buttons  ">
-                  <a href="/digitallab" class="btn btn-primary btn-round  " >
-                    Enroll to SDG Now
-                  </a>
-                
-                </div>
-            </div>
+
+<div class="cd-section  header-filter "   id="contactus" style="background-image: url('../../../static/img/bg9min.png ');">
+  <br>  <br>    <!--     *********    CONTACT US 1     *********      -->
+        <div class="contactus-1 section-image " >
           
+          <div class="container">
+                <!-- <button href="/landpageprod" class="btn btn-primary pull-right">Back to home</button> -->
+                <!-- <div class="card-stats justify-content-center">
+                        <a href="/landpageprod" class="btn btn-primary pull-right" > Back to home </a>
+                      </div> -->
+            <div class="row">
+  
+             
+              <div class="col-md-6">
+                    <h2 class="title" style="color:#fff">SDG DIGITAL LAB Programme </h2>
+                    <h4 style="color:#fff" >SDG Digital Lab is a platform for creative minds that support knowledge, skills and attitude that promotes innovative, implementable and scalable ideas towards meeting urgent social, economic and environmental challenges facing Africa.</h4> 
+                <div class="info info-horizontal">
+                
+                  <div class="description">
+                    <h4 class="info-title">Fill the form below to Join the programme. </h4>
+                  
+                  </div>
+                </div>
+            
+              </div>
+              <div class="col-md-6 ml-auto">
+                <div class="card card-contact">
+                  <form id="contact-form" method="post">
+                    <div class="card-header card-header-raised card-header-primary text-center">
+                      <h4 class="card-title">DIGITAL LAB Form</h4>
+                    </div>
+                    <div class="card-body">
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfsePGjXoIfKn47a4QA6ZBtndG55pF_mVJS517bRYeOm3Oo0w/viewform?embedded=true" class="col-md-12 text-center " height="400" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                      <!-- <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group label-floating is-empty">
+                            <label class="bmd-label-floating">First name</label>
+                            <input type="text" name="name" class="form-control">
+                            <span class="material-input"></span>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group label-floating is-empty">
+                            <label class="bmd-label-floating">Last name</label>
+                            <input type="text" name="name" class="form-control">
+                            <span class="material-input"></span>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                                <div class="form-group label-floating is-empty">
+                                  <label class="bmd-label-floating">Phone number</label>
+                                  <input type="Number" name="name" class="form-control">
+                                  <span class="material-input"></span>
+                                </div>
+                              </div>
+                      </div>
+                      <div class="form-group label-floating is-empty">
+                        <label class="bmd-label-floating">Email address</label>
+                        <input type="email" name="email" class="form-control">
+                        <span class="material-input"></span>
+                      </div> -->
+                    </div>
+                    <!-- <div class="card-footer justify-content-center">
+                     
+                      <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                    </div> -->
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--     *********    END CONTACT US 1      *********      -->
+ <!--     *********    BIG FOOTER     *********      -->
+ <!-- <footer class="footer footer-black footer-big">
+    <div class="container">
+      <div class="content">
+        <div class="row">
+          <div class="col-md-4">
+            <h5>About Us</h5>
+            <p>The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as ForMission College, accredited by York St John University and Newman University in Birmingham, Africa for SDGs and ICY AFRICA which runs the Springdale Foundation and other global partners.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h5>Social Feed</h5>
+            <div class="social-feed">
+              <div class="feed-line">
+                <i class="fa fa-twitter"></i>
+                <p>.</p>
+              </div>
+              <div class="feed-line">
+                <i class="fa fa-twitter"></i>
+                <p>.</p>
+              </div>
+              <div class="feed-line">
+                <i class="fa fa-facebook-square"></i>
+                <p>.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h5>Trending Topics</h5>
+            <div class="gallery-feed">
+              <img src="assets/img/faces/card-profile6-square.jpg" class="img img-raised rounded" alt="">
+              <img src="assets/img/faces/christian.jpg" class="img img-raised rounded" alt="">
+              <img src="assets/img/faces/card-profile4-square.jpg" class="img img-raised rounded" alt="">
+              <img src="assets/img/faces/card-profile1-square.jpg" class="img img-raised rounded" alt="">
+              <img src="assets/img/faces/marc.jpg" class="img img-raised rounded" alt="">
+              <img src="assets/img/faces/kendall.jpg" class="img img-raised rounded" alt="">
+              <img src="assets/img/faces/card-profile5-square.jpg" class="img img-raised rounded" alt="">
+              <img src="assets/img/faces/card-profile2-square.jpg" class="img img-raised rounded" alt="">
+            </div>
           </div>
         </div>
       </div>
-      <!-- <div class="main main-raised">
-        <div class="container">
-            <div class="card card-plain card-blog" style="padding-top:50px; padding-bottom:50px">
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="card-header card-header-image">
-                          <img class="img img-raised" src="static/img/bg1.jpg">
-                        </div>
-                      </div>
-                  <div class="col-md-7">
-                    <div class="description " >
-                        <h5>
-                            We believe that when youths are capacitated with leadership and development skills, knowledge and attitude, then they become active citizens in their respective communities and countries. This encourages young people’s participation, enlisting them in designing and implementing policies, programs, and services that are directed at them and their communities. Youth involvement ensures that policy actions are relevant and helps develop youth as partners and leaders in development. This approach asserts the importance of viewing the youth as assets and active agents of change, who can contribute their energy, idealism, and insights to a nation’s growth and progress; and in the end the SDGs. The program seeks to involve the youth in reviewing Global indicators, developing innovative enterprises that are implementable and scalable local approaches towards sustainable development and develop program partnerships and collaborations to increase youth participation and philanthropy, develop stronger public and private partnerships, increase active citizenship through community engagements and leadership. 
-                        </h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-       
-          
-        </div>
-      </div> -->
-    
+      <hr>
+      <ul class="float-left">
+        <li>
+          <a href="#pablo">
+          FAQS
+          </a>
+        </li>
+        <li>
+          <a href="#pablo">
+            Payment
+          </a>
+        </li>
+        <li>
+          <a href="#pablo">
+            Contact Us
+          </a>
+        </li>
+      </ul>
+      <div class="copyright float-right">
+        Copyright &#xA9;
+        <script>
+          document.write(new Date().getFullYear())
+        </script> Leadership and Development Academy.
+      </div>
+    </div>
+  </footer> -->
+  {% include "landpage/main/js.html" %}  
+  <div id="ajax_response_login"></div>
+  <div id="ajax_response_register"></div>
+  <div id="ajax_logout"></div>
 
-
-
-    
-   
-          {% include "landpage/main/js.html" %}  
-          <div id="ajax_response_login"></div>
-          <div id="ajax_response_register"></div>
-          <div id="ajax_logout"></div>       
-              {% endblock %}
+</body>
+{% endblock content %}

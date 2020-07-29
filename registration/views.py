@@ -2,17 +2,31 @@ import json
 from django.shortcuts import render
 from django.core import serializers
 from django.http import HttpResponse
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.encoding import force_bytes, force_text
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.template.loader import render_to_string
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from registration.form import RegisterForm
+# from .tokens import account_activation_token
+
 
 
 def register_modal(request):
     form = RegisterForm()
     return render(request, 'register/modal.html',{
         'form': form,
+    })
+
+def redirectedregister(request):
+    form = RegisterForm()
+    return render(request, 'register/register.html',{
+        'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS,
+        'form': form
     })
 
 
@@ -43,7 +57,7 @@ def create_user(form):
         )
         user.first_name = form['first_name'].value()
         user.last_name = form['last_name'].value()
-        # user.is_active = False;  # Need email verification to change status.
+        # user.is_active = False  # Need email verification to change status.
         user.save()
     except Exception as e:
         return {

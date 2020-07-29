@@ -1,0 +1,117 @@
+{% load staticfiles %}
+
+<nav  class="navbar  bg-white fixed-top   navbar-expand-lg slidd" color-on-scroll="100" id="sectionsNav" >
+    <!-- style=" box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); " -->
+  <div class="container" >
+    <div class="navbar-translate">
+        <a>
+          <img src="{% static 'img/logos/logo2.jpg' %}" alt="" style="width:80px; height:80px;  ">
+        </a>               
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="sr-only">Toggle navigation</span>
+           <span class="navbar-toggler-icon"></span>
+           <span class="navbar-toggler-icon"></span>
+           <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+     <div class="collapse navbar-collapse">
+         <ul class="navbar-nav ml-auto"> 
+            <li class="dropdown nav-item">
+                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                           Our story
+                </a>
+                <div class="dropdown-menu dropdown-with-icons">
+                  <a href="/aboutus"   class="dropdown-item">
+                    <i class="material-icons">line_style</i>Who we are
+                  </a>
+                  <!-- <a href=""  class="dropdown-item">
+                    <i class="material-icons">line_style</i> What we do 
+                  </a> -->
+                  <!-- <a href=""  class="dropdown-item">
+                    <i class="material-icons">content_paste</i> FAQs
+                  </a> -->
+                </div>
+              </li>     
+      
+
+          <li class="dropdown nav-item">
+              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <!-- <i class="material-icons">apps</i> Components --> How it works
+              </a>
+              <div class="dropdown-menu dropdown-with-icons">
+                <a href="/enrollnow"  class="dropdown-item">
+                  <i class="material-icons">layers</i>How to enroll
+                </a>
+                <a href="/studentfaqs"  class="dropdown-item">
+                  <i class="material-icons">content_paste</i> FAQs
+                </a>
+              </div>
+            </li>
+
+        <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                       Our Innovations
+            </a>
+            <div class="dropdown-menu dropdown-with-icons">
+              <a href="sdgdigitallab"  class="dropdown-item">
+                <i class="material-icons">layers</i>SDG Digital Lab
+              </a>
+              <a href="/sdgfaqs"  class="dropdown-item">
+                <i class="material-icons">content_paste</i> FAQs
+              </a>
+            </div>
+          </li>
+
+          <li class="nav-item ">
+                <a href="/scholarship-application-form" class=" nav-link  " >
+                  <i class="material-icons"></i> Scholarships
+                </a>
+    
+              </li>
+
+   
+            <li class="nav-item ">
+                <a href="/contactus" class=" nav-link  " >
+                  <i class="material-icons"></i> Contact us
+                </a>
+ 
+              </li>
+       
+
+
+            <li>
+            <div class="dropdown ">
+                {% if request.user.is_authenticated %}
+               
+              <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ user.first_name }} {{ user.last_name }}
+              </button>
+              <div class="dropdown-menu dropdown-with-icons" >
+              <a class="dropdown-item" href="/view/profile" ><i class="material-icons">person_add</i>  Profile
+              </a>
+              <a class="dropdown-item"  onclick="ajax_logout();"><i class="material-icons">person_add</i> Logout
+              </a>
+            </div>   
+              {% else %}
+              <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Account      
+              </button>
+              <div class="dropdown-menu dropdown-with-icons" >
+                <a class="dropdown-item" onclick="ajax_popup_register();"><i class="material-icons">person_add</i>  student Sign up
+                </a>
+               <a class="dropdown-item" onclick="ajax_popup_login();" ><i class="material-icons">person_add</i>  student Login
+              </a>
+              {% endif %}
+             
+              </div>
+            </div>
+
+      </li>
+     
+
+
+ 
+      </ul>
+    </div>
+  </div>
+</nav>

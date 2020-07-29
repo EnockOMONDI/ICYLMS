@@ -6,7 +6,7 @@
         <div class="container">
           <div class="row " >
                 {% for course in courses %} 
-            <div class="col-md-4">
+            <div class="col-md-3">
             <!-- <h3 class="title text-center">{{ course.title }}</h3>  -->
               <div class="card" style=" box-shadow: 0 8px 16px 0 #c5c5c5; padding:10px; border-radius: 6px;">
                 <div class="card-header card-header-image" >
@@ -49,7 +49,11 @@
                 id="view_{{ course.id }}_btn"
              name="view_{{ course.id }}_btn"
              class="btn btn-lg btn-info">
+<<<<<<< HEAD
                <i class="fa fa-pencil"></i> Enroll for USD 
+=======
+               <i class="fa fa-pencil"></i> Enroll 
+>>>>>>> f8e0e4e0b9ee0c9623966212b1effeaa1dabd185
        {% else %}
              class="btn btn-lg btn-warning">
            <i class="fa fa-level-down"></i> Continue

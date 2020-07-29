@@ -1,7 +1,7 @@
 {% extends 'ecommerce_app/base.html' %}
 
 
-
+{% load staticfiles %}
 
 {% block content %}
 
@@ -18,96 +18,229 @@
                 <form action="{% url 'product_detail' product.id product.slug %}" method="post">
                     {% csrf_token %}
                     {{ form }}
-                    <input type="submit" value="Add to cart" class="btn btn-primary" >
+                    <input type="submit" value="Add to cart" class="btn btn-default" >
                 </form>
 
         </div>
 
     </div> -->
-    <br><br>
+<!-- <br> -->
+
+
     <div class="section section-tabs">
+        <hr>
       <div class="container">
         <!--                nav tabs	             -->
         <div id="nav-tabs">
-       
+            <div class="col-md-12 ">
           <div class="row">
-            <div class="col-md-6">
-              <h3>
-                <small>Here is an Overview of {{ product.name }}</small>
-              </h3>
+         
+      
               <!-- Tabs with icons on Card -->
-              <div class="card card-nav-tabs">
+              <div class="card  card-plain card-nav-tabs"  style="background-color:#fff">
                 <div class="card-header card-header-primary">
                   <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
                   <div class="nav-tabs-navigation">
-                    <div class="nav-tabs-wrapper">
-                      <ul class="nav nav-tabs" data-tabs="tabs">
+                    <div class="nav-tabs-wrapper ">
+                      <ul class="nav nav-tabs  nav-justified" data-tabs="tabs">
                         <li class="nav-item">
-                          <a class="nav-link active" href="#description" data-toggle="tab">
-                            Description
-                          </a>
-                        </li>
-                        <!-- <li class="nav-item">
-                          <a class="nav-link" href="#messages" data-toggle="tab">
-                            Messages
+                          <a class="nav-link active " href="#description" data-toggle="tab">
+                              {{ product.name }}  Overview 
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#settings" data-toggle="tab">
-                            Settings
+                            <a class="nav-link" href="#modules" data-toggle="tab">
+                           MODULES
+                            </a>
+                          </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#requirements" data-toggle="tab">
+                          REQUIREMENTS 
                           </a>
-                        </li> -->
+                        </li>
+               
+                       
+                        <li class="nav-item">
+                            <a class="nav-link" href="#apply" data-toggle="tab">
+                           APPLY
+                            </a>
+                          </li>
+                        
                       </ul>
                     </div>
                   </div>
                 </div>
-                <div class="card-body ">
-                  <div class="tab-content text-center">
+                <div class="card-body col-md-12 text-center ">
+                  <div class="tab-content ">
                     <div class="tab-pane active" id="description">
-                      <p>  {{ product.description }}</p>
+                        <div class="container">
+        
+                            <div class="row">
+                                <div class="col-md-4 p-5 mb-5  text-center bg-white rounded shadow-sm " >              
+                                    <img style="border-radius: 6px;  " src="{{ product.image.url }}"
+                                    class=" img-responsive" height="100%" width="100%"  alt="">                     
+                                
+                                       
+                                      </div>
+                                      <div class="col-md-8 p-5 mb-5  bg-white rounded shadow-sm " >
+
+                                        <p>{{product.description}}</p>
+                                        </div>
+                                                
+                      
+                            </div>
+                          </div>
+                      <br>
+                      <h2>
+                          <b>  Course Outline  </b> 
+                 
+                               </h2>
+                               <br>
+                               <div class="container">
+        
+                                  <div class="row">
+                                  
+                                            <div class="col-md-9   text-center bg-white rounded shadow-sm " >
+  
+                                                <embed src="{{ product.Course_module_file.url }}" frameborder="0" width="100%" height="350px" >
+                                              </div>
+                                                      
+                                              <div class="col-md-3 p-2  text-center bg-white rounded shadow-sm " >              
+                                                               
+                              <a href="{{product.Course_module_file.url }}"  target=_blank  class="btn btn-outline-primary  " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >
+                                  <i class="material-icons text-info">cloud_download
+                                    </i>  Download this brochure 
+                                  </a>  
+                            
+                                 
+                                </div>
+                                  </div>
+                                </div>
+                                <br>
+                               <h2>
+                                  <b>  Validation  </b> 
+                         
+                                       </h3>
+                                   
+
+                                  
+                                          <div class="container">
+                                            <!--                nav tabs	             -->
+                                      
+                                              <div class="row">
+                                              
+                                                        <div class="col-md-9 ml-auto mr-auto text-center   bg-white rounded shadow-sm " >
+                                                          
+                                                            <h4 class="title  "> <i class="material-icons text-info">check
+                                                              </i> </h4>
+                                                            
+                                                            <h4 class="card-description"> This course is Validated by  <b>{{product.Validator_name}}</b> </h4>
+                                                           
+                                                                  <img src="{{ product.Validator_image.url }}" style="width:180px; height:180px; padding: 5px;  ">
+                                                                </a>  
+                                                            
+                                                             
+                                                          </div>
+                                                                  
+                                                             
+                                                            
+                                        
+                                          
+                                              </div>
+                                            </div>
+                                          </div>
+           
+                    <div class="tab-pane" id="requirements">
+                      <p>{{ product.requirements }} </p>
                     </div>
-                    <!-- <div class="tab-pane" id="messages">
-                      <p> I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.</p>
-                    </div>
-                    <div class="tab-pane" id="settings">
-                      <p>I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it&#x2019;s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
-                    </div> -->
+                  
+                       
+                    <div class="tab-pane " id="modules" >
+  
+                            <div class="container">
+        
+                                <div class="row">
+                                
+                                          <div class="col-md-9  text-center bg-white rounded shadow-sm " >
+
+                                              <embed src="{{ product.Course_module_file.url }}" frameborder="0" width="100%" height="350px" >
+                                            </div>
+                                                    
+                                            <div class="col-md-3 pb-5 mb-5  text-center bg-white rounded shadow-sm " >              
+                                                             
+                            <a href="{{product.Course_module_file.url }}"  target=_blank  class="btn btn-outline-primary  " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >
+                                <i class="material-icons text-info">security
+                                  </i>  Download this brochure 
+                                </a>  
+                          
+                               
+                              </div>
+                                </div>
+                              </div>
+                            </div>
+                      
+                          
+                      
+                              
+                                      <!-- <button class="btn btn-outline-primary  " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >
+                                          Download Brochure
+                                        </button>             -->
+                                             
+                                   
+                      
+                
+          
+
+                   
+                                      
+                                   
+                 
+              
+                
+
+                    <div class="tab-pane" id="apply">
+                        
+                     
+                        <form action="{% url 'product_detail' product.id product.slug %}" method="post">
+                            {% csrf_token %}
+                            {{ form }}
+                            <input type="submit" value="START YOUR JOURNEY OF BECOMING A LEADER" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" ></a>
+                        </form>
+                
+                      </div>
                   </div>
                 </div>
               </div>
+  
               <!-- End Tabs with icons on Card -->
             </div>
-            <div class="col-md-4">
-           <!-- <h3 class="title text-center">{{ course.title }}</h3>  -->
-           <div class="card" style=" box-shadow: 0 8px 16px 0 #c5c5c5; padding:10px; border-radius: 6px;">
-              <div class="card-header card-header-image" >
-                      {% if product.image != None and product.image != '' %}
-                <a href="#pablo">
-                  <img src="{{ product.image.url }}" height="200" width="200"   alt="">
-                  {% else %}
-                  <img src="static/img/dummy.png"  alt="">
-                  <!-- Missing Image! -->
-              {% endif %}
-                </a>
-              </div>
-              <div class="card-body">
+            <!-- <div class="col-md-3">
+
+           <div class="card" style=" box-shadow: 0 8px 16px 0 #c5c5c5;  border-radius: 6px;" >
+              {% if product.image != None and product.image != '' %} 
+            <img style="border-radius: 6px;  box-shadow: 0 8px 16px 0 #c5c5c5;" src="{{ product.image.url }}"
+              class=" img-responsive" height="100%" width="100%"  alt="">
+              {% else %}
+              <img src="static/img/dummy.png"  alt="">
+          {% endif %}
               
-                <h4 class="card-title text-center">
-                  <a href="{% url 'product_detail' product.pk product.slug %}">{{ product.name }}</a>
-                </h4>
-                <p class="card-text">
-                      {{ product.description }}
-                </p>
-            <!-- <p class="card-description" >Durration: {{ course.start_date }} to {{ course.finish_date }}</p> -->
-  
+              <div class="card-body text-center">
+                      <br>
+<a href="{% url 'product_detail' product.pk product.slug %}">{{ product.name }}</a>
+              
+                <p class="card-text">   {{ product.description }}</p>
+                <a href="#" class="btn btn-default" style="box-shadow: 0 8px 16px 0 #c5c5c5;">enroll</a>
+              </div>
+            </div> 
+
             <form action="{% url 'product_detail' product.id product.slug %}" method="post">
               {% csrf_token %}
               {{ form }}
-              <input type="submit" value="Checkout" class="btn btn-primary" >
+              <input type="submit" value="Checkout" class="btn btn-default " >
           </form>
   
   
-              </div>
+              </div> -->
             </div>
             </div>    
           </div>
@@ -116,16 +249,22 @@
     </div>
     <!-- 	            end nav tabs -->
 
-    <div class="section section-blog">
-        <div class="container">
-          <div class="row " >
-        
-            <div class="col-md-3">
-           
-            </div>
-        
-          </div>
-        </div>
-      </div>
 
+     
+        </div>
+
+
+      
+  
+  
+   
+                        <!-- small modal -->
+                   
+                        <!--    end small modal -->
+
+      {% include "landpage/main/js.html" %}  
+      <div id="ajax_response_login"></div>
+      <div id="ajax_response_register"></div>
+      <div id="ajax_logout"></div>
+      <div id="fb-root"></div>
 {% endblock %}

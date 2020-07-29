@@ -127,20 +127,35 @@ CAPTCHA_FONT_SIZE = 52
 
 
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": "academicstoday_dbnew",
+#         "USER": "django",
+#         "PASSWORD": "123password",
+#         "HOST": "localhost",
+#         "PORT": " 5432",
+#     }
+# }
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": "academicstoday_db",
+#         "USER": "postgres",
+#         "PASSWORD": "lucy",
+#         "HOST": "localhost",
+#         # "PORT": " 5432",
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "academicstoday_db",
-        "USER": "postgres",
-        "PASSWORD": "lucy",
-        "HOST": "localhost",
-        # "PORT": " 5432",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
-
-
-DATABASES['default'].update(db_from_env)
+# DATABASES['default'].update(db_from_env)
 
 
 # Email
@@ -182,19 +197,6 @@ USE_L10N = True
 
 USE_TZ = False
 
-UPLOADCARE = {
-  # Don’t forget to set real keys when it gets real :)
-
-  'pub_key': 'd4d69f96f2e2dde353d1',
-  'secret': 'a31559dd611e70c202f4',
-}
-
-cloudinary.config(
-  cloud_name ='lada' ,
-  api_key = '991846289858872',
-  api_secret = 'PxriDvQELG9426d-3KZ1_OtbsVE',
-  secure = True
-)
 
 
 # Static files (CSS, JavaScript, Images) & Upload Content
@@ -220,12 +222,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 
-
-
- 
-# PAYPAL_RECEIVER_EMAIL = 'africaforsdgs2019@gmail.com'
-PAYPAL_RECEIVER_EMAIL = 'sb-nqppp947385@business.example.com'
-PAYPAL_TEST = True
 
 SITE_ID = 1
 STATIC_URL = '/static/'

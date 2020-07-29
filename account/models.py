@@ -87,7 +87,8 @@ class Student(models.Model):
     country = models.CharField(max_length=127, choices=COUNTRY_CATEGORY_TYPES,  blank=True,null=True,  default='Kenya')
     age = models.PositiveSmallIntegerField(default='18', null=True)
     interests = models.CharField(max_length=30,null=True)
-    is_enrolled=models.BooleanField(default=False)
+  
+ 
     
     def __str__(self):
         return self.user.first_name + " " + \

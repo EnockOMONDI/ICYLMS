@@ -13420,7 +13420,7 @@ footer .pull-center {
 
 .navbar.bg-primary {
    color: #fff;
-   background-color: #9c27b0;!important;
+   background-color: #ffffff!important;
    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 12px -5px rgba(156, 39, 176, .46)
 }
 
@@ -13437,7 +13437,7 @@ footer .pull-center {
 
 .navbar.bg-info {
    color: #fff;
-   background-color: #9c27b0;!important;
+   background-color: #9c27b0!important;
    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 12px -5px rgba(0, 188, 212, .46)
 }
 
@@ -17054,7 +17054,7 @@ thead.thead-inverse th {
 .card .card-header-success,
 .card.card-rotate.bg-success .back,
 .card.card-rotate.bg-success .front {
-   background: linear-gradient(60deg, #66bb6a, #388e3c)
+   background: linear-gradient(60deg, #a449b4,#9c27b0)
 }
 
 .card.bg-warning,

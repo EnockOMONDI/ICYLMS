@@ -7,6 +7,7 @@ from account.views import *
 
 
 urlpatterns = [
+    url(r'^send_email_message$', mail. email_users),
     url(r'^profile$', profile.profile_page),
     url(r'^update_user$', profile.update_user),
     url(r'^inbox$', mail.mail_page),

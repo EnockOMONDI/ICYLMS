@@ -1,18 +1,18 @@
 from django.shortcuts import render
 from django.core import serializers
 import json
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from landpage.models import CoursePreview
-from registrar.models import Student
 from registrar.models import Teacher
-from registrar.models import Course
+from registrar.models import (Course, Student)
 from registrar.models import CourseFinalMark
 from registrar.models import CourseSetting
 from registrar.forms import CourseForm
+from django.urls import reverse
 
 
 
@@ -90,6 +90,20 @@ def disenroll(request):
             response_data = {'status' : 'failed', 'message' : 'record does not exist' }
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
+
+
+def disenroll(request):
+    response_data = {'status' : 'failure', 'message' : 'unsupported request format'}
+    if request.is_ajax():
+        course_id = int(request.POST['course_id'])
+        student = Student.objects.get(user=request.user)
+        try:
+            course = Course.objects.get(id=course_id)
+            course.students.remove(student)
+            response_data = {'status' : 'success', 'message' : 'disenrolled' }
+        except Course.DoesNotExist:
+            response_data = {'status' : 'failed', 'message' : 'record does not exist' }
+    return HttpResponse(json.dumps(response_data), content_type="application/json")
 
 
 

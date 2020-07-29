@@ -7,11 +7,18 @@ from registrar.views import transcript
 from registrar.views import certificate
 from registrar.views import purchase
 # from registrar.views import payment
+app_name = 'registrar'
 
 urlpatterns = [
     # Courses
     url(r'^courses$', courses.courses_page),
     url(r'^enroll$', courses.enroll),
+    url(r'^shortcourses$', courses.shortcourses, name='shortcourses'),
+    url(r'^enroll/shortcourse/(?P<id>\d+)/$', courses.enroll_short , name='enrollshort' ),
+    url(r'^shortcourses/(?P<id>\d+)/$', courses.shortcourse_detail, name='shortcourse_detail'),
+
+
+   
 
     # Enrollment(s)
     url(r'^enrollment$', enrollment.enrollment_page),

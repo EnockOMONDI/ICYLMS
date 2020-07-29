@@ -3,18 +3,52 @@
 {% block title %} Payment Done{% endblock %}
  
 {% block content %}
-<br><br><br><br><br><br>
+
+    <br><br><br><br>
 
 
 
 
 
 
-          <div class="card  card-plain card-nav-tabs"  style="background-color:#fff">
-        <div class="card-body ">
-                <h2><small>Your payment completed Succesfuly.</small></h2>
-                <h4><small>You will recieve an email from us shortly, with Instructions on how you will access the course content.</small></h4>
-                <h6><small>kindly contact us  - support@leadershipanddevelopmentacademy if you dont recieve an email with instructions</small></h6>
+    <div class="pricing-2" id="pricing-2">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-center">
+              <h2 class="title">Your payment completed Succesfuly.</h2>
+            
+            </div>
+          </div>
+     
+          <div class="row">
+            <div class="col-md-6 col-lg-12">
+              <div class="card card-pricing card-plain">
+                <div class="card-body " style="background-color: rgb(255, 255, 255)">
+                
+                  
+              <div class=" justify-content-center">
+                <a href="/courses" class="btn btn-outline-primary ">Proceed to course </a>                             
+            </div>
+            <h3><small>You will recieve an email from us shortly, with Instructions on how you will access the course content.</small></h3>
+
+            <h3><small>kindly contact us  - support@leadershipanddevelopmentacademy if you dont recieve an email with instructions</small></h3>
+
+                </div>
+     
+            
+                          
+        
+              </div>
+            </div>
+    
+        
+          </div>
         </div>
-    </div>
+      </div>
+      {% include "landpage/main/js.html" %}  
+      <div id="ajax_response_login"></div>
+      <div id="ajax_response_register"></div>
+      <div id="ajax_logout"></div>
+      <div id="fb-root"></div>
+
 {% endblock %}

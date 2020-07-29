@@ -13309,7 +13309,7 @@ footer .pull-center {
 
 .navbar.fixed-top {
    border-radius: 0.25rem;
-   background-color: rgb(32, 31, 31);  
+   background-color: rgba(255, 255, 255, 0);  
    
 }
 

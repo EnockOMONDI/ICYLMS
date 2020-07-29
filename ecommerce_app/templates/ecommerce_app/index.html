@@ -3,72 +3,109 @@
 {% block content %}
 
 <br>
-<br>
 
-<br>
-<br>
- <div class="row">
-    <div class="col-lg-12 text-center">
 
-      <!-- <h3 class="title">The following are available courses on LADA:</h3> -->
-      <ul class="breadcrumb">
-            <li class="active nav-link title ">
-              The following are available courses on LADA:
-            </li>
-          
-        </ul>
-    
-    </div>
-</div>
-<!-- <div class="buttons ">
-        <a href="{% url 'show_cart' %}" class="btn btn-primary btn btn-round pull-right ">Cart: {{ cart_item_count }} item</a> 
-    
-      </div> -->
+
+
+
+
+
 <div class="section section-blog">
+ 
+    <!-- <h3 class="text-center" ><b>  The following are available courses on LADA:</b> </h3> -->
+   
+    <!-- <hr> -->
     <div class="container">
+        <div class="col-lg-12"> 
+       
       <div class="row " >
+
+        
          {% for product in all_products %}
         <div class="col-md-4">
-        <!-- <h3 class="title text-center">{{ course.title }}</h3>  -->
-          <div class="card" style=" box-shadow: 0 8px 16px 0 #c5c5c5; padding:10px; border-radius: 6px;">
-            <div class="card-header card-header-image" >
-                    {% if product.image  %}
-              <a href="#pablo">
-                <img src="{{ product.image.url }}" height="250" width="200"   alt="">
+      
+            <div class="card" style="padding: 2px; box-shadow: 0 8px 16px 0 #c5c5c5;  border-radius: 6px;" >
+                {% if product.image  %} 
+              <img style="border-radius: 6px;  " src="{{ product.image.url }}"
+                class=" img-responsive" height="100%" width="100%"  alt="">
                 {% else %}
                 <img src="{% static 'img/dummy.png' %}" height="250" width="200"   alt="">
                 <!-- Missing Image! -->
             {% endif %}
-              </a>
-            </div>
+         
+       <!--  -->
+                <div class="card-body ">
+                    
+                  <h4 class="card-title">{{ product.name }} </h4>
+                
+                  <p class="card-text">  {{ product.description|truncatechars:80 }}  <a href="{% url 'product_detail' product.pk product.slug %}">Read more </a>  </p>
+                  <div class="card-footer ">
+                    <div class="author">
+                      <a href="#pablo">
+                      
+                        <span class="material-icons">
+                          watch_later
+                          </span> {{ product.duration }} year 
+                      </a>
+                    </div>
+                    <div class="stats ml-auto">
+                      <a href="{% url 'product_detail' product.pk product.slug %}"  class="btn btn-primary btn btn-round btn-sm ">
+                        <strong> Overview  </strong> 
+                    </a>
+                    </div>
+                  </div>
+             
+   
+              </div>
+           
+                
+             
+              </div> 
 
-     
-
-
-            <div class="card-body">
-            
-              <h4 class="card-title text-center">
-                <a href="{% url 'product_detail' product.pk product.slug %}">{{ product.name }}</a>
-              </h4>
-              <p class="card-text">
-                    {{ product.description }}
-              </p>
-          <!-- <p class="card-description" >Durration: {{ course.start_date }} to {{ course.finish_date }}</p> -->
-
-          <div class="buttons">
-            <a href="{% url 'product_detail' product.pk product.slug %}"  class="btn btn-primary btn btn-round ">
-                <strong>Enroll now   ${{ product.price }}</strong> 
-            </a>
-          </div>
-
-
-            </div>
-          </div>
+       
         </div>
         {% endfor %}
       </div>
     </div>
   </div>
+</div>
+
+<!--      
+
+<div class="col-md-3">
+                               
+  <div class="card" style=" box-shadow: 0 8px 16px 0 #c5c5c5;  border-radius: 6px;" >
+          <img style="border-radius: 6px;  box-shadow: 0 8px 16px 0 #c5c5c5;" src="{{ modules.module_image.url }}"
+          class=" img-responsive" height="100%" width="100%"  alt="">
+          
+          <div class="card-body text-center">
+                  <br> {{ product.name}}
+                </h5>
+          
+           <h5 class="card-text">{{ modules.Module_duration}} </h5>
+            <div class="col-md-12  ml-auto mr-auto text-center">
+
+                <div class="buttons">
+                    <a href="" class="btn btn-default btn-round btn-sm " >
+                        <span class="material-icons">
+                            monetization_on
+                            </span>    {{ product.price }} 
+                      </a>
+            <button class="btn btn-default btn-round btn-sm " data-toggle="modal" data-target="#smallAlertModal">
+               Enroll Now
+              </button>
+            </div>
+        </div> 
+           </div>
+        </div> 
+      </div> -->
+
+ 
 
 
+  {% include "landpage/main/js.html" %}  
+  <div id="ajax_response_login"></div>
+  <div id="ajax_response_register"></div>
+  <div id="ajax_logout"></div>
+  <div id="fb-root"></div>
 {% endblock %}
