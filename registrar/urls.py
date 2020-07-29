@@ -11,7 +11,8 @@ urlpatterns = [
     # Courses
     url(r'^courses$', courses.courses_page),
     url(r'^course/(\d+)/$', courses.course_detail ,name='course_detail'),
-    url(r'^enroll$', courses.enroll),
+    url(r'^enroll/(?P<id>\d+)/$', courses.enroll_course , name='enroll' ),
+
 
     # Enrollment(s)
     url(r'^enrollment$', enrollment.enrollment_page),

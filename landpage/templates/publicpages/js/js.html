@@ -96,7 +96,7 @@
                         $('#register_modal').modal('hide');
                    
                         // Load up the course list.
-                        window.location = 'welcome';
+                        window.location = '/welcome';
                    }
                    else
                    {
@@ -300,7 +300,7 @@ function ajax_logout()
         type: 'post',
         success: function(result) {
             // success code execution here
-            window.location = '/home_page';
+            window.location = 'home_page';
         },
         error: function(xhr,status,error) {
             // error code here

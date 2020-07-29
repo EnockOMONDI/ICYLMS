@@ -12,8 +12,8 @@ from registrar.models import Announcement
 
 
 @login_required(login_url='/landpageprod')
-def announcements_page(request, course_id):
-    course = Course.objects.get(id=course_id)
+def announcements_page(request, id):
+    course = Course.objects.get(id=id)
     try:
         announcements = Announcement.objects.filter(course=course).order_by('-post_date')
     except Announcement.DoesNotExist:

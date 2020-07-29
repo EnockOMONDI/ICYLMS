@@ -80,25 +80,13 @@
 
 
 
-  <!-- <button onclick="ajax_enroll('{{ course.id }}');"
-  type="button"
-{% if teacher == course.teacher %}
-disabled=""
-{% endif %}
-{% if student not in course.students.all %}
-    id="view_{{ course.id }}_btn"
- name="view_{{ course.id }}_btn"
- class="btn btn-lg btn-info">
-   <i class="fa fa-pencil"></i> Enroll 
-{% else %}
- class="btn btn-lg btn-warning">
-<i class="fa fa-level-down"></i> Continue
-{% endif %}
-</button> -->
+
 
 
 
 <div class="row card-group-row">
+        		
+			
         {% for course in courses %} 
 <div class="col-md-6 col-lg-4 col-xl-3 card-group-row__col">
 
@@ -225,6 +213,7 @@ disabled=""
                 <a onclick="ajax_enroll('{{ course.id }}');" 
                 {% if teacher == course.teacher %}
                 disabled=""
+                type="button"
                 {% endif %}
                 {% if student not in course.students.all %}
                               id="view_{{ course.id }}_btn"
@@ -234,6 +223,22 @@ disabled=""
                  class="btn btn-primary btn-sm">
                  {% endif %}
                 </a>
+                										
+                <button onclick="ajax_enroll('{{ course.id }}');"
+                type="button"
+ {% if teacher == course.teacher %}
+        disabled=""
+ {% endif %}
+ {% if student not in course.students.all %}
+                  id="view_{{ course.id }}_btn"
+           name="view_{{ course.id }}_btn"
+           class="btn btn-lg btn-info">
+                 <i class="fa fa-pencil"></i> Enroll 
+ {% else %}
+           class="btn btn-lg btn-warning">
+         <i class="fa fa-level-down"></i> Continue
+ {% endif %}
+</button>
 <a href="{% url 'registrar:course_detail' course.id %}" class="btn btn-primary">Learn More</a>
 </div>
 </div>

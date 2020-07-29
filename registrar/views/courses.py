@@ -17,6 +17,11 @@ from registrar.models import CourseSetting
 from registrar.forms import CourseForm
 from registrar.models import Student
 from registrar.models import Teacher
+from django.shortcuts import render,redirect, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib import messages
+from django.utils.translation import gettext as _
+
 
 
 @login_required(login_url='/login_modal')
@@ -85,7 +90,7 @@ def course_detail(request, course_id):
 
 
 @login_required()
-def enroll(request):
+def enroll(request, course_id):
     response_data = {'status' : 'failure', 'message' : 'unsupported request format'}
     if request.is_ajax():
         course_id = int(request.POST['course_id'])
@@ -107,3 +112,12 @@ def enroll(request):
 
 # Developer Notes: Pagination
 # https://docs.djangoproject.com/en/1.8/topics/pagination/
+
+def enroll_course(request,id):
+    if request.method=='POST':
+        course = get_object_or_404(Course, id=id)
+        student = Student.objects.get(user=request.user)
+        course.students.add(student)
+        messages.success(request, _('you have successfully enrolled'))
+        return redirect('student:announcement_page', id)
+
