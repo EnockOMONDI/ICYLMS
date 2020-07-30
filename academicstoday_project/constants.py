@@ -17,6 +17,7 @@ SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS = [
 		                       "assets_course_detail/js/jquery.counterup.min.js",
 		                       "assets_course_detail/js/counterup.min.js",
 		                       "assets_course_detail/js/custom.js",
+                               "assets_course_detail/js/metisMenu.min.js"
 
                                
                               ] 

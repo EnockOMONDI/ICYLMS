@@ -130,24 +130,19 @@
 <div class="inline_edu_last">
 <h4 class="edu_price">$ {{course.price}}  </h4> 
 
-
-<a onclick="ajax_enroll('{{ course.id }}');" 
-{% if teacher == course.teacher %}
+<form action="{% url 'registrar:enroll' course.id %}" method="post"> 
+		{% csrf_token %}
+		<button 
+		{% if teacher == course.teacher %}
 disabled=""
 {% endif %}
 {% if student not in course.students.all %}
-id="view_{{ course.id }}_btn"
-name="view_{{ course.id }}_btn"
-class="btn btn-outline-primary btn-sm">Enroll Now<i class="ti-angle-right"></i>
-{% else %}
-class="btn btn-primary btn-sm">
-{% endif %}
-</a>
-
-<form action="{% url 'registrar:enroll' course.id %}" method="post"> 
-		{% csrf_token %}
-		<button class="btn btn-danger btn-xs" type="submit" name="course_id" value="{course.id}" >  <i class=" fas fa-heart"></i> Like</button></p>
-		</form> 
+		class="btn btn-outline-primary btn-sm" type="submit" name="course_id" value="{course.id}" >  enroll now <i class="ti-angle-right"></i> 
+		
+		{% else %}
+		class="btn btn-outline-success btn-sm" > Continue Class <i class="ti-angle-right"></i>  </button>
+	</form> 
+	{% endif %}
 </div></span>
 </div>
 
@@ -186,7 +181,20 @@ class="btn btn-primary btn-sm">
 </div>	
 <div class="inline_edu_last">
 
-<h4 class="edu_price">$ {{course.price}}  </h4>  <a href="#" class="btn btn-outline-primary ">Enroll<i class="ti-angle-right"></i></a>
+<h4 class="edu_price">$ {{course.price}}  </h4> 
+<form action="{% url 'registrar:enroll' course.id %}" method="post"> 
+	{% csrf_token %}
+	<button 
+	{% if teacher == course.teacher %}
+disabled=""
+{% endif %}
+{% if student not in course.students.all %}
+	class="btn btn-outline-primary " type="submit" name="course_id" value="{course.id}" >  enroll now <i class="ti-angle-right"></i> 
+	
+	{% else %}
+	class="btn btn-outline-success " > Continue Class <i class="ti-angle-right"></i>  </button>
+</form> 
+{% endif %}
 </div>
 </div>
 
@@ -223,21 +231,6 @@ class="btn btn-primary btn-sm">
 <p>{{course.description}}</p>		
 
 
-<button onclick="ajax_enroll('{{ course.id }}');"
-type="button"
-{% if teacher == course.teacher %}
-disabled=""
-{% endif %}
-{% if student not in course.students.all %}
-id="view_{{ course.id }}_btn"
-name="view_{{ course.id }}_btn"
-class="btn btn-lg btn-info">
-<i class="fa fa-pencil"></i> Enroll 
-{% else %}
-class="btn btn-lg btn-warning">
-<i class="fa fa-level-down"></i> Continue
-{% endif %}
-</button>
 </div>
 <!-- Overview -->
 <div class="edu_wraper">
