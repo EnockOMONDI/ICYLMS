@@ -40,10 +40,11 @@
 
 											
 										<li {% if tab == 'announcements' %}class="active "{% endif %}>
-										<a href="dashboard.html"><i class="fa fa-fw fa-bullhorn"></i> Announcemts</a>
+										<a href=""><i class="fa fa-fw fa-bullhorn"></i> Announcemts</a>
 									   </li>
 										<li {% if tab == 'syllabus' %}class="active "{% endif %}>
-										<a href="my-profile.html"><i class="fa fa-fw fa-info"></i> Syllabus</a>
+										<a href="my-profile.html"><i class="fa fa-book" aria-hidden="true"></i>
+											Syllabus</a>
 									   </li>
 									   <li {% if tab == 'policy' %}class="active "{% endif %}>
 											<a href="my-profile.html"><i class="fa fa-exclamation" aria-hidden="true"></i>
@@ -89,13 +90,15 @@
 									<nav aria-label="breadcrumb">
 										<ol class="breadcrumb">
 											<li class="breadcrumb-item"><a href="#">Home</a></li>
+
+
 											<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
 										</ol>
 									</nav>
 								</div>
 							</div>
 							<!-- /Row -->
-							
+						
 							<!-- includesRow -->
 							{% include "course/announcement/announcement_row.html" %}
 							<!-- /endincludesRow -->

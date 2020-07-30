@@ -113,5 +113,5 @@ def enroll_course(request,id):
         student = Student.objects.get(user=request.user)
         course.students.add(student)
         messages.success(request, _('you have successfully enrolled'))
-        return redirect('student:announcement_page', id)
+        return redirect('student:announcements_page', id)
 

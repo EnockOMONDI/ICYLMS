@@ -74,7 +74,9 @@ INSTALLED_APPS = (
     'student',
     'teacher',
     'publisher',
-    'cloudinary'
+    'cloudinary',
+
+  
     
 )
 

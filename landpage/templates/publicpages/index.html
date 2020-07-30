@@ -19,14 +19,20 @@
 {% if messages %}
 {% for message in messages %}
 
+<div class="alert alert_top alert-success alert-dismissible fade show" role="alert">
+        <div class="container">
+            <div class="alert_caption">
+
+                <h6 style="color:#ffffff" ><strong>Perfect, {{user.first_name}} </strong> {{ message }}</h6>
+
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
 
 
-<div class="alert {{ message.success}} alert-dismissible alert-success fade show" role="alert">
-<strong>Perfect, {{user.first_name}} </strong> {{ message }}
-<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
 {% endfor %}
 {% endif %}
 <!-- Carousel Card -->
@@ -45,7 +51,7 @@
 <div class="col-md-8 ml-auto mr-auto text-center">
 <h2 >Leadership and Development Academy </h2>
 <br>
-<h5 style="font-weight:100;">The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as For Mission College, Africa for SDGs, My Goals Foundation and ICY AFRICA and other global partners.</h6>
+ <p class="ac-para">The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as For Mission College, Africa for SDGs, My Goals Foundation and ICY AFRICA and other global partners.</p>
 <br>
 <div class="buttons">
 <!-- <a href="/aboutus"  class="btn btn-primary btn btn-round ">
@@ -69,7 +75,7 @@ Learn More
 <div class="col-md-8 ml-auto mr-auto text-center">
 <h2 class="title">Leadership and Development Academy </h2>
 <br>
-<h5 style="font-weight:100; ">The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as For Mission College, Africa for SDGs, My Goals Foundation and ICY AFRICA and other global partners.</h5>
+ <p class="ac-para">The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as For Mission College, Africa for SDGs, My Goals Foundation and ICY AFRICA and other global partners.</p>
 <br>
 <div class="buttons">
 <!-- <a href="/aboutus"  class="btn btn-primary btn btn-round ">
@@ -94,7 +100,9 @@ Learn More
 <!-- text-left -->
 <h2 class="title">Leadership and Development Academy </h2>
 <br>
-<h5 style="font-weight:100;">The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as For Mission College, Africa for SDGs, My Goals Foundation and ICY AFRICA and other global partners.</h5>
+<p class="ac-para">
+The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as For Mission College, Africa for SDGs, My Goals Foundation and ICY AFRICA and other global partners.
+</p>
 <br>
 
 <div class="buttons">
@@ -147,14 +155,15 @@ Learn More
 <div class="col-md-12 col-lg-6">
 
 <!-- <h1 class="card-category text-info text-center "> <b>Leadership and Development Academy</b> </h1> -->
-<h2 class="card-title text-center ">
-<br> <br> <br>
-<a href="#pablo" > Learn Where Leaders Learn</a>
-</h2>
-<h4 class="card-description mr-auto ml-auto">
+<h1 class="card-title text-center ">
+        <br> <br> <br><br> 
+ Learn Where Leaders Learn
+</h1>
+<br>
+<p class="ac-para mr-auto ml-auto">
 Explore Leadership courses, Study online, build professional Leadership skills, connect with an online Community of leaders from all over the world. Get a diploma upon course completion or even take your learning further and earn a degree.
 <a href="#pablo"> 
-</h4>
+</p>
 <br><br>
 
 <div class="card-stats text-center">
@@ -232,11 +241,11 @@ Explore Leadership courses, Study online, build professional Leadership skills, 
 </div> -->
 </div>
 </div>
-
+<br><br>
 <div class="container">
 <div class="col-lg-12" >
 <h2 class="card-title ">
-<a href="#pablo">Why US</a>
+Why US
 </h2>
 </div> 
 <div class="col-lg-12  "  >
@@ -246,33 +255,40 @@ Explore Leadership courses, Study online, build professional Leadership skills, 
 
 
 <hr>
-<h4 class="card-description  p-5 bg-white rounded shadow-sm mb-5 ">
-The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as ForMission College, accredited by York St John University and Newman University in Birmingham, Africa for SDGs and ICY AFRICA which runs the Springdale Foundation and other global partners.
-We believe that when youths are capacitated with leadership and development skills, knowledge and attitude, then they become active citizens in their respective communities and countries.
-</h4>
+<p>
+        The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as ForMission College, accredited by York St John University and Newman University in Birmingham, Africa for SDGs and ICY AFRICA which runs the Springdale Foundation and other global partners.
+        We believe that when youths are capacitated with leadership and development skills, knowledge and attitude, then they become active citizens in their respective communities and countries.
+</p>
+
 
 
 <br><br>
 </div>
 
 <div class="col-md-6">
+    
 <div class="col-md-12 mr-auto ml-auto">
-<h3 class="card-category text-info"> <b> Quick Facts: Online LADA</b> </h3>
+        <div class="ed_author_box">
+                <h3>Quick Facts on LADA</h3>
+                
+                </div>     
+<div class="ed_view_features pl-4">
+  
 <ul>
-<li>Taught in Multiple Language</li>
-<li>Delivered online</li>
-<li>Uses the unique Action Learning methodology
+<li><i class="ti-angle-right"></i>Taught in Multiple Language</li>
+<li><i class="ti-angle-right"></i>Delivered online</li>
+<li><i class="ti-angle-right"></i>Uses the unique Action Learning methodology
 </li>
-<li>Focus 100% on real-time topics of relevance to leadership and Development challenges facing Africa
+<li><i class="ti-angle-right"></i>Focus 100% on real-time topics of relevance to leadership and Development challenges facing Africa
 </li>
-<li>Engage with a network of alumni and  leaders</li>
-<li>Come up with a practical prototype aligned to a specific sustainable development goal(SDGs) to be implemented at the community level</li>
-<li>Earn a Certificate upon completion of study</li>
+<li><i class="ti-angle-right"></i>Engage with a network of alumni and  leaders</li>
+<li><i class="ti-angle-right"></i>Come up with a practical prototype aligned to a specific sustainable development goal(SDGs) to be implemented at the community level</li>
+<li><i class="ti-angle-right"></i>Earn a Certificate upon completion of study</li>
 
 
 </ul>
 
-
+</div>
 <!-- Carousel Card -->
 
 <div class="card-stats text-center">
@@ -303,11 +319,11 @@ We believe that when youths are capacitated with leadership and development skil
 </div>
 </div>
 </div>        
-
+<br><br>
 <div class="container">
 <div class="col-lg-12" >
 <h2 class="card-title ">
-<a href="#pablo">LADA Scholarships to Finance Your Study</a>
+LADA Scholarships to Finance Your Study
 </h2>
 </div> 
 <div class="col-lg-12  "  >
@@ -320,12 +336,12 @@ We believe that when youths are capacitated with leadership and development skil
 <a href="#pablo" > Learn Where Leaders Learn</a>
 </h2> -->
 <hr>
-<h4 class="card-description  p-5 bg-white rounded shadow-sm mb-5 ">
-The LADA is pleased to announce a call for applications for the Leadership and Development Fellowships for African Practitioners or interested Scholarship starting in June 2019. This Fellowship comes with a scholarship for tuition which covers for short courses ( 1 week course or more), a 12- month period diploma or a three (3) year Professional degree,
-comprising a rigorous training, research and practical application programme on Leadership and development; <a href="/scholarship-application-form">Learn More</a>
+<p>The LADA is pleased to announce a call for applications for the Leadership and Development Fellowships for African Practitioners or interested Scholarship starting in June 2019. This Fellowship comes with a scholarship for tuition which covers for short courses ( 1 week course or more), a 12- month period diploma or a three (3) year Professional degree,
+        comprising a rigorous training, research and practical application programme on Leadership and development; <a href="/scholarship-application-form">Learn More</a>
+        </p>
 
-<a href="#pablo"> 
-</h4>
+
+
 
 
 <br><br>
@@ -408,10 +424,10 @@ comprising a rigorous training, research and practical application programme on 
 </div>
 </div>
 </div>
-<br><br>
+<br><br><br>
 <div class="container">
 <div class="col-lg-12  "  >
-<h1 class="card-category text-info text-center "> <b>How It Works</b> </h1>
+<h1 class="card-category  text-center ">How It Works</h1>
 <hr>
 <div class="row">
 <div class="col-md-6 col-lg-3">
@@ -492,15 +508,15 @@ comprising a rigorous training, research and practical application programme on 
 <div class="container ">
 <div class="col-lg-12" >
 <h2 class="card-title text-right">
-<a href="#pablo">Our Educational Partners, Accreditations and authorizations   </a>
+Our Educational Partners, Accreditations and authorizations 
 </h2>
 </div>  
 <br>
 <hr>
-<h4 class="card-description  p-5 bg-white rounded shadow-sm mb-5" > 
+<p class="card-description  p-5 bg-white rounded shadow-sm mb-5" > 
 The Leadership and Development Academy (LADA) aims to build a new community of  Africa’s future transformational leaders with practical application on Leadership, Governance and Development. 
 The Academy is at the forefront of advancement and dialog in international Leadership education through partnerships with several bodies and is an independent school accredited and authorized by global organizations.
-</h4>
+</p>
 
 
 
@@ -566,8 +582,8 @@ The Academy is at the forefront of advancement and dialog in international Leade
 </div>
 <div class="container">
 <div class="col-lg-12" >
-<h2 class="card-title ">
-<a href="#pablo">Our Impact</a>
+<h2 class="card-title text-center ">
+Our Impact
 </h2>
 </div> 
 <div class="col-lg-12  "  >
@@ -590,7 +606,7 @@ The Academy is at the forefront of advancement and dialog in international Leade
 <div class="card-pricing text-center" style=" box-shadow: 0 8px 16px 0 #c5c5c5; padding:10px; border-radius: 6px;">
 
 <div class="card-body ">
-<h4 class="card-category text-info"> <b>Explore Courses</b> <i class="material-icons">whatshot </i> </h4>
+<h4 class="card-category "> Explore Courses <i class="material-icons">whatshot </i> </h4>
 
 <ul>  
 {% if request.user.is_authenticated %}
@@ -634,7 +650,7 @@ The Academy is at the forefront of advancement and dialog in international Leade
 <div class="col-lg-12 "  >
 
 <h2 class="card-title">
-<a href="#pablo">Study with us?</a> Africa’s future leaders
+Study with us? Africa’s future leaders
 </h2>
 <div class="row ">
 <div class="col-md-8 col-lg-6 p-5 bg-white rounded shadow-sm mb-5">
@@ -642,11 +658,11 @@ The Academy is at the forefront of advancement and dialog in international Leade
 <i class="material-icons">trending_up</i> Trending
 </h6> -->
 
-<h4 class="card-description ">
+<p class="card-description ">
 The LADA courses are designed to expose Junior African leaders to the complexities of Leadership, Governance and development issues facing the African continent with the aim of equipping them with the knowledge, skills and attitude necessary for transformative leadership and sustainable development.
 Each learner will be expected as an individual or a group of fellows to come up with an innovative, implementable and scalable idea that meets the social, economic, environmental and climate challenges facing Africa.
 
-</h4>
+</p>
 
 
 
