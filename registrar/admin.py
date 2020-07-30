@@ -26,23 +26,18 @@ from registrar.models import TrueFalseSubmission
 from registrar.models import ResponseQuestion
 from registrar.models import ResponseSubmission
 from registrar.models import PeerReview
+from registrar.models import Category
 
 
-# class CAdmin(admin.ModelAdmin):
-#     list_display =['id', 'name', 'price']
 
 
-# class OrderAdmin(admin.ModelAdmin):
-#     list_display = ['id', 'name', 'email', 'date', 'paid']
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ['name', 'slug']
+    prepopulated_fields = {'slug': ('name',)}
 
 
-# class OrderItemAdmin(admin.ModelAdmin):
-#     list_display = ['id', 'price', 'quantity', 'course_id']
-
-
-# class LineItemAdmin(admin.ModelAdmin):
-#     list_display = ['id', 'price', 'quantity', 'date_added', 'order']
-
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(FileUpload)
 admin.site.register(Course)
 admin.site.register(CourseSubmission)

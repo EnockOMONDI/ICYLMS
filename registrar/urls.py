@@ -9,7 +9,8 @@ from registrar.views import certificate
 app_name="registrar"
 urlpatterns = [
     # Courses
-    url(r'^courses$', courses.courses_page),
+    url(r'^courses$', courses.courses_page , name='courses'),
+    url(r'^courses/(?P<category_slug>[-\w]+)/$', courses.courses_page, name='courses_list_by_category'),
     url(r'^course/(\d+)/$', courses.course_detail ,name='course_detail'),
     url(r'^enroll/(?P<id>\d+)/$', courses.enroll_course , name='enroll' ),
 

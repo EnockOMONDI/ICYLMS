@@ -8,35 +8,27 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 import json
 from landpage.models import CoursePreview
-from registrar.models import Student
-from registrar.models import Teacher
-from registrar.models import Course
-from registrar.models import Lecture
-from registrar.models import CourseFinalMark
-from registrar.models import CourseSetting
+from registrar.models import *
 from registrar.forms import CourseForm
-from registrar.models import Student
-from registrar.models import Teacher
 from django.shortcuts import render,redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from django.utils.translation import gettext as _
+from django.urls import reverse_lazy, reverse
 
 
 
 @login_required(login_url='/login_modal')
-def courses_page(request):
+def courses_page(request,category_slug=None):
+    category = None
+    categories = Category.objects.all()
+    courses = Course.objects.filter(status=settings.COURSE_AVAILABLE_STATUS)
     course_list = Course.objects.filter(status=settings.COURSE_AVAILABLE_STATUS)
-    paginator = Paginator(course_list, 4) # Show 25 courses per page
-    page = request.GET.get('page')
-    try:
-        courses = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        courses = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        courses = paginator.page(paginator.num_pages)
+ 
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        courses = Course.objects.filter(category=category)
+   
 
     # Create our student account which will build our registration around.
     try:
@@ -51,6 +43,8 @@ def courses_page(request):
         teacher = None
 
     return render(request, 'ecommerce_app/courses/courses.html',context={
+        'category': category,
+        'categories': categories,
         'courses' : courses,
         'student' : student,
         'teacher' : teacher,
