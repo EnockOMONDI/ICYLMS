@@ -55,28 +55,8 @@ def update_profile(request):
     return render(request, 'account/productionpages/pages/edit3.html', {
         # 'user_form': user_form,
         'profile_form': profile_form,
-        'local_css_urls': [                    
-                            "css2/demo.css",
-                             "css2/material-kit.min1036.css",   
-                            "css2/vertical-nav.css"
-                            ],
-        'local_js_urls': ["core/jquery.min.js",
-                           "core/popper.min.js",
-                           "core/bootstrap-material-design.min.js",
-                           "js2/plugins/moment.min.js ",
-                           "js2/plugins/bootstrap-datetimepicker.js",
-                           "js2/plugins/nouislider.min.js", 
-                           "js2/plugins/jquery.sharrre.js", 
-                           "js2/plugins/bootstrap-tagsinput.js",            
-                           "js2/plugins/bootstrap-selectpicker.js",                         
-                           "js2/plugins/jasny-bootstrap.min.js",
-                           "js2/plugins/jquery.flexisel.js",
-                           "js2/modernizr.js",
-                           "js2/vertical-nav.js",
-                           "js2/buttons.js",
-                           "js2/demo.js",
-                           "js2/material-kit.min1036.js?v=2.1.1" ],
-         
+         'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
+   'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS 
     })
 
     

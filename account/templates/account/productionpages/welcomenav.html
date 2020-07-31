@@ -1,0 +1,60 @@
+
+{% load static %}
+{% include 'publicpages/googletranslate.html' %}  
+<div class="header header-transparent head-shadow">
+<div class="container">
+<nav id="navigation" class="navigation navigation-landscape">
+<div class="nav-header">
+
+
+    <a class="nav-brand static-logo"  href="{% url 'landpage:home' %}"><img src="{% static 'assets_course_detail/img/ladalogo.png' %}" style="width:100px; height:80px;" class="logo" alt="" /></a>
+    
+    <div class="nav-toggle"></div>
+</div>
+
+<div style="margin-top:1em;" class="nav-menus-wrapper" style="transition-property: none;">
+    <ul class="nav-menu ">
+    
+
+<ul class="nav-menu nav-menu-social align-to-right">
+
+
+{% if request.user.is_authenticated %}
+<li  class="login_click  theme-bg">
+
+<a href="/view/profile">{{ user.first_name }} </a>
+</li>
+<li class="login_click light">
+<a style="cursor: pointer;" onclick="ajax_logout();">Logout </a>
+</li>
+<li  >
+
+<div  id="google_translate_element"></div>
+
+</li>
+{% else %}
+<li class="login_click theme-bg">
+<a href="#" data-toggle="modal" data-target="#login">Sign In</a>
+</li>
+<li  >
+
+<div  id="google_translate_element"></div>
+
+</li>
+<!-- <li class="login_click light">
+<a href="#" data-toggle="modal" data-target="#login"> login</a>
+</li> -->
+{% endif %}
+
+
+<!-- End Navigation -->
+</ul>  
+
+
+
+</ul>
+
+</div>
+</nav>
+</div>
+</div>

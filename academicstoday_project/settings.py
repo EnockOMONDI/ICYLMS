@@ -65,7 +65,7 @@ INSTALLED_APPS = (
     'pyuploadcare.dj',
     'ecommerce_app',
     'captcha',
-     'jet',
+    'jet',
     'account',
     'landpage',
     'registration',
@@ -75,6 +75,9 @@ INSTALLED_APPS = (
     'teacher',
     'publisher',
     'cloudinary',
+
+
+   
 
   
     

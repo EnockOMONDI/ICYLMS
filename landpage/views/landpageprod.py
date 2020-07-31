@@ -18,12 +18,7 @@ def landpageprod_page(request):
           })
 
 
-def welcome(request):
-    return render(request, 'productionpages/page/welcome.html',{
-        'tab': 'welcomepage',
-     'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
-          })
+
 
 def about_us(request):
     return render(request, 'productionpages/page/aboutus.html',{

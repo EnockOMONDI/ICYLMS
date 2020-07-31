@@ -46,3 +46,10 @@ def contactus(request):
         'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
         'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS
  })
+
+def welcome(request):
+    return render(request, 'publicpages/welcome.html',{
+    'tab': 'welcomepage',
+  'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
+   'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS
+          })
