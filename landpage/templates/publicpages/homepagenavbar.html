@@ -57,11 +57,13 @@
                                                                     
                                                                 
                                                                     {% if request.user.is_authenticated %}
-                                                                    <a href="#" data-toggle="modal" data-target="#certmodal" class="btn btn-outline-primary  " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Short  Courses</a>
+                                                                    <a href="/courses/shortcourse/" class="btn btn-outline-primary  " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Short  Courses</a>
                                                                     
-                                                                  
+
                                                                     {% else %}
-                                                                    <a href="#" data-toggle="modal" data-target="#certmodal" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Short Courses</a>
+                                                                    <a href="#" data-toggle="modal" >Sign In</a>
+
+                                                                    <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Short Courses</a>
                                     
                                                                 
                                                                     {% endif %}
@@ -295,7 +297,7 @@
                                                                 </li>
                                                                 {% else %}
                                                             <li class="login_click theme-bg">
-                                                                    <a href="#" data-toggle="modal" data-target="#login">Sign In</a>
+                                                                    <a href="#" data-toggle="modal" data-target="#register_modal">Sign In</a>
                                                                 </li>
                                                                 <li  >
 					
