@@ -42,7 +42,7 @@ def courses_page(request,category_slug=None):
     except Teacher.DoesNotExist:
         teacher = None
 
-    return render(request, 'ecommerce_app/courses/courses.html',context={
+    return render(request, 'ecommerce_app/courses/courses2.html',context={
         'category': category,
         'categories': categories,
         'courses' : courses,

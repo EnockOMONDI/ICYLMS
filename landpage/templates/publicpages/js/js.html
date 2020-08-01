@@ -21,15 +21,19 @@
             $(document).unbind("keypress.key13");
             $('#register_modal').remove();
             $('#ajax_response_register').html('');
+       
         });
         
         /**
          *  Function will call AJAX function to load the register.
          */
         function ajax_register()
+      
         {
+         
             // Only fetch the information on the register modal.
             var $form = $('#register_form');
+          
             
             // Send registration AJAX call to the server.
             var url = 'register';
@@ -167,94 +171,7 @@
     
     
     
-    <script>
-            /**
-             * When the 'Enter' key is pressed, lets try login in.
-             */
-            $(document).bind("keypress.13", function(event) {
-                if ($('#login_modal').is(':visible')) {
-                    if (event.which == 13) {
-                        ajax_authenticate();
-                    }
-                }
-            });
-            
-            //
-            // IMPORTANT:
-            //  The following block of code will run when finished running this modal.
-            //  Please put all jQuery unbinding code here.
-            //
-            // When this model hides, we will clear the contents of it.
-            $('#login_modal').on('hidden.bs.modal', function (e) {
-                $(document).unbind("keypress.key13");
-                $('#login_modal').remove();
-                $('#ajax_response_login').html('');
-            });
-            
-            /**
-             *  Function will call AJAX function to load the register.
-             */
-            function ajax_authenticate()
-            {
-                var url = 'login';
-        
-                $.ajax( url, {
-                    data: {
-                       'username': $("#login_username").val(),
-                       'password': $("#login_password").val(),
-                       'csrfmiddlewaretoken': '{{ csrf_token }}'
-                    },
-                    type: 'post',
-                    success: function(json_result) {
-                    // success code execution here
-                       if (json_result.status == "success")
-                       {
-                            // Hide & close the current popup modal.
-                            $('#login_modal').modal('hide');
-                   
-                            // Load up the course list.
-                            window.location = '/home_page';
-                       }
-                       else
-                       {
-                            alert(json_result.message);
-                       }
-                    },
-                    error: function(xhr,status,error) {
-                       // error code here
-                    },
-                    complete: function(xhr,status) {
-                       // completion code here
-                    }
-                });
-            }
-        
-            /**
-             *  TODO: Implement.
-             */
-            function ajax_forget_password()
-            {
-                var url = 'forget_password';
-            
-                $.ajax( url, {
-                    data: {
-                       'csrfmiddlewaretoken': '{{ csrf_token }}',
-                    },
-                    type: 'post',
-                    success: function(result) {
-                       // success code execution here
-                       $('#ajax_response_register').html(result); // Update UI.
-                       $('#register_modal').modal();               // Unhide view.
-                    },
-                    error: function(xhr,status,error) {
-                       // error code here
-                    },
-                    complete: function(xhr,status) {
-                       // completion code here
-                    }
-                });
-            }
-        </script>
+   
         
      
     

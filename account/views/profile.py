@@ -65,7 +65,7 @@ def update_profile(request):
 @login_required()
 def view_profile(request):
     student = request.user.student
-    return render(request, 'account/productionpages/pages/profile.html',{'student':student,
+    return render(request, 'account/productionpages/pages/profile2.html',{'student':student,
    'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
    'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS,
    }) 
