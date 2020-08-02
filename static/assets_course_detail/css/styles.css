@@ -2588,7 +2588,7 @@ opacity: 1;
  }
  
  .header-filter:before {
-    background: rgba(53, 6, 59, 0.692)
+    background: rgba(53, 6, 59, 0.500)
  }
  
  .header-filter .container {
@@ -4581,8 +4581,8 @@ ul.cources_facts_list li:after {
     opacity: 0.7;
 }
 .foot_lecture {
-    background: rgba(30, 173, 107,0.13);
-    color: #1ead6b;
+    background: rgba(161, 30, 173, 0.13);
+    color: #838383;
     padding: 6px 15px;
     font-size: 13px;
     border-radius: 50px;

@@ -16,6 +16,10 @@ urlpatterns = [
 
 
     # Enrollment(s)
+    url(r'^view/profile/enrollment$', enrollment.enrollment_page),
+    url(r'^view/profile/', enrollment.enrollment_table),
+    url(r'^view/profile/', enrollment.disenroll_modal),
+    url(r'^view/profile/', enrollment.disenroll),
     url(r'^enrollment$', enrollment.enrollment_page),
     url(r'^enrollment_table$', enrollment.enrollment_table),
     url(r'^disenroll_modal$', enrollment.disenroll_modal),

@@ -5,13 +5,28 @@ from django.http import HttpResponse
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import Http404,HttpResponseRedirect
+from registrar.models import *
 
 from django.contrib.auth.models import User
 
 
 #newhomepage         
-def home_page(request):
+def home_page(request,category_slug=None):
+    category = None
+    categories = Category.objects.all()
+    courses = Course.objects.filter(status=settings.COURSE_AVAILABLE_STATUS)
+    course_list = Course.objects.filter(status=settings.COURSE_AVAILABLE_STATUS)
+ 
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        courses = Course.objects.filter(category=category)
+
+        
+
     return render(request, 'publicpages/index.html',{
+        'category': category,
+        'categories': categories,
+        'courses' : courses,
         'tab': 'home_page',
        'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
         'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS

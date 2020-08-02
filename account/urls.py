@@ -5,6 +5,8 @@ from account.views import profile
 from account.views import setting
 from account.views import donate
 from account.views import *
+
+
 app_name = "account"
 
 urlpatterns = [
@@ -23,5 +25,6 @@ urlpatterns = [
     url(r'^trainingbits$', profile.trainingbits),
     url(r'^update_profile$', profile.update_profile),
     url(r'^view/profile/', profile.view_profile, ),
+
 
 ]

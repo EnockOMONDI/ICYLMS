@@ -22,7 +22,7 @@ data-your_own_param_2_to_login="any_value">
 <!-- ============================================================== -->
 
 <!-- ============================ Hero Banner  Start================================== -->
-{% if messages %}
+<!-- {% if messages %}
 {% for message in messages %}
 
 <div class="alert alert_top alert-success alert-dismissible fade show" role="alert">
@@ -40,7 +40,7 @@ data-your_own_param_2_to_login="any_value">
 
 
 {% endfor %}
-{% endif %}
+{% endif %} -->
 <!-- Carousel Card -->
 <div id="carouselExampleIndicators" class="carousel slide  " data-ride="carousel">
 <ol class="carousel-indicators">
@@ -50,13 +50,14 @@ data-your_own_param_2_to_login="any_value">
 </ol>
 <div class="carousel-inner ">
 <div class="carousel-item active">
-<div class="image-cover hero_banner hero-inner-2 index-page header-filter " style="background-image: url('../../../static/img/bg1.jpg ')" data-overlay="" >
+<div class="image-cover hero_banner hero-inner-2 index-page header-filter " style="background-image: url('../../../static/img/bg20.jpg ')" data-overlay="" >
 
 <div class="container" >
 <div class="row">
 <div class="col-md-8 ml-auto mr-auto text-center">
-<h2 >Leadership and Development Academy </h2>
-<br>
+       
+<h1 >Leadership and Development Academy </h1>
+
 <p class="ac-para">The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as For Mission College, Africa for SDGs, My Goals Foundation and ICY AFRICA and other global partners.</p>
 <br>
 <div class="buttons">
@@ -75,7 +76,7 @@ Learn More
 </div>
 </div>
 <div class="carousel-item">
-<div class="image-cover hero_banner hero-inner-2 index-page header-filter" style="background-image: url('../../../static/img/bg1.jpg ')" data-overlay="" >
+<div class="image-cover hero_banner hero-inner-2 index-page header-filter" style="background-image: url('../../../static/img/bg10.jpg ')" data-overlay="" >
 <div class="container">
 <div class="row">
 <div class="col-md-8 ml-auto mr-auto text-center">
@@ -100,7 +101,7 @@ Learn More
 </div>
 </div>
 <div class="carousel-item">
-<div class="image-cover hero_banner hero-inner-2 index-page header-filter" style="background-image: url('../../../static/img/bg1.jpg ')" data-overlay="">			  <div class="container">
+<div class="image-cover hero_banner hero-inner-2 index-page header-filter" style="background-image: url('../../../static/img/bg30.jpg ')" data-overlay="">			  <div class="container">
 <div class="row">
 <div class="col-md-8 ml-auto mr-auto " > 
 <!-- text-left -->
@@ -156,22 +157,29 @@ Learn More
 <div class="col-lg-12 col-md-12 mb-3">
 <div class="sec-heading2">
 <div class="sec-left">
-<h3>Featured Courses</h3>
+<h3>Featured Online Courses</h3>
 </div>
 <div class="sec-right">
 <ul class="nav nav-tabs side-cates">
+
+        {% if categories  %}
+        {% for c in categories %}
+        {% if request.user.is_authenticated %} 
+
 <li class="nav-item">
-<a class="nav-link active" href="javascript:void(0);">Design</a>
+<a class="nav-link " href="{{ c.get_absolute_url }}">{{c.name}}</a>
 </li>
+{%else %}
+
 <li class="nav-item">
-<a class="nav-link" href="javascript:void(0);">Development</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="javascript:void(0);">Business</a>
-</li>
-<li class="nav-item" href="javascript:void(0);">
-<a class="nav-link" href="javascript:void(0);">Accounting</a>
-</li>
+  <a class="nav-link " href="/redirected_login">{{c.name}}</a>
+ </li>
+{%endif%}
+{% endfor %}
+
+{%else %}
+<a class="nav-link active" href="">No Categories found</a>
+{%endif%}
 </ul>
 </div>
 </div>
@@ -184,214 +192,56 @@ Learn More
 <div class="arrow_slide three_slide arrow_middle">
 
 <!-- Single Slide -->
+{% if courses  %}			
+{% for course in courses %} 
 <div class="singles_items">
 <div  style=" box-shadow: 0 8px 16px 0 #c5c5c581; " class="education_block_grid style_2">
-<div class="education_block_thumb n-shadow">
-<a href="course-detail.html"><img src="assets/img/co-1.jpg" class="img-fluid" alt=""></a>
-<div class="cources_price">$520</div>
-</div>
+<!-- <div class="education_block_thumb n-shadow">
+
+{% if course.image != None and course.image != '' %}
+<a href="{% url 'registrar:course_detail' course.id %}">
+ <img src="{{ course.image.url }}" class="img-fluid" alt="Course Image"></a>
+        {% else %}
+<a href="{% url 'registrar:course_detail' course.id %}">
+<img src="static/img/dummy.png"  class="img-fluid" alt="Course Image">
+       
+             {% endif %}
+<div class="cources_price">$ {{ course.price}}</div>
+</div> -->
 
 <div class="education_block_body">
-<h4 class="bl-title"><a href="course-detail.html">Tableau For Beginners: Get CA Certified, Grow Your Career</a></h4>
+{% if request.user.is_authenticated %}
+<h4 class="bl-title"><a href="{% url 'registrar:course_detail' course.id %}">{{ course.title }}</a></h4>
+{% else %}
+<h4 class="bl-title"><a href="/redirected_login">{{ course.title }}</a></h4>
+{% endif %}
 </div>
 
 <div class="cources_info_style3">
+<h6>{{ course.sub_title }}</h6>
+<!-- <h6><small>{{ course.description }}</small> </h6> -->
 <ul>
-<li><i class="ti-eye mr-2"></i>8682 Views</li>
-<li><i class="ti-time mr-2"></i>6h 40min</li>
-<li><i class="ti-star text-warning mr-2"></i>4.7 Reviews</li>
+<li><i class="ti-time mr-2"></i>{{ course.start_date }} </li>
 </ul>
+
 </div>
 
 <div class="education_block_footer">
 <div class="education_block_author">
-<div class="path-img"><a href="instructor-detail.html"><img src="assets/img/user-1.jpg" class="img-fluid" alt=""></a></div>
-<h5><a href="instructor-detail.html">Robert Wilson</a></h5>
+<!-- <div class="path-img"><a href="instructor-detail.html"><img src="assets/img/user-1.jpg" class="img-fluid" alt=""></a></div> -->
+{% if request.user.is_authenticated %}
+<a style="border-radius:15px;" href="{% url 'registrar:course_detail' course.id %}"  class="btn btn-outline-primary  btn-sm">More Details <i class="ti-angle-right"></i></a>
+{% else %}
+<a style="border-radius:15px;" href="/redirected_login"  class="btn btn-outline-primary  btn-sm">More Details <i class="ti-angle-right"></i></a>
+{% endif %}
+
 </div>
-<div class="foot_lecture"><i class="ti-control-skip-forward mr-2"></i>54 lectures</div>
+<div class="foot_lecture"><i class="ti-control-skip-forward mr-2"></i>{{ course.category }}</div>
 </div>
 </div>	
 </div>
-
-<!-- Single Slide -->
-<div class="singles_items">
-<div class="education_block_grid style_2">
-<div class="education_block_thumb n-shadow">
-<a href="course-detail.html"><img src="assets/img/co-2.jpg" class="img-fluid" alt=""></a>
-<div class="cources_price">$349</div>
-</div>
-
-<div class="education_block_body">
-<h4 class="bl-title"><a href="course-detail.html">The Complete Business Plan Course (Includes 50 Templates)</a></h4>
-</div>
-
-<div class="cources_info_style3">
-<ul>
-<li><i class="ti-eye mr-2"></i>9882 Views</li>
-<li><i class="ti-time mr-2"></i>6h 30min</li>
-<li><i class="ti-star text-warning mr-2"></i>4.7 Reviews</li>
-</ul>
-</div>
-
-<div class="education_block_footer">
-<div class="education_block_author">
-<div class="path-img"><a href="instructor-detail.html"><img src="assets/img/user-2.jpg" class="img-fluid" alt=""></a></div>
-<h5><a href="instructor-detail.html">Shruti Hasan</a></h5>
-</div>
-<div class="foot_lecture"><i class="ti-control-skip-forward mr-2"></i>26 lectures</div>
-</div>
-</div>
-</div>
-
-<!-- Single Slide -->
-<div class="singles_items">
-<div class="education_block_grid style_2">
-<div class="education_block_thumb n-shadow">
-<a href="course-detail.html"><img src="assets/img/co-3.jpg" class="img-fluid" alt=""></a>
-<div class="cources_price">$545</div>
-</div>
-
-<div class="education_block_body">
-<h4 class="bl-title"><a href="course-detail.html">An Entire MBA In 1 Course:Award Winning Business School Prof</a></h4>
-</div>
-
-<div class="cources_info_style3">
-<ul>
-<li><i class="ti-eye mr-2"></i>5893 Views</li>
-<li><i class="ti-time mr-2"></i>5h 15min</li>
-<li><i class="ti-star text-warning mr-2"></i>4.7 Reviews</li>
-</ul>
-</div>
-
-<div class="education_block_footer">
-<div class="education_block_author">
-<div class="path-img"><a href="instructor-detail.html"><img src="assets/img/user-3.jpg" class="img-fluid" alt=""></a></div>
-<h5><a href="instructor-detail.html">Adam Viknoi</a></h5>
-</div>
-<div class="foot_lecture"><i class="ti-control-skip-forward mr-2"></i>52 lectures</div>
-</div>
-</div>	
-</div>
-
-<!-- Single Slide -->
-<div class="singles_items">
-<div class="education_block_grid style_2">
-<div class="education_block_thumb n-shadow">
-<a href="course-detail.html"><img src="assets/img/co-4.jpg" class="img-fluid" alt=""></a>
-<div class="cources_price">$420</div>
-</div>
-
-<div class="education_block_body">
-<h4 class="bl-title"><a href="course-detail.html">The Complete Financial Analyst Course 2020</a></h4>
-</div>
-
-<div class="cources_info_style3">
-<ul>
-<li><i class="ti-eye mr-2"></i>8582 Views</li>
-<li><i class="ti-time mr-2"></i>4h 59min</li>
-<li><i class="ti-star text-warning mr-2"></i>4.6 Reviews</li>
-</ul>
-</div>
-
-<div class="education_block_footer">
-<div class="education_block_author">
-<div class="path-img"><a href="instructor-detail.html"><img src="assets/img/user-4.jpg" class="img-fluid" alt=""></a></div>
-<h5><a href="instructor-detail.html">Shilpa Shekh</a></h5>
-</div>
-<div class="foot_lecture"><i class="ti-control-skip-forward mr-2"></i>43 lectures</div>
-</div>
-</div>	
-</div>
-
-<!-- Single Slide -->
-<div class="singles_items">
-<div class="education_block_grid style_2">
-<div class="education_block_thumb n-shadow">
-<a href="course-detail.html"><img src="assets/img/co-5.jpg" class="img-fluid" alt=""></a>
-<div class="cources_price">$429</div>
-</div>
-
-<div class="education_block_body">
-<h4 class="bl-title"><a href="course-detail.html">PMP Exam Prep Seminar - PMBOK Guide 6</a></h4>
-</div>
-
-<div class="cources_info_style3">
-<ul>
-<li><i class="ti-eye mr-2"></i>9857 Views</li>
-<li><i class="ti-time mr-2"></i>7h 45min</li>
-<li><i class="ti-star text-warning mr-2"></i>4.9 Reviews</li>
-</ul>
-</div>
-
-<div class="education_block_footer">
-<div class="education_block_author">
-<div class="path-img"><a href="instructor-detail.html"><img src="assets/img/user-5.jpg" class="img-fluid" alt=""></a></div>
-<h5><a href="instructor-detail.html">Shaurya Preet</a></h5>
-</div>
-<div class="foot_lecture"><i class="ti-control-skip-forward mr-2"></i>32 lectures</div>
-</div>
-</div>
-</div>
-
-<!-- Single Slide -->
-<div class="singles_items">
-<div class="education_block_grid style_2">
-<div class="education_block_thumb n-shadow">
-<a href="course-detail.html"><img src="assets/img/co-6.jpg" class="img-fluid" alt=""></a>
-<div class="cources_price">$249</div>
-</div>
-
-<div class="education_block_body">
-<h4 class="bl-title"><a href="course-detail.html">Tableau 2020 A-Z:Hands-On Tableau Training For Data Science!</a></h4>
-</div>
-
-<div class="cources_info_style3">
-<ul>
-<li><i class="ti-eye mr-2"></i>6852 Views</li>
-<li><i class="ti-time mr-2"></i>2h 30min</li>
-<li><i class="ti-star text-warning mr-2"></i>4.8 Reviews</li>
-</ul>
-</div>
-
-<div class="education_block_footer">
-<div class="education_block_author">
-<div class="path-img"><a href="instructor-detail.html"><img src="assets/img/user-6.jpg" class="img-fluid" alt=""></a></div>
-<h5><a href="instructor-detail.html">Preeti Bhartiya</a></h5>
-</div>
-<div class="foot_lecture"><i class="ti-control-skip-forward mr-2"></i>48 lectures</div>
-</div>
-</div>	
-</div>
-<!-- Single Slide -->
-<div class="singles_items">
-<div class="education_block_grid style_2">
-<div class="education_block_thumb n-shadow">
-<a href="course-detail.html"><img src="assets/img/co-7.jpg" class="img-fluid" alt=""></a>
-<div class="cources_price">$329</div>
-</div>
-
-<div class="education_block_body">
-<h4 class="bl-title"><a href="course-detail.html">The Complete Financial Analyst Training & Investing Course</a></h4>
-</div>
-
-<div class="cources_info_style3">
-<ul>
-<li><i class="ti-eye mr-2"></i>8852 Views</li>
-<li><i class="ti-time mr-2"></i>3h 20min</li>
-<li><i class="ti-star text-warning mr-2"></i>4.9 Reviews</li>
-</ul>
-</div>
-
-<div class="education_block_footer">
-<div class="education_block_author">
-<div class="path-img"><a href="instructor-detail.html"><img src="assets/img/user-7.jpg" class="img-fluid" alt=""></a></div>
-<h5><a href="instructor-detail.html">Jasvinder Bhartiya</a></h5>
-</div>
-<div class="foot_lecture"><i class="ti-control-skip-forward mr-2"></i>42 lectures</div>
-</div>
-
-</div>	
-</div>
+{% endfor %}
+ {%endif %}
 
 </div>
 </div>
@@ -456,7 +306,7 @@ Explore Leadership courses, Study online, build professional Leadership skills, 
 </ol> -->
 <div class="carousel-inner">
 <div class="carousel-item active">
-<img class="d-block w-100 "  href="#carouselExampleIndicators" src="../../../static/img/bgnew.png" alt="First slide">
+<img class="d-block w-100 "  href="#carouselExampleIndicators" src="../../../static/img/bgnew2.jpg" alt="First slide">
 <div class="carousel-caption d-none d-md-block">
 <!-- <h4>
 <i class="material-icons">location_on</i> Yellowstone National Park, United States
@@ -464,7 +314,7 @@ Explore Leadership courses, Study online, build professional Leadership skills, 
 </div>
 </div>
 <div class="carousel-item">
-<img class="d-block w-100"  href="#carouselExampleIndicators" src="../../../static/img/bgnew2.png"  alt="Second slide">
+<img class="d-block w-100"  href="#carouselExampleIndicators" src="../../../static/img/bgnewo3.jpg"  alt="Second slide">
 <div class="carousel-caption d-none d-md-block ">
 <!-- <h4 >
 <i class="material-icons  ">location_on</i> Somewhere Beyond, United States
@@ -472,7 +322,7 @@ Explore Leadership courses, Study online, build professional Leadership skills, 
 </div>
 </div>
 <div class="carousel-item">
-<img class="d-block w-100"  href="#carouselExampleIndicators" src="../../../static/img/bgnew3.png" alt="Third slide">
+<img class="d-block w-100"  href="#carouselExampleIndicators" src="../../../static/img/bgnew04.jpg" alt="Third slide">
 <div class="carousel-caption d-none d-md-block">
 <!-- <h4>
 <i class="material-icons">location_on</i> Yellowstone National Park, United States
@@ -556,7 +406,7 @@ We believe that when youths are capacitated with leadership and development skil
 
 <div class="card-stats text-center">
 {% if request.user.is_authenticated %}
-<a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Explore our platform</a>
+<a href="/courses" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Online courses</a>
 
 
 {% else %}
@@ -585,9 +435,7 @@ We believe that when youths are capacitated with leadership and development skil
 <br><br>
 <div class="container">
 <div class="col-lg-12" >
-<h2 class="card-title ">
-LADA Scholarships to Finance Your Study
-</h2>
+
 </div> 
 <div class="col-lg-12  "  >
 
@@ -598,9 +446,13 @@ LADA Scholarships to Finance Your Study
 <!-- <h2 class="card-title  text-right">
 <a href="#pablo" > Learn Where Leaders Learn</a>
 </h2> -->
+<h2 class="card-title ">
+        LADA Scholarships to Finance Your Study
+        </h2>
 <hr>
-<p>The LADA is pleased to announce a call for applications for the Leadership and Development Fellowships for African Practitioners or interested Scholarship starting in June 2019. This Fellowship comes with a scholarship for tuition which covers for short courses ( 1 week course or more), a 12- month period diploma or a three (3) year Professional degree,
-comprising a rigorous training, research and practical application programme on Leadership and development; <a href="/scholarship-application-form">Learn More</a>
+<br>
+Finance Your Study with a Scholarship for tution which covers a 12- month period for diploma level and 3 years for a professional b.a degree on leadership and sustainable development, comprising a rigorous training, research and practical application programme on leadership and sustainable development. 
+ <a href="/scholarship-application-form">Learn More</a>
 </p>
 
 
@@ -624,7 +476,7 @@ comprising a rigorous training, research and practical application programme on 
 </ol> -->
 <div class="carousel-inner">
 <div class="carousel-item active">
-<img class="d-block w-100 "  href="#carouselExampleIndicators" src="../../../static/img/bgscho3.png" alt="First slide">
+<img class="d-block w-100 "  href="#carouselExampleIndicators" src="../../../static/img/bgnew00.jpg" alt="First slide">
 <div class="carousel-caption d-none d-md-block">
 <!-- <h4>
 <i class="material-icons">location_on</i> Yellowstone National Park, United States
@@ -640,7 +492,7 @@ comprising a rigorous training, research and practical application programme on 
 </div>
 </div>
 <div class="carousel-item">
-<img class="d-block w-100"  href="#carouselExampleIndicators" src="../../../static/img/bgscho2.png" alt="Third slide">
+<img class="d-block w-100"  href="#carouselExampleIndicators" src="../../../static/img/bgscho3.png" alt="Third slide">
 <div class="carousel-caption d-none d-md-block">
 <!-- <h4>
 <i class="material-icons">location_on</i> Yellowstone National Park, United States
@@ -661,12 +513,12 @@ comprising a rigorous training, research and practical application programme on 
 <br>
 <div class="card-stats text-center">
 {% if request.user.is_authenticated %}
-<a href="/scholarship-application-form" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >APPLY FOR SCHOLARSHIP</a>
+<a href="/scholarship" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >APPLY FOR SCHOLARSHIP</a>
 
 
 {% else %}
 
-<a href="/scholarship-application-form" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >APPLY FOR SCHOLARSHIP</a>
+<a href="/scholarship" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >APPLY FOR SCHOLARSHIP</a>
 
 {% endif %}
 </div>
@@ -875,9 +727,9 @@ Our Impact
 
 <ul>  
 {% if request.user.is_authenticated %}
-<li><i class="material-icons text-success">check</i> <a href="/payment">B.A in Leadership and Sustainable Development</a> </li>
-<li><i class="material-icons text-success">check</i> <a href="/payment">M.A in Leadership and Sustainable Development</a> </li>
-<li><i class="material-icons text-success">check</i> <a href="/payment">Diploma in Missional leadership</a> </li>
+<li><i class="material-icons text-success">check</i> <a href="/courses">B.A in Leadership and Sustainable Development</a> </li>
+<li><i class="material-icons text-success">check</i> <a href="/courses">M.A in Leadership and Sustainable Development</a> </li>
+<li><i class="material-icons text-success">check</i> <a href="/courses">Diploma in Missional leadership</a> </li>
 
 {% else %}
 
@@ -895,7 +747,7 @@ Our Impact
 <br>
 <div class="card-stats text-center ">
 {% if request.user.is_authenticated %}
-<a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >EXPlORE ALL COURSES</a>
+<a href="/courses" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >EXPlORE ALL COURSES</a>
 
 
 {% else %}
@@ -1056,7 +908,7 @@ Each learner will be expected as an individual or a group of fellows to come up 
 <br> <br> 
 <div class="card-stats text-center ">
 {% if request.user.is_authenticated %}
-<a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >START YOUR JOURNEY OF BECOMING A LEADER</a>
+<a href="/courses" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >START YOUR JOURNEY OF BECOMING A LEADER</a>
 
 
 {% else %}

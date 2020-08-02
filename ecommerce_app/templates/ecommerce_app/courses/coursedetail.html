@@ -13,7 +13,7 @@
 <!-- ============================================================== -->
 <!-- Start Navigation -->
 
-{% include 'landpage/publicpages/publicpagesnavbar.html' %}
+{% include 'publicpages/publicpagesnavbar.html' %}
 
 <!-- End Navigation -->
 <div class="clearfix"></div>
@@ -136,6 +136,7 @@
 		{% csrf_token %}
 		<button 
 		{% if teacher == course.teacher %}
+		
 disabled=""
 {% endif %}
 {% if student not in course.students.all %}

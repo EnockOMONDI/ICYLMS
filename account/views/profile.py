@@ -7,7 +7,9 @@ import json
 from account.forms import UserForm,StudentForm
 from registration.form import RegisterForm
 from django.db import transaction
+from registrar.models import *
 from account.models import *
+from registrar.forms import CourseForm
 from django.contrib import messages
 from django.utils.translation import gettext as _
 
