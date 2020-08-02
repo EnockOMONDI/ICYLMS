@@ -19,13 +19,13 @@ import datetime
 
 
 @login_required(login_url='/landpage')
-def syllabus_page(request, course_id):
-    course = Course.objects.get(id=course_id)
+def syllabus_page(request, id):
+    course = Course.objects.get(id=id)
     try:
         syllabus = Syllabus.objects.get(course=course)
     except Syllabus.DoesNotExist:
         syllabus = None
-    return render(request, 'course/syllabus/view.html',{
+    return render(request, 'course/announcement/dashboard.html',{
         'course' : course,
         'syllabus' : syllabus,
         'user' : request.user,

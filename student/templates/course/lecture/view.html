@@ -1,9 +1,26 @@
-{% extends 'course/base.html' %}
+{% extends 'course/basetest.html' %}
 {% load staticfiles %}
 {% block content %}
-
-        <!-- Page Heading -->
+<div class="col-lg-9 col-md-9 col-sm-12">
+                                
+        <!-- Row -->
         <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 pt-4 pb-4">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+
+
+                        <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- /Row -->
+    
+        <!-- includesRow -->
+         <!-- Page Heading -->
+         <div class="row">
                 <div class="col-lg-12">
                         <br>
                         <br>
@@ -30,6 +47,11 @@
         {% include "course/lecture/table.html" %}
         <!-- /.row -->
 
+        <!-- /endincludesRow -->
+        
+
+    </div>
+     
 <script>    
     /**
      *  Function will call AJAX function to load the video player modal for the lecture.

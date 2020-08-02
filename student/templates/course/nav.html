@@ -3,97 +3,55 @@
 {% load staticfiles %}
 
 <!-- 0c0b11 -->
-
-  <nav  class="navbar  navbar-default fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav" >
-      <!-- style=" box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); " -->
-    <div class="container" >
-      <div class="navbar-translate">
-          <!-- <a>
-            <img src="{% static 'img/logos/logo3.png' %}" alt="" style="width:130px; height:130px;  ">
-          </a>                -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-             <span class="sr-only">Toggle navigation</span>
-             <span class="navbar-toggler-icon"></span>
-             <span class="navbar-toggler-icon"></span>
-             <span class="navbar-toggler-icon"></span>
-          </button>
-      </div>
-       <div class="collapse navbar-collapse">
-           <ul class="navbar-nav ml-auto"> 
-            
+		
+        <!-- ============================================================== -->
+        <!-- Main wrapper - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div id="main-wrapper">
+		
+                <!-- ============================================================== -->
+                <!-- Top header  -->
+                <!-- ============================================================== -->
+                <!-- Start Navigation -->
         
+                <!-- End Navigation -->
+                <div class="clearfix"></div>
+                <!-- ============================================================== -->
+                <!-- Top header  -->
+                <!-- ============================================================== -->		
+    
+                
+                <!-- ============================ Dashboard: Dashboard Start ================================== -->
+                <section class="gray pt-0">
+                    <div class="container-fluid">
+                                            
+                        <div class="row">
+                        
+                     
+                      
+                        </div>
+                        
+                    </div>
+                </section>
+ 
+        
+                
+                <a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
+                
+    
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Wrapper -->
+            <!-- ============================================================== -->
+    
+            <!-- ============================================================== -->
+            <!-- All Jquery -->
+            <!-- ============================================================== -->
+        
+            <script>
+                $('#side-menu').metisMenu();
+            </script>
 
-                <li {% if tab == 'announcements' %}class="active dropdown nav-item"{% endif %}>
-                    <a class=" nav-link" href="/course/{{ course.id }}/announcements"><i class="fa fa-fw fa-bullhorn"></i> Announcements</a>
-                </li>
-                <li  {% if tab == 'syllabus' %}class="active dropdown nav-item"{% endif %}>
-                    <a class=" nav-link" href="/course/{{ course.id }}/syllabus"><i class="fa fa-fw fa-info"></i> Syllabus</a>
-                </li>
-                <li {% if tab == 'policy' %}class="active dropdown nav-item"{% endif %}>
-                    <a class=" nav-link" href="/course/{{ course.id }}/policy"><i class="fa fa-fw fa-legal"></i> Grading and Policy</a>
-                </li>
-                <li {% if tab == 'lectures' %}class="active dropdown nav-item"{% endif %}>
-                    <a class=" nav-link" href="/course/{{ course.id }}/lectures"><i class="fa fa-fw fa-video-camera"></i> Lectures</a>
-                </li>
-                <li {% if tab == 'assignments' %}class="active dropdown nav-item"{% endif %}>
-                    <a class=" nav-link" href="/course/{{ course.id }}/assignments"><i class="fa fa-fw fa-book"></i> Assignments</a>
-                </li>
-                <li {% if tab == 'quizzes' %}class="active dropdown nav-item"{% endif %}>
-                    <a class=" nav-link" href="/course/{{ course.id }}/quizzes"><i class="fa fa-fw fa-star-half"></i> Quizzes</a>
-                </li>
-                <li {% if tab == 'exams' %}class="active dropdown nav-item"{% endif %}>
-                    <a class=" nav-link" href="/course/{{ course.id }}/exams"><i class="fa fa-fw fa-star"></i> Exams</a>
-                </li>
-                <li {% if tab == 'discussion' %}class="active dropdown nav-item"{% endif %}>
-                    <a class=" nav-link" href="/course/{{ course.id }}/discussion"><i class="fa fa-fw fa-comment"></i> Discussion</a>
-                </li>
-                <!-- <li {% if tab == 'peer_reviews' %}class="active dropdown nav-item"{% endif %}>
-                    <a class=" nav-link" href="/course/{{ course.id }}/peer_reviews"><i class="fa fa-fw fa-child"></i> Peer Reviews</a>
-                </li> -->
-                <li {% if tab == 'credit' %}class="active dropdown nav-item"{% endif %}>
-                    <a class=" nav-link" href="/course/{{ course.id }}/credit"><i class="fa fa-fw fa-sitemap"></i> Credit</a>
-                </li>
-
-              <li>
-              <div class="dropdown ">
-                  {% if request.user.is_authenticated %}
-                 
-                <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  {{ user.first_name }} {{ user.last_name }}
-                </button>
-                <div class="dropdown-menu" >
-                <a class="dropdown-item" href="/view/profile" ><i class="material-icons">person_add</i>  Profile
-                </a>
-                <!-- <a class="dropdown-item" href="/inbox" ><i class="material-icons">person_add</i>  Inbox
-                </a> -->
-                <!-- <a class="dropdown-item" href="/settings" ><i class="material-icons">person_add</i>  Settings
-                </a> -->
-                <a class="dropdown-item"  onclick="ajax_logout();"><i class="material-icons">person_add</i> Logout
-                </a>
-              </div>   
-                {% else %}
-                <button class="dropdown-toggle btn btn-primary btn-round btn-block"  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  My Account      
-                </button>
-                <div class="dropdown-menu" >
-                  <a class="dropdown-item" onclick="ajax_popup_register();"><i class="material-icons">person_add</i>  student Sign up
-                  </a>
-                 <a class="dropdown-item" onclick="ajax_popup_login();" ><i class="material-icons">person_add</i>  student Login
-                </a>
-                {% endif %}
-               
-                </div>
-              </div>
-
-        </li>
-       
-
-
-   
-        </ul>
-      </div>
-    </div>
-  </nav>
   <script>
     $(document).ready(function(){
                       $('.dropdown-toggle').dropdown();

@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,18 +32,62 @@
             <div id="preloader"><div class="preloader"><span></span><span></span></div></div>
           
 		
+            <div id="main-wrapper">
+		
+                    <!-- ============================================================== -->
+                    <!-- Top header  -->
+                    <!-- ============================================================== -->
+                    <!-- Start Navigation -->
+            
+                    <!-- End Navigation -->
+                    <div class="clearfix"></div>
+                    <!-- ============================================================== -->
+                    <!-- Top header  -->
+                    <!-- ============================================================== -->		
+        
+                    
+                    <!-- ============================ Dashboard: Dashboard Start ================================== -->
+                    <section class="gray pt-0">
+                        <div class="container-fluid">
+                                                
+                            <div class="row">
+                                    {% include "course/navtest.html" %}
+                                         <!-- Scripts -->
+            {% csrf_token %}
+            {% include "course/script.html" %}
+                                    {% block content %}
 
+
+                                    {% endblock %}
+                                    
+                          
+                            </div>
+                            
+                        </div>
+                    </section>
+     
+            
+                    
+                    <a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
+                    
+        
+                </div>
  
-{% block content %}
-
-
-{% endblock %}
 
 
     {% for local_js_url in local_js_urls %}
           <script src="{% static local_js_url %}"></script>
     {% endfor %}
 
+    <script>
+            $('#side-menu').metisMenu();
+        </script>
+
+<script>
+$(document).ready(function(){
+                  $('.dropdown-toggle').dropdown();
+                  });
+</script>
 
 </body>
 </html>

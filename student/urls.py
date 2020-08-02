@@ -20,7 +20,8 @@ urlpatterns = [
     url(r'^course/(?P<id>\d+)/announcements$', announcement.announcements_page, name='announcements_page'),
 
     # Syllabus
-    url(r'^course/(\d+)/syllabus$', syllabus.syllabus_page),
+    url(r'^course/(\d+)/syllabus$', syllabus.syllabus_page, name='syllabus_page'),
+
 
     # Grades & Policy
     url(r'^course/(\d+)/policy$', policy.policy_page),
