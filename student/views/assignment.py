@@ -80,8 +80,8 @@ def assignments_page(request, course_id):
         'tab' : 'assignments',
         'subtab' : '',
         'HAS_ADVERTISMENT': settings.APPLICATION_HAS_ADVERTISMENT,
-        'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS,
+        'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS,
     })
 
 
@@ -165,8 +165,8 @@ def assignment_page(request, course_id, assignment_id):
         'user': request.user,
         'tab': 'assignment',
         'HAS_ADVERTISMENT': settings.APPLICATION_HAS_ADVERTISMENT,
-        'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-        'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
+        'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS,
     })
 
 

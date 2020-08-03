@@ -18,7 +18,7 @@ def announcements_page(request, id):
         announcements = Announcement.objects.filter(course=course).order_by('-post_date')
     except Announcement.DoesNotExist:
         announcements = None
-    return render(request, 'course/announcement/dashboard.html',{
+    return render(request, 'course/announcement/view.html',{
         'course' : course,
         'announcements' : announcements,
         'user' : request.user,
