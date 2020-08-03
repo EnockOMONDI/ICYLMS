@@ -16,7 +16,7 @@
                      
     
                         <!-- Navbar Brand -->
-                        <a href="fixed-index.html" class="navbar-brand mr-16pt">
+                        <a href="{% url 'landpage:home' %}" class="navbar-brand mr-16pt">
                             <!-- <img class="navbar-brand-icon" src="assets/images/logo/white-100@2x.png" width="30" alt="Luma"> -->
     
                             <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
@@ -32,7 +32,7 @@
     </button> -->
                         <!-- <ul class="nav navbar-nav d-none d-sm-flex flex justify-content-start ml-8pt">
                             <li class="nav-item">
-                                <a  href="fixed-index.html" class="nav-link sidebar-menu-text">Home</a>
+                                <a  href="{% url 'landpage:home' %}" class="nav-link sidebar-menu-text">Home</a>
                             </li>
                             <li class="nav-item dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">Courses</a>
@@ -506,7 +506,7 @@
     
     
                     <div class="d-flex align-items-center navbar-height">
-                        <form action="http://luma.humatheme.com/fixed-index.html" class="search-form search-form--black mx-16pt pr-0 pl-16pt">
+                        <form action="http://luma.humatheme.com/{% url 'landpage:home' %}" class="search-form search-form--black mx-16pt pr-0 pl-16pt">
                             <input type="text" class="form-control pl-0" placeholder="Search">
                             <button class="btn" type="submit"><i class="material-icons">search</i></button>
                         </form>
@@ -514,7 +514,7 @@
     
     
     
-                    <a href="fixed-index.html" class="sidebar-brand ">
+                    <a href="{% url 'landpage:home' %}" class="sidebar-brand ">
                         <!-- <img class="sidebar-brand-icon" src="assets/images/illustration/student/128/white.svg" alt="Luma"> -->
     
                         <span class="avatar avatar-xl sidebar-brand-icon h-auto">
@@ -533,7 +533,7 @@
     
     
                         <li class="sidebar-menu-item">
-                            <a class="sidebar-menu-button" href="fixed-index.html">
+                            <a class="sidebar-menu-button" href="{% url 'landpage:home' %}">
                                 <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
                                 <span class="sidebar-menu-text">Home</span>
                             </a>
@@ -1259,7 +1259,10 @@
             </div>
         </div>
         <!-- // END drawer -->
-    
+ 
+{% include "landpage/main/js.html" %}  
+
+<div id="ajax_logout"></div>   
 {% endblock %}
     
 

@@ -7,7 +7,7 @@
                     </button> -->
     
                     <!-- Navbar Brand -->
-                    <a href="boxed-index.html" class="navbar-brand mr-16pt d-lg-none">
+                    <a href="{% url 'landpage:home' %}" class="navbar-brand mr-16pt d-lg-none">
                         <img class="navbar-brand-icon" src="{% static 'assets_course_list/images/ladalogo2.png' %}"   alt="Luma">
     
                         <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
@@ -21,7 +21,7 @@
     
                     <ul class="nav navbar-nav d-none d-sm-flex flex justify-content-start ml-8pt">
                         <li class="nav-item">
-                            <a href="boxed-index.html" class="nav-link">Home</a>
+                            <a href="{% url 'landpage:home' %}" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">Courses</a>
@@ -84,7 +84,7 @@
                     </ul>
     
     
-                    <form class="search-form navbar-search d-none d-lg-flex mr-16pt" action="http://luma.humatheme.com/boxed-index.html" style="max-width: 230px">
+                    <form class="search-form navbar-search d-none d-lg-flex mr-16pt" action="http://luma.humatheme.com/{% url 'landpage:home' %}" style="max-width: 230px">
                         <button class="btn" type="submit"><i class="material-icons">search</i></button>
                         <input type="text" class="form-control" placeholder="Search courses ...">
                     </form>
