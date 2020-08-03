@@ -1,0 +1,39 @@
+<ul id="side-menu">
+
+
+    <li {% if tab == 'announcements' %}class="active "{% endif %}>
+    <a href="{% url 'student:announcements_page' id %}"><i class="fa fa-fw fa-bullhorn"></i> Announcemts</a>
+    </li>
+    <li {% if tab == 'syllabus' %}class="active "{% endif %}>
+    <a href="{% url 'student:syllabus_page' id %}"><i class="fa fa-book" aria-hidden="true"></i>
+    Syllabus</a>
+    </li>
+    <li {% if tab == 'policy' %}class="active "{% endif %}>
+    <a href="{% url 'student:policy_page' id %}"><i class="fa fa-exclamation" aria-hidden="true"></i>
+    Grading and Policy</a>
+    </li>
+    <li {% if tab == 'lectures' %}class="active "{% endif %}>
+    <a href="{% url 'student:lectures_page' id %}"><i class="ti-video-camera"></i> Lectures</a>
+    </li>
+    <li {% if tab == 'lectures' %}class="active "{% endif %}>
+    <a href="{% url 'student:assignments_page' id %}"><i class="ti-book"></i> Assignments</a>
+    </li>
+    <li {% if tab == 'lectures' %}class="active "{% endif %}>
+    <a href="{% url 'student:quizzes_page' id %}"><i class="fa fa-certificate" aria-hidden="true"></i>Quizzes</a>
+    </li>
+    <li {% if tab == 'lectures' %}class="active "{% endif %}>
+    <a href="{% url 'student:exams_page' id %}"><i class="fa fa-bar-chart" aria-hidden="true"></i>
+    Exams</a>
+    </li>
+    <li {% if tab == 'lectures' %}class="active "{% endif %}>
+    <a href="{% url 'student:discussion_page' id %}"><i class="fa fa-quora" aria-hidden="true"></i>
+    Discussion</a>
+    </li>
+    <li {% if tab == 'lectures' %}class="active "{% endif %}>
+    <a href="{% url 'student:credit_page' id %}"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
+    Credit</a>
+    </li>
+    
+    
+    <li><a href="#"><i class="ti-power-off"></i>Log Out</a></li>
+    </ul>

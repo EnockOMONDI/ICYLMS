@@ -19,8 +19,8 @@ import datetime
 
 
 @login_required(login_url='/landpage')
-def syllabus_page(request, course_id):
-    course = Course.objects.get(id=course_id)
+def syllabus_page(request, id):
+    course = Course.objects.get(id=id)
     try:
         syllabus = Syllabus.objects.get(course=course)
     except Syllabus.DoesNotExist:
@@ -31,6 +31,6 @@ def syllabus_page(request, course_id):
         'user' : request.user,
         'tab' : 'syllabus',
         'HAS_ADVERTISMENT': settings.APPLICATION_HAS_ADVERTISMENT,
-        'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS,
+        'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS,
     })

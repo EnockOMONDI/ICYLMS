@@ -3,6 +3,12 @@
 {% block content %}
 
 <div id="main-wrapper">
+<div id="g_id_onload"
+data-client_id="734834555849-7j15pagcf051gk8dfa70hmbu90codn8c.apps.googleusercontent.com"
+data-login_uri="http://leadershipanddevelopmentacademy.com/redirected_login"
+data-your_own_param_1_to_login="any_value"
+data-your_own_param_2_to_login="any_value">
+</div>
 
 <!-- ============================================================== -->
 <!-- Top header  -->
@@ -16,19 +22,25 @@
 <!-- ============================================================== -->
 
 <!-- ============================ Hero Banner  Start================================== -->
-{% if messages %}
+<!-- {% if messages %}
 {% for message in messages %}
 
+<div class="alert alert_top alert-success alert-dismissible fade show" role="alert">
+<div class="container">
+<div class="alert_caption">
 
+<h6 style="color:#ffffff" ><strong>Perfect, {{user.first_name}} </strong> {{ message }}</h6>
 
-<div class="alert {{ message.success}} alert-dismissible alert-success fade show" role="alert">
-<strong>Perfect, {{user.first_name}} </strong> {{ message }}
+</div>
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
 </div>
+</div>
+
+
 {% endfor %}
-{% endif %}
+{% endif %} -->
 <!-- Carousel Card -->
 <div id="carouselExampleIndicators" class="carousel slide  " data-ride="carousel">
 <ol class="carousel-indicators">
@@ -38,14 +50,15 @@
 </ol>
 <div class="carousel-inner ">
 <div class="carousel-item active">
-<div class="image-cover hero_banner hero-inner-2 index-page header-filter " style="background-image: url('../../../static/img/bg1.jpg ')" data-overlay="" >
+<div class="image-cover hero_banner hero-inner-2 index-page header-filter " style="background-image: url('../../../static/img/bg20.jpg ')" data-overlay="" >
 
 <div class="container" >
 <div class="row">
 <div class="col-md-8 ml-auto mr-auto text-center">
-<h2 >Leadership and Development Academy </h2>
-<br>
-<h5 style="font-weight:100;">The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as For Mission College, Africa for SDGs, My Goals Foundation and ICY AFRICA and other global partners.</h6>
+       
+<h1 >Leadership and Development Academy </h1>
+
+<p class="ac-para">The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as For Mission College, Africa for SDGs, My Goals Foundation and ICY AFRICA and other global partners.</p>
 <br>
 <div class="buttons">
 <!-- <a href="/aboutus"  class="btn btn-primary btn btn-round ">
@@ -63,13 +76,13 @@ Learn More
 </div>
 </div>
 <div class="carousel-item">
-<div class="image-cover hero_banner hero-inner-2 index-page header-filter" style="background-image: url('../../../static/img/bg1.jpg ')" data-overlay="" >
+<div class="image-cover hero_banner hero-inner-2 index-page header-filter" style="background-image: url('../../../static/img/bg10.jpg ')" data-overlay="" >
 <div class="container">
 <div class="row">
 <div class="col-md-8 ml-auto mr-auto text-center">
 <h2 class="title">Leadership and Development Academy </h2>
 <br>
-<h5 style="font-weight:100; ">The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as For Mission College, Africa for SDGs, My Goals Foundation and ICY AFRICA and other global partners.</h5>
+<p class="ac-para">The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as For Mission College, Africa for SDGs, My Goals Foundation and ICY AFRICA and other global partners.</p>
 <br>
 <div class="buttons">
 <!-- <a href="/aboutus"  class="btn btn-primary btn btn-round ">
@@ -88,13 +101,15 @@ Learn More
 </div>
 </div>
 <div class="carousel-item">
-<div class="image-cover hero_banner hero-inner-2 index-page header-filter" style="background-image: url('../../../static/img/bg1.jpg ')" data-overlay="">			  <div class="container">
+<div class="image-cover hero_banner hero-inner-2 index-page header-filter" style="background-image: url('../../../static/img/bg30.jpg ')" data-overlay="">			  <div class="container">
 <div class="row">
 <div class="col-md-8 ml-auto mr-auto " > 
 <!-- text-left -->
 <h2 class="title">Leadership and Development Academy </h2>
 <br>
-<h5 style="font-weight:100;">The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as For Mission College, Africa for SDGs, My Goals Foundation and ICY AFRICA and other global partners.</h5>
+<p class="ac-para">
+The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as For Mission College, Africa for SDGs, My Goals Foundation and ICY AFRICA and other global partners.
+</p>
 <br>
 
 <div class="buttons">
@@ -132,12 +147,116 @@ Learn More
 </a> -->
 </div>
 <!-- End Carousel Card -->
+
+
+<!-- ============================ Featured Courcses Start ================================== -->
+<section>
+<div class="container">
+
+<div class="row justify-content-center">
+<div class="col-lg-12 col-md-12 mb-3">
+<div class="sec-heading2">
+<div class="sec-left">
+<h3>Featured Online Courses</h3>
+</div>
+<div class="sec-right">
+<ul class="nav nav-tabs side-cates">
+
+        {% if categories  %}
+        {% for c in categories %}
+        {% if request.user.is_authenticated %} 
+
+<li class="nav-item">
+<a class="nav-link " href="{{ c.get_absolute_url }}">{{c.name}}</a>
+</li>
+{%else %}
+
+<li class="nav-item">
+  <a class="nav-link " href="/redirected_login">{{c.name}}</a>
+ </li>
+{%endif%}
+{% endfor %}
+
+{%else %}
+<a class="nav-link active" href="">No Categories found</a>
+{%endif%}
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 p-0">
+
+<div class="arrow_slide three_slide arrow_middle">
+
+<!-- Single Slide -->
+{% if courses  %}			
+{% for course in courses %} 
+<div class="singles_items">
+<div  style=" box-shadow: 0 8px 16px 0 #c5c5c581; " class="education_block_grid style_2">
+<!-- <div class="education_block_thumb n-shadow">
+
+{% if course.image != None and course.image != '' %}
+<a href="{% url 'registrar:course_detail' course.id %}">
+ <img src="{{ course.image.url }}" class="img-fluid" alt="Course Image"></a>
+        {% else %}
+<a href="{% url 'registrar:course_detail' course.id %}">
+<img src="static/img/dummy.png"  class="img-fluid" alt="Course Image">
+       
+             {% endif %}
+<div class="cources_price">$ {{ course.price}}</div>
+</div> -->
+
+<div class="education_block_body">
+{% if request.user.is_authenticated %}
+<h4 class="bl-title"><a href="{% url 'registrar:course_detail' course.id %}">{{ course.title }}</a></h4>
+{% else %}
+<h4 class="bl-title"><a href="/redirected_login">{{ course.title }}</a></h4>
+{% endif %}
+</div>
+
+<div class="cources_info_style3">
+<h6>{{ course.sub_title }}</h6>
+<!-- <h6><small>{{ course.description }}</small> </h6> -->
+<ul>
+<li><i class="ti-time mr-2"></i>{{ course.start_date }} </li>
+</ul>
+
+</div>
+
+<div class="education_block_footer">
+<div class="education_block_author">
+<!-- <div class="path-img"><a href="instructor-detail.html"><img src="assets/img/user-1.jpg" class="img-fluid" alt=""></a></div> -->
+{% if request.user.is_authenticated %}
+<a style="border-radius:15px;" href="{% url 'registrar:course_detail' course.id %}"  class="btn btn-outline-primary  btn-sm">More Details <i class="ti-angle-right"></i></a>
+{% else %}
+<a style="border-radius:15px;" href="/redirected_login"  class="btn btn-outline-primary  btn-sm">More Details <i class="ti-angle-right"></i></a>
+{% endif %}
+
+</div>
+<div class="foot_lecture"><i class="ti-control-skip-forward mr-2"></i>{{ course.category }}</div>
+</div>
+</div>	
+</div>
+{% endfor %}
+ {%endif %}
+
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+<!-- ============================ Featured Courcses End ================================== -->
+
+
 <!-- ============================ Hero Banner End ================================== -->
 
-<div class="blogs-1" id="blogs-1">
+
 <div class="container">
-<div class="row">
-<div class="col-md-12 ml-auto mr-auto">
 
 
 
@@ -147,35 +266,37 @@ Learn More
 <div class="col-md-12 col-lg-6">
 
 <!-- <h1 class="card-category text-info text-center "> <b>Leadership and Development Academy</b> </h1> -->
-<h2 class="card-title text-center ">
-<br> <br> <br>
-<a href="#pablo" > Learn Where Leaders Learn</a>
-</h2>
-<h4 class="card-description mr-auto ml-auto">
+<h1 class="card-title text-center ">
+
+Learn Where Leaders Learn
+</h1>
+<br>
+<p class="ac-para mr-auto ml-auto">
 Explore Leadership courses, Study online, build professional Leadership skills, connect with an online Community of leaders from all over the world. Get a diploma upon course completion or even take your learning further and earn a degree.
-<a href="#pablo"> 
-</h4>
+<a href="#"> 
+</p>
 <br><br>
 
 <div class="card-stats text-center">
 
 
-            {% if request.user.is_authenticated %}
-            <a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >View All Courses</a>
+{% if request.user.is_authenticated %}
+<a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >View All Courses</a>
 
-            
-            {% else %}
-            <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Enroll now</a>
 
-        
-            {% endif %}
+{% else %}
+<a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Enroll now</a>
+
+
+{% endif %}
 </div>
 <br><br>
 </div>
 <div class="col-md-6">
 <div class="col-md-12 mr-auto ml-auto">
 <!-- Carousel Card -->
-<br> <br> <br> <br><br>
+
+
 <div class="">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000">
 <!-- <ol class="carousel-indicators">
@@ -185,7 +306,7 @@ Explore Leadership courses, Study online, build professional Leadership skills, 
 </ol> -->
 <div class="carousel-inner">
 <div class="carousel-item active">
-<img class="d-block w-100 "  href="#carouselExampleIndicators" src="../../../static/img/bgnew.png" alt="First slide">
+<img class="d-block w-100 "  href="#carouselExampleIndicators" src="../../../static/img/bgnew2.jpg" alt="First slide">
 <div class="carousel-caption d-none d-md-block">
 <!-- <h4>
 <i class="material-icons">location_on</i> Yellowstone National Park, United States
@@ -193,7 +314,7 @@ Explore Leadership courses, Study online, build professional Leadership skills, 
 </div>
 </div>
 <div class="carousel-item">
-<img class="d-block w-100"  href="#carouselExampleIndicators" src="../../../static/img/bgnew2.png"  alt="Second slide">
+<img class="d-block w-100"  href="#carouselExampleIndicators" src="../../../static/img/bgnewo3.jpg"  alt="Second slide">
 <div class="carousel-caption d-none d-md-block ">
 <!-- <h4 >
 <i class="material-icons  ">location_on</i> Somewhere Beyond, United States
@@ -201,7 +322,7 @@ Explore Leadership courses, Study online, build professional Leadership skills, 
 </div>
 </div>
 <div class="carousel-item">
-<img class="d-block w-100"  href="#carouselExampleIndicators" src="../../../static/img/bgnew3.png" alt="Third slide">
+<img class="d-block w-100"  href="#carouselExampleIndicators" src="../../../static/img/bgnew04.jpg" alt="Third slide">
 <div class="carousel-caption d-none d-md-block">
 <!-- <h4>
 <i class="material-icons">location_on</i> Yellowstone National Park, United States
@@ -224,7 +345,7 @@ Explore Leadership courses, Study online, build professional Leadership skills, 
 <!--                 
 <div class="card-header-image">
 
-<a href="#pablito">
+<a href="#">
 
 <img class="img" src="static/img/bgnew.png ">
 </a>
@@ -232,11 +353,12 @@ Explore Leadership courses, Study online, build professional Leadership skills, 
 </div> -->
 </div>
 </div>
-
+<br><br>
+</div>
 <div class="container">
 <div class="col-lg-12" >
 <h2 class="card-title ">
-<a href="#pablo">Why US</a>
+Why US
 </h2>
 </div> 
 <div class="col-lg-12  "  >
@@ -246,38 +368,45 @@ Explore Leadership courses, Study online, build professional Leadership skills, 
 
 
 <hr>
-<h4 class="card-description  p-5 bg-white rounded shadow-sm mb-5 ">
+<p>
 The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as ForMission College, accredited by York St John University and Newman University in Birmingham, Africa for SDGs and ICY AFRICA which runs the Springdale Foundation and other global partners.
 We believe that when youths are capacitated with leadership and development skills, knowledge and attitude, then they become active citizens in their respective communities and countries.
-</h4>
+</p>
+
 
 
 <br><br>
 </div>
 
 <div class="col-md-6">
+
 <div class="col-md-12 mr-auto ml-auto">
-<h3 class="card-category text-info"> <b> Quick Facts: Online LADA</b> </h3>
+<div class="ed_author_box">
+<h3>Quick Facts on LADA</h3>
+
+</div>     
+<div class="ed_view_features pl-4">
+
 <ul>
-<li>Taught in Multiple Language</li>
-<li>Delivered online</li>
-<li>Uses the unique Action Learning methodology
+<li><i class="ti-angle-right"></i>Taught in Multiple Language</li>
+<li><i class="ti-angle-right"></i>Delivered online</li>
+<li><i class="ti-angle-right"></i>Uses the unique Action Learning methodology
 </li>
-<li>Focus 100% on real-time topics of relevance to leadership and Development challenges facing Africa
+<li><i class="ti-angle-right"></i>Focus 100% on real-time topics of relevance to leadership and Development challenges facing Africa
 </li>
-<li>Engage with a network of alumni and  leaders</li>
-<li>Come up with a practical prototype aligned to a specific sustainable development goal(SDGs) to be implemented at the community level</li>
-<li>Earn a Certificate upon completion of study</li>
+<li><i class="ti-angle-right"></i>Engage with a network of alumni and  leaders</li>
+<li><i class="ti-angle-right"></i>Come up with a practical prototype aligned to a specific sustainable development goal(SDGs) to be implemented at the community level</li>
+<li><i class="ti-angle-right"></i>Earn a Certificate upon completion of study</li>
 
 
 </ul>
 
-
+</div>
 <!-- Carousel Card -->
 
 <div class="card-stats text-center">
 {% if request.user.is_authenticated %}
-<a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Explore our platform</a>
+<a href="/courses" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Online courses</a>
 
 
 {% else %}
@@ -291,7 +420,7 @@ We believe that when youths are capacitated with leadership and development skil
 <!--                 
 <div class="card-header-image">
 
-<a href="#pablito">
+<a href="#">
 
 <img class="img" src="static/img/bgnew.png ">
 </a>
@@ -303,12 +432,10 @@ We believe that when youths are capacitated with leadership and development skil
 </div>
 </div>
 </div>        
-
+<br><br>
 <div class="container">
 <div class="col-lg-12" >
-<h2 class="card-title ">
-<a href="#pablo">LADA Scholarships to Finance Your Study</a>
-</h2>
+
 </div> 
 <div class="col-lg-12  "  >
 
@@ -317,15 +444,19 @@ We believe that when youths are capacitated with leadership and development skil
 
 <!-- <h1 class="card-category text-info text-center "> <b>Leadership and Development Academy</b> </h1> -->
 <!-- <h2 class="card-title  text-right">
-<a href="#pablo" > Learn Where Leaders Learn</a>
+<a href="#" > Learn Where Leaders Learn</a>
 </h2> -->
+<h2 class="card-title ">
+        LADA Scholarships to Finance Your Study
+        </h2>
 <hr>
-<h4 class="card-description  p-5 bg-white rounded shadow-sm mb-5 ">
-The LADA is pleased to announce a call for applications for the Leadership and Development Fellowships for African Practitioners or interested Scholarship starting in June 2019. This Fellowship comes with a scholarship for tuition which covers for short courses ( 1 week course or more), a 12- month period diploma or a three (3) year Professional degree,
-comprising a rigorous training, research and practical application programme on Leadership and development; <a href="/scholarship-application-form">Learn More</a>
+<br>
+Finance Your Study with a Scholarship for tution which covers a 12- month period for diploma level and 3 years for a professional b.a degree on leadership and sustainable development, comprising a rigorous training, research and practical application programme on leadership and sustainable development. 
+ <a href="/scholarship-application-form">Learn More</a>
+</p>
 
-<a href="#pablo"> 
-</h4>
+
+
 
 
 <br><br>
@@ -345,7 +476,7 @@ comprising a rigorous training, research and practical application programme on 
 </ol> -->
 <div class="carousel-inner">
 <div class="carousel-item active">
-<img class="d-block w-100 "  href="#carouselExampleIndicators" src="../../../static/img/bgscho3.png" alt="First slide">
+<img class="d-block w-100 "  href="#carouselExampleIndicators" src="../../../static/img/bgnew00.jpg" alt="First slide">
 <div class="carousel-caption d-none d-md-block">
 <!-- <h4>
 <i class="material-icons">location_on</i> Yellowstone National Park, United States
@@ -361,7 +492,7 @@ comprising a rigorous training, research and practical application programme on 
 </div>
 </div>
 <div class="carousel-item">
-<img class="d-block w-100"  href="#carouselExampleIndicators" src="../../../static/img/bgscho2.png" alt="Third slide">
+<img class="d-block w-100"  href="#carouselExampleIndicators" src="../../../static/img/bgscho3.png" alt="Third slide">
 <div class="carousel-caption d-none d-md-block">
 <!-- <h4>
 <i class="material-icons">location_on</i> Yellowstone National Park, United States
@@ -382,12 +513,12 @@ comprising a rigorous training, research and practical application programme on 
 <br>
 <div class="card-stats text-center">
 {% if request.user.is_authenticated %}
-<a href="/scholarship-application-form" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >APPLY FOR SCHOLARSHIP</a>
+<a href="/scholarship" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >APPLY FOR SCHOLARSHIP</a>
 
 
 {% else %}
 
-<a href="/scholarship-application-form" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >APPLY FOR SCHOLARSHIP</a>
+<a href="/scholarship" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >APPLY FOR SCHOLARSHIP</a>
 
 {% endif %}
 </div>
@@ -396,7 +527,7 @@ comprising a rigorous training, research and practical application programme on 
 <!--                 
 <div class="card-header-image">
 
-<a href="#pablito">
+<a href="#">
 
 <img class="img" src="static/img/bgnew.png ">
 </a>
@@ -408,17 +539,17 @@ comprising a rigorous training, research and practical application programme on 
 </div>
 </div>
 </div>
-<br><br>
+<br><br><br>
 <div class="container">
 <div class="col-lg-12  "  >
-<h1 class="card-category text-info text-center "> <b>How It Works</b> </h1>
-<hr>
+<h1 class="card-category  text-center ">How It Works</h1>
+<br>
 <div class="row">
 <div class="col-md-6 col-lg-3">
 <div class="card text-center" style=" box-shadow: 0 8px 16px 0 #c5c5c5; padding:10px; border-radius: 6px;">
 <div class=" ">
-<a href="#pablo">
-<img class="img" style="width:120px; height:120px;" src="static/img/online.png" >
+<a href="#">
+<img class="img" style="width:95%" src="static/img/online.png" >
 
 </a>
 </div>
@@ -426,9 +557,9 @@ comprising a rigorous training, research and practical application programme on 
 <i class="fa fa-dribbble"></i> Dribbble
 </h5> -->
 
-<h4 class="card-title">
-<a href="#pablo">LEARN FLEXIBLY ONLINE</a>
-</h4>
+<h6 class="card-title">
+<a href="#">Learn Flexibly Online</a>
+</h6>
 
 </div>
 </div>
@@ -436,51 +567,51 @@ comprising a rigorous training, research and practical application programme on 
 <div class="card text-center" style=" box-shadow: 0 8px 16px 0 #c5c5c5; padding:10px; border-radius: 6px;">
 
 <div class=" ">
-<a href="#pablo">
-<img class="img" style="width:120px; height:120px;" src="static/img/online2.png" >
+<a href="#">
+<img class="img" style="width:80%" src="static/img/degree.png" >
 
 </a>
 </div>
 <!-- <h5 class="card-category card-category-social">
 <i class="fa fa-dribbble"></i> Dribbble
 </h5> -->
-<h4 class="card-title">
-<a href="#pablo">EARN A DEGREE</a>
-</h4>
+<h6 class="card-title">
+<a href="#">Earn Certification</a>
+</h6>
 
 </div>
 </div>
 <div class="col-md-6 col-lg-3">
 <div class="card text-center" style=" box-shadow: 0 8px 16px 0 #c5c5c5; padding:10px; border-radius: 6px;">
 <div class=" ">
-<a href="#pablo">
-<img class="img" style="width:150px; height:120px;" src="static/img/inno.png" >
+<a href="#">
+<img class="img" style="width:80%" src="static/img/inno.png" >
 
 </a>
 </div>
 <!-- <h5 class="card-category card-category-social">
 <i class="fa fa-dribbble"></i> Dribbble
 </h5> -->
-<h4 class="card-title">
-<a href="#pablo">INNOVATE</a>
-</h4>
+<h6 class="card-title">
+<a href="#">Innovate</a>
+</h6>
 
 </div>
 </div>
 <div class="col-md-6 col-lg-3">
 <div class="card text-center" style=" box-shadow: 0 8px 16px 0 #c5c5c5; padding:10px; border-radius: 6px;">
 <div class=" ">
-<a href="#pablo">
-<img class="img" style="width:120px; height:120px;" src="static/img/online2.png" >
+<a href="#">
+<img class="img" style="width:73%" src="static/img/change.png" >
 
 </a>
 </div>
 <!-- <h5 class="card-category card-category-social">
 <i class="fa fa-dribbble"></i> Dribbble
 </h5> -->
-<h4 class="card-title">
-<a href="#pablo">TRANSFORM</a>
-</h4>
+<h6 class="card-title">
+<a href="#">Impact Change</a>
+</h6>
 
 </div>
 </div>
@@ -492,15 +623,15 @@ comprising a rigorous training, research and practical application programme on 
 <div class="container ">
 <div class="col-lg-12" >
 <h2 class="card-title text-right">
-<a href="#pablo">Our Educational Partners, Accreditations and authorizations   </a>
+Our Educational Partners, Accreditations and authorizations 
 </h2>
 </div>  
 <br>
 <hr>
-<h4 class="card-description  p-5 bg-white rounded shadow-sm mb-5" > 
+<p class="card-description  p-5 bg-white rounded shadow-sm mb-5" > 
 The Leadership and Development Academy (LADA) aims to build a new community of  Africa’s future transformational leaders with practical application on Leadership, Governance and Development. 
 The Academy is at the forefront of advancement and dialog in international Leadership education through partnerships with several bodies and is an independent school accredited and authorized by global organizations.
-</h4>
+</p>
 
 
 
@@ -510,9 +641,17 @@ The Academy is at the forefront of advancement and dialog in international Leade
 <div class="col-lg-12  p-5 bg-white rounded shadow-sm mb-5"  >
 <div class="row">
 <div class="col-md-6 col-lg-3">
+<div class="copyright text-center">
+<a href="#" data-toggle="tooltip" data-title="Kenya Educational Management Institute">
+
+<img class="img"  style="width:100% ;" src="static/img/kemi.png ">
+</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-3">
 
 <div class="copyright text-center">
-<a href="#pablito">
+<a href="#" data-toggle="tooltip" data-title="Alongsiders">
 
 <img class="img"  style="width:100% ;" src="static/img/alongsiders.png ">
 </a>
@@ -521,7 +660,7 @@ The Academy is at the forefront of advancement and dialog in international Leade
 </div>
 <div class="col-md-6 col-lg-3">
 <div class="copyright text-center">
-<a href="#pablito">
+<a href="#" data-toggle="tooltip" data-title="Newman University">
 
 <img class="img"  style="width:100% ;" src="static/img/newman.png ">
 </a>
@@ -529,7 +668,7 @@ The Academy is at the forefront of advancement and dialog in international Leade
 </div>
 <div class="col-md-6 col-lg-3">
 <div class="copyright text-center">
-<a href="#pablito">
+<a href="#" data-toggle="tooltip" data-title=" York st. John University">
 
 <img class="img"  style="width:100% ;" src="static/img/york.png ">
 </a>
@@ -537,16 +676,16 @@ The Academy is at the forefront of advancement and dialog in international Leade
 </div>
 <div class="col-md-6 col-lg-3">
 <div class="copyright text-center">
-<a href="#pablito">
+<a href="#" data-toggle="tooltip" data-title="Formission">
 
 <img class="img"  style="width:100% ;" src="static/img/formission.png ">
 </a>
 </div>
 </div>
-<div class="row">
+
 <div class="col-md-6 col-lg-3">
 <div class="copyright text-center">
-<a href="#pablito">
+<a href="#"data-toggle="tooltip" data-title="International Christian Youthworks" >
 
 <img class="img"  style="width:100% ;" src="static/img/icylogoo.png ">
 </a>
@@ -554,20 +693,22 @@ The Academy is at the forefront of advancement and dialog in international Leade
 </div>
 <div class="col-md-6 col-lg-3">
 <div class="copyright text-center">
-<a href="#pablito">
+<a href="#" data-toggle="tooltip" data-title="Africa for SDGs">
 
 <img class="img"  style="width:100% ;" src="static/img/sdgs.png ">
 </a>
 </div>
+
 </div>
 </div>
 </div>
 </div>
-</div>
+
+
 <div class="container">
 <div class="col-lg-12" >
-<h2 class="card-title ">
-<a href="#pablo">Our Impact</a>
+<h2 class="card-title text-center ">
+Our Impact
 </h2>
 </div> 
 <div class="col-lg-12  "  >
@@ -590,13 +731,13 @@ The Academy is at the forefront of advancement and dialog in international Leade
 <div class="card-pricing text-center" style=" box-shadow: 0 8px 16px 0 #c5c5c5; padding:10px; border-radius: 6px;">
 
 <div class="card-body ">
-<h4 class="card-category text-info"> <b>Explore Courses</b> <i class="material-icons">whatshot </i> </h4>
+<h4 class="card-category "> Explore Courses <i class="material-icons">whatshot </i> </h4>
 
 <ul>  
 {% if request.user.is_authenticated %}
-<li><i class="material-icons text-success">check</i> <a href="/payment">B.A in Leadership and Sustainable Development</a> </li>
-<li><i class="material-icons text-success">check</i> <a href="/payment">M.A in Leadership and Sustainable Development</a> </li>
-<li><i class="material-icons text-success">check</i> <a href="/payment">Diploma in Missional leadership</a> </li>
+<li><i class="material-icons text-success">check</i> <a href="/courses">B.A in Leadership and Sustainable Development</a> </li>
+<li><i class="material-icons text-success">check</i> <a href="/courses">M.A in Leadership and Sustainable Development</a> </li>
+<li><i class="material-icons text-success">check</i> <a href="/courses">Diploma in Missional leadership</a> </li>
 
 {% else %}
 
@@ -614,7 +755,7 @@ The Academy is at the forefront of advancement and dialog in international Leade
 <br>
 <div class="card-stats text-center ">
 {% if request.user.is_authenticated %}
-<a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >EXPlORE ALL COURSES</a>
+<a href="/courses" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >EXPlORE ALL COURSES</a>
 
 
 {% else %}
@@ -622,6 +763,7 @@ The Academy is at the forefront of advancement and dialog in international Leade
 <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >EXPlORE ALL COURSES</a>
 
 {% endif %}
+<br>
 </div>
 </div>
 
@@ -630,11 +772,295 @@ The Academy is at the forefront of advancement and dialog in international Leade
 </div>
 </div>
 </div>
+
+<!-- ============================ Featured Category Start ================================== -->
+<section class="bg-light">
+<div class="container">
+
+<div class="row justify-content-center">
+<div class="col-lg-12 col-md-12 mb-3">
+<div class="sec-heading2">
+<div class="sec-left">
+<h3>Success Stories & Blogs </h3>
+</div>
+<div class="sec-right">
+<a href="javascript:void(0);" class="btn-br-more">Browse More</a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 p-0">
+
+<div class="arrow_slide three_slide-dots arrow_middle">
+
+
+
+
+<!-- Single Slide -->
+<div class="singles_items">
+<div class="edu_cat">
+
+<div class="property_video">
+<div class="thumb">
+<img class="pro_img img-fluid w100" src="static/img/andati.png" alt="7.jpg">
+<div class="overlay_icon">
+<div class="bb-video-box">
+<div class="bb-video-box-inner">
+<div class="bb-video-box-innerup">
+<a href="https://www.youtube.com/watch?v=A8EI6JaFbv4" data-toggle="modal" data-target="#popup-video" class="theme-cl"><i class="ti-control-play"></i></a>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="instructor_over_info">
+<ul>
+<li>
+<div class="ins_info">
+<!-- <div class="ins_info_thumb">
+<img src="../../../static/assets_course_detail/img/user-8.jpg" class="img-fluid" alt="" />
+</div> -->
+<div class="ins_info_caption">
+
+<h4>Andati's</h4>
+<span>Story</span>
+</div>
+</div>
+
+</li>
+
+
+</ul>
+</div>
+</div>
+</div>		
+</div>
+
+<!-- Single Slide -->
+<div class="singles_items">
+<div class="edu_cat">
+
+<div class="property_video">
+<div class="thumb">
+<img class="pro_img img-fluid w100" src="static/img/andati.png" alt="7.jpg">
+<div class="overlay_icon">
+<div class="bb-video-box">
+<div class="bb-video-box-inner">
+<div class="bb-video-box-innerup">
+<a href="https://www.youtube.com/watch?v=A8EI6JaFbv4" data-toggle="modal" data-target="#popup-video" class="theme-cl"><i class="ti-control-play"></i></a>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="instructor_over_info">
+<ul>
+<li>
+<div class="ins_info">
+<!-- <div class="ins_info_thumb">
+<img src="../../../static/assets_course_detail/img/user-8.jpg" class="img-fluid" alt="" />
+</div> -->
+<div class="ins_info_caption">
+
+<h4>Andati's</h4>
+<span>Story</span>
+</div>
+</div>
+
+</li>
+
+
+</ul>
+</div>
+</div>
+</div>		
+</div>
+
+<!-- Single Slide -->
+<div class="singles_items">
+<div class="edu_cat">
+
+<div class="property_video">
+<div class="thumb">
+<img class="pro_img img-fluid w100" src="static/img/andati.png" alt="7.jpg">
+<div class="overlay_icon">
+<div class="bb-video-box">
+<div class="bb-video-box-inner">
+<div class="bb-video-box-innerup">
+<a href="https://www.youtube.com/watch?v=A8EI6JaFbv4" data-toggle="modal" data-target="#popup-video" class="theme-cl"><i class="ti-control-play"></i></a>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="instructor_over_info">
+<ul>
+<li>
+<div class="ins_info">
+<!-- <div class="ins_info_thumb">
+<img src="../../../static/assets_course_detail/img/user-8.jpg" class="img-fluid" alt="" />
+</div> -->
+<div class="ins_info_caption">
+
+<h4>Andati's</h4>
+<span>Story</span>
+</div>
+</div>
+
+</li>
+
+
+</ul>
+</div>
+</div>
+</div>		
+</div>
+
+<!-- Single Slide -->
+<div class="singles_items">
+<div class="edu_cat">
+
+<div class="property_video">
+<div class="thumb">
+<img class="pro_img img-fluid w100" src="static/img/andati.png" alt="7.jpg">
+<div class="overlay_icon">
+<div class="bb-video-box">
+<div class="bb-video-box-inner">
+<div class="bb-video-box-innerup">
+<a href="https://www.youtube.com/watch?v=A8EI6JaFbv4" data-toggle="modal" data-target="#popup-video" class="theme-cl"><i class="ti-control-play"></i></a>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="instructor_over_info">
+<ul>
+<li>
+<div class="ins_info">
+<!-- <div class="ins_info_thumb">
+<img src="../../../static/assets_course_detail/img/user-8.jpg" class="img-fluid" alt="" />
+</div> -->
+<div class="ins_info_caption">
+
+<h4>Andati's</h4>
+<span>Story</span>
+</div>
+</div>
+
+</li>
+
+
+</ul>
+</div>
+</div>
+</div>		
+</div>
+
+<!-- Single Slide -->
+<div class="singles_items">
+<div class="edu_cat">
+
+<div class="property_video">
+<div class="thumb">
+<img class="pro_img img-fluid w100" src="static/img/andati.png" alt="7.jpg">
+<div class="overlay_icon">
+<div class="bb-video-box">
+<div class="bb-video-box-inner">
+<div class="bb-video-box-innerup">
+<a href="https://www.youtube.com/watch?v=A8EI6JaFbv4" data-toggle="modal" data-target="#popup-video" class="theme-cl"><i class="ti-control-play"></i></a>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="instructor_over_info">
+<ul>
+<li>
+<div class="ins_info">
+<!-- <div class="ins_info_thumb">
+<img src="../../../static/assets_course_detail/img/user-8.jpg" class="img-fluid" alt="" />
+</div> -->
+<div class="ins_info_caption">
+
+<h4>Andati's</h4>
+<span>Story</span>
+</div>
+</div>
+
+</li>
+
+
+</ul>
+</div>
+</div>
+</div>		
+</div>
+
+<!-- Single Slide -->
+<div class="singles_items">
+<div class="edu_cat">
+
+<div class="property_video">
+<div class="thumb">
+<img class="pro_img img-fluid w100" src="static/img/andati.png" alt="7.jpg">
+<div class="overlay_icon">
+<div class="bb-video-box">
+<div class="bb-video-box-inner">
+<div class="bb-video-box-innerup">
+<a href="https://www.youtube.com/watch?v=A8EI6JaFbv4" data-toggle="modal" data-target="#popup-video" class="theme-cl"><i class="ti-control-play"></i></a>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="instructor_over_info">
+<ul>
+<li>
+<div class="ins_info">
+<!-- <div class="ins_info_thumb">
+<img src="../../../static/assets_course_detail/img/user-8.jpg" class="img-fluid" alt="" />
+</div> -->
+<div class="ins_info_caption">
+
+<h4>Andati's</h4>
+<span>Story</span>
+</div>
+</div>
+
+</li>
+
+
+</ul>
+</div>
+</div>
+</div>		
+</div>
+                
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+<!-- ============================ Featured Category End ================================== -->
+
+
 <div class="container " >
 <div class="col-lg-12 "  >
-
+<br><br>
 <h2 class="card-title">
-<a href="#pablo">Study with us?</a> Africa’s future leaders
+Study with us? Africa’s future leaders
 </h2>
 <div class="row ">
 <div class="col-md-8 col-lg-6 p-5 bg-white rounded shadow-sm mb-5">
@@ -642,11 +1068,11 @@ The Academy is at the forefront of advancement and dialog in international Leade
 <i class="material-icons">trending_up</i> Trending
 </h6> -->
 
-<h4 class="card-description ">
+<p class="card-description ">
 The LADA courses are designed to expose Junior African leaders to the complexities of Leadership, Governance and development issues facing the African continent with the aim of equipping them with the knowledge, skills and attitude necessary for transformative leadership and sustainable development.
 Each learner will be expected as an individual or a group of fellows to come up with an innovative, implementable and scalable idea that meets the social, economic, environmental and climate challenges facing Africa.
 
-</h4>
+</p>
 
 
 
@@ -655,13 +1081,13 @@ Each learner will be expected as an individual or a group of fellows to come up 
 <div class="col-md-5 col-lg-6">
 <div class=" card-header-image">
 
-<a href="#pablo">
+<a href="#">
 <img class="img " style="width:100%; height:100%; "src="static/img/info-min.png">
 </a>
-<br> <br>  <br> <br>
+<br> <br> 
 <div class="card-stats text-center ">
 {% if request.user.is_authenticated %}
-<a href="/payment" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >START YOUR JOURNEY OF BECOMING A LEADER</a>
+<a href="/courses" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >START YOUR JOURNEY OF BECOMING A LEADER</a>
 
 
 {% else %}
@@ -669,6 +1095,7 @@ Each learner will be expected as an individual or a group of fellows to come up 
 <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >START YOUR JOURNEY OF BECOMING A LEADER</a>
 
 {% endif %}
+<br><br>
 </div>
 </div>
 </div>
@@ -678,12 +1105,9 @@ Each learner will be expected as an individual or a group of fellows to come up 
 </div>
 
 </div>
-</div>
 
 
-</div>
-</div>
-</div>
+
 
 
 
@@ -696,14 +1120,14 @@ Each learner will be expected as an individual or a group of fellows to come up 
 {% include 'publicpages/modal.html' %}
 <!-- end modal -->
 {% include "publicpages/footer.html" %}
-  
+
 <a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
 
- 
 
-</div>
-  
-  
+
+
+
+
 
 
 {% include "publicpages/js/js.html" %}  

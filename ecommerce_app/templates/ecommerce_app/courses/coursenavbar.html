@@ -1,0 +1,332 @@
+
+{% load static %}
+{% include 'publicpages/googletranslate.html' %}  
+<div class="header header-light head-shadow">
+<div class="container">
+<nav id="navigation" class="navigation navigation-landscape">
+<div class="nav-header">
+
+
+    <a class="nav-brand static-logo"  href="{% url 'landpage:home' %}"><img src="{% static 'assets_course_detail/img/ladalogo.png' %}" style="width:100px; height:80px;" class="logo" alt="" /></a>
+    
+    <div class="nav-toggle"></div>
+</div>
+
+<div  class="nav-menus-wrapper" style="transition-property: none;">
+    <ul class="nav-menu ">
+        <li>
+        <a class="nav-link" href="#">	Courses<span class="submenu-indicator"></span></a>
+             <ul class="nav-dropdown nav-submenu">
+                   
+                <li >
+            
+                        <div class="container">
+                                <div class="row">
+                                <!-- Single Article -->
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="articles_grid_style">
+                        <div class="articles_grid_thumb">
+                                        {% if request.user.is_authenticated %}
+                                        <a href="/courses"><img src="../../../static/img/course3.jpg" class="img-fluid" alt="allcourseimg" /></a>
+                                        {% else %}
+                                        <a href="/redirected_login"><img src="../../../static/img/course3.jpg" class="img-fluid" alt="allcourseimg" /></a>
+                                        {% endif %}	
+                        </div>
+                        <div class="articles_grid_caption">
+                        <div class="articles_grid_author justify-content-center">
+                                        {% if request.user.is_authenticated %}
+                                        <a href="/courses" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >All Courses </a>
+                                        {% else %}
+                                        <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >All Courses</a>
+                                        {% endif %}
+                                    
+                        </div>
+                        </div>
+                    </div>
+                 </div>
+
+
+
+
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="articles_grid_style">
+                       
+                        
+                        <div class="articles_grid_caption">
+                            
+                            <div class="articles_grid_author justify-content-center">
+                                
+                            
+                                {% if request.user.is_authenticated %}
+                                <a href="#" data-toggle="modal" data-target="#certmodal" class="btn btn-outline-primary  " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Certificate Courses</a>
+                                
+                              
+                                {% else %}
+                                <a href="#" data-toggle="modal" data-target="#certmodal" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Certificate Courses</a>
+
+                            
+                                {% endif %}
+                        
+                            </div>
+                        
+                            <br>
+
+                        </div>
+                    </div>
+                    
+                            <div class="articles_grid_style">
+                                    <!-- <div class="articles_grid_thumb">
+                                        {% if request.user.is_authenticated %}
+                                        <a href="/courses"><img src="../../../static/img/coursespic.jpg" class="img-fluid" alt="" /></a>
+                                        {% else %}
+                                        <a href="/redirected_login"><img src="../../../static/img/coursespic.jpg" class="img-fluid" alt="" /></a>
+                                        {% endif %}
+                                    </div> -->
+                            
+                                    
+                                    <div class="articles_grid_caption">
+                                        
+                                        <div class="articles_grid_author justify-content-center">
+                                            
+            
+                                        
+                                            {% if request.user.is_authenticated %}
+                                            <a href="/courses" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Diploma Courses</a>
+    
+                                          
+                                            {% else %}
+                                            <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Diploma Courses</a>
+    
+                                        
+                                            {% endif %}
+                                    
+                                        </div>
+                                    
+                                        <br>
+    
+                                    </div>
+                                </div>
+                        
+                    
+                                <div class="articles_grid_style">
+                                        <!-- <div class="articles_grid_thumb">
+                                            {% if request.user.is_authenticated %}
+                                            <a href="/courses"><img src="../../../static/img/coursespic.jpg" class="img-fluid" alt="" /></a>
+                                            {% else %}
+                                            <a href="/redirected_login"><img src="../../../static/img/coursespic.jpg" class="img-fluid" alt="" /></a>
+                                            {% endif %}
+                                        </div> -->
+                                
+                                        
+                                        <div class="articles_grid_caption">
+                                            
+                                            <div class="articles_grid_author justify-content-center">
+                                                
+                
+                                            
+                                                {% if request.user.is_authenticated %}
+                                                <a href="/courses" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Degree /BA Courses</a>
+        
+                                              
+                                                {% else %}
+                                                <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Degree /BA Courses</a>
+        
+                                            
+                                                {% endif %}
+                                        
+                                            </div>
+                                        
+                                            <br>
+        
+                                        </div>
+                                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="articles_grid_style">
+                 
+                    
+                            
+                            <div class="articles_grid_caption">
+                                
+                                <div class="articles_grid_author justify-content-center">
+                                    
+    
+                                
+                                    {% if request.user.is_authenticated %}
+                                    <a href="/courses" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Masters Courses</a>
+
+                                  
+                                    {% else %}
+                                    <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Masters Courses</a>
+
+                                
+                                    {% endif %}
+                            
+                                </div>
+                            
+                                <br>
+
+                            </div>
+                        </div>
+                        
+                                <div class="articles_grid_style">
+                                        <!-- <div class="articles_grid_thumb">
+                                            {% if request.user.is_authenticated %}
+                                            <a href="/courses"><img src="../../../static/img/coursespic.jpg" class="img-fluid" alt="" /></a>
+                                            {% else %}
+                                            <a href="/redirected_login"><img src="../../../static/img/coursespic.jpg" class="img-fluid" alt="" /></a>
+                                            {% endif %}
+                                        </div> -->
+                                
+                                        
+                                        <div class="articles_grid_caption">
+                                            
+                                            <div class="articles_grid_author justify-content-center">
+                                                
+                
+                                            
+                                                {% if request.user.is_authenticated %}
+                                                <a href="/courses" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >PHD Courses</a>
+        
+                                              
+                                                {% else %}
+                                                <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >PHD Courses</a>
+        
+                                            
+                                                {% endif %}
+                                        
+                                            </div>
+                                        
+                                            <br>
+        
+                                        </div>
+                                    </div>
+                                    <div class="articles_grid_style">
+                                            <!-- <div class="articles_grid_thumb">
+                                                {% if request.user.is_authenticated %}
+                                                <a href="/courses"><img src="../../../static/img/coursespic.jpg" class="img-fluid" alt="" /></a>
+                                                {% else %}
+                                                <a href="/redirected_login"><img src="../../../static/img/coursespic.jpg" class="img-fluid" alt="" /></a>
+                                                {% endif %}
+                                            </div> -->
+                                    
+                                            
+                                            <div class="articles_grid_caption">
+                                                
+                                                <div class="articles_grid_author justify-content-center">
+                                                    
+                    
+                                                
+                                                    {% if request.user.is_authenticated %}
+                                                    <a href="/courses" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Africa SDG's Digital LAB</a>
+            
+                                                  
+                                                    {% else %}
+                                                    <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >PHD Courses</a>
+            
+                                                
+                                                    {% endif %}
+                                            
+                                                </div>
+                                            
+                                                <br>
+            
+                                            </div>
+                                        </div>
+                        
+                    </div>
+  
+                </div>
+            </div>
+            <!--  /.container  -->
+    
+                   
+              </li>
+
+             </ul>
+                        </li>
+                        
+                        <li><a class="nav-link" href="{% url 'landpage:platformoverview' %}">Using LADA<span class="submenu-indicator"></span></a>
+                            <ul class="nav-dropdown nav-submenu">
+                                    <li><a href="{% url 'landpage:platformoverview' %}">Our platform Overview</a></li>
+                                <li><a  href="{% url 'landpage:platformoverview'  %}">As a Learner<span class="submenu-indicator"></span></a>
+                                    <ul class="nav-dropdown nav-submenu">
+                                        <li><a  href="{% url 'landpage:platformoverview' %}">How it works</a></li>
+                                        <li><a  href="{% url 'landpage:platformoverview' %}">Learners FAQS</a></li>
+                                     
+                                    </ul>
+                                </li>
+                                <li><a  href="{% url 'landpage:platformoverview' %}">As a Trainer<span class="submenu-indicator"></span></a>
+                                    <ul class="nav-dropdown nav-submenu">
+                                        <li><a  href="{% url 'landpage:platformoverview' %}">Video Tutorial</a></li>
+                                        <li><a  href="{% url 'landpage:platformoverview' %}">Documentation</a></li>
+                                        <li><a  href="{% url 'landpage:platformoverview' %}">Trainers FAQS</a></li>
+                                    </ul>
+                                </li>
+                                <!-- <li><a href="find-instructor.html"> <strike>For Schools</strike> Coming soon</a></li> -->
+                  
+                            </ul>
+                        </li>
+                        
+                        <li><a class="nav-link " href="{% url 'landpage:ourstory' %}">About us<span class="submenu-indicator"></span></a>
+                            <ul class="nav-dropdown nav-submenu">
+                                    <li><a href="{% url 'landpage:ourstory' %}">Who we are</a></li>
+                                   
+                                     <li><a  href="{% url 'landpage:ourstory' %}"> Our educational partners</a></li>
+                                    <li><a  href="{% url 'landpage:ourstory' %}">Why learn with LADA</a></li>
+                                    <li><a  href="{% url 'landpage:ourstory' %}">LADA Reviews</a></li>
+                             
+                            </ul>
+                        </li>
+<li >
+<a class="nav-link "  href="{% url 'landpage:scholarship' %}">Apply for Scholarship</a>
+</li>
+{% if request.user.is_authenticated %}
+<!-- <li ><a class="nav-link "  href="{% url 'landpage:contact' %}">Need Some Help?</a></li> -->
+{% else %}
+<li ><a class="nav-link "  href="{% url 'landpage:contact' %}">Need Some Help?</a></li>
+{% endif %}
+
+<ul class="nav-menu nav-menu-social align-to-right">
+
+
+{% if request.user.is_authenticated %}
+<li  class="login_click  theme-bg">
+
+<a href="/view/profile">{{ user.first_name }} </a>
+</li>
+<li class="login_click light">
+<a style="cursor: pointer;" onclick="ajax_logout();">Logout </a>
+</li>
+<li  >
+
+<div  id="google_translate_element"></div>
+
+</li>
+{% else %}
+<li class="login_click theme-bg">
+<a href="#" data-toggle="modal" data-target="#login">Sign In</a>
+</li>
+<li  >
+
+<div  id="google_translate_element"></div>
+
+</li>
+<!-- <li class="login_click light">
+<a href="#" data-toggle="modal" data-target="#login"> login</a>
+</li> -->
+{% endif %}
+
+
+<!-- End Navigation -->
+</ul>  
+
+
+
+</ul>
+
+</div>
+</nav>
+</div>
+</div>
+

@@ -6,13 +6,20 @@ from registrar.views import teaching
 from registrar.views import transcript
 from registrar.views import certificate
 # from registrar.views import payment
-
+app_name="registrar"
 urlpatterns = [
     # Courses
-    url(r'^courses$', courses.courses_page),
-    url(r'^enroll$', courses.enroll),
+    url(r'^courses$', courses.courses_page , name='courses'),
+    url(r'^courses/(?P<category_slug>[-\w]+)/$', courses.courses_page, name='courses_list_by_category'),
+    url(r'^course/(\d+)/$', courses.course_detail ,name='course_detail'),
+    url(r'^enroll/(?P<id>\d+)/$', courses.enroll_course , name='enroll' ),
+
 
     # Enrollment(s)
+    url(r'^view/profile/enrollment$', enrollment.enrollment_page),
+    url(r'^view/profile/', enrollment.enrollment_table),
+    url(r'^view/profile/', enrollment.disenroll_modal),
+    url(r'^view/profile/', enrollment.disenroll),
     url(r'^enrollment$', enrollment.enrollment_page),
     url(r'^enrollment_table$', enrollment.enrollment_table),
     url(r'^disenroll_modal$', enrollment.disenroll_modal),

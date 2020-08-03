@@ -19,13 +19,13 @@
 
 
 <body class="layout-boxed ">
-
+<!-- 
         <div class="preloader">
             <div class="sk-double-bounce">
                 <div class="sk-child sk-double-bounce1"></div>
                 <div class="sk-child sk-double-bounce2"></div>
             </div>
-        </div>
+        </div> -->
 
 
 {% block content %}
@@ -38,7 +38,10 @@
     {% for local_js_url in local_js_urls %}
           <script src="{% static local_js_url %}"></script>
     {% endfor %}
-
+    {% for local_plugins_url  in local_plugins_urls  %}
+    <script src="{% static local_plugins_url %}"></script>
+{% endfor %}
+    
 
 </body>
 </html>

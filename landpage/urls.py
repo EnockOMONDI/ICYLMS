@@ -29,11 +29,13 @@ urlpatterns = [
 
     # publicpages
     re_path(r'^$', publicpages.home_page, name='home'),
+    re_path(r'^welcome/', publicpages.welcome, name='welcome'),
     re_path(r'^home_page$', publicpages.home_page, name='homepage'),
     re_path(r'^platformoverview$', publicpages.platform_overview, name='platformoverview'),
     re_path(r'^ourstory$', publicpages.our_story, name='ourstory'),
     re_path(r'^scholarship$', publicpages.scholarship , name='scholarship'),
     re_path(r'^contact$', publicpages.contactus , name='contact'),
+
                       
     # Landpage
     re_path(r'^$',landpageprod.landpageprod_page, name='landpageprod'),
@@ -45,7 +47,6 @@ urlpatterns = [
      #productionpages
    
     re_path(r'^landpageprod$', landpageprod.landpageprod_page, name='landpageprod'),
-    re_path(r'^welcome$', landpageprod.welcome, name='welcome'),
     re_path(r'^aboutus$', landpageprod.about_us, name='aboutus'),
     re_path(r'^enrollnow$', landpageprod.enrollnow, name='enrollnow'),
     re_path(r'^studentfaqs$', landpageprod.studentfaqs, name='studentfaqs'),

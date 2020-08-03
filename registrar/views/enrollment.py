@@ -26,7 +26,7 @@ def enrollment_page(request):
         courses = Course.objects.filter(students__student_id=student.student_id)
     except Course.DoesNotExist:
         courses = None
-    return render(request, 'registrar/enrollment/view.html',{
+    return render(request,'account/productionpages/pages/profile2.html',{
         'student' : student,
         'courses': courses,
         'user' : request.user,
@@ -48,7 +48,7 @@ def enrollment_table(request):
         courses = Course.objects.filter(students__student_id=student.student_id)
     except Course.DoesNotExist:
         courses = None
-    return render(request, 'registrar/enrollment/table.html',{
+    return render(request, 'account/productionpages/pages/profile2.html',{
         'student' : student,
         'courses': courses,
         'user' : request.user,
@@ -68,7 +68,7 @@ def disenroll_modal(request):
         course = Course.objects.get(id=course_id)
     except Course.DoesNotExist:
         course = None
-    return render(request, 'registrar/enrollment/disenroll_modal.html',{
+    return render(request, 'account/productionpages/pages/profile2.html',{
         'student' : student,
         'course': course,
         'user' : request.user,

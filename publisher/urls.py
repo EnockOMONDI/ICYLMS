@@ -2,7 +2,7 @@ from django.conf.urls import include, url
 from publisher.views import catalog
 from publisher.views import my_publication
 from publisher.views import publication
-
+app_name="publisher"
 urlpatterns = [
     # Publications(s)
     url(r'^publish$', catalog.catalog_page),

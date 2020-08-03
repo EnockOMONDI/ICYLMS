@@ -1,13 +1,13 @@
 {% load static %}
 {% include 'publicpages/googletranslate.html' %}  
-<div class="header header-transparent change-logo" >
+<div class="header header-transparent  change-logo" >
         <div class="container">
             <nav id="navigation" class="navigation navigation-landscape">
                 <div class="nav-header">
 
 
-                    <a class="nav-brand static-logo" href="{% url 'landpage:home' %}"><img src="{% static 'assets_course_detail/img/ladalogo.png' %}" style="width:120px; height:100px;" class="logo" alt="" /></a>
-                    <a class="nav-brand fixed-logo"  href="{% url 'landpage:home' %}"><img src="{% static 'assets_course_detail/img/ladalogo.png' %}" class="logo" alt="" /></a>
+                    <a class="nav-brand static-logo" href="{% url 'landpage:home' %}"><img src="{% static 'assets_course_detail/img/ladalogo.png' %}" style="width:100px; height:80px;" class="logo" alt="" /></a>
+                    <a class="nav-brand fixed-logo"  href="{% url 'landpage:home' %}"><img src="{% static 'assets_course_detail/img/ladalogo.png' %}" style="width:100px; height:80px;" class="logo" alt="" /></a>
                     <div class="nav-toggle"></div>
                 </div>
                 <div style="margin-top:1em;" class="nav-menus-wrapper" style="transition-property: none;">
@@ -55,16 +55,11 @@
                                                                 
                                                                 <div class="articles_grid_author justify-content-center">
                                                                     
-                                                                
-                                                                    {% if request.user.is_authenticated %}
-                                                                    <a href="#" data-toggle="modal" data-target="#certmodal" class="btn btn-outline-primary  " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Short  Courses</a>
+
+                                                                    <a href="/courses/shortcourse/" class="btn btn-outline-primary  " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Short  Courses</a>
                                                                     
-                                                                  
-                                                                    {% else %}
-                                                                    <a href="#" data-toggle="modal" data-target="#certmodal" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Short Courses</a>
-                                    
-                                                                
-                                                                    {% endif %}
+
+               
                                                             
                                                                 </div>
                                                             
@@ -79,16 +74,8 @@
                                                         
                                                         <div class="articles_grid_author justify-content-center">
                                                             
-                                                        
-                                                            {% if request.user.is_authenticated %}
-                                                            <a href="#" data-toggle="modal" data-target="#certmodal" class="btn btn-outline-primary  " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Certificate Courses</a>
-                                                            
-                                                          
-                                                            {% else %}
-                                                            <a href="#" data-toggle="modal" data-target="#certmodal" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Certificate Courses</a>
-                            
-                                                        
-                                                            {% endif %}
+                                                                <a href="/courses/certificate" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Certicicate courses</a>
+
                                                     
                                                         </div>
                                                     
@@ -113,15 +100,11 @@
                                                                         
                                         
                                                                     
-                                                                        {% if request.user.is_authenticated %}
-                                                                        <a href="/courses" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Diploma Courses</a>
+
+                                                                        <a href="/courses/diploma" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Diploma Courses</a>
                                 
                                                                       
-                                                                        {% else %}
-                                                                        <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Diploma Courses</a>
-                                
-                                                                    
-                                                                        {% endif %}
+                                  
                                                                 
                                                                     </div>
                                                                 
@@ -150,15 +133,10 @@
                                                                     
                                     
                                                                 
-                                                                    {% if request.user.is_authenticated %}
-                                                                    <a href="/courses" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Degree /BA Courses</a>
+                                                     
+                                                                    <a href="/courses/ba" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Degree/BA Courses</a>
                             
-                                                                  
-                                                                    {% else %}
-                                                                    <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Degree /BA Courses</a>
-                            
-                                                                
-                                                                    {% endif %}
+                                   
                                                             
                                                                 </div>
                                                             
@@ -176,15 +154,10 @@
                                                                 
                                 
                                                             
-                                                                {% if request.user.is_authenticated %}
-                                                                <a href="/courses" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Masters Courses</a>
+                                                                <a href="/courses/masters" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Masters Courses</a>
                             
                                                               
-                                                                {% else %}
-                                                                <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >Masters Courses</a>
-                            
-                                                            
-                                                                {% endif %}
+                              
                                                         
                                                             </div>
                                                         
@@ -209,15 +182,11 @@
                                                                             
                                             
                                                                         
-                                                                            {% if request.user.is_authenticated %}
-                                                                            <a href="/courses" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >PHD Courses</a>
+                                                                          
+                                                                            <a href="/courses/phd" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >PHD Courses</a>
                                     
                                                                           
-                                                                            {% else %}
-                                                                            <a href="/redirected_login" class="btn btn-outline-primary " style="box-shadow: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);" >PHD Courses</a>
-                                    
-                                                                        
-                                                                            {% endif %}
+                 
                                                                     
                                                                         </div>
                                                                     
@@ -290,16 +259,17 @@
                                                                 </li>
                                                                 <li  >
 					
-                                                                    <div  id="google_translate_element"></div>
+                                                                    <div style="margin-top:0.5em" id="google_translate_element"></div>
                                             
                                                                 </li>
                                                                 {% else %}
                                                             <li class="login_click theme-bg">
-                                                                    <a href="#" data-toggle="modal" data-target="#login">Sign In</a>
+                                                                    <a href="/redirected_login" >Sign In</a>
+                                                                    <!-- data-toggle="modal" data-target="#register_modal" -->
                                                                 </li>
                                                                 <li  >
 					
-                                                                    <div  id="google_translate_element"></div>
+                                                                    <div style="margin-top:0.5em" id="google_translate_element"></div>
                                             
                                                                 </li>
                                                                 <!-- <li class="login_click light">

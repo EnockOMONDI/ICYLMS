@@ -1,0 +1,216 @@
+{% extends 'productionpages/base4.html' %}
+
+{% load staticfiles%}
+{% block content %}
+{% include 'publicpages/welcomenav.html' %}
+
+			<!-- ============================ Course Detail ================================== -->
+			<section class="bg-light" >
+          
+          <div class="container" style="margin-top:5em">
+          
+            <div class="row">
+             
+              <div class="col-lg-8 col-md-8">
+              
+                <div class="inline_edu_wrap">
+                  <div class="inline_edu_first">
+                    
+                    {% if request.user %}
+                    <h5 class="card-description"> Hi, <strong>{{ user.first_name }} {{ user.last_name }}</strong></h5>
+                    {% endif %}
+                    <h3 class="card-title">
+                      Welcome to Leadership and Development Academy
+                    </h3>
+                    <h4 class="card-description">
+                        Let's get you started
+                      </h4>
+                  </div>	
+             
+                </div>
+        
+                
+                <!-- All Info Show in Tab -->
+                <div class="tab_box_info mt-4">
+                
+                
+                  <div class="tab-content" id="pills-tabContent">
+                    
+                    <!-- Overview Detail -->
+                    <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                      <!-- Overview -->
+                      <div class="edu_wraper">
+                                    <!--         carousel  -->
+ 
+        
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="9000">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                      <div class="carousel-item active">
+                          <div>
+  
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-8 ml-auto mr-auto " > 
+                                  <!-- text-left -->
+                                  <h4 class="title" >   What is LADA?</h4>
+     
+                                </h5>
+                                <p class="card-description">The Leadership and Development Academy (LADA) is established in Africa as a joint initiative of Springdale College UK now known as ForMission College, accredited by York St John University and Newman University in Birmingham, Africa for SDGs and ICY AFRICA which runs the Springdale Foundation and other global partners.
+                                  </h5>
+                                  </p>
+                                  <br>
+                                  <br>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item ">
+                          <div>
+  
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-8 ml-auto mr-auto " > 
+                                  <!-- text-left -->
+                                  <h4 class="title" >   What are LADA COURSES?</h4>
+     
+                                </h5>
+                                <p class="card-description">This are Diploma programmes, designed to expose junior African leaders to the complexities of Leadership, Governance and development issues facing the African continent. Once you update your student profile you can browse courses and enroll in a course of your choice. 
+                                  </h5>
+                                  </p>
+                                  <br>
+                                  <br>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item ">
+                          <div>
+  
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-8 ml-auto mr-auto " > 
+                                  <!-- text-left -->
+                                  <h4 class="title" >   What are  LADA TRAINING BITS?</h4>
+     
+                                </h5>
+                                <p class="card-description"> Training bits are small tools or small learning pieces, derived from the courses. Each training bit has something for you to learn at your own pace. Once you update your student profile you can browse Training bits and enroll in a Training bit of your choice. 
+                                  </h5>
+                                  </p>
+                                  <br>
+                                  <br>
+                              
+                            </div>
+                          </div>
+                        </div>
+               
+                  
+                 
+                  </div>
+             
+                  </div>
+               
+                  
+                  <a class="carousel-control-prev"  href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon"  aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon"  aria-hidden="true"></span>
+                    <span   class="sr-only">Next</span>
+                  </a>
+                  <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <i class="material-icons">keyboard_arrow_left</i>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    <span class="sr-only">Next</span>
+                  </a> -->
+                </div>
+              </div>
+              <!-- End Carousel Card -->
+                      </div>
+                      
+                
+                    </div>
+                    
+               
+                  </div>
+                </div>
+                
+              </div>
+              
+              <div class="col-lg-4 col-md-4">
+              
+                <!-- Course info -->
+                <div class="ed_view_box style_3">
+                
+                  <div class="property_video sm">
+                    <div class="thumb">
+                      <img class="pro_img img-fluid w100" src="{% static 'assets_course_detail/img/joe.jpg' %}" alt="Director image">
+                      <div class="overlay_icon">
+                        <div class="bb-video-box">
+                          <div class="bb-video-box-inner">
+                            <div class="bb-video-box-innerup">
+                              <a href="https://www.youtube.com/watch?v=A8EI6JaFbv4" data-toggle="modal" data-target="#popup-video" class="theme-cl"><i class="ti-control-play"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="ed_view_price pl-4">
+                      <h3 class="card-description text-center">
+                      Message from the The LADA Director
+                        </h3>
+                  </div>
+                  
+                 
+                  
+              
+                  <div class="ed_view_link  ">
+                      {% if request.user.is_authenticated %}
+                      <a href="/update_profile" class="btn btn-theme enroll-btn ">Enter Site<i class="ti-angle-right"></i></a>
+
+                      {% else %}
+                      <a href="#" data-toggle="modal" data-target="#login" class="btn btn-theme enroll-btn ">Log in to Continue<i class="ti-angle-right"></i></a>
+
+                      {% endif %}	
+                  </div>
+                  
+                </div>
+                
+              </div>
+            
+            </div>
+          
+          </div>
+        </section>
+        <!-- ============================ Course Detail ================================== -->
+        
+
+
+
+
+
+
+
+
+
+        {% include 'publicpages/modal.html' %}
+        {% include "publicpages/js/js.html" %}  
+        <div id="ajax_response_login"></div>
+        <div id="ajax_response_register"></div>
+        <div id="ajax_logout"></div>
+        <div id="fb-root"></div>
+
+
+  {% endblock content %}
