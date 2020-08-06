@@ -1,9 +1,12 @@
 from django.shortcuts import render,redirect
+from django.core import serializers
+import json
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
-import json
+
 from account.forms import UserForm,StudentForm
 from registration.form import RegisterForm
 from django.db import transaction
@@ -12,6 +15,47 @@ from account.models import *
 from registrar.forms import CourseForm
 from django.contrib import messages
 from django.utils.translation import gettext as _
+from registrar.forms import CourseForm
+
+
+
+
+@login_required()
+def disenroll_modal(request):
+    # Create our student account which will build our registration around.
+    try:
+        student = Student.objects.get(user=request.user)
+    except Student.DoesNotExist:
+        student = Student.objects.create(user=request.user)
+
+    course_id = int(request.POST['course_id'])
+    try:
+        course = Course.objects.get(id=course_id)
+    except Course.DoesNotExist:
+        course = None
+    return render(request, 'account/productionpages/pages/disenrollmodal.html',{
+        'student' : student,
+        'course': course,
+        'user' : request.user,
+    })
+
+
+@login_required()
+def disenroll(request):
+    response_data = {'status' : 'failure', 'message' : 'unsupported request format'}
+    if request.is_ajax():
+        course_id = int(request.POST['course_id'])
+        student = Student.objects.get(user=request.user)
+        try:
+            course = Course.objects.get(id=course_id)
+            course.students.remove(student)
+            response_data = {'status' : 'success', 'message' : 'disenrolled' }
+        except Course.DoesNotExist:
+            response_data = {'status' : 'failed', 'message' : 'record does not exist' }
+    return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+
+
 
 
 @login_required(login_url='/landpageprod')
@@ -66,8 +110,20 @@ def update_profile(request):
     
 @login_required()
 def view_profile(request):
-    student = request.user.student
-    return render(request, 'account/productionpages/pages/profile2.html',{'student':student,
+    try:
+        student = request.user.student
+    except Student.DoesNotExist:
+        student = Student.objects.create(user=request.user)
+    try:
+        courses = Course.objects.filter(students__student_id=student.student_id)
+    except Course.DoesNotExist:
+        courses = None
+        
+  
+    return render(request, 'account/productionpages/pages/profile2.html',{
+   'courses': courses,
+   'user' : request.user,    
+   'student':student,
    'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
    'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS,
    }) 
