@@ -1,36 +1,27 @@
+{% extends 'ecommerce_app/shortcoursedetail/base.html' %}
+{% load staticfiles %}
+{% block content %}
 
 
+<div class="dashboard_container">
 
 
-<div class="row">
-        <div class="col-lg-12 text-center">
-          <br>
-          <br>
-          <br>
-       
-          <h3 class="title">Credit received for completing courses</h3>
-            <ul class="breadcrumb">
-                <li class="active nav-link ">
-                    <i  class="fa fa-certificate"></i> Certificates
-                </li>
-             
-            </ul>
-        </div>
-    </div>
-
+    
         {% if marks.count == 0 %}
 
         <!-- No Grades Banner -->
-        <div class="jumbotron">
+        <div class="dashboard_container_body">
+                <div class="jumbotron">
             <h3>No Completed Courses</h3>
             <p>
                 It appears you have not completed any courses yet. To generate a certificate, you must complete a course.
             </p>
-            <p><a href="/payment"
+            <p><a href="/courses"
                  class="btn btn-primary btn-lg"
                   role="button">Find Courses </a>
             </p>
         </div>
+    </div>
         <!-- /.row -->
 
         {% else %}
@@ -38,20 +29,20 @@
         <!-- Certificates -->
         <div id="ajax_certificates_table"
            name="ajax_certificates_table">
-            {% include "registrar/certificate/table.html" %}
+            {% include "account/productionpages/certificate/table.html" %}
         </div>
         <!-- /.row -->
 
         {% endif %}
-        
+    </div>
 <!-- Modal -->
 <div id="ajax_modal"
    name="ajax_modal"></div>
 <!-- end modal -->
-{% include 'registrar/certificate/js.html' %}
+{% include 'account/productionpages/certificate/js.html' %}
    
 
 <div id="ajax_response_login"></div>
 <div id="ajax_response_register"></div>
 <div id="ajax_logout"></div>
-
+{% endblock content %}
