@@ -63,6 +63,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'paypal.standard.ipn',
     'pyuploadcare.dj',
+    'import_export',
     'ecommerce_app',
     'captcha',
     'jet',
@@ -75,6 +76,7 @@ INSTALLED_APPS = (
     'teacher',
     'publisher',
     'cloudinary',
+
 
 
    
@@ -202,7 +204,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-
+IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 SITE_ID = 1
 STATIC_URL = '/static/'
