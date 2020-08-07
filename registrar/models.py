@@ -6,6 +6,7 @@ import os
 from account.models import Student
 from account.models import Teacher
 from cloudinary.models import CloudinaryField
+from django.urls import reverse
 
 WORTH_PERCENT_CHOICES = (
     (0, '0 %'),
@@ -29,78 +30,28 @@ WORTH_PERCENT_CHOICES = (
     (95, '95 %'),
     (100, '100 %'),
 )
+class Category(models.Model):
+    name = models.CharField(max_length=150, db_index=True)
+    slug = models.SlugField(max_length=150, unique=True ,db_index=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    image = CloudinaryField('image', blank=True, null=True)
+    
 
-COURSE_CATEGORY_TYPES = (
-    ('Aeronautics & Astronautics', 'Aeronautics & Astronautics'),
-    ('Anesthesia', 'Anesthesia'),
-    ('Anthropology', 'Anthropology'),
-    ('Applied Physics', 'Applied Physics'),
-    ('Art or Art History', 'Art & Art History'),
-    ('Astrophysics', 'Astrophysics'),
-    ('Biochemistry', 'Biochemistry'),
-    ('Bioengineering', 'Bioengineering'),
-    ('Biology', 'Biology'),
-    ('Business', 'Business'),
-    ('Cardiothoracic Surgery', 'Cardiothoracic Surgery'),
-    ('Chemical and Systems Biology', 'Chemical and Systems Biology'),
-    ('Chemical Engineering', 'Chemical Engineering'),
-    ('Chemistry', 'Chemistry'),
-    ('Civil and Environmental Engineering', 'Civil and Environmental Engineering'),
-    ('Classics', 'Classics'),
-    ('Communication', 'Communication'),
-    ('Comparative Literature', 'Comparative Literature'),
-    ('Comparative Medicine', 'Comparative Medicine'),
-    ('Computer Science', 'Computer Science'),
-    ('Dermatology', 'Dermatology'),
-    ('Developmental Biology', 'Developmental Biology'),
-    ('East Asian Languages and Cultures', 'East Asian Languages and Cultures'),
-    ('Economics', 'Economics'),
-    ('Education', 'Education'),
-    ('Electrical Engineering', 'Electrical Engineering'),
-    ('English', 'English'),
-    ('French', 'French'),
-    ('Genetics', 'Genetics'),
-    ('General Eduction', 'General Education'),
-    ('Geological and Environmental Sciences', 'Geological and Environmental Sciences'),
-    ('Geophysics', 'Geophysics'),
-    ('Health', 'Health'),
-    ('History', 'History'),
-    ('Latin American Cultures', 'Latin American Cultures'),
-    ('Law School', 'Law School'),
-    ('Linguistics', 'Linguistics'),
-    ('Management', 'Management'),
-    ('Materials Science', 'Materials Science'),
-    ('Mathematics', 'Mathematics'),
-    ('Mechanical Engineering', 'Mechanical Engineering'),
-    ('Medicine', 'Medicine'),
-    ('Microbiology and Immunology', 'Microbiology and Immunology'),
-    ('Molecular and Cellular Physiology', 'Molecular and Cellular Physiology'),
-    ('Music', 'Music'),
-    ('Neurobiology', 'Neurobiology'),
-    ('Neurology', 'Neurology'),
-    ('Neurosurgery', 'Neurosurgery'),
-    ('Obstetrics and Gynecology', 'Obstetrics and Gynecology'),
-    ('Ophthalmology', 'Ophthalmology'),
-    ('Orthopaedic Surgery', 'Orthopaedic Surgery'),
-    ('Other', 'Other'),
-    ('Otolaryngology', 'Otolaryngology'),
-    ('Pathology', 'Pathology'),
-    ('Pediatrics', 'Pediatrics'),
-    ('Philosophy', 'Philosophy'),
-    ('Physics', 'Physics'),
-    ('Political Science', 'Political Science'),
-    ('Psychiatry', 'Psychiatry'),
-    ('Psychology', 'Psychology'),
-    ('Radiation Oncology', 'Radiation Oncology'),
-    ('Radiology', 'Radiology'),
-    ('Religious Studies', 'Religious Studies'),
-    ('Slavic Languages and Literature', 'Slavic Languages and Literature'),
-    ('Sociology', 'Sociology'),
-    ('Statistics', 'Statistics'),
-    ('Surgery', 'Surgery'),
-    ('Theater and Performance Studies', 'Theater and Performance Studies'),
-    ('Urology', 'Urology'),
-)
+    class Meta:
+        ordering = ('name', )
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+     
+
+    def __str__(self):
+        return self.name
+
+    def courses_in_category(self):
+        return self.courses.all().count()
+
+    def get_absolute_url(self):
+        return reverse('registrar:courses_list_by_category', args=[self.slug])
 
 
 class FileUpload(models.Model):
@@ -134,7 +85,7 @@ class FileUpload(models.Model):
 class Course(models.Model):
     title = models.CharField(max_length=127)
     sub_title = models.CharField(max_length=127)
-    category = models.CharField(max_length=127, choices=COURSE_CATEGORY_TYPES, default='General Education')
+    category = models.ForeignKey(Category, related_name='courses', on_delete=models.CASCADE, default='Leadership' )
     description = models.TextField(null=True)
     start_date = models.DateField(null=True)
     finish_date = models.DateField(null=True)
@@ -143,7 +94,7 @@ class Course(models.Model):
     image =  CloudinaryField('image', blank=True, null=True)
     students = models.ManyToManyField(Student)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
-    price = models.DecimalField(max_digits=7, decimal_places=2,  blank=True, null=True)
+    price = models.DecimalField(max_digits=7, decimal_places=2,  blank=True, default=0.00)
 
 
     def delete(self, *args, **kwargs):

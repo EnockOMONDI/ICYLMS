@@ -16,13 +16,7 @@
             <link rel="stylesheet" href="{% static local_css_url %}">
         {% endfor %}
                                     
-              <!-- adsence -->
-    <script data-ad-client="ca-pub-5398818708145454" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- adsence -->                  
-       
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
-       
-            
+   
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!-- [if lt IE 9]
@@ -47,13 +41,18 @@
     
     </head>
     
-    <body id=""  class="index-page sidebar-collapse" style="background-color:rgb(247, 245, 245)" >
-        <!-- <div id="wrapper"> -->
-            <!-- Navigation -->
-            {% include "registrar/nav.html" %}
+    <body class="red-skin ">
+     
+            <!-- ============================================================== -->
+            <!-- Preloader - style you can find in spinners.css -->
+            <!-- ============================================================== -->
+            <div id="preloader"><div class="preloader"><span></span><span></span></div></div>
+          
+		
+
+        
            
-            <br>
-            <br>
+           
             <!-- Scripts -->
             {% csrf_token %}
             {% include "registrar/script.html" %}

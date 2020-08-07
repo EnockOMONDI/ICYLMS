@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" />
+        <meta name="description" content="Leadership and development academy virtual classroom for learners "/>
+        <meta name="keywords" content="Educational, teaching, courses, free, learning, courseware, course, online learning, online-learning, youtube lectures, lectures, lecture, exam, exams, essay, essays, tests, tests, quiz, quizzes"/>
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&amp;display=swap" rel="stylesheet">        <link rel="shortcut icon" type="image/jpg" href="{% static 'img/logo2.jpg' %}"/> 
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <title>Leadership and Development Academy</title>
+     
+        {% for local_css_url in local_css_urls %}
+        <link rel="stylesheet" href="{% static local_css_url %}">
+    {% endfor %}
+  
+</head>
+
+
+<body class="layout-boxed ">
+<!-- 
+        <div class="preloader">
+            <div class="sk-double-bounce">
+                <div class="sk-child sk-double-bounce1"></div>
+                <div class="sk-child sk-double-bounce2"></div>
+            </div>
+        </div> -->
+
+
+{% block content %}
+
+
+{% endblock %}
+<!--   Core JS Files   -->
+<!-- {% include "productionpages/page/js.html" %} -->
+
+    {% for local_js_url in local_js_urls %}
+          <script src="{% static local_js_url %}"></script>
+    {% endfor %}
+    {% for local_plugins_url  in local_plugins_urls  %}
+    <script src="{% static local_plugins_url %}"></script>
+{% endfor %}
+    
+
+</body>
+</html>
+

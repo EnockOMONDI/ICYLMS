@@ -63,9 +63,10 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'paypal.standard.ipn',
     'pyuploadcare.dj',
+    'import_export',
     'ecommerce_app',
     'captcha',
-     'jet',
+    'jet',
     'account',
     'landpage',
     'registration',
@@ -74,7 +75,13 @@ INSTALLED_APPS = (
     'student',
     'teacher',
     'publisher',
-    'cloudinary'
+    'cloudinary',
+
+
+
+   
+
+  
     
 )
 
@@ -124,7 +131,14 @@ CAPTCHA_FONT_SIZE = 52
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+     
+    
+    }
+}
 
 # DATABASES = {
 #     "default": {
@@ -136,16 +150,16 @@ CAPTCHA_FONT_SIZE = 52
 #         "PORT": " 5432",
 #     }
 # }
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "dbr01gscv22n03",
-        "USER": "lbfikazcgtjqxp",
-        "PASSWORD": "5ef42e10426658516239911c802798825ad3ac8f3d7559c5f3c89ca229d18e34",
-        "HOST": "ec2-107-22-236-52.compute-1.amazonaws.com",
-        "PORT": " 5432",
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": "dbr01gscv22n03",
+#         "USER": "lbfikazcgtjqxp",
+#         "PASSWORD": "5ef42e10426658516239911c802798825ad3ac8f3d7559c5f3c89ca229d18e34",
+#         "HOST": "ec2-107-22-236-52.compute-1.amazonaws.com",
+#         "PORT": " 5432",
+#     }
+# }
 
 
 DATABASES['default'].update(db_from_env)
@@ -190,7 +204,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-
+IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 SITE_ID = 1
 STATIC_URL = '/static/'

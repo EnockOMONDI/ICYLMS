@@ -20,8 +20,8 @@ def login_modal(request):
 
 def login_redirect(request):
     return render(request, 'login/login.html',{
-         'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+         'local_css_urls' : settings.SB_ADMIN_2020UI_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_2020UI_JS_LIBRARY_URLS
           })
 
 def trainingbits_redirect(request):
@@ -55,7 +55,7 @@ def login_authentication(request):
 
 
 def logout_authentication(request):
-    response_data = {'status' : 'success', 'message' : 'you are logged off'}
+    response_data = {'status' : 'success', 'message' : 'you have been succesfully  logged off'}
     if request.is_ajax():
         if request.method == 'POST':
             logout(request)

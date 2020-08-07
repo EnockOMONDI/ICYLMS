@@ -1,0 +1,131 @@
+{% load static %}
+            <div style="background-color:#fff" class="navbar navbar-expand  navbar-dark-white navbar-shadow"  id="default-navbar" >
+
+                    <!-- Navbar toggler -->
+                    <!-- <button class="navbar-toggler w-auto mr-16pt d-block d-lg-none rounded-0" type="button" data-toggle="sidebar">
+                        <span class="material-icons">short_text</span>
+                    </button> -->
+    
+                    <!-- Navbar Brand -->
+                    <a href="{% url 'landpage:home' %}" class="navbar-brand mr-16pt d-lg-none">
+                        <img class="navbar-brand-icon" src="{% static 'assets_course_list/images/ladalogo2.png' %}"   alt="Luma">
+    
+                        <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+    
+                            <span class="avatar-title rounded bg-primary"><img src="{% static 'assets_course_list/images/ladalogo2.png' %}"   alt="logo" class="img-fluid" /></span>
+    
+                        </span>
+    
+                        <span class="d-none d-lg-block">LADA</span>
+                    </a>
+    
+                    <ul class="nav navbar-nav d-none d-sm-flex flex justify-content-start ml-8pt">
+                        <li class="nav-item">
+                            <a href="{% url 'landpage:home' %}" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">Courses</a>
+                            <div class="dropdown-menu">
+                                <a href="boxed-courses.html" class="dropdown-item active">Browse Courses</a>
+                                <a href="boxed-student-course.html" class="dropdown-item">Preview Course</a>
+                                <a href="boxed-student-lesson.html" class="dropdown-item">Preview Lesson</a>
+                                <a href="boxed-student-take-course.html" class="dropdown-item"><span class="mr-16pt">Take Course</span> <span class="badge badge-notifications badge-accent text-uppercase ml-auto">Pro</span></a>
+                                <a href="boxed-student-take-lesson.html" class="dropdown-item">Take Lesson</a>
+                                <a href="boxed-student-take-quiz.html" class="dropdown-item">Take Quiz</a>
+                                <a href="boxed-student-quiz-result-details.html" class="dropdown-item">Quiz Result</a>
+                                <a href="boxed-student-dashboard.html" class="dropdown-item">Student Dashboard</a>
+                                <a href="boxed-student-my-courses.html" class="dropdown-item">My Courses</a>
+                                <a href="boxed-student-quiz-results.html" class="dropdown-item">My Quizzes</a>
+                                <a href="boxed-help-center.html" class="dropdown-item">Help Center</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">Paths</a>
+                            <div class="dropdown-menu">
+                                <a href="boxed-paths.html" class="dropdown-item">Browse Paths</a>
+                                <a href="boxed-student-path.html" class="dropdown-item">Path Details</a>
+                                <a href="boxed-student-path-assessment.html" class="dropdown-item">Skill Assessment</a>
+                                <a href="boxed-student-path-assessment-result.html" class="dropdown-item">Skill Result</a>
+                                <a href="boxed-student-paths.html" class="dropdown-item">My Paths</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="boxed-pricing.html" class="nav-link">Pricing</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">Teachers</a>
+                            <div class="dropdown-menu">
+                                <a href="boxed-instructor-dashboard.html" class="dropdown-item">Instructor Dashboard</a>
+                                <a href="boxed-instructor-courses.html" class="dropdown-item">Manage Courses</a>
+                                <a href="boxed-instructor-quizzes.html" class="dropdown-item">Manage Quizzes</a>
+                                <a href="boxed-instructor-earnings.html" class="dropdown-item">Earnings</a>
+                                <a href="boxed-instructor-statement.html" class="dropdown-item">Statement</a>
+                                <a href="boxed-instructor-edit-course.html" class="dropdown-item">Edit Course</a>
+                                <a href="boxed-instructor-edit-quiz.html" class="dropdown-item">Edit Quiz</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown" data-toggle="tooltip" data-title="Community" data-placement="bottom" data-boundary="window">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">
+                                <i class="material-icons">people_outline</i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="boxed-teachers.html" class="dropdown-item">Browse Teachers</a>
+                                <a href="boxed-student-profile.html" class="dropdown-item">Student Profile</a>
+                                <a href="boxed-teacher-profile.html" class="dropdown-item">Instructor Profile</a>
+                                <a href="boxed-blog.html" class="dropdown-item">Blog</a>
+                                <a href="boxed-blog-post.html" class="dropdown-item">Blog Post</a>
+                                <a href="boxed-faq.html" class="dropdown-item">FAQ</a>
+                                <a href="boxed-help-center.html" class="dropdown-item">Help Center</a>
+                                <a href="boxed-discussions.html" class="dropdown-item">Discussions</a>
+                                <a href="boxed-discussion.html" class="dropdown-item">Discussion Details</a>
+                                <a href="boxed-discussions-ask.html" class="dropdown-item">Ask Question</a>
+                            </div>
+                        </li>
+                    </ul>
+    
+    
+                    <form class="search-form navbar-search d-none d-lg-flex mr-16pt" action="http://luma.humatheme.com/{% url 'landpage:home' %}" style="max-width: 230px">
+                        <button class="btn" type="submit"><i class="material-icons">search</i></button>
+                        <input type="text" class="form-control" placeholder="Search courses ...">
+                    </form>
+    
+    
+    
+    
+    
+    
+    
+                    <ul class="nav navbar-nav ml-auto mr-0">
+                            <li  class="nav-item">
+
+
+                                    {% if request.user.is_authenticated %}
+                                    <a  data-toggle="tooltip" data-title="{{ user.first_name }} Dashboard" data-placement="bottom" data-boundary="window" class="btn btn-outline-dark" href="/view/profile">{{ user.first_name }} </a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a class="btn btn-outline-dark" style="cursor: pointer;" onclick="ajax_logout();">Logout </a>
+                                    </li>
+                                    <li  >
+                                    
+                                    <div  id="google_translate_element"></div>
+                                    
+                                    </li>
+                                    {% else %}
+                                    <li class="nav-item">
+                                    <a href="#" data-toggle="modal" data-target="#login">Sign In</a>
+                                    </li>
+                                    <li  >
+                                    
+                                    <div  id="google_translate_element"></div>
+                                    
+                                    </li>
+                                    <!-- <li class="login_click light">
+                                    <a href="#" data-toggle="modal" data-target="#login"> login</a>
+                                    </li> -->
+                                    {% endif %}
+                                    
+                        
+                        </li>
+                    </ul>
+                </div>
+    

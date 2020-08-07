@@ -104,70 +104,70 @@ def submit_course_for_review(request, course_id):
         return HttpResponse(json.dumps(response_data), content_type="application/json")
 
     # Validate syllabus
-    try:
-        Syllabus.objects.get(course=course)
-    except Syllabus.DoesNotExist:
-        response_data['message'] = 'no syllabus set'
-        return HttpResponse(json.dumps(response_data), content_type="application/json")
+    # try:
+    #     Syllabus.objects.get(course=course)
+    # except Syllabus.DoesNotExist:
+    #     response_data['message'] = 'no syllabus set'
+    #     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
     # Validate policy
-    try:
-        Policy.objects.get(course=course)
-    except Policy.DoesNotExist:
-        response_data['message'] = 'no policy set'
-        return HttpResponse(json.dumps(response_data), content_type="application/json")
+    # try:
+    #     Policy.objects.get(course=course)
+    # except Policy.DoesNotExist:
+    #     response_data['message'] = 'no policy set'
+    #     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
     # Validate lectures
-    try:
-        lectures = Lecture.objects.filter(course=course).order_by('-lecture_num')
-        if lectures.count() < 2:
-            response_data['message'] = 'minimum 2 lectures required'
-            return HttpResponse(json.dumps(response_data), content_type="application/json")
-    except Lecture.DoesNotExist:
-        response_data['message'] = 'no policy set'
-        return HttpResponse(json.dumps(response_data), content_type="application/json")
+    # try:
+    #     lectures = Lecture.objects.filter(course=course).order_by('-lecture_num')
+    #     if lectures.count() < 1:
+    #         response_data['message'] = 'minimum 1 lectures required'
+    #         return HttpResponse(json.dumps(response_data), content_type="application/json")
+    # except Lecture.DoesNotExist:
+    #     response_data['message'] = 'no policy set'
+    #     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
     # Validate assignments
-    try:
-        assignments = Assignment.objects.filter(course=course).order_by('-assignment_num')
-        if assignments.count() < 1:
-            response_data['message'] = 'minimum 1 assignment required'
-            return HttpResponse(json.dumps(response_data), content_type="application/json")
-    except Assignment.DoesNotExist:
-        response_data['message'] = 'no assignment(s)'
-        return HttpResponse(json.dumps(response_data), content_type="application/json")
+    # try:
+    #     assignments = Assignment.objects.filter(course=course).order_by('-assignment_num')
+    #     if assignments.count() < 1:
+    #         response_data['message'] = 'minimum 1 assignment required'
+    #         return HttpResponse(json.dumps(response_data), content_type="application/json")
+    # except Assignment.DoesNotExist:
+    #     response_data['message'] = 'no assignment(s)'
+        # return HttpResponse(json.dumps(response_data), content_type="application/json")
 
     # Validate quizzes
-    try:
-        quizzes = Quiz.objects.filter(course=course).order_by('-quiz_num')
-        if quizzes.count() < 1:
-            response_data['message'] = 'minimum 1 quiz required'
-            return HttpResponse(json.dumps(response_data), content_type="application/json")
-    except Quiz.DoesNotExist:
-        response_data['message'] = 'no quiz(zes) found'
-        return HttpResponse(json.dumps(response_data), content_type="application/json")
+    # try:
+    #     quizzes = Quiz.objects.filter(course=course).order_by('-quiz_num')
+    #     if quizzes.count() < 1:
+    #         response_data['message'] = 'minimum 1 quiz required'
+    #         return HttpResponse(json.dumps(response_data), content_type="application/json")
+    # except Quiz.DoesNotExist:
+    #     response_data['message'] = 'no quiz(zes) found'
+    #     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
     # Validate exams
-    try:
-        exams = Exam.objects.filter(course=course).order_by('-exam_num')
-        if exams.count() < 1:
-            response_data['message'] = 'minimum 1 exam required'
-            return HttpResponse(json.dumps(response_data), content_type="application/json")
-    except Exam.DoesNotExist:
-        response_data['message'] = 'no exams(s) found'
-        return HttpResponse(json.dumps(response_data), content_type="application/json")
+    # try:
+    #     exams = Exam.objects.filter(course=course).order_by('-exam_num')
+    #     if exams.count() < 1:
+    #         response_data['message'] = 'minimum 1 exam required'
+    #         return HttpResponse(json.dumps(response_data), content_type="application/json")
+    # except Exam.DoesNotExist:
+    #     response_data['message'] = 'no exams(s) found'
+    #     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
     # Validate final mark calculator
-    total_worth = total_final_mark_worth(course)
-    if total_worth != 100:
-        response_data['message'] = 'total final mark must add up to 100%'
-        return HttpResponse(json.dumps(response_data), content_type="application/json")
+    # total_worth = total_final_mark_worth(course)
+    # if total_worth != 100:
+    #     response_data['message'] = 'total final mark must add up to 100%'
+    #     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
     # Make sure we have a final exam
-    is_final = has_final_exam(exams)
-    if is_final == False:
-        response_data['message'] = 'course requires only 1 final exam'
-        return HttpResponse(json.dumps(response_data), content_type="application/json")
+    # is_final = has_final_exam(exams)
+    # if is_final == False:
+    #     response_data['message'] = 'course requires only 1 final exam'
+    #     return HttpResponse(json.dumps(response_data), content_type="application/json")
     
     review = CourseSubmission.objects.create(
         course=course,

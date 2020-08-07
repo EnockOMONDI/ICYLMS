@@ -14,13 +14,14 @@ from student.views import exam
 from student.views import discussion
 from student.views import peer_review
 from student.views import credit
-
+app_name="student"
 urlpatterns = [
     # Announcement
-    url(r'^course/(\d+)/announcements$', announcement.announcements_page),
+    url(r'^course/(?P<id>\d+)/announcements$', announcement.announcements_page, name='announcements_page'),
 
     # Syllabus
-    url(r'^course/(\d+)/syllabus$', syllabus.syllabus_page),
+    url(r'^course/(\d+)/syllabus$', syllabus.syllabus_page, name='syllabus_page'),
+
 
     # Grades & Policy
     url(r'^course/(\d+)/policy$', policy.policy_page),
@@ -28,6 +29,9 @@ urlpatterns = [
     # Lecture
     url(r'^course/(\d+)/lectures$', lecture.lectures_page),
     url(r'^course/(\d+)/lecture$', lecture.lecture),
+    url(r'^shortcourse/(\d+)/lectures$', lecture.shortcourselectures_page),
+    url(r'^shortcourse/(\d+)/shortcourselecture$', lecture.shortcourselecture),
+                       
                        
     # Lecture Notes
     url(r'^course/(\d+)/lecture/(\d+)/notes$', lecture_note.lecture_notes_page),

@@ -7,6 +7,10 @@ import datetime
 from cloudinary.models import CloudinaryField
 # from imagekit.models import ProcessedImageField
 
+INTERESTS_CATEGORY_TYPES = (
+('Leadership', 'Leadership'),
+
+)
 COUNTRY_CATEGORY_TYPES = (
 ('Algeria', 'Algeria'),
 ('Angola', 'Angola'),
@@ -86,7 +90,7 @@ class Student(models.Model):
     bio = models.TextField(max_length=500, blank=True, null=True)
     country = models.CharField(max_length=127, choices=COUNTRY_CATEGORY_TYPES,  blank=True,null=True,  default='Kenya')
     age = models.PositiveSmallIntegerField(default='18', null=True)
-    interests = models.CharField(max_length=30,null=True)
+    interests = models.CharField(max_length=70,null=True, choices=INTERESTS_CATEGORY_TYPES,default='Leadership' )
   
  
     

@@ -37,20 +37,20 @@
                 <div class="card-body ">
                     
                   <h4 class="card-title">{{ product.name }} </h4>
-                
-                  <p class="card-text">  {{ product.description|truncatechars:80 }}  <a href="{% url 'product_detail' product.pk product.slug %}">Read more </a>  </p>
+   
+                  <p class="card-text">  {{ product.description|truncatechars:80 }}  <a href="{% url  'ecommerce_app:product_detail'  product.pk product.slug %}">Read more </a>  </p>
                   <div class="card-footer ">
                     <div class="author">
                       <a href="#pablo">
                       
                         <span class="material-icons">
                           watch_later
-                          </span> <b> {{ product.duration }} years</b>    
+                          </span> <b> {{ shortcourse.start_date }} to {{ shortcourse.finish_date }}</b>    
                       </a>
                     </div>
  
                     <div class="stats ml-auto">
-                      <a href="{% url 'product_detail' product.pk product.slug %}"  class="btn btn-primary btn btn-round btn-sm ">
+                      <a href="{% url 'ecommerce_app:product_detail'  product.pk product.slug %}"  class="btn btn-primary btn btn-round btn-sm ">
                         <strong> Overview  </strong> 
                     </a>
                     </div>

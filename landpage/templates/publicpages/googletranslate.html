@@ -1,0 +1,155 @@
+<style>
+.goog-tooltip {
+    display: none !important;
+}
+.goog-tooltip:hover {
+    display: none !important;
+}
+.goog-text-highlight {
+    background-color: transparent !important;
+    border: none !important; 
+    box-shadow: none !important;
+}
+    .goog-te-gadget {
+      font-family: Roboto, 'Open Sans', sans-serif!important;
+      text-transform: uppercase;
+    }
+    .goog-te-gadget-simple  {
+      background-color: rgba(84, 2, 92, 0.2)!important;
+      border: 1px solid rgba(255,255,255,0.50) !important;
+      padding: 2px!important;
+      border-radius: 4px!important;
+      font-size: 0.8rem!important;
+      cursor: pointer;
+      margin-top: 2.3em;
+      margin-left: 0.9em;
+     
+    
+    }
+    .goog-te-menu2 {
+      max-width: 100%;
+    
+    }
+    .goog-te-menu-value {
+      color: #fff !important;&:before {
+        font-family: 'Material Icons';
+        content: "\E927";
+    
+        font-size: 2rem;
+     
+      } 
+    }
+    .goog-te-menu-value span:nth-child(5) {
+      display:none;
+    }
+    .goog-te-menu-value span:nth-child(3) {
+      border:none!important;
+      font-family: 'Material Icons';
+      &:after {
+        font-family: 'Material Icons';
+        content: "\E5C5";
+        font-size: 1.5rem;
+    
+      }  
+    }
+    
+    .goog-te-gadget-icon {
+        background-image: none!important;
+        display: none;
+       
+    }
+
+    .goog-te-banner-frame.skiptranslate {display: none!important;
+    } 
+    body {top: 0px!important;}
+    
+    /* ================================== *\
+        Mediaqueries
+    \* ================================== */
+    @media (max-width: 667px) {
+        #google_translate_element {
+            bottom: calc(100% - 50% - 53px);
+            left: 16px!important;
+            width: 100%!important;
+            goog-te-gadget {
+                width:100%!important;
+            }
+            .skiptranslate {
+                width:100%!important;			
+            }
+            .goog-te-gadget-simple {
+                width: calc(100% - 32px)!important;
+                text-align: center;
+            }	
+        }
+    }
+    
+    
+    
+    
+    </style>
+    
+    
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,sw,fr,en,mt,it,tl,pa,pt,th,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+            }
+                          
+        $('document').ready(function () {
+        
+        
+        // RESTYLE THE DROPDOWN MENU
+        $('#google_translate_element').on("click", function () {
+        
+        // Change font family and color
+        $("iframe").contents().find(".goog-te-menu2-item div, .goog-te-menu2-item:link div, .goog-te-menu2-item:visited div, .goog-te-menu2-item:active div, .goog-te-menu2 *")
+            .css({
+                'color': '#544F4B',
+                'font-family': 'Roboto',
+                                'width':'100%'
+            });
+        // Change menu's padding
+        $("iframe").contents().find('.goog-te-menu2-item-selected').css ('display', 'none');
+            
+                // Change menu's padding
+        $("iframe").contents().find('.goog-te-menu2').css ('padding', '0px');
+        
+        // Change the padding of the languages
+        $("iframe").contents().find('.goog-te-menu2-item div').css('padding', '20px');
+        
+        // Change the width of the languages
+        $("iframe").contents().find('.goog-te-menu2-item').css('width', '100%');
+        $("iframe").contents().find('td').css('width', '100%');
+        
+        // Change hover effects
+        $("iframe").contents().find(".goog-te-menu2-item div").hover(function () {
+            $(this).css('background-color', '#9c27b0').find('span.text').css('color', 'white');
+        }, function () {
+            $(this).css('background-color', 'white').find('span.text').css('color', '#544F4B');
+        });
+        
+        // Change Google's default blue border
+        $("iframe").contents().find('.goog-te-menu2').css('border', '#9c27b0');
+        
+        // Change the iframe's box shadow
+        $(".goog-te-menu-frame").css('box-shadow', '0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3)');
+        
+        
+        
+        // Change the iframe's size and position?
+        $(".goog-te-menu-frame").css({
+            'height': '100%',
+            'width': '100%',
+            'top': '0px'
+        });
+        // Change iframes's size
+        $("iframe").contents().find('.goog-te-menu2').css({
+            'height': '100%',
+            'width': '100%'
+        });
+        });
+        });
+            </script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    

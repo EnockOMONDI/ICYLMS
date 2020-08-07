@@ -39,14 +39,15 @@ function ajax_logout()
         },
         type: 'post',
         success: function(result) {
-            // success code execution here
-            window.location = '/landpageprod';
+        'status' , 'success', 'message' , 'you have been succesfully  logged off'
+            window.location = '/home_page';
         },
         error: function(xhr,status,error) {
             // error code here
         },
         complete: function(xhr,status) {
-            // completion code here
+       
+
         }
     });
 }

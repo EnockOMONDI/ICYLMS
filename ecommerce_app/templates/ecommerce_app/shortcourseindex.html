@@ -1,0 +1,130 @@
+{% extends 'registrar/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<br>
+
+
+
+
+
+
+
+<div class="section section-blog">
+ 
+    <!-- <h3 class="text-center" ><b>  The following are available courses on LADA:</b> </h3> -->
+   
+    <!-- <hr> -->
+    <div class="container">
+        <div class="col-lg-12"> 
+       
+      <div class="row " >
+
+        
+         {% for shortcourse in all_shortcourse %}
+        <div class="col-md-4">
+      
+            <div class="card" style="padding: 2px; box-shadow: 0 8px 16px 0 #c5c5c5;  border-radius: 6px;" >
+                {% if shortcourse.image  %} 
+              <img style="border-radius: 6px;  " src="{{ shortcourse.image.url }}"
+                class=" img-responsive" height="100%" width="100%"  alt="">
+                {% else %}
+                <img src="{% static 'img/dummy.png' %}" height="250" width="200"   alt="">
+                <!-- Missing Image! -->
+            {% endif %}
+         
+       <!--  -->
+                <div class="card-body ">
+                    
+                  <h4 class="card-title"><a href=" {% url 'ecommerce_app:shortcourselectures_page' shortcourse_id=shortcourse.id %}">{{ shortcourse.name }}</a>  </h4>
+                  {% if teacher == shortcourse.teacher %}
+                  <small>[You cannot enroll in a class you currently teach!]</small>
+              {% else %}
+                  <small>{{ shortcourse.sub_title }}</small>
+              {% endif %}
+                
+                  <p class="card-text">  {{ shortcourse.description|truncatechars:80 }}   </p>
+                  <div class="card-footer ">
+                    <div class="author">
+                      <a href="#pablo">
+                      
+                        <span class="material-icons">
+                          watch_later
+                          </span> <b> {{ shortcourse.duration }} years</b>    
+                      </a>
+                    </div>
+ 
+                    <div class="stats ml-auto">
+                        <button onclick="ajax_enroll({{ shortcourse.id }});"
+                        type="button"
+                 {% if teacher == shortcourse.teacher %}
+                    disabled=""
+                 {% endif %}
+                 {% if student not in shortcourse.students.all %}
+                       class="btn btn-lg btn-success">
+                         <i class="fa fa-pencil"></i> Enroll
+                 {% else %}
+                       class="btn btn-lg btn-primary">
+                     <i class="fa fa-level-down"></i> Continue
+                 {% endif %}
+             </button>
+                    </a>
+                    </div>
+                  </div>
+             
+   
+              </div>
+           
+                
+             
+              </div> 
+
+       
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--      
+
+<div class="col-md-3">
+                               
+  <div class="card" style=" box-shadow: 0 8px 16px 0 #c5c5c5;  border-radius: 6px;" >
+          <img style="border-radius: 6px;  box-shadow: 0 8px 16px 0 #c5c5c5;" src="{{ modules.module_image.url }}"
+          class=" img-responsive" height="100%" width="100%"  alt="">
+          
+          <div class="card-body text-center">
+                  <br> {{ shortcourse.name}}
+                </h5>
+          
+           <h5 class="card-text">{{ modules.Module_duration}} </h5>
+            <div class="col-md-12  ml-auto mr-auto text-center">
+
+                <div class="buttons">
+                    <a href="" class="btn btn-default btn-round btn-sm " >
+                        <span class="material-icons">
+                            monetization_on
+                            </span>    {{ shortcourse.price }} 
+                      </a>
+            <button class="btn btn-default btn-round btn-sm " data-toggle="modal" data-target="#smallAlertModal">
+               Enroll Now
+              </button>
+            </div>
+        </div> 
+           </div>
+        </div> 
+      </div> -->
+
+ 
+
+
+  {% include "landpage/main/js.html" %}  
+  <div id="ajax_response_login"></div>
+  <div id="ajax_response_register"></div>
+  <div id="ajax_logout"></div>
+  <div id="fb-root"></div>
+  {% endblock content %}
+
+

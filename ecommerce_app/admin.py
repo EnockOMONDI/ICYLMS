@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Modules, Units, Order, CartItem, LineItem 
+from .models import Product, Modules, Units, Order, CartItem, LineItem, ShortCourse, ShortCourseLecture 
 
 # Register your models here.
 
@@ -22,6 +22,8 @@ class LineItemAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Product, ProductAdmin)
+admin.site.register(ShortCourse)
+admin.site.register(ShortCourseLecture)
 admin.site.register(Modules)
 admin.site.register(Units)
 admin.site.register(Order, OrderAdmin)

@@ -87,7 +87,7 @@ class StudentForm(forms.ModelForm):
         }
 
         widgets = { 
-            'interests': TextInput(attrs={'class': u'form-control','placeholder': u'Enter your interests interests'}),
+            'interests':Select(attrs={'class': u'form-control'}),
             'bio': TextInput(attrs={'class': u'form-control','placeholder': u'Enter your Bio here'}),
             'country': Select(attrs={'class': u'form-control'}),
             'age': NumberInput(attrs={'class': u'form-control','placeholder': u'Enter your age here'}),

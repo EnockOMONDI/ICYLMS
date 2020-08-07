@@ -1,0 +1,48 @@
+{% extends 'ecommerce_app/shortcoursedetail/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+
+<div class="dashboard_container">
+
+
+    
+        {% if marks.count == 0 %}
+
+        <!-- No Grades Banner -->
+        <div class="dashboard_container_body">
+                <div class="jumbotron">
+            <h3>No Completed Courses</h3>
+            <p>
+                It appears you have not completed any courses yet. To generate a certificate, you must complete a course.
+            </p>
+            <p><a href="/courses"
+                 class="btn btn-primary btn-lg"
+                  role="button">Find Courses </a>
+            </p>
+        </div>
+    </div>
+        <!-- /.row -->
+
+        {% else %}
+
+        <!-- Certificates -->
+        <div id="ajax_certificates_table"
+           name="ajax_certificates_table">
+            {% include "account/productionpages/certificate/table.html" %}
+        </div>
+        <!-- /.row -->
+
+        {% endif %}
+    </div>
+<!-- Modal -->
+<div id="ajax_modal"
+   name="ajax_modal"></div>
+<!-- end modal -->
+{% include 'account/productionpages/certificate/js.html' %}
+   
+
+<div id="ajax_response_login"></div>
+<div id="ajax_response_register"></div>
+<div id="ajax_logout"></div>
+{% endblock content %}
