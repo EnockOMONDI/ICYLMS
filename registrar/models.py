@@ -97,6 +97,20 @@ class Course(models.Model):
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=7, decimal_places=2,  blank=True, default=0.00)
     discount_price = models.DecimalField(max_digits=7, decimal_places=2,  blank=True, default=0.00)
+    
+    
+    @property
+    def quickoverviews(self):
+        quickoverviews=self.quickoverview.all().values_list('description', flat=True)
+        return list(quickoverviews)
+    
+    @property   
+    def lectures_in_course(self):
+        return self.lectures.all().count()
+
+    @property   
+    def exams_in_course(self):
+        return self.exams.all().count()
 
 
     def delete(self, *args, **kwargs):
@@ -108,7 +122,7 @@ class Course(models.Model):
     def __str__(self):
         return self.title
 
-   
+    
 
     class Meta:
         db_table = 'at_courses'
@@ -251,8 +265,8 @@ class Policy(models.Model):
 class Quick_Overview(models.Model):
     quickoverview_id = models.AutoField(primary_key=True)
     description = models.TextField(max_length=60, default='', null=True)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='quickoverview' )
+
     @classmethod
     def create(cls, course_id, description, ):
         quickoverview = cls(course_id=course_id,
@@ -291,7 +305,7 @@ class Lecture(models.Model):
         choices=VIDEO_PLAYER_CHOICES,
         default=settings.YOUTUBE_VIDEO_PLAYER
     )
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='lectures')
     notes = models.ManyToManyField(FileUpload)
 
   
@@ -304,8 +318,7 @@ class Lecture(models.Model):
     def __str__(self):
         return 'Week: ' + str(self.week_num) + ' Lecture: ' + str(self.lecture_num) + ' Title: ' +self.title;
   
-    def lectures_in_course(self):
-        return self.lectures.all().count()
+   
 
     class Meta:
         db_table = 'at_lectures'
@@ -327,7 +340,7 @@ class Exam(models.Model):
         validators=[MinValueValidator(0), MaxValueValidator(100)],
     )
     is_final = models.BooleanField(default=False)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='exams')
 
     def __str__(self):
         return str(self.exam_num) + ' ' + self.title + ' ' + self.description;

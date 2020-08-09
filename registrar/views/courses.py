@@ -23,6 +23,7 @@ from django.urls import reverse_lazy, reverse
 def courses_page(request,  category_slug=None):
     category = None
     categories = Category.objects.all()
+
     courses = Course.objects.filter(status=settings.COURSE_AVAILABLE_STATUS)
     course_list = Course.objects.filter(status=settings.COURSE_AVAILABLE_STATUS)
     
@@ -30,7 +31,6 @@ def courses_page(request,  category_slug=None):
         category = get_object_or_404(Category, slug=category_slug)
         courses = Course.objects.filter(category=category)
    
-
     # Create our student account which will build our registration around.
     try:
          student = Student.objects.get(user=request.user)
@@ -42,14 +42,13 @@ def courses_page(request,  category_slug=None):
         teacher = Teacher.objects.get(user=request.user)
     except Teacher.DoesNotExist:
         teacher = None
-
+        
     return render(request, 'ecommerce_app/courses/courses2.html',context={
         'category': category,
         'categories': categories,
         'courses' : courses,
         'student' : student,
         'teacher' : teacher,
-  
         'user' : request.user,
         'tab' : 'courses',
         'HAS_ADVERTISMENT': settings.APPLICATION_HAS_ADVERTISMENT,

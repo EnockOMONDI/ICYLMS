@@ -27,12 +27,12 @@
 {% if teacher == course.teacher %}
 <a class="card-title" href="boxed-student-course.html"> {{ course.title }}</a>
 
-<small class="text-50 font-weight-bold mb-4pt">  Hi {{ user.first_name }}, you cannot enroll in a class you currently Instruct!
+<small class="text-20 font-weight-bold mb-4pt">  Hi {{ user.first_name }}, you cannot enroll in a class you currently Instruct!
 </small>
 {% else %} 
 <a class="card-title" href="boxed-student-course.html">{{ course.title }}</a>
 
-<small class="text-50 font-weight-bold mb-4pt">{{ course.sub_title }}</small>
+<small class="card-subtitle">{{ course.sub_title }}</small>
 {% endif %}
 
 </div>
@@ -45,10 +45,14 @@
 {% endif %}
 </div>
 <div class="d-flex">
-<small class="text-50 font-weight-bold mb-4pt">{{ course.description }}</small>
+                {% if teacher == course.teacher %}
+                <small class="text-50 font-weight-bold mb-4pt"></small>
+                {% else %} 
+                <small class="text-50 font-weight-bold mb-4pt">{{ course.description }}</small>
 
-<!-- <small class="text-50">6 hours</small> -->
-</div>
+                {% endif %}
+                <!-- <small class="text-50">6 hours</small> -->
+                </div>
 </div>
 <div class="card-footer">
 <div class="row justify-content-between">
@@ -73,46 +77,67 @@
 </div>
 <div class="media-body">
 <div class="card-title mb-0">{{ course.title }}</div>
+
+
+</div>
 <p class="lh-1 mb-0">
-<span class="text-black-50 small">with</span>
-<span class="text-black-50 small font-weight-bold">{{course.teacher.first_name}}</span>
-</p>
-
+                <span  class="material-icons icon text-black-50 mr-8pt">cast_for_education</span>
+                <span class="text-black-50 small">Access: Web, Mobile, Tv</span>
+                
+                </p>
 </div>
-</div>
 
-<p class="my-16pt text-black-70">What You will learn</p>
+<p class="my-16pt text-black-70"> <strong>What You will learn:</strong> </p>
+
 
 <div class="mb-16pt">
 
-       
-                {% for key.value  in item.quickview.items %}
+{% if course.quickoverview  %}
+{% for quickoverview in course.quickoverviews %}  
 <div class="d-flex align-items-center">
 <span class="material-icons icon-16pt text-black-50 mr-8pt">check</span>
-<p class="flex text-black-50 lh-1 mb-0"><small>{{quickoverview.description}}</small></p>
+<p class="flex text-black-50 lh-1 mb-0">{{quickoverview}}</p>
 </div>
-{% endfor %}
+{%endfor%}
+
+{% else %}
+<span class="material-icons icon-16pt text-black-50 mr-8pt">check</span>
+<p class="flex text-black-50 lh-1 mb-0">This Section appears to be missing. Click more details This Section appears to be missing. Click more details</p>
+{% endif %}
 </div>
 
 
+
+
+<p class="my-16pt text-black-70"> <strong>This Course comes with :</strong> </p>
 <div class="row align-items-center">
 <div class="col-auto">
-<div class="d-flex align-items-center mb-4pt">
-<span class="material-icons icon-16pt text-black-50 mr-4pt">access_time</span>
-<p class="flex text-black-50 lh-1 mb-0"><small>Starts: {{ course.start_date }} </small></p>
-</div>
+ <div class="d-flex align-items-center">
+<strong><span class="material-icons icon-16pt text-black-50 mr-4pt">tune</span> </strong>
+<p   class="flex  text-black-70 lh-1 mb-0"><small> <b>{{ course.category }} Certificate</b> </small></p>
+ </div>
+ <div class="d-flex align-items-center mb-4pt">
+                <span class="material-icons icon-16pt text-black-50 mr-4pt">all_inclusive</span>
+                <p class="flex text-black-70 lh-1 mb-0"><small> <b> Life time access</b></small></p>
+                </div>
+ 
 <div class="d-flex align-items-center mb-4pt">
 <span class="material-icons icon-16pt text-black-50 mr-4pt">play_circle_outline</span>
-<p class="flex text-black-50 lh-1 mb-0"><small>12 lessons</small></p>
+<p class="flex text-black-70 lh-1 mb-0"><small> <b>Lectures: {{course.lectures_in_course}}</b> </small></p>
 </div>
-<div class="d-flex align-items-center">
-<span class="material-icons icon-16pt text-black-50 mr-4pt">assessment</span>
-<p class="flex text-black-50 lh-1 mb-0"><small>{{ course.category }} </small></p>
+<div class="d-flex align-items-center mb-4pt">
+ <span class="material-icons icon-16pt text-black-50 mr-4pt">assessment</span>
+<p class="flex text-black-70 lh-1 mb-0"><small><b>Assesments: {{course.exams_in_course}}</b> </small></p>
 </div>
+<div class="d-flex align-items-center mb-4pt">
+                <span class="material-icons icon-16pt text-black-50 mr-4pt">access_time</span>
+                <p class="flex text-black-70 lh-1 mb-0"><small> <b>Starts: {{ course.start_date }}</b>  </small></p>
+                </div>
+
 </div>
 <div class="col text-right">
-
-<a href="{% url 'registrar:course_detail' course.id %}" class="btn btn-outline-primary btn-sm">Learn More</a>
+              
+<a href="{% url 'registrar:course_detail' course.id %}" class="btn btn-primary btn-sm">Learn More</a>
 </div>
 </div>
 

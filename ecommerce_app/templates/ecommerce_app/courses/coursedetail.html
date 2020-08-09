@@ -125,7 +125,7 @@
 		<button 
 		{% if teacher == course.teacher %}
 		
-disabled=""
+disabled="" 
 {% endif %}
 {% if student not in course.students.all %}
 		class="btn btn-outline-primary btn-sm" type="submit" name="course_id" value="{course.id}" >  enroll now <i class="ti-angle-right"></i> 
