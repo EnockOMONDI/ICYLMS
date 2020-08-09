@@ -7,6 +7,7 @@ from account.models import Student
 from account.models import Teacher
 from cloudinary.models import CloudinaryField
 from django.urls import reverse
+from django.contrib.postgres.fields import JSONField
 
 WORTH_PERCENT_CHOICES = (
     (0, '0 %'),
@@ -95,6 +96,7 @@ class Course(models.Model):
     students = models.ManyToManyField(Student)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=7, decimal_places=2,  blank=True, default=0.00)
+    discount_price = models.DecimalField(max_digits=7, decimal_places=2,  blank=True, default=0.00)
 
 
     def delete(self, *args, **kwargs):
@@ -105,6 +107,8 @@ class Course(models.Model):
 
     def __str__(self):
         return self.title
+
+   
 
     class Meta:
         db_table = 'at_courses'
@@ -244,6 +248,25 @@ class Policy(models.Model):
         db_table = 'at_policys'
 
 
+class Quick_Overview(models.Model):
+    quickoverview_id = models.AutoField(primary_key=True)
+    description = models.TextField(max_length=60, default='', null=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    
+    @classmethod
+    def create(cls, course_id, description, ):
+        quickoverview = cls(course_id=course_id,
+                           description=description)
+        return quickoverview
+
+    def __str__(self):
+        return self.description;
+
+    class Meta:
+        db_table = 'at_quickoverview'
+
+
+
 class Lecture(models.Model):
     lecture_id = models.AutoField(primary_key=True)
     lecture_num = models.PositiveSmallIntegerField(
@@ -271,6 +294,8 @@ class Lecture(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     notes = models.ManyToManyField(FileUpload)
 
+  
+
     def delete(self, *args, **kwargs):
         for note in self.notes.all():
             note.delete()
@@ -278,6 +303,9 @@ class Lecture(models.Model):
 
     def __str__(self):
         return 'Week: ' + str(self.week_num) + ' Lecture: ' + str(self.lecture_num) + ' Title: ' +self.title;
+  
+    def lectures_in_course(self):
+        return self.lectures.all().count()
 
     class Meta:
         db_table = 'at_lectures'

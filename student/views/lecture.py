@@ -88,6 +88,27 @@ def lectures_page(request, course_id):
         'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS,
     })
 
+@login_required(login_url='/landpage')
+def public_lectures_page(request, course_id):
+    course = Course.objects.get(id=course_id)
+    try:
+        lectures = Lecture.objects.filter(course_id=course_id).order_by('week_num', 'lecture_num')
+    except Lecture.DoesNotExist:
+        lectures = None
+    return render(request, 'course/lecture/publicview.html',{
+        'course' : course,
+        'lectures' : lectures,
+        'NO_VIDEO_PLAYER': settings.NO_VIDEO_PLAYER,
+        'YOUTUBE_VIDEO_PLAYER': settings.YOUTUBE_VIDEO_PLAYER,
+        'VIMEO_VIDEO_PLAYER': settings.VIMEO_VIDEO_PLAYER,
+        'BLIPTV_VIDEO_PLAYER': settings.BLIPTV_VIDEO_PLAYER,
+        'user' : request.user,
+        'tab' : 'lectures',
+        'HAS_ADVERTISMENT': settings.APPLICATION_HAS_ADVERTISMENT,
+        'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
+        'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS,
+    })
+
 
 @login_required(login_url='/landpage')
 def lecture(request, course_id):

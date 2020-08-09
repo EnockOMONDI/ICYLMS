@@ -1,0 +1,14 @@
+{% load staticfiles %}
+<div id="ajax_quickoverviews_table"
+    name="ajax_quickoverviews_table">
+    {% for quickoverview in quickoverviews %}
+    <div class="row">
+        <div class="col-lg-10 text-center">
+            <!-- <h2 class="">{{ announcement.title }}</h2> -->
+            {% autoescape off %}
+            {{ quickoverview.description }}
+            {% endautoescape %}
+        </div>
+    </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,123 @@
+{% extends 'teacher/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                 Quickoverview
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <i class="fa fa-suitcase"></i>  <a href="/teaching">Teaching</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-compass"></i> {{ course.title }}
+                    </li>
+                    <li class="active">
+                        <i class="fa fa-home"></i> Quickoverview
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- quickoverview -->
+        <div id="ajax_quickoverview_table"
+           name="ajax_quickoverview_table">
+           {% include "teacher/quickoverview/table.html" %}
+        </div>
+        <!-- /.row -->
+
+<!-- Modal -->
+<div id="ajax_quickoverview_modal"
+   name="ajax_quickoverview_modal"></div>
+<!-- end modal -->
+
+<script>
+    function ajax_refresh_quickoverview_table()
+    {
+        $.ajax( 'quickoverview_table', {
+            data: {
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+            },
+            type: 'post',
+            success: function(result) {
+                // success code execution here
+                $('#ajax_quickoverview_table').html(result); // Update UI.
+            },
+            error: function(xhr,status,error) {
+                // error code here
+            },
+            complete: function(xhr,status) {
+                // completion code here
+            }
+        });
+    }
+    
+    /**
+     *  Function will call AJAX function to load the modal for the new course
+     *  creation UI.
+     */
+    function ajax_quickoverview_modal(quickoverview_id)
+    {
+        if (quickoverview_id == 0)
+        {
+            $('#new_quickoverview_btn').prop("disabled", true); // Lock button
+        }
+        else
+        {
+            $('#edit_'+quickoverview_id+'_btn').prop("disabled", true); // Lock button
+        }
+        $.ajax( 'quickoverview_modal', {
+            data: {
+               'csrfmiddlewaretoken': '{{ csrf_token }}',
+               'quickoverview_id' : quickoverview_id
+            },
+            type: 'post',
+            success: function(result) {
+                // success code execution here
+                $('#ajax_quickoverview_modal').html(result); // Update UI.
+                $('#quickoverview_modal').modal();           // Unhide view.
+            },
+            error: function(xhr,status,error) {
+                // error code here
+            },
+            complete: function(xhr,status) {
+               // completion code here
+            }
+        });
+    }
+
+    /**
+     *  Function will call AJAX function to delete the teacher's announcement.
+     */
+    function ajax_delete_announcement(quickoverview_id)
+    {
+        $('#del_'+quickoverview_id+'_btn').prop("disabled", true); // Lock button
+        $.ajax( 'delete_announcement', {
+            data: {
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+                'quickoverview_id' : quickoverview_id
+            },
+            type: 'post',
+            success: function(result) {
+                // success code execution here
+                if (result.status == 'success')
+                {
+                    $('#del_'+quickoverview_id+'_btn').prop("disabled", false); // Unlock button
+                    ajax_refresh_quickoverview_table();
+                }
+            },
+            error: function(xhr,status,error) {
+                // error code here
+            },
+            complete: function(xhr,status) {
+               // completion code here
+            }
+        });
+    }
+</script>
+
+{% endblock content %}

@@ -53,6 +53,9 @@
             ERROR: This is to be filled in by the "print_error" function. If you see this message that means there's an error with your javascript somewhere.
         </div>
           <form role="form" class="login-form">
+              {%if request.GET.next%}
+              <input type="hidden" name="next" value="{{ request.GET.next }}" >                  
+              {%endif%} 
             <div class="form-group">
               <div class="input-icon">
                 <i class="icon fas fa-user"></i>
@@ -69,11 +72,9 @@
               <input type="checkbox" id="remember" name="rememberme" value="forever" style="float: left;">
               <label for="remember">Remember me</label>
             </div> -->
-         
+       
           </form>
-          {% if request.GET.next %}
-          <input type="hidden" name="next" value="{{ request.GET.next }}" >                  
-          {% endif %}   
+         
           <div class="modal-footer justify-content-center">
             <button style="background-color:
             #131b31 ;font-size: 20px;" onclick="ajax_authenticate();"
@@ -155,9 +156,13 @@
                        {
                             // Hide & close the current popup modal.
                             $('#login_modal').modal('hide');
-                   
+                            // alert("success loggedin");
                             // Load up the course list.
                             window.location = '/home_page';
+                            
+                          
+                          
+
                        }
                        else
                        {

@@ -5,6 +5,7 @@ from registrar.views import enrollment
 from registrar.views import teaching
 from registrar.views import transcript
 from registrar.views import certificate
+from student.views import quickoverview
 # from registrar.views import payment
 app_name="registrar"
 urlpatterns = [
@@ -14,6 +15,7 @@ urlpatterns = [
     url(r'^course/(\d+)/$', courses.course_detail ,name='course_detail'),
     url(r'^enroll/(?P<id>\d+)/$', courses.enroll_course , name='enroll' ),
 
+    url(r'^course/(\d+)/$', quickoverview.quickoverviews_page, name='quickoverview_page'),
 
     # Enrollment(s)
     url(r'^view/profile/enrollment$', enrollment.enrollment_page),

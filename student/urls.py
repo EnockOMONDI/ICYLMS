@@ -14,6 +14,7 @@ from student.views import exam
 from student.views import discussion
 from student.views import peer_review
 from student.views import credit
+from student.views import quickoverview
 app_name="student"
 urlpatterns = [
     # Announcement
@@ -21,6 +22,9 @@ urlpatterns = [
 
     # Syllabus
     url(r'^course/(\d+)/syllabus$', syllabus.syllabus_page, name='syllabus_page'),
+        
+    #quickoverview
+    url(r'^course/(\d+)/quickoverview$', quickoverview.quickoverviews_page, name='quickoverview_page'),
 
 
     # Grades & Policy

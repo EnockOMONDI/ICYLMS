@@ -23,10 +23,11 @@ class CourseForm(forms.ModelForm):
 
     class Meta:
         model = Course
-        fields = ['title', 'sub_title', 'category', 'description', 'start_date', 'finish_date', 'image']
+        fields = ['title', 'sub_title', 'category', 'description', 'start_date', 'finish_date', 'image', 'price', 'discount_price']
         labels = {
             'sub_title': 'Sub Title',
             'price': 'Price',
+            'discount_price': 'discount_price',
             'start_date': 'Start Date',
             'finish_date': 'Finish Date',
         }
@@ -37,8 +38,10 @@ class CourseForm(forms.ModelForm):
             'category': Select(attrs={'class': u'form-control'}),
             'start_date': SelectDateWidget(),
             'finish_date': SelectDateWidget(),
-             'price': NumberInput(attrs={'class': u'form-control','placeholder': u'Course price'})
-        }
+            'price': NumberInput(attrs={'class': u'form-control','placeholder': u'Course price'}),
+            'discount_price': NumberInput(attrs={'class': u'form-control','placeholder': u'Course discount price'})
+
+   }
 
 
 

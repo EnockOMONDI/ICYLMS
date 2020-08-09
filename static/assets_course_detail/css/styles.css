@@ -5585,14 +5585,14 @@ ul.list_ed_detail2 li.tag-5 strong, ul.list_ed_detail2 li.tag-5 i {
     position: relative;
 }
 .property_video:before {
-    background: #17203a;
+    background: #17203aa9;
     left: 0;
     right: 0;
     top: 0;
     position: absolute;
     content: "";
     bottom: 0;
-    opacity: 0.5;
+    opacity: 0.9;
 	 border-radius:1rem;
 }
 .property_video .thumb {
@@ -5650,6 +5650,13 @@ ul.list_ed_detail2 li.tag-5 strong, ul.list_ed_detail2 li.tag-5 i {
     background: #ffffff;
     border-radius: 0.5rem;
     margin-bottom: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+     
+     }
+     
 }
 .edu_wraper.border{
     border: 1px solid #e7ecf5;
@@ -6883,6 +6890,7 @@ span.mod-close {
     color: #ffffff;
     background-color: #9c27b0;
     border-color: #9c27b0;
+    
 }
 .nav-link {
 	font-weight:600;
@@ -6893,6 +6901,7 @@ span.mod-close {
     border-radius: .25rem;
     background: #f0f3f7;
     margin-right: 0.5rem;
+    margin-top: 0.5rem;
 }
 .nav-pills.light .nav-link {
     background: #ffffff;

@@ -27,7 +27,7 @@ from registrar.models import ResponseQuestion
 from registrar.models import ResponseSubmission
 from registrar.models import PeerReview
 from registrar.models import Category
-
+from registrar.models import Quick_Overview
 
 
 
@@ -54,6 +54,7 @@ admin.site.register(AssignmentSubmission)
 admin.site.register(Exam)
 admin.site.register(ExamSubmission)
 admin.site.register(Quiz)
+admin.site.register(Quick_Overview)
 admin.site.register(QuizSubmission)
 admin.site.register(PeerReview)
 admin.site.register(EssayQuestion)
