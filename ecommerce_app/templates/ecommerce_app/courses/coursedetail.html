@@ -162,12 +162,12 @@ disabled=""
 <div class="inline_edu_first">
 <!-- <h4>{{course.description}}</h4> -->
 <ul class="edu_inline_info">
-<!-- <li><i class="ti-calendar"></i>Self paced online course</li>
-<li><i class="ti-control-forward"></i>{{course.lectures.count}} Lectures</li>
+<li><i class="ti-calendar"></i>Self paced online course</li>
+<li><i class="ti-control-forward"></i>Lectures: {{course.lectures.count}} </li>
 
-<li>Discussions</li>
-<li>Exams</li>
-<li>Certificate</li> -->
+
+<li><i class="ti-pencil-alt"></i>Assesment: {{course.exams.count}}</li>
+<li><i class="ti-medall-alt"></i>Certificate : Yes</li>
 <li><i class="ti-user"></i>{{course.students.count}} Student Enrolled</li>
 </ul>
 </div>	
@@ -260,31 +260,41 @@ disabled=""
 <!-- curriculum -->
 <div class="tab-pane fade " id="curriculum" role="tabpanel" aria-labelledby="curriculum-tab">
 		<div class="edu_wraper border">
-				<h4 class="edu_title">Course Circullum</h4>
-				<div id="accordionExample" class="accordion shadow circullum">
-
-					<!-- Part 1 -->
+				<h4 class="edu_title"><i class="ti-marker-alt" ></i> Course curriculum</h4>
+				
+					{% for module in modules %}
 					<div class="card">
 
-							
+                  
 					  <div id="headingOne" class="card-header bg-white shadow-sm border-0">
-						<h6 class="mb-0 accordion_title"><a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="d-block position-relative text-dark collapsible-link py-2">Part 01: How To Learn Web Designing Step by Step</a></h6>
+							<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+									Button with data-target
+								  </button>
+						<h6 class="mb-0 accordion_title"><a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="d-block position-relative text-dark collapsible-link py-2">  Module {{module.module_number}} :  {{ module.module_title }}</a></h6>
 					  </div>
-					  <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample" class="collapse show">
+					  
+					  <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample" class="collapse ">
 						<div class="card-body pl-3 pr-3">
+								<p> {{module.module_description}}</p>
+							
 							<ul class="lectures_lists">
-								<li><div class="lectures_lists_title"><i class="ti-control-play"></i>Lecture: 01</div>Web Designing Beginner</li>
-								<li><div class="lectures_lists_title"><i class="ti-control-play"></i>Lecture: 02</div>Startup Designing with HTML5 & CSS3</li>
-								<li><div class="lectures_lists_title"><i class="ti-control-play"></i>Lecture: 03</div>How To Call Google Map iFrame</li>
-								<li class="unview"><div class="lectures_lists_title"><i class="ti-control-play"></i>Lecture: 04</div>Create Drop Down Navigation Using CSS3</li>
-								<li class="unview"><div class="lectures_lists_title"><i class="ti-control-play"></i>Lecture: 05</div>How to Create Sticky Navigation Using JS</li>
+									{% for unit in module.units.all %}
+									<div id="headingtwo" class="card-header bg-white shadow-sm border-0">
+											<h6 class="mb-0 accordion_title"><a href="#" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="false" aria-controls="collapsetwo" class="d-block position-relative text-dark collapsible-link py-2"> Unit {{ unit.unit_number}}: {{unit.unit_title}} </a> </h6>
+									</div>
+										<div id="collapsetwo" aria-labelledby="headingtwo" data-parent="#accordionExample" class="collapse ">
+												<div class="card-body pl-3 pr-3">
+										<p>{{unit.unit_description}}</p>
+										</div>
+							{%endfor%}
 							</ul>
 						</div>
 					  </div>
 					</div>
 
-				
-
+				{%endfor%}
+			
+		
 				</div>
 			</div>
 </div>

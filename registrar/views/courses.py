@@ -81,11 +81,18 @@ def course_detail(request, course_id):
         lectures = Lecture.objects.filter(course_id=course_id).order_by('week_num', 'lecture_num')
     except Lecture.DoesNotExist:
         lectures = None
+    try:
+        modules = Module.objects.filter(course_id=course_id).order_by('module_number')
+    except Module.DoesNotExist:
+        modules = None
+   
+
     return render(request, 'ecommerce_app/courses/coursedetail.html',context= {
     'course' : course,
      'student' : student,
      'teacher' : teacher,
      'lectures':lectures,
+     'modules':modules,
      'quickoverviews':quickoverviews,
      'user' : request.user,
     'NO_VIDEO_PLAYER': settings.NO_VIDEO_PLAYER,

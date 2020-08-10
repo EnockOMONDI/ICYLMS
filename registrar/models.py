@@ -322,6 +322,40 @@ class Lecture(models.Model):
 
     class Meta:
         db_table = 'at_lectures'
+  
+class Module(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='modules')
+    module_number = models.PositiveSmallIntegerField( validators=[MinValueValidator(1)],
+        default=1)
+    module_title = models.CharField(max_length=80)
+    module_duration = models.CharField(max_length=191)
+    module_description = models.TextField()
+
+    @property
+    def units(self):
+        return self.units.all()
+
+    def __str__(self):
+        return ' Module: ' + str(self.module_number) + ' Title: ' +self.module_title;
+
+    class Meta:
+        db_table = 'at_modules'
+
+
+class Unit(models.Model):
+    unit_number = models.PositiveSmallIntegerField(validators=[MinValueValidator(1)],
+        default=1)
+    module = models.ForeignKey(Module, on_delete=models.CASCADE, related_name='units')
+    unit_title = models.CharField(max_length=191)
+    unit_description = models.TextField()
+    
+    def __str__(self):
+        return self.unit_title
+
+    class Meta:
+        db_table = 'at_units'
+  
+
 
 
 class Exam(models.Model):
@@ -722,6 +756,7 @@ class CourseDiscussionThread(models.Model):
         for post in self.posts.all():
             post.delete()
         super(CourseDiscussionThread, self).delete(*args, **kwargs)
+
 
 
 

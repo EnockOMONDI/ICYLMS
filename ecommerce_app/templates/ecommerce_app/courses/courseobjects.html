@@ -56,13 +56,27 @@
 </div>
 <div class="card-footer">
 <div class="row justify-content-between">
+
+<div class=" col-auto d-flex align-items-center">
+                
+                <div class="rating flex">
+                    <span class="rating__item"><span class="material-icons">star</span></span>
+                    <span class="rating__item"><span class="material-icons">star</span></span>
+                    <span class="rating__item"><span class="material-icons">star</span></span>
+                    <span class="rating__item"><span class="material-icons">star</span></span>
+                    <span class="rating__item"><span class="material-icons">star_border</span></span>
+                </div>
+                <small class="text-50">(999) reviews</small>
+            </div>
+
+<div class="col-auto d-flex align-items-center">
+                <span class="material-icons icon-16pt text-black-50 mr-4pt">assessment</span>
+                <p class="flex text-black-50 lh-1 mb-0"><small>{{ course.category }} </small></p>
+                </div>
 <div class="col-auto d-flex align-items-center">
 <span class="material-icons icon-16pt text-black-50 mr-4pt">access_time</span>
 <p class="flex text-black-50 lh-1 mb-0"><small>{{ course.start_date }} to {{ course.finish_date }}</small></p>
 </div>
-<div class="col-auto d-flex align-items-center">
-<span class="material-icons icon-16pt text-black-50 mr-4pt">assessment</span>
-<p class="flex text-black-50 lh-1 mb-0"><small>{{ course.category }} </small></p></div>
 </div>
 </div>
 </div>
@@ -91,18 +105,21 @@
 
 
 <div class="mb-16pt">
+           
+{% if course.quickoverview.count == 0   %}
 
-{% if course.quickoverview  %}
+<div class="d-flex align-items-center" >
+<span class="material-icons icon-16pt text-black-50 mr-8pt">close</span>
+<p class="flex text-black-50 lh-1 mb-0">This Section appears to be missing. Click more details to learn more about this Course</p>
+
+</div>
+{% else %}
 {% for quickoverview in course.quickoverviews %}  
 <div class="d-flex align-items-center">
-<span class="material-icons icon-16pt text-black-50 mr-8pt">check</span>
-<p class="flex text-black-50 lh-1 mb-0">{{quickoverview}}</p>
-</div>
-{%endfor%}
-
-{% else %}
-<span class="material-icons icon-16pt text-black-50 mr-8pt">check</span>
-<p class="flex text-black-50 lh-1 mb-0">This Section appears to be missing. Click more details This Section appears to be missing. Click more details</p>
+                <span class="material-icons icon-16pt text-black-50 mr-8pt">check</span>
+                <p class="flex text-black-50 lh-1 mb-0">{{quickoverview}}</p>
+                </div>
+                {%endfor%}
 {% endif %}
 </div>
 
