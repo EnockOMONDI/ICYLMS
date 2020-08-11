@@ -4861,8 +4861,8 @@ ul.cources_facts_list li:after {
 }
 .list_facts_icons {
     width: 45px;
-    height: 45px;
-    background: rgba(217, 11, 78,0.1);
+    height: 35px;
+    background: rgba(113, 7, 134, 0.247);
 	box-shadow:0 7px 15px rgba(0, 22, 84, 0.1);
 	-webkit-box-shadow:0 7px 15px rgba(0, 22, 84, 0.1);
     border-radius: 6px;
@@ -4870,7 +4870,7 @@ ul.cources_facts_list li:after {
     align-items: center;
     justify-content: center;
     display: flex;
-    color: #d90b4e;
+    color: #ffffff;
 }
 .green .list_facts_icons {
     background:rgba(0, 186, 116,0.1);

@@ -111,6 +111,10 @@ class Course(models.Model):
     @property   
     def exams_in_course(self):
         return self.exams.all().count()
+    
+    @property   
+    def moduless_in_course(self):
+        return self.modules.all().count()
 
 
     def delete(self, *args, **kwargs):
