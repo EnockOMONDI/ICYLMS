@@ -18,6 +18,7 @@ SECRET_KEY = 'xd#vc@mec1c0+wz^y&_i^-og&oy$mkn%_yky&xe^fo()mio$up'
 #---------------------------------------------------------------------------#
 # Email                                                                     #
 #---------------------------------------------------------------------------#
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'leadershipacademyafrica@gmail.com'
