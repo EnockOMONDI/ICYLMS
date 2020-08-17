@@ -53,6 +53,7 @@ ALLOWED_HOSTS= ['*']
 #
 
 INSTALLED_APPS = (
+     'landpage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -68,7 +69,6 @@ INSTALLED_APPS = (
     'captcha',
     'jet',
     'account',
-    'landpage',
     'registration',
     'login',
     'registrar',

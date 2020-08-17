@@ -70,3 +70,4 @@ def create_user(form):
         'status' : 'success',
         'message' : 'user registered'
     }
+
