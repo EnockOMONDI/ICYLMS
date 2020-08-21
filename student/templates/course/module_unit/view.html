@@ -36,11 +36,11 @@
 
 <script>    
     /**
-     *  Function will call AJAX function to load the video player modal for the lecture.
+     *  Function will call AJAX function to load the video player modal for the module.
      */
     function ajax_view_module_unit(unit_id)
     {
-        var url = '/course/'+ {{ course.id }} +'/module/'+ {{ lecture.lecture_id }} +'/view_module_unit';
+        var url = '/course/'+ {{ course.id }} +'/module/'+ {{ module.module_id }} +'/view_module_unit';
         
         $('#play_' + unit_id + '_btn').prop("disabled", true); // Lock button
         $.ajax( url, {
@@ -52,7 +52,7 @@
            success: function(result) {
                 // success code execution here
                 $('#ajax_modal_placeholder').html(result); // Update UI.
-                $('#lecture_modal').modal();           // Unhide view.
+                $('#module_modal').modal();           // Unhide view.
            },
            error: function(xhr,status,error) {
                 // error code here

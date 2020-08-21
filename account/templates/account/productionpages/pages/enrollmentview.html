@@ -1,144 +1,141 @@
+{% block content %}
+
 <div class="col-lg-12 col-md-12 col-sm-12">
-        <!-- Page Heading -->
+    <!-- Page Heading -->
 
-     
 
-        <div class="modal fade" id="disenroll_modal" role="dialog">
-          <div class="modal-dialog" style="width:50%;">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                      <h2 class="modal-title" id="myModalLabel">Warning</h2>
+
+    <div class="modal fade" id="disenroll_modal" role="dialog">
+      <div class="modal-dialog" style="width:50%;">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <h2 class="modal-title" id="myModalLabel">Warning</h2>
+              </div>
+              <div class="modal-body">
+                  <div class="well">
+                      <p>When you disenroll from a course, all your course work (including final marks) will get deleted! Furthermore, all deletions are permanent, your course cannot be retrieved once deleted.</p>
                   </div>
-                  <div class="modal-body">
-                      <div class="well">
-                          <p>When you disenroll from a course, all your course work (including final marks) will get deleted! Furthermore, all deletions are permanent, your course cannot be retrieved once deleted.</p>
-                      </div>
-                  </div>
-                  <div class="modal-footer">
-                      <button onclick="$('#disenroll_modal').modal('hide');"
-                                 type="button"
-                                class="btn-lg btn-default">
-                          <i class="fa fa-circle-o"></i> Cancel
-                      </button>
-                      <button type="button"
-                             class="btn-lg btn-danger"
-                           onclick="ajax_disenroll_course({{ course.id }});">
-                          <i class="fa fa-check-circle"></i> Yes I Understand, Disenroll from this Course
-                      </button>
-                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button onclick="$('#disenroll_modal').modal('hide');"
+                             type="button"
+                            class="btn-lg btn-default">
+                      <i class="fa fa-circle-o"></i> Cancel
+                  </button>
+                  <button type="button"
+                         class="btn-lg btn-danger"
+                       onclick="ajax_disenroll_course({{ course.id }});">
+                      <i class="fa fa-check-circle"></i> Yes I Understand, Disenroll from this Course
+                  </button>
               </div>
           </div>
       </div>
-     
-      
+  </div>
+ 
+  
 
-    <!-- Course Style 1 For Student -->
-    <div class="container " style=" background-color:rgb(255, 255, 255) ; border-radius: 2%">
-        <div class="inner-box">
-      <div class="dashboard_container_header">
+<!-- Course Style 1 For Student -->
+<div class="dashboard_container">
+  <div class="dashboard_container_header">
+
     
-        
-      <div class="dashboard_container_body">
-
-         
-          {% if courses.count == 0 %}
-
-         <h2>Seems you have not Enrolled to any course</h2>
-              <h3>Become a Student! Today</h3>
-              <!-- <p>Learn, grow and become a better Leader. Enroll in a class and start today!</p> -->
-              <p><a href="/courses" 
-                   class="btn btn-primary btn-lg"
-                    role="button">Find Courses </a>
-              </p>
-     
-          {%else%}
-          {% for course in courses.all %}
-        <!-- Single Course -->
-        <div class="dashboard_single_course">
-          <div class="dashboard_single_course_thumb">
-
-              {% if course.image != None and course.image != '' %}
-            
-              <img src="{{ course.image.url }}" class="img-fluid"   alt="">
-              {% else %}
-              <img src="static/img/dummy.png"  alt="">
-              <!-- Missing Image! -->
-              {% endif %}
-       
-
-            <div class="dashboard_action circle">
-             
-              <a data-toggle="tooltip" data-title="cannot Disenroll at the moment" data-placement="bottom" class="btn btn-ect delete"><i class="ti-trash"></i></a>
+        <div class="caption">
+            <div class="viewer_header">
+              <h4><strong>Classes</strong> which you are a student of</h4>
             </div>
           </div>
-          <div class="dashboard_single_course_caption">
-            <div class="dashboard_single_course_head">
-              <div class="dashboard_single_course_head_flex">
-                <span class="dashboard_instructor"> <b><strong> # {{ course.id }}</strong> </b> </span>
-                <h4 class="dashboard_course_title">{{ course.title }}</h4>
-                <!-- <div class="dashboard_rats">
-                  <div class="dashboard_rating">
-                    <i class="ti-star filled"></i>
-                    <i class="ti-star filled"></i>
-                    <i class="ti-star filled"></i>
-                    <i class="ti-star filled"></i>
-                    <i class="ti-star"></i>
-                  </div>
-                  <span>(40 Reviews)</span>
-                </div> -->
-              </div>
-              <div class="dc_head_right">
 
-                  <form action="{% url 'registrar:enroll' course.id %}" method="post"> 
-                      {% csrf_token %}
-                      <button 
-                      {% if teacher == course.teacher %}
-                      
-                  disabled=""
-                  {% endif %}
-                  {% if student not in course.students.all %}
-                      class="btn btn-outline-primary btn-sm" type="submit" name="course_id" value="{course.id}" >  enroll now <i class="ti-angle-right"></i> 
-                      
-                      {% else %}
-                      class="btn btn-outline-success btn-sm" > Continue Class <i class="ti-angle-right"></i>  </button>
-                    </form>
-                    {% endif %} 
+  </div>
+  <div class="dashboard_container_body">
+      {% if courses.count == 0 %}
+
+      <div class="jumbotron">
+          <h1>Become a Student!</h1>
+          <p>Learn, grow and become a better Leader. Enroll in a class and start today!</p>
+          <p><a href="/payment" 
+               class="btn btn-primary btn-lg"
+                role="button">Find Courses </a>
+          </p>
+      </div>
+      {%else%}
+      {% for course in courses.all %}
+    <!-- Single Course -->
+    <div class="dashboard_single_course">
+      <div class="dashboard_single_course_thumb">
+
+          {% if course.image != None and course.image != '' %}
+        
+          <img src="{{ course.image.url }}" class="img-fluid"   alt="">
+          {% else %}
+          <img src="static/img/dummy.png"  alt="">
+          <!-- Missing Image! -->
+          {% endif %}
+   
+
+        <div class="dashboard_action circle">
+         
+          <a data-toggle="tooltip" data-title="cannot Disenroll at the moment" data-placement="bottom" class="btn btn-ect delete"><i class="ti-trash"></i></a>
+        </div>
+      </div>
+      <div class="dashboard_single_course_caption">
+        <div class="dashboard_single_course_head">
+          <div class="dashboard_single_course_head_flex">
+            <span class="dashboard_instructor"> <b><strong> # {{ course.id }}</strong> </b> </span>
+            <h4 class="dashboard_course_title">{{ course.title }}</h4>
+            <!-- <div class="dashboard_rats">
+              <div class="dashboard_rating">
+                <i class="ti-star filled"></i>
+                <i class="ti-star filled"></i>
+                <i class="ti-star filled"></i>
+                <i class="ti-star filled"></i>
+                <i class="ti-star"></i>
               </div>
+              <span>(40 Reviews)</span>
+            </div> -->
+          </div>
+          <div class="dc_head_right">
+
+              <form action="{% url 'registrar:enroll' course.id %}" method="post"> 
+                  {% csrf_token %}
+                  <button 
+                  {% if teacher == course.teacher %}
+                  
+              disabled=""
+              {% endif %}
+              {% if student not in course.students.all %}
+                  class="btn btn-outline-primary btn-sm" type="submit" name="course_id" value="{course.id}" >  enroll now <i class="ti-angle-right"></i> 
+                  
+                  {% else %}
+                  class="btn btn-outline-success btn-sm" > Continue Class <i class="ti-angle-right"></i>  </button>
+                </form>
+                {% endif %} 
+          </div>
+        </div>
+        <div class="dashboard_single_course_des">
+          <p>{{course.description}}</p>
+        </div>
+        <div class="dashboard_single_course_progress">
+          <div class="dashboard_single_course_progress_1">
+            <label>{{courselectures.count}} Lectures</label>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 2%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-            <div class="dashboard_single_course_des">
-              <p>{{course.description}}</p>
-            </div>
-            <div class="dashboard_single_course_progress">
-              <div class="dashboard_single_course_progress_1">
-                <label>{{courselectures.count}} Lectures</label>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 2%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="dashboard_single_course_progress_2">
-                <ul class="m-0">
-                  <li class="list-inline-item"><i class="ti-user mr-1"></i>{{course.students.count}} Enrolled</li>
-                  <li class="list-inline-item"><i class="ti-comment-alt mr-1"></i>112 Comments</li>
-                </ul>
-              </div>
-            </div>
+          </div>
+          <div class="dashboard_single_course_progress_2">
+            <ul class="m-0">
+              <li class="list-inline-item"><i class="ti-user mr-1"></i>{{course.students.count}} Enrolled</li>
+              <li class="list-inline-item"><i class="ti-comment-alt mr-1"></i>112 Comments</li>
+            </ul>
           </div>
         </div>
       </div>
-        {% endfor %}
-        {% endif %}
-
-
-      </div>
-   
-   
-     
     </div>
-
-
+    
+    {% endfor %}
+    {% endif %}
   </div>
+</div>
 
-  </div>
-
-	
+</div>
+{% endblock content %}

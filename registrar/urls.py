@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^course_delete$', teaching.course_delete),
                     
     # Transcript
+    url(r'^view/profile/$', transcript.transcript_page),
     url(r'^transcript$', transcript.transcript_page),
                        
     # Certificate(s)
