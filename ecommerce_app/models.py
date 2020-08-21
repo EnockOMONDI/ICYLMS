@@ -113,28 +113,28 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-class Modules(models.Model):
-    Product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='modules')
-    Module_name = models.CharField(max_length=80)
-    Module_duration = models.CharField(max_length=191)
-    module_image = CloudinaryField('image', blank=True, null=True)
-    module_file = CloudinaryField('file', blank=True, null=True)
-    module_description = models.TextField()
+# class Modules(models.Model):
+#     Product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='modules')
+#     Module_name = models.CharField(max_length=80)
+#     Module_duration = models.CharField(max_length=191)
+#     module_image = CloudinaryField('image', blank=True, null=True)
+#     module_file = CloudinaryField('file', blank=True, null=True)
+#     module_description = models.TextField()
 
     
-    def __str__(self):
-        return self.Module_name
+#     def __str__(self):
+#         return self.Module_name
 
-class Units(models.Model):
-    Modules = models.ForeignKey(Modules,on_delete=models.CASCADE,related_name='units')
-    Unit_number = models.CharField(max_length=80)
-    Unit_name = models.CharField(max_length=191)
-    unit_duration = models.CharField(max_length=191)
-    Month =  models.CharField(max_length=80) 
-    unit_description = models.TextField()
+# class Units(models.Model):
+#     Modules = models.ForeignKey(Modules,on_delete=models.CASCADE,related_name='units')
+#     Unit_number = models.CharField(max_length=80)
+#     Unit_name = models.CharField(max_length=191)
+#     unit_duration = models.CharField(max_length=191)
+#     Month =  models.CharField(max_length=80) 
+#     unit_description = models.TextField()
     
-    def __str__(self):
-        return self.Unit_name
+#     def __str__(self):
+#         return self.Unit_name
     
 
 

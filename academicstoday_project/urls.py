@@ -19,5 +19,8 @@ urlpatterns = [
     re_path(r'', include('publisher.urls', namespace='publisher')),
     re_path(r'payment/', include('ecommerce_app.urls', namespace='ecommerce_app')),
     re_path(r'paypal/', include('paypal.standard.ipn.urls')),
+    re_path('accounts/', include('django.contrib.auth.urls')),
+    
+
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -5,7 +5,7 @@
             
             <div class="d-user-avater">
                 <img src="{% static 'assets_course_detail/img/ladalogo.png' %}" class="img-fluid avater" alt="">
-                <h4>{{course.title }}</h4>
+                <h4 > <a  style="color:rgb(255, 255, 255)" href="/view/profile">{{course.title }} </a></h4>
                 <span>BY : {{course.teacher}}</span>
             </div>
             
@@ -15,9 +15,9 @@
                     <li {% if tab == 'announcements' %}class="active "{% endif %}>
                     <a href="/course/{{ course.id }}/announcements"><i class="fa fa-fw fa-bullhorn"></i> Announcemts</a>
                    </li>
-                    <li {% if tab == 'syllabus' %}class="active "{% endif %}>
-                    <a href="/course/{{ course.id }}/syllabus"><i class="fa fa-book" aria-hidden="true"></i>
-                        Syllabus</a>
+                    <li {% if tab == 'modules' %}class="active "{% endif %}>
+                    <a href="/course/{{ course.id }}/modules"><i class="fa fa-book" aria-hidden="true"></i>
+                        Curriculum</a>
                    </li>
                    <li {% if tab == 'policy' %}class="active "{% endif %}>
                         <a href="/course/{{ course.id }}/policy"><i class="fa fa-exclamation" aria-hidden="true"></i>

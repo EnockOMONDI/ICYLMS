@@ -53,6 +53,7 @@ ALLOWED_HOSTS= ['*']
 #
 
 INSTALLED_APPS = (
+     'landpage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -68,7 +69,6 @@ INSTALLED_APPS = (
     'captcha',
     'jet',
     'account',
-    'landpage',
     'registration',
     'login',
     'registrar',
@@ -76,6 +76,7 @@ INSTALLED_APPS = (
     'teacher',
     'publisher',
     'cloudinary',
+    'django.contrib.humanize',
 
 
 
@@ -202,7 +203,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 

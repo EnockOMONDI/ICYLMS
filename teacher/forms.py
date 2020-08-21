@@ -16,6 +16,7 @@ from registrar.models import TrueFalseQuestion
 from registrar.models import ResponseQuestion
 from registrar.models import Quiz
 from registrar.models import Exam
+from registrar.models import Quick_Overview
 from cloudinary.forms import CloudinaryFileField
 
 
@@ -301,4 +302,17 @@ class ExamForm(forms.ModelForm):
             'start_date': SelectDateWidget(),
             'due_date': SelectDateWidget(),
             'worth': Select(attrs={'class': u'form-control'}),
+        }
+
+
+
+class QuickoverviewForm(forms.ModelForm):
+    class Meta:
+        model = Quick_Overview
+        fields = [ 'description']
+        labels = {
+
+        }
+        widgets = {
+            'description': Textarea(attrs={'class': u'form-control','placeholder': u'Enter Description'}),
         }

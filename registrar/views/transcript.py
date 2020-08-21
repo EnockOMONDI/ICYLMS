@@ -30,7 +30,7 @@ def transcript_page(request):
     except CourseFinalMark.DoesNotExist:
         marks = None
 
-    return render(request, 'registrar/transcript/list.html',{
+    return render(request, 'account/productionpages/pages/profile.html',{
         'courses' : courses,
         'student' : student,
         'marks': marks,

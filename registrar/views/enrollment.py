@@ -26,15 +26,16 @@ def enrollment_page(request):
         courses = Course.objects.filter(students__student_id=student.student_id)
     except Course.DoesNotExist:
         courses = None
-    return render(request,'account/productionpages/pages/profile.html',{
+    return render(request,'account/productionpages/pages/messages.html',{
         'student' : student,
         'courses': courses,
         'user' : request.user,
         'tab' : 'enrollment',
         'HAS_ADVERTISMENT': settings.APPLICATION_HAS_ADVERTISMENT,
-        'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
-    })
+        'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
+       'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS, 
+       'local_plugins_urls ':settings.SB_ADMIN_COURSE_DETAIL_CSS_PLUGINS_URLS})
+
 
 
 @login_required()

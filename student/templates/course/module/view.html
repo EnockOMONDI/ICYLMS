@@ -1,0 +1,62 @@
+{% extends 'course/basetest.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="col-lg-9 col-md-9 col-sm-12">
+                                
+        <!-- Row -->
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 pt-4 pb-4">
+           
+            </div>
+        </div>
+        <!-- /Row -->
+    
+        <!-- includesRow -->
+         <!-- Page Heading -->
+         <div class="row">
+                <div class="col-lg-12">
+                        <br>
+                        <br>
+                        <h3 class="title">
+                            {{ course.title }}   Modules
+                  
+                 </h3>
+                <ol class="breadcrumb">
+                    <!-- <li>
+                        <i class="fa fa-university"></i>  <a href="/courses">Courses</a>
+                    </li> -->
+                    <li class="nav-link">
+                        <i class="fa fa-compass"></i> {{ course.title }}
+                    </li>
+                    <li class="nav-link">
+                        <i class="fa fa-video-camera"></i> Modules
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Weeks & Modules -->
+        {% include "course/module/table.html" %}
+        <!-- /.row -->
+
+        <!-- /endincludesRow -->
+        
+
+    </div>
+     
+<script>    
+    /**
+     *  Function will call AJAX function to load the video player modal for the lecture.
+     */
+
+    function view_module_units(module_id)
+    {
+        $('#units_' + module_id + '_btn').prop("disabled", true); // Lock button
+        window.location = '/course/'+{{ course.id }}+'/module/'+module_id+'/units';
+    }
+</script>
+<!-- Modal -->
+
+<!-- /.Modal -->
+{% endblock content %}

@@ -1,0 +1,36 @@
+<div id="ajax_lectures_table"
+   name="ajax_lectures_table">
+   {% if modules.count == 0 %}
+   <div class="jumbotron">
+       <h1>Modules</h1>
+        <p>The modules appears to be missing. They will be up eventually.</p>
+    </div>
+    {% else %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                          
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for unit in module.units.all %}
+                        <tr>
+                            <td>{{ unit.unit_title }}</td>
+                            <td>{{ unit.unit_description }}</td>
+                          
+                        
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>

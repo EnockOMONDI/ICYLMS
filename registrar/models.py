@@ -7,6 +7,7 @@ from account.models import Student
 from account.models import Teacher
 from cloudinary.models import CloudinaryField
 from django.urls import reverse
+from django.contrib.postgres.fields import JSONField
 
 WORTH_PERCENT_CHOICES = (
     (0, '0 %'),
@@ -95,6 +96,25 @@ class Course(models.Model):
     students = models.ManyToManyField(Student)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=7, decimal_places=2,  blank=True, default=0.00)
+    discount_price = models.DecimalField(max_digits=7, decimal_places=2,  blank=True, default=0.00)
+    
+    
+    @property
+    def quickoverviews(self):
+        quickoverviews=self.quickoverview.all().values_list('description', flat=True)
+        return list(quickoverviews)
+    
+    @property   
+    def lectures_in_course(self):
+        return self.lectures.all().count()
+
+    @property   
+    def exams_in_course(self):
+        return self.exams.all().count()
+    
+    @property   
+    def moduless_in_course(self):
+        return self.modules.all().count()
 
 
     def delete(self, *args, **kwargs):
@@ -105,6 +125,8 @@ class Course(models.Model):
 
     def __str__(self):
         return self.title
+
+    
 
     class Meta:
         db_table = 'at_courses'
@@ -244,6 +266,25 @@ class Policy(models.Model):
         db_table = 'at_policys'
 
 
+class Quick_Overview(models.Model):
+    quickoverview_id = models.AutoField(primary_key=True)
+    description = models.TextField(max_length=60, default='', null=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='quickoverview' )
+
+    @classmethod
+    def create(cls, course_id, description, ):
+        quickoverview = cls(course_id=course_id,
+                           description=description)
+        return quickoverview
+
+    def __str__(self):
+        return self.description;
+
+    class Meta:
+        db_table = 'at_quickoverview'
+
+
+
 class Lecture(models.Model):
     lecture_id = models.AutoField(primary_key=True)
     lecture_num = models.PositiveSmallIntegerField(
@@ -268,8 +309,10 @@ class Lecture(models.Model):
         choices=VIDEO_PLAYER_CHOICES,
         default=settings.YOUTUBE_VIDEO_PLAYER
     )
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='lectures')
     notes = models.ManyToManyField(FileUpload)
+
+  
 
     def delete(self, *args, **kwargs):
         for note in self.notes.all():
@@ -278,9 +321,50 @@ class Lecture(models.Model):
 
     def __str__(self):
         return 'Week: ' + str(self.week_num) + ' Lecture: ' + str(self.lecture_num) + ' Title: ' +self.title;
+  
+   
 
     class Meta:
         db_table = 'at_lectures'
+  
+class Module(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='modules')
+    module_number = models.PositiveSmallIntegerField( validators=[MinValueValidator(1)],
+        default=1)
+    module_title = models.CharField(max_length=80)
+    module_duration = models.CharField(max_length=191)
+    module_description = models.TextField()
+
+    @property
+    def units(self):
+        return self.units.all()
+        
+    @property   
+    def units_in_modules(self):
+        return self.units.all().count()
+
+    def __str__(self):
+        return ' Module: ' + str(self.module_number) + ' Title: ' +self.module_title;
+
+    class Meta:
+        db_table = 'at_modules'
+    
+
+
+class Unit(models.Model):
+    unit_number = models.PositiveSmallIntegerField(validators=[MinValueValidator(1)],
+        default=1)
+    module = models.ForeignKey(Module, on_delete=models.CASCADE, related_name='units')
+    unit_title = models.CharField(max_length=191)
+    unit_description = models.TextField()
+    
+    def __str__(self):
+        return self.unit_title
+
+    class Meta:
+        db_table = 'at_units'
+  
+
 
 
 class Exam(models.Model):
@@ -299,7 +383,7 @@ class Exam(models.Model):
         validators=[MinValueValidator(0), MaxValueValidator(100)],
     )
     is_final = models.BooleanField(default=False)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='exams')
 
     def __str__(self):
         return str(self.exam_num) + ' ' + self.title + ' ' + self.description;
@@ -681,6 +765,7 @@ class CourseDiscussionThread(models.Model):
         for post in self.posts.all():
             post.delete()
         super(CourseDiscussionThread, self).delete(*args, **kwargs)
+
 
 
 

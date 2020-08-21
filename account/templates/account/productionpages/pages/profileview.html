@@ -1,29 +1,93 @@
-<div class="row align-items-center">
 
 
-<div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="dashboard_container">
-          <div class="dashboard_container_body p-4">
-            <div class="viewer_detail_wraps">
+
+<div class="edu_wraper border" style=" background-color:rgb(255, 255, 255) ; border-radius: 2%">
+    <div class="container " >
+
+      <div class="single_instructor_caption">
+           
+   
+         
+          <h3> {{ user.first_name }} {{ user.last_name }}</h3>
+          <ul class="instructor_info">
+
+              <li>  <strong> <i class="ti-tag"></i>ID:</strong> #{{user.id }}2020</li>
+            <li> <strong><i class="ti-flag-alt"></i> Country: </strong>{{user.student.country}}</li>
+            <li> <strong><i class="ti-time"></i>Joined: </strong> {{user.date_joined}}</li>
+            <li><i class="ti-user"></i>Exp. 4 Year</li>
+          </ul>
+    
+          <h5>About me</h5>
+          {% if user.student.bio %}
+          <p  style="display: block"> {{user.student.bio }} </p>
+          {% else %}
+          <p> Hey {{ user.first_name }} , Seems you do not have a Bio. <a href="/update_profile"> Update  Bio here  </a></p>
+          {% endif %}
+
+          <h5>interests</h5>
+          <ul class="instructor_info">
+              <li><a href="#">{{user.student.interests }}</a></li>
             
-              <div class="caption">
-                <div class="viewer_header">
-                  <h4>{{ user.first_name }} {{ user.last_name }}</h4>
-                 
-                  <span class="viewer_location">{{user.student.country}}</span>
-                  <h6 style="color:rgba(1, 1, 49, 0.658)" ><small> Joined {{user.date_joined }}</small></h6>
+            </ul>
 
-                  <ul>
-                    <li><strong>0</strong> Points</li>
-                    <li><strong>0</strong> Classes Completed</li>
-                    <li><strong>0</strong> Lessions Completed</li>
-                  </ul>
-                </div>
+          <h5>Social Accounts</h5>
+          <ul class="social_info">
+            <li><a  data-toggle="modal" data-target="#staticBackdrop"><i class="ti-facebook"></i></a></li>
+            <li><a  data-toggle="modal" data-target="#staticBackdrop"><i class="ti-twitter"></i></a></li>
+            <li><a  data-toggle="modal" data-target="#staticBackdrop"><i class="ti-linkedin"></i></a></li>
+            <li><a  data-toggle="modal" data-target="#staticBackdrop"><i class="ti-instagram"></i></a></li>
+         
+         <li>    <!-- Button trigger modal -->
+          </ul>
 
-              </div>
-            </div>
-          </div>
+          <a style="margin-top:3%"
+          class="btn btn-modern btn-sm"  href="/update_profile" >  Edit your profile<span><i class="ti-arrow-right"></i></span>
+            
+        </a>
+        </div>
+
+      </div>
+
+
+ 
+  
+
+   
+   
+  </div>
+        
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Social Accounts Settings</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <div class="card">
+<div class=" card-body">
+
+    <h6>It appears you dont have your Social account Updated</h6>
+<p> Click on update profile to set your Social account</p>
+
+     <p>1. Simply put in your username for the specific account you want to set</p>   
+   <h6>For Example:</h6>
+   a) If Twitter, type in your Twitter username and save
+</div>
+         </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+       <a 
+       class="btn btn-modern btn-sm"  href="/update_profile" >Understood<span><i class="ti-arrow-right"></i></span>
+    </a>
         </div>
       </div>
-                   
     </div>
+  </div>

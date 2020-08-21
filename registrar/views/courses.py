@@ -18,18 +18,19 @@ from django.urls import reverse_lazy, reverse
 
 
 
-@login_required(login_url='/login_modal')
-def courses_page(request,category_slug=None):
+
+@login_required(login_url='/redirected_login')
+def courses_page(request,  category_slug=None):
     category = None
     categories = Category.objects.all()
+
     courses = Course.objects.filter(status=settings.COURSE_AVAILABLE_STATUS)
     course_list = Course.objects.filter(status=settings.COURSE_AVAILABLE_STATUS)
- 
+    
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         courses = Course.objects.filter(category=category)
    
-
     # Create our student account which will build our registration around.
     try:
          student = Student.objects.get(user=request.user)
@@ -41,7 +42,7 @@ def courses_page(request,category_slug=None):
         teacher = Teacher.objects.get(user=request.user)
     except Teacher.DoesNotExist:
         teacher = None
-
+        
     return render(request, 'ecommerce_app/courses/courses2.html',context={
         'category': category,
         'categories': categories,
@@ -72,12 +73,32 @@ def course_detail(request, course_id):
         lectures = Lecture.objects.filter(course_id=course_id).order_by('week_num', 'lecture_num')
     except Lecture.DoesNotExist:
         lectures = None
+    try:
+        quickoverviews = Quick_Overview.objects.filter(course=course).order_by('-quickoverview_id')
+    except Quick_Overview.DoesNotExist:
+        quickoverviews = None
+    try:
+        lectures = Lecture.objects.filter(course_id=course_id).order_by('week_num', 'lecture_num')
+    except Lecture.DoesNotExist:
+        lectures = None
+    try:
+        modules = Module.objects.filter(course_id=course_id).order_by('module_number')
+    except Module.DoesNotExist:
+        modules = None
+   
+
     return render(request, 'ecommerce_app/courses/coursedetail.html',context= {
     'course' : course,
      'student' : student,
      'teacher' : teacher,
      'lectures':lectures,
+     'modules':modules,
+     'quickoverviews':quickoverviews,
      'user' : request.user,
+    'NO_VIDEO_PLAYER': settings.NO_VIDEO_PLAYER,
+    'YOUTUBE_VIDEO_PLAYER': settings.YOUTUBE_VIDEO_PLAYER,
+    'VIMEO_VIDEO_PLAYER': settings.VIMEO_VIDEO_PLAYER,
+    'BLIPTV_VIDEO_PLAYER': settings.BLIPTV_VIDEO_PLAYER,
      'local_css_urls' : settings.SB_ADMIN_COURSE_DETAIL_CSS_LIBRARY_URLS,
     'local_js_urls' : settings.SB_ADMIN_COURSE_DETAIL_JS_LIBRARY_URLS, 
      'local_plugins_urls ':settings.SB_ADMIN_COURSE_DETAIL_CSS_PLUGINS_URLS})    

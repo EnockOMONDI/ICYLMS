@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<div class="modal fade" id="module_modal" role="dialog">
+    <div class="modal-dialog" style="width:100%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="btn btn-success pull-right" data-dismiss="modal">×</a>
+                <h4>Note: {{ unit.title </h4>
+            </div>
+            <div class="modal-body">
+                    {{ unit.description }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function(){
+        // When this model hides, we will clear the contents of it.
+        $('#module_modal').on('hidden.bs.modal', function (e) {
+            // Clear all the code inside this modal.
+            $('#ajax_modal_placeholder').html('');
+            $('#play_{{ module.module_id }}_btn').prop("disabled", false); // Unlock button
+        })
+    });
+</script>

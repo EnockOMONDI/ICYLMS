@@ -6,7 +6,7 @@ from .models import Product, ShortCourse, Order, LineItem, ShortCourseLecture
 from .forms import CartForm, CheckoutForm
 from . import cart
 from decimal import Decimal
-from .models import Product,Modules,Units
+from .models import Product
 from paypal.standard.forms import PayPalPaymentsForm
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers

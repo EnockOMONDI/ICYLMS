@@ -25,16 +25,26 @@ urlpatterns = [
     # Grades & Policy
     url(r'^course/(?P<id>\d+)/dashboard/policy$', policy.policy_page,name='policy_page'),
 
-    # Lecture
+   
+   #Curriculumn Module 
+    url(r'^course/(?P<id>\d+)/dashboard/modules$', module.modules_page,name='modules_page'),
+    url(r'^course/(?P<id>\d+)/dashboard/module$',  module.module,name='module'),
+  
+    # Curriculumn Module unit
+    url(r'^course/(?P<id>\d+)/dashboard/module/(\d+)/units$', module_unit.module_units_page,name='module_units_page'),
+    url(r'^course/(?P<id>\d+)/dashboard/module/(\d+)/view_module_unit$', module_unit.view_module_unit,name='view_module_unit'),
+                
+     # Lecture
     url(r'^course/(?P<id>\d+)/dashboard/lectures$', lecture.lectures_page,name='lectures_page'),
     url(r'^course/(?P<id>\d+)/dashboard/lecture$', lecture.lecture,name='lecture'),
     url(r'^shortcourse/(?P<id>\d+)/lectures$', lecture.shortcourselectures_page,name='shortcourselectures_page'),
     url(r'^shortcourse/(?P<id>\d+)/shortcourselecture$', lecture.shortcourselecture,name='shortcourselecture'),
-                       
+                
                        
     # Lecture Notes
     url(r'^course/(?P<id>\d+)/dashboard/lecture/(\d+)/notes$', lecture_note.lecture_notes_page,name='lecture_notes_page'),
     url(r'^course/(?P<id>\d+)/dashboard/lecture/(\d+)/view_lecture_note$', lecture_note.view_lecture_note,name='view_lecture_note'),
+
 
     # Assignment(s)
     url(r'^course/(?P<id>\d+)/dashboard/assignments$', assignment.assignments_page,name='assignments_page'),

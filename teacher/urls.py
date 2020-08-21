@@ -15,6 +15,7 @@ from teacher.views import overview
 from teacher.views import discussion
 from teacher.views import peer_review
 from teacher.views import setting
+from teacher.views import quickoverview
 app_name="teacher"
 urlpatterns = [
     # Syllabus
@@ -29,6 +30,15 @@ urlpatterns = [
     url(r'^teacher/course/(\d+)/announcement_modal$', announcement.announcement_modal),
     url(r'^teacher/course/(\d+)/save_announcement$', announcement.save_announcement),
     url(r'^teacher/course/(\d+)/delete_announcement$', announcement.delete_announcement),
+
+    #Overview
+    url(r'^teacher/course/(\d+)/quickoverview$', quickoverview.quickoverviews_page),
+    url(r'^teacher/course/(\d+)/quickoverviews_table$', quickoverview.quickoverviews_table),
+    url(r'^teacher/course/(\d+)/quickoverview_modal$', quickoverview.quickoverview_modal),
+    url(r'^teacher/course/(\d+)/save_quickoverview$', quickoverview.save_quickoverview),
+    url(r'^teacher/course/(\d+)/delete_quickoverview$', quickoverview.delete_quickoverview),
+
+  
 
     # Syllabus
     url(r'^teacher/course/(\d+)/syllabus$', syllabus.syllabus_page),

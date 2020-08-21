@@ -127,6 +127,7 @@ class Student(models.Model):
 class Teacher(models.Model):
     teacher_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
     
     def __str__(self):
         return self.user.first_name + " " + \

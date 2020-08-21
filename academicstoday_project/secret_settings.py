@@ -18,13 +18,15 @@ SECRET_KEY = 'xd#vc@mec1c0+wz^y&_i^-og&oy$mkn%_yky&xe^fo()mio$up'
 #---------------------------------------------------------------------------#
 # Email                                                                     #
 #---------------------------------------------------------------------------#
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'leadershipacademyafrica@gmail.com'
 EMAIL_HOST_PASSWORD = 'hrznsyzmgrrvlkhl'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'Leadership and development academy <onboarding@leadershipanddevelopmentacademy.com>'
+DEFAULT_FROM_EMAIL = 'Leadership and development academy <info@leadershipanddevelopmentacademy.com>'
+
+
 
 # EMAIL_HOST = 'smtp.sendgrid.net'
 # EMAIL_PORT = 587

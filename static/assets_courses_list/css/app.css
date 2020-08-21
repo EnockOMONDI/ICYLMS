@@ -2627,8 +2627,8 @@ html {
 [dir="ltr"] .btn-primary:focus,
 [dir="ltr"] .btn-primary:hover {
     color: #fff;
-    background-color: #2f45ff;
-    border-color: #2239ff;
+    background-color: #080514;
+    border-color: #080514;
 }
 [dir="ltr"] .btn-primary.focus,
 [dir="ltr"] .btn-primary:focus {
@@ -19529,17 +19529,17 @@ html {
     padding: 1.25rem;
 }
 [dir="ltr"] .card-title {
-    font-size: 1rem;
-    font-family: Exo\2, Helvetica Neue, Arial, sans-serif;
-    font-weight: 600;
-    color: #303956;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #363f5e;
     line-height: 1.25;
     margin-bottom: 0;
 }
 [dir="ltr"] .card-subtitle {
-    font-size: 0.8125rem;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 600;
     margin-top: 0;
+    color: #363f5e;
 }
 @media (min-width: 576px) {
     [dir="ltr"] .card-group > .card,

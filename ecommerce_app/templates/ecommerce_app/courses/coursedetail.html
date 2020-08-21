@@ -39,8 +39,8 @@
 <div class="ed_header_caption">
 <h2 class="ed_title">{{course.title}}</h2>
 <ul>
-<li><i class="ti-calendar"></i>Self paced online course</li>
-<li><i class="ti-control-forward"></i>{{courselectures.count}} Lectures</li>
+<li><i class="ti-unlock"></i>Lifetime Access</li>
+<li><i class="ti-control-forward"></i> {{course.lectures.count}} Video  </li>
 <li><i class="ti-user"></i>{{course.students.count}} Student Enrolled</li>
 </ul>
 </div>
@@ -48,7 +48,7 @@
 <div class="ed_rate_info">
 
 <div class="review_counter">
-{{course.validator_name}} | Learn new skills with a flexible online course
+		<h6>{{course.validator_name}} | {{course.category}} Certificate </h6>
 </div>
 </div>
 
@@ -80,19 +80,7 @@
 <img class="pro_img img-fluid w100" src="{% static 'assets_course_detail/img/nocourseimg.png' %}" alt="no image">
 <!-- Missing Image! -->
 {% endif %}
-<div class="overlay_icon">
-<div class="bb-video-box">
-<div class="bb-video-box-inner">
-<div class="bb-video-box-innerup">
-{% if course.lecture %}
-<a href="{{course.lecture.youtube_url}}" data-toggle="modal" data-target="#popup-video" class="theme-cl"><i class="ti-control-play"></i></a>
-{% else %}
-<p>rytu</p>
-{% endif %}
-</div>
-</div>
-</div>
-</div>
+
 </div>
 <div class="instructor_over_info">
 <ul>
@@ -136,15 +124,15 @@
 		{% csrf_token %}
 		<button 
 		{% if teacher == course.teacher %}
-		
-disabled=""
-{% endif %}
-{% if student not in course.students.all %}
-		class="btn btn-outline-primary btn-sm" type="submit" name="course_id" value="{course.id}" >  enroll now <i class="ti-angle-right"></i> 
+	disabled=""
+	{% endif %}
+	{% if student not in course.students.all %}
+	class="btn btn-modern btn-sm" type="submit" name="course_id" value="{course.id}" >  Enroll Course<span><i class="ti-arrow-right"></i></span>
 		
 		{% else %}
-		class="btn btn-outline-success btn-sm" > Continue Class <i class="ti-angle-right"></i>  </button>
+		class="btn btn-modern btn-sm" > Continue Class<span><i class="ti-arrow-right"></i></span> </button>
 	</form> 
+
 	{% endif %}
 </div></span>
 </div>
@@ -172,56 +160,69 @@ disabled=""
 
 <div class="inline_edu_wrap">
 <div class="inline_edu_first">
-<h4>{{course.description}}</h4>
+<!-- <h4>{{course.description}}</h4> -->
 <ul class="edu_inline_info">
-<li><i class="ti-calendar"></i>Self paced online course</li>
-<li><i class="ti-control-forward"></i>{{courselectures.count}} Lectures</li>
+
+		<span style="color:rgb(216, 4, 4)">	<p class="flex text-black-70 lh-1 mb-0"><b>Starts: {{ course.start_date }}</b></p></span>
+<li><i class="ti-unlock"></i>Life time access</li>
+<li><i class="ti-rss-alt"></i> Web, Mobile, Tv</li>
+<li><i class="ti-control-forward"></i>Lectures: {{course.lectures.count}} </li>
+
+
+<li><i class="ti-pencil-alt"></i>Assesment: {{course.exams.count}}</li>
+<li><i class="ti-medall-alt"></i>Certificate : Yes {{course.category}} certificate</li>
 <li><i class="ti-user"></i>{{course.students.count}} Student Enrolled</li>
-<li>Discussions</li>
-<li>Exams</li>
-<li>Certificate</li>
+
+
 </ul>
 </div>	
 <div class="inline_edu_last">
 
 <h4 class="edu_price">$ {{course.price}}  </h4> 
 <form action="{% url 'registrar:enroll' course.id %}" method="post"> 
-	{% csrf_token %}
-	<button 
-	{% if teacher == course.teacher %}
-disabled=""
-{% endif %}
-{% if student not in course.students.all %}
-	class="btn btn-outline-primary " type="submit" name="course_id" value="{course.id}" >  enroll now <i class="ti-angle-right"></i> 
-	
-	{% else %}
-	class="btn btn-outline-success " > Continue Class <i class="ti-angle-right"></i>  </button>
-</form> 
-{% endif %}
+		{% csrf_token %}
+		<button 
+		{% if teacher == course.teacher %}
+	disabled=""
+	{% endif %}
+	{% if student not in course.students.all %}
+	class="btn btn-modern" type="submit" name="course_id" value="{course.id}" >  Enroll Course<span><i class="ti-arrow-right"></i></span>
+		
+		{% else %}
+		class="btn btn-modern " > Continue Class<span><i class="ti-arrow-right"></i></span> </button>
+	</form> 
+
+	{% endif %}
 </div>
 </div>
 
 
 
 <!-- All Info Show in Tab -->
-<div class="tab_box_info mt-3" >
-<ul class="nav nav-pills mb-3 light"  id="pills-tab" role="tablist">
-<li class="nav-item" style="box-shadow: -32px 32px 54px -2px rgba(0,0,0,0.0);">
+<div class="tab_box_info mt-3 " >
+<ul class="nav nav-pills mb-3 light "  id="pills-tab" role="tablist">
+
+<li class="nav-item " >
 <a class="nav-link active" id="overview-tab" data-toggle="pill" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
 </li>
-<li class="nav-item"style="box-shadow: -32px 32px 54px -2px rgba(0,0,0,0.0);">
+<li class="nav-item">
+		<a class="nav-link" id="curriculum-tab" data-toggle="pill" href="#curriculum" role="tab" aria-controls="curriculum" aria-selected="false">Curriculum</a>
+		</li>
+<li class="nav-item">
+<a class="nav-link" id="lectures-tab" data-toggle="pill" href="#lectures" role="tab" aria-controls="startdate" aria-selected="false">Lectures</a>
+</li>
+<li class="nav-item">
 <a class="nav-link" id="startdate-tab" data-toggle="pill" href="#startdate" role="tab" aria-controls="startdate" aria-selected="false">Start Dates</a>
 </li>
-<li class="nav-item"style="box-shadow: -32px 32px 54px -2px rgba(0,0,0,0.0);">
-<a class="nav-link" id="curriculum-tab" data-toggle="pill" href="#curriculum" role="tab" aria-controls="curriculum" aria-selected="false">Curriculum</a>
-</li>
-<li class="nav-item"style="box-shadow: -32px 32px 54px -2px rgba(0,0,0,0.0);">
-<a class="nav-link" id="instructor-tab" data-toggle="pill" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false">Instructor</a>
-</li>
 
-<li class="nav-item"style="box-shadow: -32px 32px 54px -2px rgba(0,0,0,0.0);">
-<a class="nav-link" id="reviews-tab" data-toggle="pill" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Learners Reviews</a>
+
+<li class="nav-item">
+<a class="nav-link" id="instructor-tab" data-toggle="pill" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false">Educators</a>
 </li>
+<!-- 
+<li class="nav-item">
+<a class="nav-link" id="reviews-tab" data-toggle="pill" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Learners Reviews</a>
+</li> -->
 </ul>
 
 <div class="tab-content" id="pills-tabContent">
@@ -229,107 +230,168 @@ disabled=""
 <!-- Overview Detail -->
 <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
 <!-- Overview -->
-<div class="edu_wraper">
-<h4 class="edu_title">{{course.name}} Course Overview</h4>
-<p>{{course.description}}</p>		
+		<!-- Overview -->
+		<div class="edu_wraper border">
+				<h3 class="edu_title"><span >  {{course.title}} Overview  </span> </h3>
+<tr></tr>
+				{% if course.description == 0   %}
+			<p>The Course description appears to be missing, try again later, it will be up eventually</p> 
 
+				{% else %}
+				<div class="list_facts_caption">
+					
+					<p> {{course.description}} </p>	 
+					<br>
+				</div>
+				{% endif %}	
+				<br>
+				<h5>what you will learn</h5>
+			
+				{% if quickoverviews.count == 0   %}
+				<ul class="lists-3">
+					
+						<li>  This section appears to be missing, try again later, it will be up eventually</li>
+				
+					</ul>
+			
 
-</div>
-<!-- Overview -->
-<div class="edu_wraper">
-<h4 class="edu_title">Requirements</h4>
-<ul class="edu_list third">
-<div class="section section-blog">
-
-<div class="container">
-<div class="row " >
-{% for course in courses %} 
-<div class="col-md-3">
-<!-- <h3 class="title text-center">{{ course.title }}</h3>  -->
-<div class="card" style=" box-shadow: 0 8px 16px 0 #c5c5c5; padding:10px; border-radius: 6px;">
-<div class="card-header card-header-image" >
-	{% if course.image != None and course.image != '' %}
-<a href="#pablo">
-<img src="{{ course.image.url }}" height="100%" width="100%"   alt="">
-{% else %}
-<img src="static/img/dummy.png"  alt="">
-<!-- Missing Image! -->
-{% endif %}
-</a>
-</div>
-<div class="card-body">
-
-<h4 class="card-title text-center">
-<a href="#pablo">{{ course.title }}</a>
-</h4>
-{% if teacher == course.teacher %}
-<h6 class="card-title text-center">
-	[You cannot enroll in a class you currently Instruct!]
-	</h6>
-	{% else %}                
-<h6 class="card-title text-center">
-<a href="#pablo">{{ course.sub_title }}</a>
-{% endif %}
-</h6 >
-<p class="card-text">
-	{{ course.description }}
-</p>
-<p class="card-description" >Durration: {{ course.start_date }} to {{ course.finish_date }}</p>
-
-
-
-<button onclick="ajax_enroll('{{ course.id }}');"
-type="button"
-{% if teacher == course.teacher %}
-disabled=""
-{% endif %}
-{% if student not in course.students.all %}
-id="view_{{ course.id }}_btn"
-name="view_{{ course.id }}_btn"
-class="btn btn-lg btn-info">
-<i class="fa fa-pencil"></i> Enroll 
-{% else %}
-class="btn btn-lg btn-warning">
-<i class="fa fa-level-down"></i> Continue
-{% endif %}
-</button>
+				{% else %}
+				<ul class="lists-3">
+						{% for quickoverview in quickoverviews %}
+					<li>  {{ quickoverview.description }}</li>
+					{% endfor %}
+				</ul>
+                 {% endif %}
+			</div>
 
 </div>
-</div>
-</div>
-{% endfor %}
-</div>
-</div>
-</div>
-<!-- <li>At vero eos et accusamus</li> -->
-</ul>
-</div>
-<!-- Overview -->
-<div class="edu_wraper">
-<h4 class="edu_title">What you'll learn</h4>
-<ul class="edu_list third">
 
-<!-- <li>At vero eos et accusamus</li> -->
-</ul>
+
+<!-- curriculum -->
+<div class="tab-pane fade " id="curriculum" role="tabpanel" aria-labelledby="curriculum-tab">
+		<div class="edu_wraper border">
+				
+				<h3 class="edu_title"><span >  {{course.title}} Course curriculum </i></span> </h3>
+				
+				
+			
+        
+					<div class="row align-items-center">
+					
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						
+					<div class="list_facts_wrap">
+						
+							{% if course.modules.count == 0   %}
+							<p> This Course modules appear to be missing, they will be up eventually, try again later.</p>
+						
+				{%else%}
+				{% for module in modules %}
+				<div class="list_facts">
+						<div class="list_facts_icons"> {{module.module_number}} </div>
+						<div class="list_facts_caption">
+						<h4>  {{ module.module_title }}  <span> <small>  ( {{module.units.count}} Units</small></span>  <span> <small>in  <i class="ti-alarm-clock"></i> {{ module.module_duration }} weeks )</small></span> </h4> 
+						<p>{{module.module_description}} </p>
+						</div>
+						</div>
+				
+					{%endfor%}
+
+					{%endif%}
+					<form action="{% url 'registrar:enroll' course.id %}" method="post"> 
+							{% csrf_token %}
+							<button 
+							{% if teacher == course.teacher %}
+						disabled=""
+						{% endif %}
+						{% if student not in course.students.all %}
+						class="btn btn-modern" type="submit" name="course_id" value="{course.id}" >  Enroll Course<span><i class="ti-arrow-right"></i></span>
+							
+							{% else %}
+							class="btn btn-modern " > Continue Class<span><i class="ti-arrow-right"></i></span> </button>
+						</form> 
+
+						{% endif %}
+					</div>
+					
+					
+					
+					</div>
+					
+					</div>
+
+
+			</div>
 </div>
+<!--curriculum  -->
+<!-- lectures -->
+<div class="tab-pane fade  " id="lectures" role="tabpanel" aria-labelledby="lectures-tab">
+		<div class="edu_wraper border">
+				<h4 class="edu_title">Course Circullum</h4>
+				<div id="accordionExample" class="accordion shadow circullum">
+
+					<!-- Part 1 -->
+					<div class="card">
+							{% include 'course/lecture/publictable.html' %}
+							
+					  <!-- <div id="headingOne" class="card-header bg-white shadow-sm border-0">
+						<h6 class="mb-0 accordion_title"><a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="d-block position-relative text-dark collapsible-link py-2">Part 01: How To Learn Web Designing Step by Step</a></h6>
+					  </div>
+					  <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample" class="collapse show">
+						<div class="card-body pl-3 pr-3">
+							<ul class="lectures_lists">
+								<li><div class="lectures_lists_title"><i class="ti-control-play"></i>Lecture: 01</div>Web Designing Beginner</li>
+								<li><div class="lectures_lists_title"><i class="ti-control-play"></i>Lecture: 02</div>Startup Designing with HTML5 & CSS3</li>
+								<li><div class="lectures_lists_title"><i class="ti-control-play"></i>Lecture: 03</div>How To Call Google Map iFrame</li>
+								<li class="unview"><div class="lectures_lists_title"><i class="ti-control-play"></i>Lecture: 04</div>Create Drop Down Navigation Using CSS3</li>
+								<li class="unview"><div class="lectures_lists_title"><i class="ti-control-play"></i>Lecture: 05</div>How to Create Sticky Navigation Using JS</li>
+							</ul>
+						</div>
+					  </div> -->
+					</div>
+
+					
+
+				</div>
+			</div>
 </div>
+<!--lectures  -->
+
+
 <!-- Startdate Detail -->
 <div class="tab-pane fade" id="startdate" role="tabpanel" aria-labelledby="startdate-tab">
 <div class="edu_wraper">
-<h4 class="edu_title">Cohort Dates</h4>
+<h4 class="edu_title">Important  Dates</h4>
 <div id="accordionExample" class="accordion shadow circullum">
 
 <!-- Part 1 -->
 <div class="card">
 <div id="headingOne" class="card-header bg-white shadow-sm border-0">
-<h6 class="mb-0 accordion_title"><a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="d-block position-relative text-dark collapsible-link py-2">Most LADA courses run throught the year, in Cohorts, Every run of a cohort has a set start date but you can join it and work through it after it starts. </a></h6>
+<p class="mb-0 accordion_title"><a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="d-block position-relative text-dark collapsible-link py-2">Most LADA courses run throught the year, in Cohorts, Every run of a cohort has a set start date but you can join it and work through it after it starts. </a></p>
 </div>
 <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample" class="collapse show">
 <div class="card-body pl-3 pr-3">
 <ul class="lectures_lists">
-<li class="unview"><div class="lectures_lists_title">Cohort: 01</div>Enroll by July 1, 2020</li>
-<li> <div class="lectures_lists_title">Cohort: 02</div>Enroll by August 1, 2020</li>
+		{% if student not in course.students.all %}	
+<li class="unview"><div style="color:rgb(41, 2, 43);background-color: #f3f3f3; width: 20%;  "class="list_facts_icons">LADA#2</div>Enroll by  {{ course.start_date }}</li>
+{% else %}
+<li ><div style="color:rgb(41, 2, 43);background-color: #f3f3f3; width: 20%;  "class="list_facts_icons">LADA#2</div>Already Enrolled</li>
+
+{%endif%}
 </ul>
+<form action="{% url 'registrar:enroll' course.id %}" method="post"> 
+		{% csrf_token %}
+		<button 
+		{% if teacher == course.teacher %}
+	disabled=""
+	{% endif %}
+	{% if student not in course.students.all %}
+	class="btn btn-modern" type="submit" name="course_id" value="{course.id}" >  Take me in<span><i class="ti-arrow-right"></i></span>
+		
+		{% else %}
+		class="btn btn-modern " > Continue Class<span><i class="ti-arrow-right"></i></span> </button>
+	</form> 
+	{%endif%}
 </div>
 </div>
 </div>
@@ -354,7 +416,7 @@ class="btn btn-lg btn-warning">
 {% if courselectures.count == 0 %}
 <ul class="lectures_lists">
 
-<li><div class="lectures_lists_title"> Lecture: 0</div>The lectures appears to be missing. They will be up eventually.</li>
+<li><div class="lectures_lists_title"> Lecture: </div>The lectures appears to be missing. They will be up eventually.</li>
 </ul>
 {% else %}	
 {% for courselecture in courselectures %}
@@ -377,22 +439,22 @@ class="btn btn-lg btn-warning">
 <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
 <div class="single_instructor">
 <div class="single_instructor_thumb">
-<a href="#"><img src="../../../static/assets_course_detail/img/user-3.jpg" class="img-fluid" alt=""></a>
+<!-- <a href="#"><img src="../../../static/assets_course_detail/img/user-3.jpg" class="img-fluid" alt=""></a> -->
 </div>
 <div class="single_instructor_caption">
-<h4><a href="#">Jonathan Campbell</a></h4>
-<ul class="instructor_info">
+<h4>{{course.teacher}}</h4>
+<!-- <ul class="instructor_info">
 <li><i class="ti-video-camera"></i>72 Videos</li>
 <li><i class="ti-control-forward"></i>102 Lectures</li>
 <li><i class="ti-user"></i>Exp. 4 Year</li>
 </ul>
-<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi.</p>
+<p>{{student.teacher.bio}}</p>
 <ul class="social_info">
 <li><a href="#"><i class="ti-facebook"></i></a></li>
 <li><a href="#"><i class="ti-twitter"></i></a></li>
 <li><a href="#"><i class="ti-linkedin"></i></a></li>
 <li><a href="#"><i class="ti-instagram"></i></a></li>
-</ul>
+</ul> -->
 </div>
 </div>
 </div>
@@ -564,10 +626,10 @@ class="btn btn-lg btn-warning">
 
 </div>
 
-
+</div>
 </div>
 
-</div>
+
 </section>
 <!-- ============================ Course Detail ================================== -->
 
