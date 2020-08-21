@@ -288,9 +288,9 @@
 				{%else%}
 				{% for module in modules %}
 				<div class="list_facts">
-						<div class="list_facts_icons">{{module.module_number}} </div>
+						<div class="list_facts_icons"> {{module.module_number}} </div>
 						<div class="list_facts_caption">
-						<h4>  {{ module.module_title }}</h4>
+						<h4>  {{ module.module_title }}  <span> <small>  ( {{module.units.count}} Units</small></span>  <span> <small>in  <i class="ti-alarm-clock"></i> {{ module.module_duration }} weeks )</small></span> </h4> 
 						<p>{{module.module_description}} </p>
 						</div>
 						</div>

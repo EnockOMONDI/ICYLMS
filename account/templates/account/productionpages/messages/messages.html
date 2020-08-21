@@ -1,0 +1,131 @@
+<div class="col-lg-12 col-md-12 col-sm-12">
+{% load humanize %}
+
+
+
+    <!-- Start Content -->
+
+        <div class="container " >
+          <div class="row">
+         
+            <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
+ 
+         
+                <div class="inner-box">
+            <div class="email-wrapper wrapper">
+                <div class="row ">
+                  <div class="mail-sidebar d-lg-block  col-lg-4 col-md-4 pt-4 pb-4 bg-white">
+                    <h3 class="text-center "> All Messages </h3>
+            
+
+              <div class="tab_box_info mt-3">
+              
+                   <ul class="instructor_info nav nav-pills" id="pills-tab" role="tablist">
+                      <li  class="nav-item ">
+                     <h5 data-toggle="tooltip" data-placement="top" title="Show Inbox">    <a  class=" active " id="inboxlist-tab" data-toggle="pill" href="#inboxlist" role="tab" aria-controls="inboxlist" aria-selected="true">  <i class="mdi mdi-email-outline"></i> Inbox</a> </h5> 
+                          </li>
+                          <li class="nav-item">
+                              <h5 data-toggle="tooltip" data-placement="top" title="Show Sent ">     <a    id="sentlist-tab" data-toggle="pill" href="#sentlist" role="tab" aria-controls="sentlist" aria-selected="false"><i class="mdi mdi-share"></i> Sent</a></h5> 
+                              </li> 
+                              <li  class="nav-item ">
+                                  <h5 data-toggle="tooltip" data-placement="top" title="Show Unsent ">        <a  id="outbox-tab" data-toggle="pill" href="#outbox" role="tab" aria-controls="outbox" aria-selected="false"> <i class="mdi mdi-upload"></i> Outbox  </a ></h5>
+                                  </li>
+                  </ul>
+            
+<div class="tab-content" id="pills-tabContent">
+
+<!-- inboxlist-->
+<div class="tab-pane fade  show active " id="inboxlist" role="tabpanel" aria-labelledby="inboxlist-tab">
+    <div style="background-color: rgba(255, 255, 255, 0.205); padding: 20px; border-radius: 5px;box-shadow: 0px 2px 34px -2px rgba(83, 83, 83, 0.15);">
+        <p     data-toggle="tooltip" data-placement="top" title="Inbox"  class="sender-name"><strong><span class="lnr lnr-pushpin"></span>   <small>From: </small> Enock Omondi
+           <br>
+           <small>Subj: </small> <span style="color:rgb(53, 53, 53)">Supporting Your Transition to Online Education</span> </strong> </p>
+        <p class="sender-name"> <i class="ti-time"></i> {{user.date_joined|naturaltime}}  </p>
+
+      </div>
+<br>
+</div>
+  <!-- end inboxlist-->
+<!-- Sentlistl -->
+<div class="tab-pane fade" id="sentlist" role="tabpanel" aria-labelledby="sentlist-tab">
+    <div style="background-color: rgba(255, 255, 255, 0.205); padding: 20px; border-radius: 5px;box-shadow: 0px 2px 34px -2px rgba(83, 83, 83, 0.15);">
+        <p     data-toggle="tooltip" data-placement="top" title="sent"  class="sender-name"><strong><span class="lnr lnr-pushpin"></span> <small>To: </small> Enock Omondi <br>
+          <small>Subj: </small>     <span style="color:rgb(36, 36, 36)">Supporting Your Transition to Online Education</span> </strong> </p>
+           <p class="sender-name"> <i class="ti-time"></i> {{user.date_joined|naturaltime}}  </p>
+
+      </div>
+</div>
+<!-- End Sentlist -->
+<!-- Outbox-tab -->
+<div class="tab-pane fade" id="outbox" role="tabpanel" aria-labelledby="outbox-tab">
+    <div style="background-color: rgba(255, 255, 255, 0.205); padding: 20px; border-radius: 5px;box-shadow: 0px 2px 34px -2px rgba(83, 83, 83, 0.15);">
+        <p     data-toggle="tooltip" data-placement="top" title="Unsent"  class="sender-name"><strong><span class="lnr lnr-pushpin"></span> <small>To: </small> Enock Omondi <br>
+        
+          <small>Subj: </small>  <span style="color:rgb(36, 36, 36)">Supporting Your Transition to Online Education</span> </strong> </p>
+           <p class="sender-name"> <i class="ti-time"></i> {{user.date_joined|naturaltime}}  </p>
+
+      </div>
+
+</div>
+<!-- Outbox-tab -->
+
+
+
+
+</div>
+            </div>
+              </div>
+                  <div class="mail-list-container col-lg-8 col-md-8 pt-4 pb-4  bg-white">
+                    <!-- <div class="border-bottom pb-4 mb-3 px-3">
+                      <div class="form-group">
+                        <input class="form-control w-100" type="search" placeholder="Search mail" id="Mail-rearch">
+                      </div>
+                    </div> -->
+                    <div style="background-color: rgba(255, 255, 255, 0.205); padding: 20px; border-radius: 5px;box-shadow: 0px 2px 34px -2px rgba(83, 83, 83, 0.15);">
+                    <p     data-toggle="tooltip" data-placement="top" title="Pinned Inbox"  class="sender-name"><strong><span class="lnr lnr-pushpin"></span>  <i class="  ti-pin"></i> LADA TEAM | <span style="color:rgb(36, 36, 36)">Supporting Your Transition to Online Education</span> </strong> </p>
+                    <p class="sender-name"> <strong> Sent :</strong> {{user.date_joined|naturaltime}}  </p>
+
+                  </div>
+<br>
+                    <div class="mail-list">
+                      <!-- <div class="form-check"> <label class="form-check-label"> <input type="checkbox" class="form-check-input"> <i class="input-helper"></i></label></div> -->
+                      <div class="content">
+  
+                        <p class="sentlist_text">Hi <strong>{{user.first_name}} </strong>, over the last few months, 
+                          the Coronavirus pandemic, COVID-19, has emerged as the defining global health crisis of our time.
+                          We hope you are well and healthy during these difficult times.
+                          COVID-19 is having an unprecedented impact on almost all countries.
+                          More than 1.5 billion students and youth across the planet are affected by school and university closures due to the COVID-19 outbreak. 
+                        
+                          As we all prepare to navigate the days ahead,
+                           we want to take a moment to make sure that, in this extraordinarily demanding and stressful time, you are taking care of yourself, specifically as it relates to your emotional well-being.
+                        To help our community handle this uneasiness, we have developed  this platform and moving  our courses  
+                          to  remote learning, and encourage you to enroll to the courses and continue carrying on with teaching and learning activities during this socio-economic, cultural and health crisis.
+                          We send our very best wishes to all of you for what is a markedly different academic experience.
+                        this is an extraordinary moment and it calls on all of us to support each other with great care and compassion. We continue to be here for you today and in the days ahead. Please know you can reach out to us for any assistance on how to navigate the platform.
+                          </p>
+
+                      </div>
+                      <br>
+                  
+ 
+                     
+                      
+             <hr>
+               
+                  </div>
+                 
+          <!-- sentlistdetail -->
+                </div>
+              </div>
+            </div>  
+      
+                
+          </div>  
+        </div>      
+      </div>
+    </div>
+      <!-- End Content -->
+
+
+  

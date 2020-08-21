@@ -1,7 +1,7 @@
 <div class="col-lg-12 col-md-12 col-sm-12">
         <!-- Page Heading -->
 
-
+     
 
         <div class="modal fade" id="disenroll_modal" role="dialog">
           <div class="modal-dialog" style="width:50%;">
@@ -34,28 +34,24 @@
       
 
     <!-- Course Style 1 For Student -->
-    <div class="dashboard_container">
+    <div class="container " style=" background-color:rgb(255, 255, 255) ; border-radius: 2%">
+        <div class="inner-box">
       <div class="dashboard_container_header">
     
         
-            <div class="caption">
-                <div class="viewer_header">
-                  <h4><strong>Classes</strong> which you are a student of</h4>
-                </div>
-              </div>
-
-      </div>
       <div class="dashboard_container_body">
+
+         
           {% if courses.count == 0 %}
 
-          <div class="jumbotron">
-              <h1>Become a Student!</h1>
-              <p>Learn, grow and become a better Leader. Enroll in a class and start today!</p>
-              <p><a href="/payment" 
+         <h2>Seems you have not Enrolled to any course</h2>
+              <h3>Become a Student! Today</h3>
+              <!-- <p>Learn, grow and become a better Leader. Enroll in a class and start today!</p> -->
+              <p><a href="/courses" 
                    class="btn btn-primary btn-lg"
                     role="button">Find Courses </a>
               </p>
-          </div>
+     
           {%else%}
           {% for course in courses.all %}
         <!-- Single Course -->
@@ -129,10 +125,20 @@
             </div>
           </div>
         </div>
-        
+      </div>
         {% endfor %}
         {% endif %}
+
+
       </div>
+   
+   
+     
     </div>
-    
+
+
   </div>
+
+  </div>
+
+	

@@ -76,6 +76,7 @@ INSTALLED_APPS = (
     'teacher',
     'publisher',
     'cloudinary',
+    'django.contrib.humanize',
 
 
 

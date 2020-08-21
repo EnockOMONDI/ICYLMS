@@ -1,96 +1,93 @@
-<div class="row align-items-center">
 
 
-<div class="col-lg-12 col-md-12 col-sm-12">
-<!-- Reviews -->
-<div class="list-single-main-item fl-wrap">
-    <div class="list-single-main-item-title fl-wrap">
-    <h3>LADA ONLINE ID: <small><span >   {{user.id }}#lAD</span></small> </h3>
-    </div>
-    <div class="reviews-comments-wrap">
-    <!-- reviews-comments-item -->  
-    <div class="reviews-comments-item">
-    <div class="review-comments-avatar">
-        {% if user.student.profile_pic %}
-          <img src="{{user.student.profile_pic.url}}" class="img-fluid " alt="">
-       
+
+<div class="edu_wraper border" style=" background-color:rgb(255, 255, 255) ; border-radius: 2%">
+    <div class="container " >
+
+      <div class="single_instructor_caption">
+           
+   
+         
+          <h3> {{ user.first_name }} {{ user.last_name }}</h3>
+          <ul class="instructor_info">
+
+              <li>  <strong> <i class="ti-tag"></i>ID:</strong> #{{user.id }}2020</li>
+            <li> <strong><i class="ti-flag-alt"></i> Country: </strong>{{user.student.country}}</li>
+            <li> <strong><i class="ti-time"></i>Joined: </strong> {{user.date_joined}}</li>
+            <li><i class="ti-user"></i>Exp. 4 Year</li>
+          </ul>
+    
+          <h5>About me</h5>
+          {% if user.student.bio %}
+          <p  style="display: block"> {{user.student.bio }} </p>
           {% else %}
-          <a href="/update_profile">
-          <img src="../../../static/assets_course_detail/img/uploadpic.png " class="img-fluid " alt="">
+          <p> Hey {{ user.first_name }} , Seems you do not have a Bio. <a href="/update_profile"> Update  Bio here  </a></p>
           {% endif %}
-    </div>
-    <div class="reviews-comments-item-text">
-    <h4><a href="#">  {{ user.first_name }} {{ user.last_name }}</a><span class="reviews-comments-item-date"><i class="ti-calendar theme-cl"></i>27 Oct 2019</span></h4>
 
-      {{user.student.country}}
-    
-    <div class="listing-rating high" data-starrating2="5"><i class="ti-star active"></i></i><span class="review-count">4.9</span> </div>
-    <div class="clearfix"></div>
-    <p>" Commodo est luctus eget. Proin in nunc laoreet justo volutpat blandit enim. Sem felis, ullamcorper vel aliquam non, varius eget justo. Duis quis nunc tellus sollicitudin mauris. "</p>
-    <div class="pull-left reviews-reaction">
-    <a href="#" class="comment-like active"><i class="ti-thumb-up"></i> 12</a>
-    <a href="#" class="comment-dislike active"><i class="ti-thumb-down"></i> 1</a>
-    <a href="#" class="comment-love active"><i class="ti-heart"></i> 07</a>
-    </div>
-    </div>
-    </div>
-    <!--reviews-comments-item end-->  
+          <h5>interests</h5>
+          <ul class="instructor_info">
+              <li><a href="#">{{user.student.interests }}</a></li>
+            
+            </ul>
 
-    
-    
-    </div>
-    </div>
-            <div class="card">
-       
-                <div class="container">
-                  <h3 class="edu_title">                  <span style=" margin-right:3%;"><i class="ti-user"></i> </span>
-                    {{ user.first_name }} {{ user.last_name }}</h3>
-                  
-                 
-                
-                  
-                    <div class="row align-items-center">
-                    
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                      
-                    <div class="list_facts_wrap">
-                      
-                       
-                       
+          <h5>Social Accounts</h5>
+          <ul class="social_info">
+            <li><a  data-toggle="modal" data-target="#staticBackdrop"><i class="ti-facebook"></i></a></li>
+            <li><a  data-toggle="modal" data-target="#staticBackdrop"><i class="ti-twitter"></i></a></li>
+            <li><a  data-toggle="modal" data-target="#staticBackdrop"><i class="ti-linkedin"></i></a></li>
+            <li><a  data-toggle="modal" data-target="#staticBackdrop"><i class="ti-instagram"></i></a></li>
+         
+         <li>    <!-- Button trigger modal -->
+          </ul>
 
-                  <div class="list_facts">
+          <a style="margin-top:3%"
+          class="btn btn-modern btn-sm"  href="/update_profile" >  Edit your profile<span><i class="ti-arrow-right"></i></span>
+            
+        </a>
+        </div>
 
-                      <span style=" margin-right:5%;"><i class="ti-flag-alt"></i> </span> 
-                      <div  class="list_facts_icons"style="color:rgb(41, 2, 43); background-color: #f3f3f3; width: 20%;">   {{user.student.country}} </div>
-                      
-                    
-                      </div>
-                
-                      <div class="list_facts_caption">
-                          
-                          <h4>  Registration Date</h4>
+      </div>
 
-                         {{user.date_joined }} <br> <br>
-                         <h4>  About me</h4>
 
-                          <p>{{user.student.bio }} </p>
-                          </div>
-                    </div>
-                    <button 
-              style="margin-top:10%"
-                  class="btn btn-modern btn-sm"  href="/update_profile" >  Edit your profile<span><i class="ti-arrow-right"></i></span>
-                    
-                   </button>
-                    
-                    
-                    </div>
-                    
-                    </div>
-          
-          
-                </div>
-       
+ 
+  
+
+   
+   
+  </div>
+        
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Social Accounts Settings</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <div class="card">
+<div class=" card-body">
+
+    <h6>It appears you dont have your Social account Updated</h6>
+<p> Click on update profile to set your Social account</p>
+
+     <p>1. Simply put in your username for the specific account you want to set</p>   
+   <h6>For Example:</h6>
+   a) If Twitter, type in your Twitter username and save
+</div>
+         </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+       <a 
+       class="btn btn-modern btn-sm"  href="/update_profile" >Understood<span><i class="ti-arrow-right"></i></span>
+    </a>
         </div>
       </div>
-    </div>             
-  
+    </div>
+  </div>

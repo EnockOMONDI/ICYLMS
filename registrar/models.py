@@ -338,12 +338,17 @@ class Module(models.Model):
     @property
     def units(self):
         return self.units.all()
+        
+    @property   
+    def units_in_modules(self):
+        return self.units.all().count()
 
     def __str__(self):
         return ' Module: ' + str(self.module_number) + ' Title: ' +self.module_title;
 
     class Meta:
         db_table = 'at_modules'
+    
 
 
 class Unit(models.Model):
