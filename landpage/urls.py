@@ -1,6 +1,5 @@
 from django.urls import include
 from django.urls import path, re_path
-
 from landpage.views import txt
 from landpage.views import landpage
 from landpage.views import privacy
@@ -35,6 +34,19 @@ urlpatterns = [
     re_path(r'^ourstory$', publicpages.our_story, name='ourstory'),
     re_path(r'^scholarship$', publicpages.scholarship , name='scholarship'),
     re_path(r'^contact$', publicpages.contactus , name='contact'),
+    re_path(r'^programs/', publicpages.programs, name='programs'), 
+    re_path(r'^videos/', publicpages.videos, name='videos'),   
+    re_path(r'^events/', publicpages.product_list, name='product_list'),
+    re_path(r'^media/', publicpages.media_list, name='media_list'),
+    re_path(r'^blog/', publicpages.blog_list, name='blog_list'),
+    re_path(r'^pastevents/', publicpages.events404, name='events404'),
+    re_path(r'^contact/', publicpages.contact, name='contact'),
+    re_path(r'^appointement/', publicpages.appointement, name='appointement'),
+    re_path(r'^eventbooking/', publicpages.eventbooking, name='eventbooking'),
+    re_path(r'^(?P<mediacategory_slug>[-\w]+)/$', publicpages.media_list, name='media_list_by_category'), 
+    re_path(r'^(?P<blogcategory_slug>[-\w]+)/$', publicpages.blog_list, name='blog_list_by_category'), 
+    re_path(r'^(?P<id>\d+)/(?P<blogcategory_slug>[-\w]+)/$', publicpages.blog_detail, name='blog_detail'),
+   
 
                       
     # Landpage
@@ -60,7 +72,7 @@ urlpatterns = [
     re_path(r'^paymentfaqs', landpageprod.paymentfaqs , name='paymentfaqs'),
 
     
-    # re_path(r'^edit/', views.edit, name='edit'),
+    # re_path(r'^edit/', publicpages.edit, name='edit'),
                   
     # Off-Convas Stuff
     re_path(r'^terms$', terms.terms_page, name='terms'),
@@ -69,6 +81,6 @@ urlpatterns = [
     re_path(r'^reset_password$', forgot_password.reset_password, name='reset_password'),
                        
     # Sitemap
-    re_path(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    re_path(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.publicpages.sitemap'),
     re_path(r'^captcha/', include('captcha.urls')),
 ]
